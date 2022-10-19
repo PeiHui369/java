@@ -1,0 +1,32 @@
+public class Main {
+    public static void main(String[] args) {
+        String name ="Bro";
+        //boolean result = name.equalsIgnoreCase("Bro");
+        int result = name.length();
+        char results = name.charAt(0);
+        int resultss = name.indexOf("r");
+        boolean resultsss = name.isEmpty();
+        String resultssss = name.toUpperCase();
+        String resultsssss = name.toLowerCase();
+        String resultssssss = name.trim(); //Remove empty spaces infront & after inside " "
+        String resultsssssss = name.replace('o','a');
+        System.out.println(result);
+        System.out.println(results);
+        System.out.println(resultss);
+        System.out.println(resultsss);
+        System.out.println(resultssss);
+        System.out.println(resultsssss);
+        System.out.println(resultssssss);
+        System.out.println(resultsssssss);
+    }
+}
+
+>>
+3
+B
+1
+false
+BRO
+bro
+Bro
+Bra

@@ -1,0 +1,45 @@
+//toString() = special method that all objects inherit,
+//             that returns a string taht "textually represents" an object,
+//             can be used both implicitly and explicitly
+
+<Main.java>
+public class Main {
+   public static void main(String[] args){
+   Car car = new Car();
+
+
+   System.out.println(car.make);
+      System.out.println(car.model);
+      System.out.println(car.color);
+      System.out.println(car.year);
+/* >> Ford
+Mustang
+red
+2021
+ */
+      System.out.println(car);
+//>> Car@27d6c5e0 //Address of car object in memory
+
+      System.out.println(car.toString()); //before edit in <Car.java>
+//>> Car@27d6c5e0
+
+      System.out.println(car); //after edit in <Car.java>
+      /*>>Ford
+      Mustang
+      red
+      2021*/
+   }
+}
+
+<Car.java>
+public class Car {
+    String make = "Ford";
+    String model = "Mustang";
+    String color = "red";
+    int year =2021;
+
+    public String toString(){
+        return make + "\n"+model+"\n"+color+"\n"+year;
+    }
+
+}

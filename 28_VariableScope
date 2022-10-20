@@ -1,0 +1,28 @@
+//local = declared inside a method
+//        visible only to that method
+//global = declared outside a method, but within a class
+//         visible to all parts of a class
+
+<Main.java>
+public class Main {
+   public static void main(String[] args){
+    DiceRoller diceRoller = new DiceRoller();
+   }
+}
+
+<DiceRoller.java>
+public class DiceRoller {
+
+    Random random;
+    int number = 0;
+    DiceRoller(){
+        Random random = new Random();
+        int number = 0;
+        roll(random, number);
+    }
+    void roll(Random random, int number){
+        number = random.nextInt(6)+1; //want number 1-6, adding +1 because normally get 1-5
+        System.out.println(number);
+
+    }
+}

@@ -1,0 +1,30 @@
+//method overriding = Declaring a method in sub class,
+                      which is already present in parent class,
+                      done so that a child class can give its own implementation
+                      
+<Main.java>
+public class Main {
+   public static void main(String[] args) {
+      Animal animal = new Animal();
+      Dog dog = new Dog();
+      dog.speak(); //>>The dog goes "bark"
+      animal.speak(); //>>The animal speaks
+   }
+}
+
+<Animal.java>
+public class Animal {
+    void speak(){
+        System.out.println("The animal speaks ");
+    }
+}
+
+<Dog.java>
+public class Dog extends Animal {
+    //Override
+    void speak() {
+        System.out.println("The dog goes \"bark\"");
+    }
+}
+//method in Dog.java: Overriding method
+//method in Animal.java: Overriden method

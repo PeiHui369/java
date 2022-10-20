@@ -1,0 +1,32 @@
+// static = modifier, A single copy of a variable/method is created and shared,
+// The class "owns" the static member
+
+<Main.java>
+public class Main {
+   public static void main(String[] args){
+      Friend friend1 = new Friend("Spongebob");
+      Friend friend2 = new Friend("Patrick");
+      Friend friend3 = new Friend("Squidward");
+      Friend friend4 = new Friend("Sandy");
+      Friend.displayFriends();//use static method
+      
+      //System.out.println(Friend.numberOfFriends); //No longer need as used static void displayFriend()
+   }
+}
+
+/* friend1 & friend2 & friend3 sharing same numberOfFriends variable bcoz class itself own the static member
+* if remove "static" from "static int", not share same, numberOfFriends = 1 for each friend1, friend2, friend3
+*/
+
+<Friend.java>
+public class Friend {
+    String name;
+    static int numberOfFriends;
+    Friend(String name){
+        this.name = name;
+        numberOfFriends++;
+    }
+    static void displayFriends(){
+        System.out.println("You have "+numberOfFriends+" friends");
+    }
+}

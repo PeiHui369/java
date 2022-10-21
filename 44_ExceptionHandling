@@ -1,0 +1,56 @@
+
+        //exception = an event that occurs during the execution of a program that, 
+        // disrupts the normal flow of instructions
+       
+//ARITHMETIC EXCEPTION
+>> Enter a whole number to divide: 
+5
+Enter a whole number to divide by: 
+0
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at Main.main(Main.java:14)
+  
+//InputMismatchEzception
+>>Enter a whole number to divide: 
+g
+Exception in thread "main" java.util.InputMismatchException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2263)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2217)
+	at Main.main(Main.java:10)
+  
+  // Exception in thread "main" java.util.*ExceptionToBeUsed*
+ // Better handle specific, or else catch(Exception e) to catch ALL in the end
+// finally will always print, good to use for scanner.close();
+
+<Main.java>
+import java.util.*;
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+    try {
+        System.out.println("Enter a whole number to divide: ");
+        int x = scanner.nextInt();
+
+        System.out.println("Enter a whole number to divide by: ");
+        int y = scanner.nextInt();
+
+        int z = x / y;
+        System.out.print("result: " + z);
+    }
+    catch(ArithmeticException e){ //if arithmetic error print this
+        System.out.println("You can't divide by zero! IDIOT!");
+    }
+    catch(InputMismatchException e){
+        System.out.println("PLEASE ENTER A NUMBER OMFG!!!");
+    }
+    catch(Exception e){
+        System.out.println("Something went wrong");
+    }
+    finally{
+        System.out.println("\nThis will always print");
+        scanner.close();
+    }
+    }
+}

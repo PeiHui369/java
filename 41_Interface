@@ -1,0 +1,62 @@
+// interface = a template that can be applied to a class,
+//    similar to inheritance, but specifies what a class has/must do.
+//    classes can apply more than one interface, inheritance is limited to 1 super class
+   
+<Main.java>
+public class Main{
+    public static void main(String[] args) {
+    Rabbit rabbit = new Rabbit();
+    rabbit.flee();
+    Hawk hawk = new Hawk();
+    hawk.hunt();
+    Fish fish = new Fish();
+    fish.flee();
+    fish.hunt();
+    }
+}
+
+<Prey.java>
+public interface Prey {
+    void flee();
+}
+
+<Predator.java>
+public interface Predator {
+    void hunt();
+}
+
+<Rabbit.java>
+public class Rabbit implements Prey{
+    @Override
+    public void flee(){
+        System.out.println("*The rabbit is fleeing*");
+  }
+}
+
+<Hawk.java>
+public class Hawk implements Predator{
+    @Override
+    public void hunt(){
+    System.out.println("*The hawk is hunting*");
+    }
+}
+
+<Fish.java>
+public class Fish implements Prey, Predator {
+    @Override
+    public void flee() {
+        System.out.println("*This fish is fleeing from a larger fish*");
+    //TODO Auto-generated method stub
+    }
+
+    @Override
+    public void hunt(){
+        System.out.println("*This fish is hunting smaller fish*");
+    }
+}
+
+>>
+*The rabbit is fleeing*
+*The hawk is hunting*
+*This fish is fleeing from a larger fish*
+*This fish is hunting smaller fish*

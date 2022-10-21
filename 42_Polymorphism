@@ -1,0 +1,64 @@
+// Polymorphism = greek word for poly-"many", morph-"form" 
+// The ability of an object to identify as more than one type
+
+<Main.java>
+public class Main{
+    public static void main(String[] args) {
+        Car car = new Car();
+        Bicycle bicycle = new Bicycle();
+        Boat boat = new Boat();
+
+        Vehicle[] racers ={car, bicycle, boat}; //All class extends to vehicle
+
+        //Method 1
+        /*car.go();
+        bicycle.go();
+        boat.go();*/
+
+        //Method 2
+
+        for (Vehicle x : racers){
+            x.go();
+         }
+    }
+}
+
+<Vehicle.java>
+public class Vehicle {
+    public void go(){
+        System.out.println("*The bicycle begins moving*");
+    }
+}
+
+<Car.java>
+public class Car extends Vehicle{
+    @Override
+    public void go(){
+        System.out.println("*The car begins moving*");
+    }
+}
+
+<Bicycle.java>
+public class Bicycle extends Vehicle{
+    @Override
+    public void go() {
+        System.out.println("*The bicycle begins moving*");
+    }
+}
+
+<Boat.java>
+public class Boat extends Vehicle {
+    @Override
+    public void go() {
+        System.out.println("*The boat begins moving*");
+    }
+}
+
+>>
+*The car begins moving*
+*The bicycle begins moving*
+*The boat begins moving*
+
+
+
+

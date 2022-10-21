@@ -1,0 +1,60 @@
+//polymorphism = many shapes/forms
+//dynamic = after compilation (during runtime)
+//ex. A corvette is a: corvette, and a car, and a vehicle, and an object
+        
+        
+<Main.java>
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+       Scanner scanner = new Scanner(System.in);
+        Animal animal;
+        System.out.println("What animal do you want?");
+        System.out.print("(1=dog) or (2=cat):");
+        int choice = scanner.nextInt();
+
+        if(choice==1){
+            animal = new Dog();
+            animal.speak();
+        }else if(choice==2){
+            animal = new Cat();
+            animal.speak();
+        }else{
+            animal = new Animal();
+            System.out.println("That choice was invalid");
+            animal.speak();
+        }
+    }
+}
+
+<Animal.java>
+public class Animal {
+    public void speak() {
+        System.out.println("animal goes *brrrr*");
+    }
+}
+
+<Dog.java>
+public class Dog extends Animal {
+    @Override
+    public void speak() {
+        System.out.println("dog goes *bark*");
+    }
+}
+
+<Cat.java>
+public class Cat extends Animal {
+    @Override
+    public void speak(){
+        System.out.println("cat goes *meow*");
+    }
+}
+
+>>
+What animal do you want?
+(1=dog) or (2=cat): >>3
+>> That choice was invalid
+cat goes *brrrr*
+
+
+

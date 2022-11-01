@@ -1,0 +1,56 @@
+<Main.java>
+// JFrame = a GUI window to add components to (Look like pop out window)
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+        JFrame frame = new JFrame(); //creates a frame
+        frame.setTitle("JFrame title goes here"); //sets title of frame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//exit out of application
+        /*         frame.setDefaultCloseOperation(JFrame.hide_ON_CLOSE); //(default) closed but still running in the background
+                   frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//prevent close
+         */
+        frame.setResizable(false);//prevent frame from being resized
+        frame.setSize(420,420);//sets the x-dimension, and y-dimension of frame
+        frame.setVisible(true);//make frame visible
+
+        ImageIcon image = new ImageIcon("Ph.png");//create an ImageIcon; Within project holder, write name;
+        frame.setIconImage(image.getImage());//Change icon of frame
+        frame.getContentPane().setBackground(Color.green);//Change color of background to colour in system
+        /* frame.getContentPane().setBackground(new Color(123,255,50));//Change color of background to a new colour (Red,green, blue)
+            frame.getContentPane().setBackground(new Color(0xFFFFFF));//Change color of background to a new colour (Hex colour code)
+            */
+        new myFrame();
+    }
+}
+
+<myFrame.java>
+import javax.swing.*;
+import java.awt.*;
+
+public class myFrame extends JFrame {
+    myFrame(){
+        //Edit > Find > Replace : to replace frame to this
+        this.setTitle("JFrame title goes here"); //sets title of this
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//exit out of application
+        /*         this.setDefaultCloseOperation(Jthis.hide_ON_CLOSE); //(default) closed but still running in the background
+                   this.setDefaultCloseOperation(Jthis.DO_NOTHING_ON_CLOSE);//prevent close
+         */
+        this.setResizable(false);//prevent this from being resized
+        this.setSize(420,420);//sets the x-dimension, and y-dimension of this
+        this.setVisible(true);//make this visible
+
+        ImageIcon image = new ImageIcon("Ph.png");//create an ImageIcon; Within project holder, write name;
+        this.setIconImage(image.getImage());//Change icon of this
+        this.getContentPane().setBackground(Color.green);//Change color of background to colour in system
+        /* this.getContentPane().setBackground(new Color(123,255,50));//Change color of background to a new colour (Red,green, blue)
+            this.getContentPane().setBackground(new Color(0xFFFFFF));//Change color of background to a new colour (Hex colour code)
+            */
+    }
+}
+
+>> Pop out window

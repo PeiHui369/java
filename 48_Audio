@@ -1,0 +1,75 @@
+<Main.java>
+
+import javax.sound.sampled.*; //Remember
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        Scanner scanner = new Scanner(System.in); //Audio play in backthread, do so to avoid terminate as computer wait for input
+
+        File file = new File("World's Sunrise - Jimena Contreras.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+
+        clip.start();
+
+        String response = scanner.next();
+    }
+}
+
+>> Played audio
+
+//To have more functions
+<Main.java>
+import javax.sound.sampled.*;
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        Scanner scanner = new Scanner(System.in); //Audio play in backthread, do so to avoid terminate as computer wait for input
+
+        File file = new File("World's Sunrise - Jimena Contreras.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+
+        String response = "";
+
+        while(!response.equals("Q")){
+            System.out.println("P = play, S = Stop, R = Reset, Q = Quit");
+            System.out.print("Enter your choice: ");
+
+            response = scanner.next();
+            response = response.toUpperCase();
+
+            switch(response) {
+                case ("P"):
+                    clip.start();
+                    break;
+                case ("S"):
+                    clip.stop();
+                    break;
+                case ("R"):
+                    clip.setMicrosecondPosition(0);//any digit, if reset then 0
+                    break;
+                case ("Q"):
+                    clip.close();
+                    break;
+                default:
+                    System.out.println("Not a valid response");
+            }
+
+        }
+        System.out.println("Byeeee!");
+    }
+}
+
+>>
+P = play, S = Stop, R = Reset, Q = Quit
+Enter your choice: q
+Byeeee!
+
+//Audio played when p, stop when s, played from start when r, quit the while loop when q

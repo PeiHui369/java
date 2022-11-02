@@ -1,0 +1,74 @@
+//        JLabel = a GUI display area for a string of text, an image, or both
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+        ImageIcon image = new ImageIcon("Ph.PNG");
+
+        JLabel label = new JLabel(); //Create a label
+        label.setText("Bro, do you even code?");//Set text of label
+        /*JLabel label = new JLabel ("Bro, do you even code?"); */
+        label.setIcon(image);
+        label.setHorizontalTextPosition(JLabel.CENTER);//set text LEFT, CENTER, RIGHT
+        label.setVerticalTextPosition(JLabel.TOP);//set text TOP, CENTER, BOTTOM of image
+        label.setForeground(new Color(0x00FF00));//set font color of text
+        label.setFont(new Font("MV Boli", Font.PLAIN,20));//Set font of text (PLAIN, BOLD, ITALIC)
+        label.setIconTextGap(25);//set gap of text to image (+ve far, -ve near)
+        label.setBackground(Color.black);//set background color
+        label.setOpaque(true);//Display background colour
+
+
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500,500);
+        frame.setVisible(true);
+        frame.add(label);
+    }
+}
+
+MORE COMPLETE VERSION
+<Main.java>
+ //JLabel = a GUI display area for a string of text, an image, or both
+ 
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args){
+
+        ImageIcon image = new ImageIcon("Ph.PNG");
+        Border border = BorderFactory.createLineBorder(Color.green,3);
+
+        JLabel label = new JLabel(); //Create a label
+        label.setText("Bro, do you even code?");//Set text of label
+        /*JLabel label = new JLabel ("Bro, do you even code?"); */
+
+        label.setIcon(image);
+        label.setHorizontalTextPosition(JLabel.CENTER);//set text LEFT, CENTER, RIGHT
+        label.setVerticalTextPosition(JLabel.TOP);//set text TOP, CENTER, BOTTOM of image
+        label.setForeground(new Color(0x00FF00));//set font color of text
+        label.setFont(new Font("MV Boli", Font.PLAIN,20));//Set font of text (PLAIN, BOLD, ITALIC)
+        label.setIconTextGap(25);//set gap of text to image (+ve far, -ve near)
+        label.setBackground(Color.black);//set background color
+        label.setOpaque(true);//Display background colour
+        label.setBorder(border);//border take up as much room as possible
+        label.setVerticalAlignment(JLabel.CENTER);//set vertical position of icon+text within label
+        label.setHorizontalAlignment((JLabel.CENTER));//set horizontal position of icon+text within label
+        //label.setBounds(0,0,250,250);//set x,y position within frame as well as dimensions (for top left, 2 for top right)
+
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setSize(500,500); //already have .pack()
+        //frame.setLayout(null);
+        frame.setVisible(true);
+        frame.add(label); //add before pack
+        frame.pack();
+    }
+}

@@ -1,3 +1,13 @@
+// JButton = a button that performs an action when clicked on
+
+<Main.java>
+public class Main {
+    public static void main(String[] args){
+    new myFrame();
+    }
+}
+
+<myFrame.java>
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

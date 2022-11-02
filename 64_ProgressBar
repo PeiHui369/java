@@ -1,0 +1,68 @@
+// progress bar = Visual aid to let the user know what an operation is processing
+
+<Main.java>
+public class Main {
+    public static void main(String[] args) {
+
+        ProgressBarDemo demo = new ProgressBarDemo();
+
+    }
+}
+
+<ProgressBarDemo.java> //count upwards
+import javax.swing.*;
+import java.awt.*;
+
+public class ProgressBarDemo {
+    JFrame frame = new JFrame();
+    JProgressBar bar = new JProgressBar();
+
+    ProgressBarDemo(){
+
+        bar.setValue(0);
+        bar.setBounds(0,0,420,50);
+        bar.setStringPainted(true); //percentage will change when set value
+        bar.setFont(new Font("MV Boli",Font.BOLD,25));
+        bar.setForeground(Color.red); //fill colour
+        bar.setBackground(Color.black); //bar ori colour unfilled
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420,420);
+        frame.setLayout(null);
+        frame.setVisible(true);
+
+        fill();
+
+    }
+    public void fill() {
+        int counter = 0;
+        while(counter<=100) {
+            bar.setValue(counter);
+            try {
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            counter += 10;
+        }
+        bar.setString("Done! :)");
+    }
+    
+    /*
+    //Count downward
+    public void fill() {
+        int counter = 500;
+        while(counter>=0) {
+            bar.setValue(counter);
+            try {
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+                e.printStackTrace();
+            }
+            counter -= 1;
+        }
+        bar.setString("Done! :)");
+    }
+    */
+}
+

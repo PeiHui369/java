@@ -1,0 +1,52 @@
+//JComboBox = A component that combines a button or editable field and a drop-down list
+
+<Main.java>
+public class Main{
+    public static void main(String[] args){
+
+    new myFrame();
+
+    }
+}
+
+
+<myFrame.java>
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+    JComboBox comboBox; //global scope if outside constructor, local scope if inside: {}
+    myFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+
+        String[] animals = {"dog", "cat", "bird"}; //Create string array, Use Wrapper class
+
+        comboBox = new JComboBox();
+        comboBox.addActionListener(this);
+
+        comboBox.setEditable(true); //can type to search for
+        System.out.println(comboBox.getItemCount());
+        comboBox.addItem("horse");//add item to end of the list
+        comboBox.insertItemAt("pig",0);//item, index (to add at)
+        comboBox.setSelectedIndex(0);//default selected item
+        comboBox.removeItem("cat");//name
+        comboBox.removeItemAt(0);//index
+        comboBox.removeAllItems();//Clear comboBox
+
+
+        this.add(comboBox);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) { //response to certain event
+        if(e.getSource()==comboBox){
+            //System.out.println(comboBox.getSelectedItem()); //name of item
+            System.out.println(comboBox.getSelectedIndex()); //0,1,2...
+        }
+    }
+}

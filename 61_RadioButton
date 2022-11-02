@@ -1,0 +1,71 @@
+// JRadioButton = One or more buttons in a grouping in which only 1 may be selected
+
+<Main.java>
+public class Main{
+    public static void main(String[] args){
+
+    new myFrame();
+
+    }
+}
+
+<myFrame.java>
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class myFrame extends JFrame implements ActionListener {
+    JRadioButton pizzaButton;
+    JRadioButton hamburgerButton;
+    JRadioButton hotdogButton;
+    ImageIcon pizzaIcon;
+    ImageIcon hamburgerIcon;
+    ImageIcon hotdogIcon;
+
+    myFrame(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setLayout(new FlowLayout());
+
+        pizzaIcon = new ImageIcon("pizza.png");
+        hamburgerIcon = new ImageIcon("hamburger.png");
+        hotdogIcon = new ImageIcon("hotdog.jfif");
+
+        pizzaButton = new JRadioButton("pizza");
+        hamburgerButton = new JRadioButton("hamburger");
+        hotdogButton = new JRadioButton("hotdog");
+
+        //add icon to button
+        pizzaButton.setIcon(pizzaIcon);//or .setSelectedIcon
+        hamburgerButton.setIcon(hamburgerIcon);
+        hotdogButton.setIcon(hotdogIcon);
+
+        //put in same button group so can only select one
+        ButtonGroup group = new ButtonGroup();
+        group.add(pizzaButton);
+        group.add(hamburgerButton);
+        group.add(hotdogButton);
+
+        //addActionListener to function(print) at terminal
+        pizzaButton.addActionListener(this);
+        hamburgerButton.addActionListener(this);
+        hotdogButton.addActionListener(this);
+
+        this.add(pizzaButton);
+        this.add(hamburgerButton);
+        this.add(hotdogButton);
+        this.pack();
+        this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==pizzaButton){
+            System.out.println("You ordered pizza!");
+        }else if(e.getSource()==hamburgerButton){
+            System.out.println("You ordered a hamburger!");
+        }else if(e.getSource()==hotdogButton){
+            System.out.println("You ordered a hotdog!");
+        }
+    }
+}

@@ -1,0 +1,48 @@
+import javax.swing.*;
+
+// JOptionPane = pop up a standard dialog box that prompts users for a value or informs them of something
+public class Main{
+    public static void main(String[] args){
+    /*  // Diff JOptionPane, diff logo
+        JOptionPane.showMessageDialog(null, "This is some useless info","title", JOptionPane.PLAIN_MESSAGE );//ParentComponent, Message, Title, MessageType
+        JOptionPane.showMessageDialog(null, "This is INFO info","title", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog(null, "This is QUES info","title", JOptionPane.QUESTION_MESSAGE );
+        JOptionPane.showMessageDialog(null, "This is WARN info","title", JOptionPane.WARNING_MESSAGE );
+        JOptionPane.showMessageDialog(null, "This is E404 info","title", JOptionPane.ERROR_MESSAGE );
+    */
+
+    /* //Keep repeat
+        while(true){
+            JOptionPane.showMessageDialog(null, "Your computer has A VIRUS!!!","WARNING", JOptionPane.WARNING_MESSAGE );
+        }
+     */
+
+     /*
+        //User can choose diff button for input
+        JOptionPane.showConfirmDialog(null,"bro, do you even code?","this is my title",JOptionPane.YES_NO_CANCEL_OPTION);
+        //To show user input [YES=0; NO=1; CANCEL=2; X=-1]
+        System.out.println(JOptionPane.showConfirmDialog(null,"bro, do you even code?","this is my title",JOptionPane.YES_NO_CANCEL_OPTION));
+        //To store data within variable
+        int answer = JOptionPane.showConfirmDialog(null,"bro, do you even code?","this is my title",JOptionPane.YES_NO_CANCEL_OPTION);
+    */
+
+    /*
+        //To let user type in something
+        String name = JOptionPane.showInputDialog("What is your name?: ");
+        System.out.println("HELLO " + name); //will print in terminal
+    */
+    
+        String[] responses ={"No, you're awesome!", "thank you!","*blush*"}; //add as options
+    ImageIcon icon= new ImageIcon("icy.png");
+        JOptionPane.showOptionDialog(
+                null,
+                "You are awesome!",
+                "secret message",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                icon,
+                responses,
+                0);
+        //parentComponent, message, title, optionType, messageType, icon, options, initialValue
+    }
+}

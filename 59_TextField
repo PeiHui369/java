@@ -1,3 +1,17 @@
+// JTextField = A GUI textbox component that can be used to add, set, or get text
+import javax.swing.*;
+
+<Main.java>
+public class Main{
+    public static void main(String[] args){
+
+    new myFrame(); //***REMEMBER DIS to ensure program functionable
+
+    }
+}
+
+
+<myFrame.java>
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

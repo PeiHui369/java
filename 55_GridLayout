@@ -13,11 +13,6 @@ public class Main{
         frame.setSize(500,500);
         frame.setLayout(new GridLayout(3,3,10,10));//row,column,hgap,vgap
 
-        /*JPanel panel = new JPanel();
-        panel.setPreferredSize(new Dimension(100,250));
-        panel.setBackground(Color.lightGray);
-        panel.setLayout(new FlowLayout()); //default alr have*/
-
         frame.add(new JButton("1"));
         frame.add(new JButton("2"));
         frame.add(new JButton("3"));

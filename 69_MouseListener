@@ -1,0 +1,33 @@
+// JColorChooser = A GUI mechanism that let's a user choose a color
+<Main.java>
+public class Main {
+    public static void main(String[] args) {
+
+        new MyFram();
+
+    }
+}
+
+<MyFram.java>
+import javax.swing.*;
+import java.awt.*;
+
+public class ProgressBarDemo {
+    JFrame frame = new JFrame();
+    JProgressBar bar = new JProgressBar();
+
+    ProgressBarDemo(){
+
+        bar.setValue(0);
+        bar.setBounds(0,0,420,50);
+        bar.setStringPainted(true); //percentage will change when set value
+        bar.setFont(new Font("MV Boli",Font.BOLD,25));
+        bar.setForeground(Color.red); //fill colour
+        bar.setBackground(Color.black); //bar ori colour unfilled
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420,420);
+        frame.setLayout(null);
+        frame.setVisible(true);
+    }
+}

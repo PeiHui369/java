@@ -1,0 +1,12 @@
+public class Git {
+    public static void main(String[] args){
+        int x =123; //initialization
+        long y = 1232048493302379270505L;
+        float z = 3.14f;
+        boolean p = true;
+        double q = 3.14;
+        char symbol = '@';
+        String name = "Bro";
+        System.out.println("My number is: "+x);
+    }
+}

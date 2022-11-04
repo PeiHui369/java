@@ -1,0 +1,107 @@
+<MyFram.java>
+import javax.swing.*;
+import java.awt.*;
+
+public class MyFram extends JFrame {
+    MyFram(){
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(500,500);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
+    public void paint(Graphics g){
+
+        Graphics2D g2D = (Graphics2D)g;
+
+        g2D.drawLine(0,0,500,500);
+    }
+}
+
+>>The line drawn start from the left top corner (overlapped by bar)
+
+------------
+<Main.java>
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args){
+
+        JFrame MyFram = new MyFram();
+    }
+}
+
+
+<MyFram.java>
+import javax.swing.*;
+import java.awt.*;
+
+public class MyFram extends JFrame {
+    MyPanel panel;
+    MyFram(){
+        panel = new MyPanel();
+        this.add(panel);
+        this.pack();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(500,500);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }
+
+}
+
+<MyPanel.java>
+import javax.swing.*;
+import java.awt.*;
+
+public class MyPanel extends JPanel {
+    Image image; //To draw image
+    MyPanel(){
+        image = new ImageIcon("smiley.png").getImage(); //To draw image
+        this.setPreferredSize(new Dimension(500,500));
+    }
+
+    public void paint(Graphics g){
+
+        Graphics2D g2D = (Graphics2D)g;
+        //To draw Image
+        g2D.drawImage(image,0,0,null);//img,x,y,observer
+
+
+        /*
+        g2D.setPaint(Color.blue);
+        g2D.setStroke(new BasicStroke(5));
+        g2D.drawLine(0,0,500,500); >> A line drawn from (below bar) left top corner to right bottom corner
+        g2D.setPaint(Color.pink);//change colour
+
+        g2D.drawRect(0,0,100,200);//x,y,width,height >>A rectangle
+        g2D.fillRect(0,0,100,200); //>>Rectangle completely filled with pink colour
+        //More recently created overlap with previous created
+
+        //To draw circle
+        g2D.setPaint(Color.orange);
+        g2D.drawOval(0,0,100,100);
+        g2D.fillOval(0,0,100,100);
+
+        g2D.setPaint(Color.red);
+        g2D.drawArc(0,0,100,100,0,180); //x, y, width, height, startAngle, arcAngle
+        g2D.setPaint(Color.white);
+        g2D.fillArc(0,0,100,100,180,180);
+        */
+
+        /*
+        //To draw TRIANGLE
+        int[] xPoints = {150, 250, 350};
+        int[]yPoints = {300, 150, 300};
+        g2D.drawPolygon(xPoints, yPoints,3);//xPoints, yPoints, nPoints (Takes an array of integers)
+        g2D.fillPolygon(xPoints, yPoints, 3);
+         */
+
+        /* To create words
+        g2D.setPaint(Color.magenta);
+        g2D.setFont(new Font("Ink Free",Font.BOLD,50));
+        g2D.drawString("U R A WINNER! :D", 50, 50);
+        */
+
+
+    }
+}

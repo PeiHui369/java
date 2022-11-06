@@ -1,0 +1,12 @@
+/*
+Compile and run Java with Command Prompt
+1. Make sure you have a Java JDK installed (We did this in lesson #1)
+2. (Optional) Use a text editor and save a file as .java
+3. Open Command Prompt (windows) or Terminal (Mac) on your computer
+4. Set path=c:\Program Files\Java\jdk-13.0.1\bin (where JDK is located)
+5. cd C:\Users\Cakow\Desktop (or wherever your java file is)
+6. javac HelloWorld.java (to compile)
+7. java HelloWorld (to run a class file, it's portable)
+ */
+
+Refer to discord ques-to-ask

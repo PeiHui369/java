@@ -1,0 +1,35 @@
+/*Steps to Deserialize
+--------------------------
+1. Declare your object (don't instantiate)
+2. Your class should implement Serializable interface
+3. Add import java.io.Serializable;
+4. FileInputStream in = new FileInputStream(file path);
+5. ObjectInputStream in = new ObjectInputStream(fileIn);
+6. in.close(); fileIn.close();
+ */
+
+/* Notes
+  1. Children classes of a parent class that implements Serializable will do so as well
+  2. Static fields are not serialized (they belong to the class, not an individual object)
+  3. The class's definition("class file")itself is not recorded, cast it as the object type
+  4. Fields declared as "transcient" aren't serialized, they're ignored
+  5. serialVersionUID is a unique version ID
+ */
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        User user = null;
+
+        FileInputStream fileIn = new FileInputStream("C:\\Users\\User\\IdeaProjects\\untitled");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        user = (User)in.readObject();
+        in.close();
+        fileIn.close();
+
+        System.out.println(user.name);
+        System.out.println(user.password);
+        user.sayHello();
+        }
+}
+

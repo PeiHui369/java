@@ -1,0 +1,156 @@
+/* multithreading = Process of executing multiple threads simultaneously
+                    Helps maximum utilization of CPU
+                    Threads are independent, they don't affect the execution of
+                    An exception in one thread will not interrupt other threads
+                    useful for serving multiple cilents, multiplayer games, or other mutually independent tasks
+ */
+<Main.java>
+public class Main{
+    public static void main(String[] args){
+        MyThread thread1 = new MyThread(); //1st method via MyThread.java (subclass)
+
+        //2nd method via MyRunnable.java (class implements runnable runnable interface, pass instance as an argument to Thread arguments)
+        MyRunnable runnable1 = new MyRunnable();
+        Thread thread2 = new Thread(runnable1);
+
+        thread1.start();
+        thread2.start();
+    }
+}
+
+<MyThread.java>
+public class MyThread extends Thread{
+    @Override
+    public void run(){
+        for(int i = 10; i>=0; i--){
+            System.out.println("Thread #1: " + i);
+            try {
+                Thread.sleep(1000); //To set time interval between each loop
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Thread #1 is finished :)");
+    }
+}
+
+<MyRunnable.java>
+public class MyRunnable implements Runnable{
+    @Override
+    public void run() {
+        for(int i = 0; i<10; i++){
+            System.out.println("Thread #2: " +i);
+            try {
+                Thread.sleep(1000); //To set time interval between each loop
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Thread #2 is finished :)");
+    }
+}
+
+>>
+Thread #2: 0
+Thread #1: 10
+Thread #1: 9
+Thread #2: 1
+Thread #1: 8
+Thread #2: 2
+Thread #1: 7
+Thread #2: 3
+Thread #2: 4
+Thread #1: 6
+Thread #1: 5
+Thread #2: 5
+Thread #1: 4
+Thread #2: 6
+Thread #2: 7
+Thread #1: 3
+Thread #1: 2
+Thread #2: 8
+Thread #2: 9
+Thread #1: 1
+Thread #2 is finished :)
+Thread #1: 0
+Thread #1 is finished :)
+
+<Main.java>
+        ...
+        thread1.start();
+        thread1.join(); //wait thread1 finish, only start thread2
+        thread2.start();
+        ...
+>>
+Thread #1: 10
+Thread #1: 9
+Thread #1: 8
+Thread #1: 7
+Thread #1: 6
+Thread #1: 5
+Thread #1: 4
+Thread #1: 3
+Thread #1: 2
+Thread #1: 1
+Thread #1: 0
+Thread #1 is finished :)
+Thread #2: 0
+Thread #2: 1
+Thread #2: 2
+Thread #2: 3
+Thread #2: 4
+Thread #2: 5
+Thread #2: 6
+Thread #2: 7
+Thread #2: 8
+Thread #2: 9
+Thread #2 is finished :)
+
+<Main.java>
+        ...
+        thread1.start();
+        thread1.join(3000);//wait thread1 started 3s, only start thread2
+        thread2.start();
+        ...
+        
+>>
+Thread #1: 10
+Thread #1: 9
+Thread #1: 8
+Thread #2: 0
+Thread #1: 7
+Thread #2: 1
+Thread #1: 6
+Thread #2: 2
+Thread #1: 5
+Thread #2: 3
+Thread #1: 4
+Thread #2: 4
+Thread #1: 3
+Thread #2: 5
+Thread #1: 2
+Thread #2: 6
+Thread #1: 1
+Thread #2: 7
+Thread #1: 0
+Thread #2: 8
+Thread #1 is finished :)
+Thread #2: 9
+Thread #2 is finished :)
+
+//calling thread(ex.main) wait until the specified thread dies or for x milliseconds
+
+-----
+/*
+daemon thread = background thread (non-user)
+JVM will not wait daemon execute
+
+if have 1 user thread
+JVM wait to exit until all user thread finish
+ */
+ 
+ ...thread1.setDaemon(true);
+    thread2.setDaemon(true);...
+    
+    -Terminate if main have exception
+    \

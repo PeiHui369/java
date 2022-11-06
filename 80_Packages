@@ -1,0 +1,17 @@
+//package = bundle of relate file that can use in program
+
+<Main.java>
+import javax.swing.Icon;
+import Tools.Toolbox;
+
+public class Main{
+    public static void main(String[] args){
+        Toolbox toolbox = new Toolbox();
+    }
+}
+
+<Toolbox.java>
+package Tools;
+import javax.swing.Icon;
+public class Toolbox {
+}

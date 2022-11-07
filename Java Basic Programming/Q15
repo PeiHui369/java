@@ -1,0 +1,68 @@
+//15. Write a Java program to swap two variables.
+
+public class w3 {
+    public static void main(String[] args) {
+        int x = 1;
+        int y = 2;
+        int z = x;
+        x = y;
+        y = z;
+        System.out.println("x is "+x);
+        System.out.println("y is "+y);
+    }
+}
+
+>>
+x is 2
+y is 1
+
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+/*Simplest: use 3rd temporary variable
+define swap(a, b)
+    temp := a
+    a := b
+    b := temp
+    */
+    
+public class Exercise15 {
+ 
+ public static void main(String[] args) {
+     
+   int a, b, temp;
+   a = 15;
+   b = 27;
+   System.out.println("Before swapping : a, b = "+a+", "+ + b);
+   temp = a;
+   a = b;
+   b = temp;   
+  System.out.println("After swapping : a, b = "+a+", "+ + b);
+ }
+ }
+
+-------------------------------------------
+ADVANCED SOLUTION (without using 3rd var)
+-------------------------------------------
+public class Exercise15 {
+  public static void main(String[] args) {
+     // int, double, float
+   int a, b;
+   a = 15;
+   b = 27;
+   System.out.println("Before swapping : a, b = "+a+", "+ + b);
+   a = a + b; //15 + 27 = 42
+   b = a - b; //42 - 27 = 15
+   a = a - b; //42 - 15 = 27
+   System.out.println("After swapping : a, b = "+a+", "+ + b);
+ }
+ 
+}
+//Take note the commentted statement
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+Before swapping : a, b = 15, 27                                                                               
+After swapping : a, b = 27, 15

@@ -64,5 +64,34 @@ public class Exercise15 {
 -------------------------------------------
 OUTPUT
 -------------------------------------------
-Before swapping : a, b = 15, 27                                                                               
+Before swapping : a, b = 15, 27                      
 After swapping : a, b = 27, 15
+
+-------------------------------------------
+ADVANCED SOLUTION (input from user)
+-------------------------------------------
+import java.util.Scanner;
+public class Main {
+ public static void main(String[] args) {
+   int x, y, z;
+   Scanner in = new Scanner(System.in);
+
+   System.out.println("Input the first number: ");
+   x = in.nextInt();
+   System.out.println("Input the second number: ");
+   y = in.nextInt();
+
+   z = x;
+   x = y;
+   y = z;
+
+   System.out.println(" Swapped values are3:" + x + " and " + y);
+  }
+}
+
+>>
+Input the first number: 
+ 36
+Input the second number: 
+ 44
+ Swapped values are:44 and 36

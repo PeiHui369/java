@@ -1,0 +1,12 @@
+//41. Write a Java program to print the ascii value of a given character.
+//***line 6: int chr = '(character)'
+
+public class w3 {
+    public static void main(String[] args) {
+        int chr = 'Z';
+        System.out.println("The ASCII value of Z is :" +chr);
+    }
+}
+
+>>
+The ASCII value of Z is :90

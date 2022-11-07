@@ -1,0 +1,51 @@
+//39. Write a Java program to create and display unique three-digit number using 1, 2, 3, 4. Also count how many three-digit numbers are there.
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        int amount = 0;
+        for(int a=1; a<=4; a++){
+            for(int b=1; b<=4; b++){
+                for(int c=1; c<=4; c++){
+                    if(a != b && b!= c && a!=c){
+                     System.out.printf("%d%d%d\n",a,b,c);
+                     amount++;
+                    }
+                }
+            }
+        }
+        System.out.println("Total number of the three-digit-number is "+amount);
+    }
+}
+
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+123
+124
+132
+134
+142
+143
+213
+214
+231
+234
+241
+243
+312
+314
+321
+324
+341
+342
+412
+413
+421
+423
+431
+432
+Total number of the three-digit-number is 24
+

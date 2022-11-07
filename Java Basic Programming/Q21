@@ -45,7 +45,7 @@ public class Exercise21 {
         }
 		
         System.out.print("Octal number is: ");
-        for(j=i-1; j>0; j--)
+        for(j=i-1; j>0; j--) //j started with 1, so index = i-1, the last is index no:1
         {
             System.out.print(oct_num[j]);
         }

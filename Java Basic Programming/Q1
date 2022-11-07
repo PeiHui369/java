@@ -1,0 +1,52 @@
+1. Write a Java program to print 'Hello' on screen and then print your name on a separate line.
+
+public class w3 {
+    public static void main(String[] args){
+        System.out.println("Hello");
+        System.out.println("Lee Pei Hui");
+    }
+}
+
+>>
+Hello
+Lee Pei Hui
+
+-------------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------------
+public class Exercise1 {
+ 
+ public static void main(String[] args) {
+  System.out.println("Hello\nAlexandra Abramov!");
+ }
+ 
+}
+
+>>
+Hello                                                                                                      
+Alexandra Abramov!
+
+-------------------------------------------------
+USING INPUT FROM USER
+-------------------------------------------------
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) 
+  {
+    Scanner input = new Scanner (System.in);
+    System.out.print("Input your first name: ");
+    String fname = input.next();
+    System.out.print("Input your last name: ");
+    String lname = input.next();
+    System.out.println();
+    System.out.println("Hello \n"+fname+" "+lname);
+  }
+}
+
+>>
+Input your first name:  James 
+Input your last name:  Smith
+
+Hello 
+James Smith

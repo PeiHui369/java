@@ -1,0 +1,82 @@
+//7. Write a Java program that takes a number as input and prints its multiplication table upto 10
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input a number: ");
+        int n = sc.nextInt();
+        int i = 1;
+        while (i<=10){
+            System.out.println(n + " x " + i +" = "+n*i);
+            i++;
+        }
+    }
+}
+
+/*
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+ 
+public class Exercise7 {
+ 
+ public static void main(String[] args) {
+  Scanner in = new Scanner(System.in);
+   
+  System.out.print("Input a number: ");
+  int num1 = in.nextInt();
+   
+  for (int i=0; i< 10; i++){
+   System.out.println(num1 + " x " + (i+1) + " = " + 
+     (num1 * (i+1)));
+  }
+ }
+}
+
+>>
+Input a number: 8                                                                                             
+8 x 1 = 8                                                                                                     
+8 x 2 = 16                                                                                                    
+8 x 3 = 24                                                                                                    
+8 x 4 = 32                                                                                                    
+8 x 5 = 40                                                                                                    
+8 x 6 = 48                                                                                                    
+8 x 7 = 56                                                                                                    
+8 x 8 = 64                                                                                                    
+8 x 9 = 72                                                                                                    
+8 x 10 = 80 
+
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+
+public class Main {
+
+ public static void main(String[] args) {
+  Scanner in = new Scanner(System.in);
+  System.out.println("Input the Number: ");
+  int n = in .nextInt();
+  for (int i = 1; i <= 10; i++) {
+   System.out.println(n + "*" + i + " = " + (n * i));
+  }
+ }
+}
+
+>>
+Input the Number: 
+ 6
+6*1 = 6
+6*2 = 12
+6*3 = 18
+6*4 = 24
+6*5 = 30
+6*6 = 36
+6*7 = 42
+6*8 = 48
+6*9 = 54
+6*10 = 60
+

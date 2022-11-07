@@ -1,0 +1,65 @@
+
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input first integer: ");
+        int n1 = sc.nextInt();
+        System.out.print("Input second integer: ");
+        int n2 = sc.nextInt();
+        System.out.printf("%d != %d \n%d < %d \n%d <= %d",n1,n2,n1,n2,n1,n2);
+
+    }
+}
+
+
+/*
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+public class Exercise32 {
+ public static void main( String args[] )    
+    {
+        // create Scanner to obtain input from command window       
+        Scanner input = new Scanner(System.in);
+        int number1; // first number to compare       
+        int number2; // second number to compare  
+      
+        System.out.print( "Input first integer: " ); // prompt        
+        number1 = input.nextInt(); // read first number from user   
+ 
+        System.out.print( "Input second integer: " ); // prompt        
+        number2 = input.nextInt(); // read second number from user               
+        
+        if ( number1 == number2 )           
+            System.out.printf( "%d == %d\n", number1, number2 );  
+        if ( number1 != number2 )          
+            System.out.printf( "%d != %d\n", number1, number2 );  
+        if ( number1 < number2 )          
+            System.out.printf( "%d < %d\n", number1, number2 );  
+        if ( number1 > number2 )          
+            System.out.printf( "%d > %d\n", number1, number2 );  
+        if ( number1 <= number2 )          
+            System.out.printf( "%d <= %d\n", number1, number2 );  
+        if ( number1 >= number2 )          
+            System.out.printf( "%d >= %d\n", number1, number2 );  
+    }
+  }
+  
+  //***Use multiple if() statement to print what is true, Need to state all comparison operators(6 in total)
+  
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+Input first integer: 25
+Input second integer: 39
+25 != 39 
+25 < 39 
+25 <= 39

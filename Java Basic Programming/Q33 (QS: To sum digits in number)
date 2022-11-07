@@ -1,0 +1,24 @@
+//33. Write a Java program and compute the sum of the digits of an integer.
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input an integer: ");
+        long n = sc.nextLong(); //Use type long
+        System.out.println("The sum of the digits is " + sumDigits(n)); //Create a method
+    }
+    public static int sumDigits(long n){
+        int sum = 0;
+        while(n!=0){
+            sum += n % 10; //sum = sum + (n%10) [e.g. sum = 0 + (25%10) = 5][sum = 5 +(2%10) = 5+2 = 7]
+            n /= 10; //n = n/10 = 25/10 = 2.5 = 2
+        }
+        return sum;
+    }
+}
+
+>>
+Input an integer: 25
+The sum of the digits is 7

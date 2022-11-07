@@ -14,7 +14,7 @@ public class w3 {
 
         while(div!=0){
             numArr[i++] = div%2;//i++ == i=i+1 : Increment the index number
-            div = div/2; //why
+            div = div/2; //Above get modulus after divide 2, so here divide 2 to get the after divide value to proceed
         }
 
         System.out.print("Binary number is: ");

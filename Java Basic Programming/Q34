@@ -1,0 +1,46 @@
+//34. Write a Java program to compute the area of a hexagon. 
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input the length of a side of the hexagon: ");
+        int s = sc.nextInt();
+        double area = (6 * Math.pow(s, 2) / (4 * Math.tan(Math.PI / 6)));
+
+        System.out.println("The area of the hexagon is: " + area);
+    }
+}
+
+>>
+Input the length of a side of the hexagon: 6
+The area of the hexagon is: 93.53074360871938
+
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+public class Exercise34 {
+      public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Input the length of a side of the hexagon: ");
+        double s = input.nextDouble();
+        System.out.print("The area of the hexagon is: " + hexagonArea(s)+"\n");
+    }
+    public static double hexagonArea(double s) {
+        return (6*(s*s))/(4*Math.tan(Math.PI/6));
+    }
+}
+
+//Create another method & used return (line 32-33)
+
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+        

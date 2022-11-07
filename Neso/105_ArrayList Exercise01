@@ -1,0 +1,39 @@
+/*
+Create a list of unique elements taken from the user
+Sort and print these elements
+ */
+
+//------SOLUTION-------
+//Read N elements from the user
+//If the element does not exist in the ArrayList, add it
+//Sort the ArrayList using Collections.sort
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args){
+        ArrayList<Integer> integers = new ArrayList<>();
+
+        System.out.println("Enter 5 integers: ");
+        Scanner input = new Scanner(System.in);
+        for(int i = 0; i<5; i++){
+            int temp = input.nextInt();
+
+            //add to ArrayList if haven't exist
+            if(!integers.contains(temp))
+                integers.add(temp);
+
+        }
+        Collections.sort(integers);
+        System.out.println(integers);
+    }
+}
+
+>>
+Enter 5 integers: 
+2 1 4 1 4
+[1, 2, 4]
+
+//Each input can either be separated by spaces/enter

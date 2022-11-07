@@ -1,0 +1,44 @@
+//37. Write a Java program to reverse a string.
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input a string: ");
+
+        //***Create array
+        char[] letters = sc.nextLine().toCharArray();
+
+        System.out.print("Reverse string: ");
+        
+        for(int i = letters.length -1; i>=0; i--){ //i is index number, print from length-1 to reverse until index=0
+            System.out.print(letters[i]); //To print out each item in array
+        }
+        System.out.print("\n");
+    }
+}
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+public class Exercise37 {
+     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Input a string: ");
+        char[] letters = scanner.nextLine().toCharArray();
+        System.out.print("Reverse string: ");
+        for (int i = letters.length - 1; i >= 0; i--) {
+            System.out.print(letters[i]);
+        }
+        System.out.print("\n");
+    }
+}
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+Input a string: The quick brown fox                      
+Reverse string: xof nworb kciuq ehT
+

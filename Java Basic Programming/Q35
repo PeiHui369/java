@@ -1,0 +1,54 @@
+//35. Write a Java program to compute the area of a polygon
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input the number of a sides on the polygon: ");
+        int n = sc.nextInt();
+        System.out.print("Input the length of one of the sides: ");
+        int s = sc.nextInt();
+        System.out.println("The area of the hexagon is: " + polygonArea(n,s)+"\n");
+    //When call method: methodName(arg)
+    }
+
+    public static double polygonArea(int n, double s){
+        return (n*Math.pow(s,2))/(4*Math.tan(Math.PI/n));
+    }
+}
+
+>>
+Input the number of a sides on the polygon: 7
+Input the length of one of the sides: 6
+The area of the hexagon is: 130.82084798405722
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+
+public class Exercise35 {
+    
+  public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Input the number of sides on the polygon: ");
+        int ns = input.nextInt();
+        System.out.print("Input the length of one of the sides: ");
+        double side = input.nextDouble();
+        System.out.print("The area is: " + polygonArea(ns, side)+"\n");
+    }
+    public static double polygonArea(int ns, double side) {
+        return (ns * (side * side)) / (4.0 * Math.tan((Math.PI / ns)));
+    }
+}
+
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+        */

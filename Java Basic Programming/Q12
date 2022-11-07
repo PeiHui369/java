@@ -1,0 +1,98 @@
+//12. Write a Java program that takes three numbers as input to calculate and print the average of the numbers. 
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter 3 numbers (separated by white space): ");
+        int n1 = sc.nextInt();
+        int n2 = sc.nextInt();
+        int n3 = sc.nextInt();
+        System.out.println("Average is "+(n1+n2+n3)/3);
+    }
+}
+
+>>
+Enter 3 numbers (separated by white space): 1 2 3
+Average is 2
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+ 
+public class Exercise12 {
+ 
+ public static void main(String[] args) {
+  Scanner in = new Scanner(System.in);
+   
+  System.out.print("Input first number: ");
+  int num1 = in.nextInt();
+   
+  System.out.print("Input second number: ");
+  int num2 = in.nextInt();
+   
+  System.out.print("Input third number: ");
+  int num3 = in.nextInt();
+   
+  System.out.print("Input fourth number: ");
+  int num4 = in.nextInt();
+  
+  System.out.print("Enter fifth number: ");
+  int num5 = in.nextInt();
+   
+   
+  System.out.println("Average of five numbers is: " + 
+   (num1 + num2 + num3 + num4 + num5) / 5);
+ }
+}
+
+>>
+Input first number: 10                                                                                        
+Input second number: 20                                                                                       
+Input third number: 30                                                                                        
+Input fourth number: 40                                                                                       
+Enter fifth number: 50                                                                                        
+Average of five numbers is: 30
+
+//Each listed out & printed out
+//But why five?
+
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+
+public class Main {
+ public static void main(String[] args) {
+  double num = 0;
+  double x = 1;
+  Scanner sc = new Scanner(System.in);
+  System.out.println("Input the number(n) you want to calculate the average: ");
+  int n = sc.nextInt();
+  while (x <= n) {
+   System.out.println("Input number " + "("+ (int) x +")" + ":");
+   num += sc.nextInt();
+   x += 1;
+  }
+  double avgn = (num / n);
+
+  System.out.println("Average:" + avgn);
+ }
+}
+
+>>
+Input the number(n) you want to calculate the average: 
+ 4
+Input number (1):
+ 2
+Input number (2):
+ 4
+Input number (3):
+ 4
+Input number (4):
+ 2
+Average:3.0
+
+//Use while loop to print 5 times instead of typing out

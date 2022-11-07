@@ -1,0 +1,49 @@
+//2. Write a Java program to print the sum of two numbers
+
+public class w3 {
+    public static void main(String[] args){
+        System.out.println(74+36);
+    }
+}
+
+>>
+110
+
+-------------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------------
+public class Exercise2 {
+ 
+ public static void main(String[] args) {
+  System.out.println(24+26);
+ }
+ 
+}
+
+>>
+50
+
+--------------------------------------------------
+USING INPUT FROM USER
+--------------------------------------------------
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) 
+  {
+    Scanner input = new Scanner (System.in);
+    System.out.print("Input the first number: ");
+    int num1 = input.nextInt();
+    System.out.print("Input the second number: ");
+    int num2 = input.nextInt();
+    int sum = num1 + num2;
+    System.out.println();
+    System.out.println("Sum: "+sum);
+  }
+}
+
+>>
+Input the first number:  256
+Input the second number:  326
+
+Sum: 582

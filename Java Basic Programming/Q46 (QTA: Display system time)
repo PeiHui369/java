@@ -1,0 +1,16 @@
+//46. Write a Java program to display the system time.
+//***Line10
+//Q: [10] how %tc%n function?
+
+import java.io.Console;
+import java.io.File;
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        System.out.format("\nCurrent Date time: %tc%n\n",System.currentTimeMillis());
+    }
+}
+
+>>
+Current Date time: Tue Nov 08 06:43:44 MYT 2022

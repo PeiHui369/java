@@ -1,0 +1,57 @@
+//52. Write a Java program to calculate the sum of two integers and return true if the sum is equal to a third integer. 
+//Ques: sum of any 2 integers equals 3rd integer, "return" so use another method to be called
+//to return true/false: public static boolean methodName(arg){}
+//Q: Why my method don't works?
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input the first number : ");
+        String n1 = sc.nextLine();
+        System.out.print("Input the second number : ");
+        String n2 = sc.nextLine();
+        System.out.print("Input the third number : ");
+        String n3 = sc.nextLine();
+
+        System.out.println("The result is: ");
+        if(n1+n2==n3){System.out.print("true");}else{System.out.print("false");}
+            }
+        }
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.*;
+ public class Exercise52 {
+ public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input the first number : ");
+        int x = in.nextInt();  
+	  	  System.out.print("Input the second number: ");
+		    int y = in.nextInt(); 
+		    System.out.print("Input the third number : ");
+        int z = in.nextInt(); 
+        System.out.print("The result is: "+sumoftwo(x, y, z));
+		System.out.print("\n");
+    }
+    
+    public static boolean sumoftwo(int p, int q, int r)
+      {	
+         return ((p + q) == r || (q + r) == p || (r + p) == q);	
+	   }
+}
+
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+Input the first number : 5                                             
+Input the second number: 10                                            
+Input the third number : 15                                            
+The result is: true

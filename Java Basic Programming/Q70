@@ -1,0 +1,30 @@
+70. Write a Java program to create a string in the form short_string + long_string + short_string from two strings. 
+The strings must not have the same length. //This is condition 1, so to know which str is short or long, must compare via if-else statement
+
+> Note: Line 24-27
+
+//<OWN METHOD>
+public class w3{
+    public static void main(String[] args){
+        String Str1 = "Python", Str2 = "Tutorial";
+        System.out.println(Str1 + Str2 + Str1);
+    }
+}
+
+>>
+PythonTutorialPython
+
+// <SAMPLE SOLUTION>
+import java.lang.*;
+ public class Exercise70 {
+ public static void main(String[] args)
+ {
+    String str1 = "Python";    
+	String str2 = "Tutorial"; 
+	
+	if(str1.length() >= str2.length())
+		System.out.println( str2+str1+str2);
+	else
+	System.out.println(str1+str2+str1);	
+  } 
+}

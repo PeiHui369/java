@@ -1,0 +1,24 @@
+69. Write a Java program to extract the first half of a string of even length. 
+
+
+//<OWN METHOD>
+public class w3{
+    public static void main(String[] args){
+        String main = "Python";
+        int index = main.length()/2;
+        System.out.println(main.substring(0,index));
+    }
+}
+
+>>
+Pyt
+
+// <SAMPLE SOLUTION>
+import java.lang.*;
+ public class Exercise69 {
+ public static void main(String[] args)
+ {
+    String main_string = "Python";    
+    System.out.println(main_string.substring(0, main_string.length()/2));	
+  } 
+ }

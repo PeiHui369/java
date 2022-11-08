@@ -1,0 +1,56 @@
+//57. Write a Java program to accepts an integer and count the factors of the number.
+
+import java.util.Scanner;
+
+import java.util.*;
+public class w3 {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input an integer: ");
+        int n = sc.nextInt();
+        int c = 0;
+        for (int i=1; i<=n; i++){
+            if(n%i == 0){
+                c++;
+            }
+        }
+        System.out.println(c);
+    }
+}
+
+/*
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.*;
+ public class Exercise57 {
+     public static void main(String[] args){
+      Scanner in = new Scanner(System.in);
+      System.out.print("Input an integer: ");
+      int x = in.nextInt(); 
+
+		System.out.println(result(x));
+	 } 		
+	public static int result(int num) {	
+		int ctr = 0;
+        for(int i=1; i<=(int)Math.sqrt(num); i++) {
+            if(num%i==0 && i*i!=num) {
+                ctr+=2;
+            } else if (i*i==num) {
+                ctr++;
+            }
+        }
+        return ctr;
+	}
+ }
+ 
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+Input an integer: 25
+3

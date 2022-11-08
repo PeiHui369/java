@@ -1,6 +1,35 @@
 67. Write a Java program to insert a word in the middle of the another string.
 /*KeyTakeAway
-String substring(int startingIndex);
-String substring(int startingIndex, int endingIndex);
+strName.substring(int startingIndex);
+strName.substring(int startingIndex, int endingIndex);
 */
+//Tips: Line: 14
+
+ ====================
+     OWN METHOD
+ ==================== 
+        
+public class w3{
+    public static void main(String[] args){
+        String main = "Python 3.0";
+        System.out.println(main.substring(0,7) + "Tutorial" + main.substring(6));
+    }
+}
+
+====================
+     SOLUTION
+====================
+
+import java.lang.*;
+ public class Exercise67 {
+ public static void main(String[] args)
+ {
+   String main_string = "Python 3.0";
+   String word = "Tutorial";
+   System.out.println(main_string.substring(0, 7) + word + main_string.substring(6)); //Print from 0 to 7(included 0 but not including 7); Print from index no.6 (empty space)
+	}
+}
+
+>>
+Python Tutorial 3.0
 

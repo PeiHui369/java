@@ -1,0 +1,35 @@
+82. Write a Java program to find the largest element between first, last, and middle values from an array of integers (even length). 
+
+import java.util.Arrays;
+
+//<OWN METHOD>
+public class w3 {
+    public static void main(String[] args)
+    {
+        int[] arr = {20,30,40,50,67};
+        int a = Math.max(arr[0],arr[arr.length-1]);
+        System.out.println("Original Array: "+ Arrays.toString(arr));
+        System.out.println("Largest element between the first, last, and middle values: "+Math.max(a,arr[arr.length/2]));
+    }
+}
+
+>>
+Original Array: [20, 30, 40, 50, 67]
+Largest element between the first, last, and middle values: 67
+
+
+// <SAMPLE SOLUTION>
+import java.util.Arrays; 
+ public class Exercise82 {
+ public static void main(String[] args)
+ {
+    int[] array_nums = {20, 30, 40, 50, 67};
+	System.out.println("Original Array: "+Arrays.toString(array_nums)); 
+	int max_val = array_nums[0];
+	if(max_val <= array_nums[array_nums.length-1])
+		max_val = array_nums[array_nums.length-1];
+	if(max_val <= array_nums[array_nums.length/2])
+		max_val = array_nums[array_nums.length/2];
+	System.out.println("Largest element between first, last, and middle values: "+max_val);  
+ }
+}

@@ -1,0 +1,34 @@
+//61. Write a Java program to reverse a word
+
+/*KeyNote
+word = word.trim(); //Str from input
+String result = "";
+  char[] ch = word.toCharArray();
+ for(int i = ch.length - 1; i>=0; i==){
+      result == ch[i];
+      }
+   System.out.println("Reverse word: "+result.trim());
+   */
+   
+//Q: Why need trim?
+   
+
+import java.util.*;
+ public class Exercise61 {
+     public static void main(String[] args){	
+     Scanner in = new Scanner(System.in);
+     System.out.print("\nInput a word: ");
+	 String word = in.nextLine();
+	 word = word.trim();
+	 String result = ""; 
+     char[] ch=word.toCharArray();  
+	 for (int i = ch.length - 1; i >= 0; i--) {
+			 result += ch[i];
+		 }
+	 System.out.println("Reverse word: "+result.trim()); 
+	 }			
+}
+
+>>
+Input a word: dsaf                                                     
+Reverse word: fasd

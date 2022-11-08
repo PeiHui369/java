@@ -1,0 +1,20 @@
+//59. Write a Java program to convert a given string into lowercase.
+//String str = STR.toLowerCase();
+
+import java.util.Scanner;
+
+import java.util.*;
+public class w3 {
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input a sentence: ");
+        String str = sc.nextLine();
+        String lower = str.toLowerCase();
+        System.out.println(lower);
+    }
+}
+
+>>
+Input a sentence: THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+the quick brown fox jumps over the lazy dog

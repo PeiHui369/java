@@ -1,0 +1,31 @@
+68. Write a Java program to create a new string of 4 copies of the last 3 characters of the original string. The length of the original string must be 3 and above. 
+
+KeyTakeAway
+strName.substring(strName.length()-3) //Last 3 char
+
+
+//<OWN METHOD>
+public class w3{
+    public static void main(String[] args){
+        String main = "Python 3.0";
+        String last3 = main.substring(main.length()-3);
+        System.out.println(last3 + last3 + last3);
+    }
+}
+
+>>
+3.03.03.0
+
+
+// <SAMPLE SOLUTION>
+
+import java.lang.*;
+ public class Exercise68 {
+ public static void main(String[] args)
+ {
+   String main_string = "Python 3.0";
+      
+   String last_three_chars = main_string.substring(main_string.length() - 3);
+   System.out.println(last_three_chars + last_three_chars + last_three_chars + last_three_chars);
+  }
+    }

@@ -1,0 +1,26 @@
+74. Write a Java program to test if 10 appears as either the first or last element of an array of integers. The length of the array must be greater than or equal to 2.
+
+
+//<OWN METHOD>
+public class w3{
+    public static void main(String[] args){
+        int[] array = {10,-20,0,30,40,60,10};
+        if(array[0] == 10 || array[-1] == 10) {
+            System.out.println("true");
+        }else {
+            System.out.println("false");
+        }
+    }
+}
+
+// <SAMPLE SOLUTION>
+import java.lang.*;
+ public class Exercise74 {
+ public static void main(String[] args)
+ {
+    int[] num_array = {10, -20, 0, 30, 40, 60, 10};
+    
+    //To print true/false, just write the condition in ()
+    System.out.println((num_array[0] == 10 || num_array[num_array.length-1] == 10));	
+ }
+}

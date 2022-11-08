@@ -1,0 +1,6 @@
+67. Write a Java program to insert a word in the middle of the another string.
+/*KeyTakeAway
+String substring(int startingIndex);
+String substring(int startingIndex, int endingIndex);
+*/
+

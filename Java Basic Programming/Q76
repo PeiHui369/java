@@ -1,0 +1,46 @@
+76. Write a Java program to test if the first or the last element of two array of integers are same. The length of the array must be greater than or equal to 2.
+> KeyTakeAway:
+- have both && || condition, separated by if(&&){System.out.println(||)}
+- Have an exception for possible error
+
+//<OWN METHOD>
+import java.lang.*;
+public class w3 {
+    public static void main(String[] args)
+    {
+        int[] array1 = {50, -20, 0, 30, 40, 60, 12};
+        int[] array2 = {45, 20, 10, 20, 30, 50, 11};
+        System.out.println(array1.length >=2 && array2.length >= 2 && array1[0] == array2[0] || array1[array1.length-1] == array2[array2.length-1]);
+    }
+}
+
+>>
+false
+
+
+// <SAMPLE SOLUTION>
+public class Main {
+ public static void main(String[] args)
+ {
+  //false
+  int[] num_array1 = {50, -20, 0, 30, 40, 60, 12};
+	int[] num_array2 = {45, 20, 10, 20, 30, 50, 11};
+	
+	//true
+	//int[] num_array1 = {50, -20, 0, 30, 40, 60, 12};
+	//int[] num_array2 = {45, 20, 10, 20, 30, 50, 12};
+	
+	//Array lengths less than 2.
+	//int[] num_array1 = {50};
+	//int[] num_array2 = {45};
+	
+  if(num_array1.length>=2 && num_array2.length>=2)
+  {
+	  System.out.println(num_array1[0] == num_array2[0] || num_array1[num_array1.length-1] == num_array2[num_array2.length-1]);
+  }
+  else
+  {
+   System.out.println("Array lengths less than 2."); //Have an exception for length <2
+  }
+ }
+}

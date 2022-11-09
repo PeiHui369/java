@@ -1,0 +1,56 @@
+93. Write a Java program to test if an array of integers contains an element 10 next to 10 or an element 20 next to 20, but not both.
+> To convert diff type into string: String.valueOf()
+
+import java.lang.*;
+import java.util.Arrays;
+
+<OWN METHOD>
+public class w3 {
+    public static void main(String[] args)
+    {
+        boolean found2020 = false, found1010 = false;
+            int[] arr = {10,10,2,4,20,20};
+            System.out.println("Original Array: "+ Arrays.toString(arr));
+
+            for(int i =0; i<arr.length; i++) {
+                if (arr[i] == 10 && arr[i+1] ==10 ) {
+                    found1010 = true;
+                } else if(arr[i-1]==20 && arr[i]==20){
+                    found2020 = true;
+                }
+            }
+            System.out.println(String.valueOf(found1010 != found2020));
+    }
+}
+
+>>
+Original Array: [10, 10, 2, 4, 20, 20]
+false //(As both are true, so false)
+
+<SAMPLE SOLUTION>
+import java.util.*; 
+public class Exercise93 {
+ public static void main(String[] args)
+ {
+    //int[] nums = {10, 10, 2, 4, 9};
+	int[] nums = {10, 10, 2, 4, 20, 20};  
+	int ctr_even = 0, ctr_odd = 0;
+	System.out.println("Original Array: "+Arrays.toString(nums)); 
+	    
+    boolean found1010 = false;
+    boolean found2020 = false;
+      
+    for(int i = 0; i < nums.length - 1; i++) {
+        if(nums[i] == 10 && nums[i+1] == 10)
+            found1010 = true;
+                        
+        if(nums[i] == 20 && nums[i+1] == 20)
+            found2020 = true;
+    }
+   
+	System.out.printf( String.valueOf(found1010 != found2020));	
+	System.out.printf("\n");
+  }
+}
+
+//Some error in line 36 & 46

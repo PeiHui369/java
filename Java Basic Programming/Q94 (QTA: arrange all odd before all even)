@@ -1,0 +1,65 @@
+94. Write a Java program to rearrange all the elements of a given array of integers so that all the odd numbers come before all the even numbers. 
+Q: Line 12-21
+
+import java.util.*; 
+import java.io.*; 
+ public class Exercise94 {
+ public static void main(String[] args)
+ {
+    int[] array_nums = {1, 7, 8, 5, 7, 13, 0, 2, 4, 9};
+	  
+	int i = 0;
+    System.out.println("Original Array: "+Arrays.toString(array_nums)); 
+    while(i < array_nums.length && array_nums[i] % 2 == 0)
+        i++;
+              
+    for(int j = i + 1; j < array_nums.length; j++) {
+        if(array_nums[j] % 2 != 0) {
+            int temp = array_nums[i];
+            array_nums[i] = array_nums[j];
+            array_nums[j] = temp;
+            i++;
+        }
+    }                                                    
+  
+	 System.out.println("New Array: "+Arrays.toString(array_nums)); 
+  }
+}
+
+Sample Output:
+
+Original Array: [1, 7, 8, 5, 7, 13, 0, 2, 4, 9]                        
+New Array: [7, 5, 7, 13, 9, 1, 0, 2, 4, 8]
+
+
+<OWN METHOD>
+-well, it's going nowhere
+import java.lang.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+//<OWN METHOD>
+public class w3 {
+    public static void main(String[] args)
+    {
+        int[] arr = {5,7,2,4,9};
+        ArrayList<Integer> even = new ArrayList<Integer>();
+        ArrayList<Integer> odd = new ArrayList<Integer>();
+        int e = 0, o = 0;
+            for(int i =0; i<arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                    even.add(arr[i]);
+                } else {
+                    odd.add(arr[i]);
+                }
+
+            }
+            ArrayList<Integer>[] array = new ArrayList<Integer>();
+
+
+
+            System.out.println(odd.addAll(even));
+
+    }
+}
+

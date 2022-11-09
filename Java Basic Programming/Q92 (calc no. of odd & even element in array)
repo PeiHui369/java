@@ -1,0 +1,58 @@
+92. Write a Java program to count the number of even and odd elements in a given array of integers.
+> Q: Exception reason & how to solve
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+	at w3.main(w3.java:9)
+ i < arr.length NOT i<=arr.length
+
+//<OWN METHOD>
+import java.lang.*;
+public class w3 {
+    public static void main(String[] args)
+    {
+            int[] arr = {5,7,2,4,9};
+            int e = 0, o = 0;
+            for(int i =0; i<arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                    e++;
+                } else {
+                    o++;
+                }
+            }
+            System.out.println("Number of even elements in the array: "+e);
+            System.out.println("Number of odd elements in the array: "+o);
+    }
+}
+
+>>
+Number of even elements in the array: 2
+Number of odd elements in the array: 3
+
+
+// <SAMPLE SOLUTION>
+import java.util.*; 
+public class Exercise92 {
+ public static void main(String[] args)
+ {
+    int[] nums = {5, 7, 2, 4, 9};
+	int ctr_even = 0, ctr_odd = 0;
+	System.out.println("Original Array: "+Arrays.toString(nums)); 
+	    
+    for(int i = 0; i < nums.length; i++) {
+        if(nums[i] % 2 == 0)
+		{         
+          ctr_even++;
+		}
+		else
+		   ctr_odd++;	
+    }                 
+    System.out.printf("\nNumber of even elements in the array: %d",ctr_even);
+	System.out.printf("\nNumber of odd elements in the array: %d",ctr_odd);
+	System.out.printf("\n");	
+  }
+}
+
+>>
+Original Array: [5, 7, 2, 4, 9]                                        
+                                                                       
+Number of even elements in the array: 2                                
+Number of odd elements in the array: 3  

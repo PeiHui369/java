@@ -1,0 +1,69 @@
+96. Write a Java program to check if there is a 10 in a given array of integers with a 20 somewhere later in the array.
+> Key Line (if a appear, b appear after)
+{
+if (arr[i] == a) {test = true;}
+if (test && arr[i]==b){System.out.printf(String.valueOf(true)); result = 1}
+}
+if(result==0){System.out.printf(String.valueOf(false));
+
+
+<OWN METHOD>
+
+import java.lang.*;
+import java.util.Arrays;
+
+public class w3 {
+    public static void main(String[] args)
+    {
+       int[] num = {10, 70, 80, 50, 20, 13, 50};
+       int result = 0, x=10, y=20;
+       boolean test = false;
+
+       for(int i=0; i<num.length; i++){
+           if (num[i]==x){
+               test = true;
+           }
+           if(test = true && num[i]==y){
+               System.out.printf(String.valueOf(true));
+               result = 1;
+           }
+       }
+       if(result == 0){
+           System.out.printf(String.valueOf(false));
+       }
+       System.out.printf("\n");
+    }
+}
+
+// <SAMPLE SOLUTION>
+import java.util.*; 
+import java.io.*; 
+ public class Exercise96 {
+ public static void main(String[] args)
+ {
+	  int[] array_nums = {10, 70, 80, 50, 20, 13, 50};
+      boolean testd = false;
+	  int result=0;
+	  int x = 10;
+	  int y = 20;
+    
+    for(int i = 0; i < array_nums.length; i++) {
+        if(array_nums[i] == x)
+            testd = true;
+                    
+        if(testd && array_nums[i] == y)
+		{
+         System.out.printf( String.valueOf(true));	
+         result = 1		 ;
+		}
+    }
+     if (result==0)                             
+	   {	 
+         System.out.printf( String.valueOf(false));
+	    }
+		System.out.printf("\n");
+    }
+}
+
+>>
+true

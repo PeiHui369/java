@@ -1,0 +1,41 @@
+109. Write a Java program to form a staircase shape of n coins where every k-th row must have exactly k coins.
+> Ques Ask: How get line 34? Any other method or how to derive such a formula? 
+
+Example 1:
+n = 3
+The coins can form the following rows:
+$
+$ $
+We will return 2 rows.
+Example 2:
+n = 4
+The coins can form the following rows:
+$
+$ $
+$
+We will return 2 rows as the 3rd row is incomplete.
+Example 3:
+n = 5
+The coins can form the following rows:
+$
+$ $
+$ $
+We will return 2 rows as the 3rd row is incomplete.
+
+<SAMPLE SOLUTION>
+import java.util.Scanner;
+public class Example109 {
+     public static void main(String[] arg) {
+	  Scanner in = new Scanner(System.in);	
+       System.out.print("Input a positive integer: ");
+        int n = in.nextInt(); 
+		if (n>0)
+		{
+           System.out.println("Number of rows: "+((int)((Math.sqrt(8 * (long)n + 1) - 1) / 2)));	
+		}       	
+	}	
+}
+
+>>
+Input a positive integer: 5                                            
+Number of rows: 2 

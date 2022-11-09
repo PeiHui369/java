@@ -1,0 +1,35 @@
+103. Write a Java program to create a new array from a given array of integers, new array will contain the elements from the given array after the last element value 10. 
+
+import java.util.*; 
+import java.io.*; 
+ public class Exercise103 {
+ public static void main(String[] args)
+ {
+	int[] array_nums = {11, 10, 13, 10, 45, 20, 33, 53};
+    int result = 0; 
+	System.out.println("Original Array: " + Arrays.toString(array_nums)); 
+	
+  //To access element in array backwards
+	int l = array_nums.length - 1;
+  
+  //Create new array
+	int[] new_array;
+  
+  //No found 10, continue
+	while(array_nums[l] != 10)
+		l--;
+  
+  //new array hold no. of element = no. of element in array - 1 - (last index no. before found 10)
+  // -1 because length start counting from 1, but index no. start counting from 0
+	new_array = new int[array_nums.length - 1 - l];
+	
+  //l+1, so for loop start from the last digit before 10 is found (in backwards)
+  for(int i = l + 1; i < array_nums.length; i++)
+  
+  //i-l-1 = 0
+  //start adding element into new_array, so index no. is 0
+  //the element come from ori array, so index no, follow l + 1
+		new_array[i - l - 1] = array_nums[i];
+	System.out.println("New Array: "+Arrays.toString(new_array)); 
+  }
+}

@@ -1,0 +1,62 @@
+105. Write a Java program to check if a group of numbers (l) at the start and end of a given array are same.
+//Ques ask: why end++
+
+<OWN METHOD>
+
+import java.lang.*;
+import java.util.Arrays;
+
+public class w3 {
+    public static void main(String[] args) {
+        int[] array = {11, 15, 13, 10, 45, 20, 11, 15};
+        System.out.println("Original Array: " + Arrays.toString(array));
+        boolean result = false;
+        if (array[0] == array[array.length - 2] && array[1] == array[array.length - 1]) {
+            result = true;
+        }
+        System.out.println(String.valueOf(result));
+    }
+}
+
+>>
+Original Array: [11, 15, 13, 10, 45, 20, 11, 15]
+true
+
+
+<SAMPLE SOLUTION>
+
+import java.util.*; 
+import java.io.*; 
+ public class Exercise105 {
+ public static void main(String[] args)
+ {
+	int[] array_nums = {11, 15, 13, 10, 45, 20, 11, 15};
+    System.out.println("Original Array: "+Arrays.toString(array_nums)); 
+	
+	int result = 0;
+	int l = 2;
+  int start = 0; //access first digit
+	int end = array_nums.length-l; //access last digit
+	for(; l > 0; l--)
+	{
+		if(array_nums[start] != array_nums[end])
+			result = 1;
+		else
+		{
+			start++;
+			end++;
+		}
+	}
+	                
+    if (result==1)
+	 {
+	  System.out.printf(String.valueOf(false));
+	 }
+	else
+	 {
+	   System.out.printf(String.valueOf(true));
+	 }
+	 System.out.printf("\n");	
+  }
+}
+

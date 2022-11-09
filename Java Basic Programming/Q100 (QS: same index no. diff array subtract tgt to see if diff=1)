@@ -1,0 +1,39 @@
+100. Write a Java program to count the two elements of two given arrays of integers with same length, differ by 1 or less.
+> Ques analysis: 1 element with same index no. from each array subtract tgt, if diff = 1, then count as 1 pair, etc.
+> Key Line: Line 19-20
+
+import java.util.*; 
+import java.io.*; 
+ public class Exercise100 {
+ public static void main(String[] args)
+ {
+	int[] array_nums1 = {10, 11, 10, 20, 43, 20, 50};
+	int[] array_nums2 = {10, 13, 11, 20, 44, 30, 50};
+	System.out.println("Array1: "+Arrays.toString(array_nums1)); 
+	System.out.println("Array2: "+Arrays.toString(array_nums2)); 
+	int ctr = 0;
+    
+    for(int i = 0; i < array_nums1.length; i++) {
+        
+ /*
+ LINE 19-20
+ - Math.abs() return ans in +ve
+ - 1st condition: 1 or 0 or -ve
+ - 2nd condition: cancel out 0 so only 1 or -ve
+ - final condition: 1 or -ve(Math.abs() convert to +ve)
+ - the no. of pair have diff=1 is calc by ctr++;
+ */
+ 
+        if(Math.abs(array_nums1[i] - array_nums2[i]) <= 1 && array_nums1[i] != array_nums2[i])
+            ctr++;
+    }
+                    
+    System.out.printf("Number of elements: "+ctr);
+	System.out.printf("\n");	 
+  }
+}
+
+>>
+Array1: [10, 11, 10, 20, 43, 20, 50]                                   
+Array2: [10, 13, 11, 20, 44, 30, 50]                                   
+Number of elements: 2

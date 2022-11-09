@@ -1,0 +1,26 @@
+85. Write a Java program to check if a string starts with a specified word.
+> To check str starts with a specified word: str.startsWith("word");
+
+//<OWN METHOD>
+public class w3 {
+    public static void main(String[] args)
+    {
+        String str = "Hello how are you?";
+        System.out.println(str.startsWith("Hello"));
+    }
+}
+
+>>
+true
+
+
+// <SAMPLE SOLUTION>
+import java.util.*; 
+import java.io.*; 
+ public class Exercise85 {
+ public static void main(String[] args)
+ {
+   String string1 = "Hello how are you?";
+    System.out.println(string1.startsWith("Hello"));
+  }
+}

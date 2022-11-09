@@ -1,0 +1,33 @@
+99. Write a Java program to check if a specified number appears in every pair of adjacent element of a given array of integers.
+Ques analysis: A number, all pairs have (Pictorial presentation refer discord)
+Ques ask: How line 16 function to detect?
+
+<SAMPLE SOLUTION>
+import java.util.*; 
+import java.io.*; 
+ public class Exercise99 {
+ public static void main(String[] args)
+ {
+	int[] array_nums = {10, 20, 10, 20, 40, 20, 50};
+	int result = 0;	
+	int x = 20;
+	for(int i = 0; i < array_nums.length - 1; i++) {
+  //Not adjacent same value, result = 1 --> false
+        if(array_nums[i] != x && array_nums[i + 1] != x)
+		{
+                                result = 1;	
+		}        
+    }                                   
+    if (result==0)
+ 	  {
+     	 System.out.printf( String.valueOf(true));	         
+	  }
+ else
+	   	  {
+     	 System.out.printf( String.valueOf(false));	         
+	  }		
+    }
+}
+
+>>
+true

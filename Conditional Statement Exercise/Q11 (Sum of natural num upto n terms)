@@ -1,0 +1,56 @@
+11. Write a program in Java to display n terms of natural numbers and their sum.
+
+import java.util.Scanner;
+public class w3 {
+
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        int n;
+        int sum = 0;
+        System.out.print("Input number: ");
+        n = keyboard.nextInt();
+        for(int i=1;i<=n;i++){
+            System.out.println(i);
+            sum += i;
+        }
+        System.out.println("The Sum of Natural Number upto n terms : " +sum);
+    }
+}
+
+>>
+Input number: 7
+1
+2
+3
+4
+5
+6
+7
+The Sum of Natural Number upto n terms : 28
+
+=====================================================================================
+import java.util.Scanner;
+public class Exercise11 {
+
+    
+  public static void main(String[] args)
+
+{
+   int i, n, sum=0;
+   {
+   Scanner in = new Scanner(System.in);  
+        System.out.print("Input number: ");  
+         n = in.nextInt();
+}
+  System.out.println("The first n natural numbers are : "+n);
+  
+ for(i=1;i<=n;i++)
+   {
+     System.out.println(i);
+     sum+=i;
+   }
+System.out.println("The Sum of Natural Number upto "+n+ " terms : " +sum);
+
+}
+}

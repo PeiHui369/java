@@ -31,4 +31,10 @@ public class Example111 {
 		System.out.print("\n");     	
 	}	
 }
+
+>>
+Input first number: 10                                                  
+Input second number: 12                                                
+Sum: 22  
+
     

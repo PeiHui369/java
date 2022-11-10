@@ -1,0 +1,80 @@
+115. Write a Java program to check if a positive number is a palindrome or not.
+> Palindrome? remain same written backwards & forward
+/* int reverse = 0;
+        while (n != 0) {
+            reverse *= 10; //push a recently taken digit forward
+            reverse += n % 10; //n%10 will give us the last digit, reverse will take the digit
+            n /= 10;//n/10 remove the last digit
+        }
+        return reverse;
+        
+    
+        n == reverse_nums(n)
+        */
+
+
+<HOW IT WORKS>
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        int n =151;
+        int reverse = 0;
+        while (n != 0) {
+            reverse *= 10;
+            //System.out.println(reverse);
+            //System.out.println("n%10: " +n%10);
+            reverse += n % 10;
+            //System.out.println("Rev: " +reverse);
+            n /= 10;
+            //System.out.println("n: "+n);
+        }
+    }
+}
+
+>>
+(Explanation)
+0
+n%10: 1
+Rev: 1
+n: 15
+10
+n%10: 5
+Rev: 15
+n: 1
+150
+n%10: 1
+Rev: 151
+n: 0
+
+============================================================================
+<SAMPLE SOLUTION>
+import java.util.*;
+public class test {
+ public static void main(String[] args)
+ {
+        int num;
+        Scanner in = new Scanner(System.in);	
+        System.out.print("Input a positive integer: ");
+        int n = in.nextInt();
+        System.out.printf("Is %d is a palindrome number?\n",n);
+		System.out.println(is_Palindrome(n));
+    }
+public static int reverse_nums(int n) {
+        int reverse = 0;
+        while (n != 0) {
+            reverse *= 10;
+            reverse += n % 10;
+            n /= 10;
+        }
+        return reverse;
+    }
+public static boolean is_Palindrome(int n) {
+        return (n == reverse_nums(n)); //reverse_nums(n) will get the value of reverse
+    }
+}
+
+>>
+Input a positive integer: 151                                          
+Is 151 is a palindrome number?                                         
+true 

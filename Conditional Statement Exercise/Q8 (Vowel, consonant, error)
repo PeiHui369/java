@@ -1,0 +1,81 @@
+8. Write a Java program that takes the user to provide a single character from the alphabet. Print Vowel or Consonant, depending on the user input. If the user input is not a letter (between a and z or A and Z), or is a string of length > 1, print an error message. 
+
+import java.util.Scanner;
+public class w3 {
+
+
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input an alphabet: ");
+        String alphabet = keyboard.nextLine();
+        String result;
+
+        if(alphabet.length()==1) {
+            switch (alphabet) {
+                case "A":
+                case "E":
+                case "I":
+                case "O":
+                case "U":
+                case "a":
+                case "e":
+                case "i":
+                case "o":
+                case "u":
+                    result = "Input letter is Vowel";
+                    break;
+                default:
+                    result = "Input letter is Consonant";
+            }
+            System.out.println(result);
+        }else if(alphabet.length()>1){
+            System.out.println("An error has occurred");
+        }
+    }
+}
+
+>>
+Input an alphabet: p
+Input letter is Consonant
+
+==========================================================
+import java.util.Scanner;
+public class Exercise8 {
+
+    
+  public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Input an alphabet: ");
+// [ Convert all uppercase to lowercase to avoid case error ]
+        String input = in.next().toLowerCase();
+
+// [use .charAt()>=no. to represent a to z ]
+        boolean uppercase = input.charAt(0) >= 65 && input.charAt(0) <= 90; //[not necessary? or only to identify diff type of error]
+        boolean lowercase = input.charAt(0) >= 97 && input.charAt(0) <= 122;
+// [ use .equals("") to specified vowels ]
+        boolean vowels = input.equals("a") || input.equals("e") || input.equals("i")
+                || input.equals("o") || input.equals("u");
+
+        if (input.length() > 1)
+        {
+            System.out.println("Error. Not a single character.");
+        }
+        else if (!(uppercase || lowercase))
+        {
+            System.out.println("Error. Not a letter. Enter uppercase or lowercase letter.");
+        }
+        else if (vowels)
+        {
+            System.out.println("Input letter is Vowel");
+        }
+        else
+        {
+            System.out.println("Input letter is Consonant");
+        }
+    }
+}
+
+

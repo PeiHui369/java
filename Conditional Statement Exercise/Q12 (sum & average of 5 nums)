@@ -1,0 +1,58 @@
+12. Write a program in Java to input 5 numbers from keyboard and find their sum and average.
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Input the 5 numbers: ");
+        int n1 = keyboard.nextInt();
+        int n2 = keyboard.nextInt();
+        int n3 = keyboard.nextInt();
+        int n4 = keyboard.nextInt();
+        int n5 = keyboard.nextInt();
+
+        int sum = n1 + n2 + n3 + n4 + n5;
+        double average = sum/5;
+        System.out.println("The sum of 5 no is : "+sum);
+        System.out.println("The Average is : " +average);
+    }
+}
+
+>>
+Input the 5 numbers: 
+1
+2
+3
+4
+5
+The sum of 5 no is : 15
+The Average is : 3.0
+
+==================================================================
+import java.util.Scanner;
+public class Exercise12 {
+
+    
+  public static void main(String[] args)
+
+{       
+    int i,n=0,s=0;
+	double avg;
+	{
+	   
+        System.out.println("Input the 5 numbers : ");  
+         
+	}
+		for (i=0;i<5;i++)
+		{
+		    Scanner in = new Scanner(System.in);
+		    n = in.nextInt();
+		    
+  		s +=n;
+	}
+	avg=s/5;
+	System.out.println("The sum of 5 no is : " +s+"\nThe Average is : " +avg);
+ 
+}
+}

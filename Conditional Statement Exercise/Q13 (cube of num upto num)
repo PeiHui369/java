@@ -1,0 +1,46 @@
+13. Write a program in Java to display the cube of the number upto given an integer.
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input number of terms: ");
+        int n = keyboard.nextInt();
+
+        for(int i =0; i<=n; i++){
+            int c = (int) Math.pow(i,3);
+            System.out.printf("\nNumber is : %d and cube of %d is : %d",i,i,c);
+        }
+
+    }
+}
+
+>>
+Input number of terms: 4
+
+Number is : 0 and cube of 0 is : 0
+Number is : 1 and cube of 1 is : 1
+Number is : 2 and cube of 2 is : 8
+Number is : 3 and cube of 3 is : 27
+Number is : 4 and cube of 4 is : 64
+
+==================================================================================
+import java.util.Scanner;
+public class Exercise13 {
+
+   public static void main(String[] args)
+
+{
+    int i,n;
+
+    System.out.print("Input number of terms : ");
+    Scanner in = new Scanner(System.in);
+		    n = in.nextInt();
+
+     for(i=1;i<=n;i++)
+     {
+     System.out.println("Number is : " +i+" and cube of " +i+" is : "+(i*i*i));     
+    }
+ }
+}

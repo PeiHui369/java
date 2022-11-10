@@ -1,0 +1,50 @@
+16. Write a program in Java to display the pattern like right angle triangle with a number.
+/*refer discord video*/
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args)
+
+    {
+            System.out.print("Input number of rows: ");
+            Scanner in = new Scanner(System.in);
+            int n = in.nextInt();
+
+            for(int i=1;i<=n;i++){
+                for(int j=1; j<=i;j++){
+                    System.out.print(j);
+                }
+                System.out.println("");
+            }
+        }
+    }
+    
+    >>
+Input number of rows: 10
+1
+12
+123
+1234
+12345
+123456
+1234567
+12345678
+123456789
+12345678910
+    
+    /*
+    i=0 or i=1: no diff
+    i<=n: no. of digits used only until n
+    i++: to calc each row printed
+
+    j<=i: control no. of digits in each row
+    j++: to calc each digit printed
+
+    j: ctrl each row start with what digit
+    i: ctrl each
+    i: row
+    j: column
+
+    print(i): get 10 rows each with same digits, increasing column,      */
+

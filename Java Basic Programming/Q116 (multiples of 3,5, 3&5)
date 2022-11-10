@@ -1,0 +1,85 @@
+116. Write a Java program which iterates the integers from 1 to 100. For multiples of three print "Fizz" instead of the number and print "Buzz" for the multiples of five. When number is divided by both three and five, print "fizz buzz". vv
+
+
+public class w3 {
+
+    public static void main(String[] args) {
+        int n =1;
+        while(n<=100){
+            if(n%3 == 0 && n%5==0){System.out.println(n +" : fizz buzz");}
+            else if(n%3 == 0 && n%5!=0){System.out.println(n +" : Fizz");}
+            else if(n%3 != 0 && n%5==0){System.out.println(n +" : Buzz");}
+            n++;
+        }
+    }
+}
+
+===============================================================================
+import java.util.*; 
+public class Exercise116 {
+ public static void main(String[] args)
+ {
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) { //First determine this, if not true only go through below conditions, so below noneed specify != alr
+                System.out.printf("\n%d: fizz buzz",i);
+            } else if (i % 5 == 0) {
+                System.out.printf("\n%d: buzz",i);
+            } else if (i % 3 == 0) {
+                System.out.printf("\n%d: fizz",i);
+            } 
+        }
+        System.out.printf("\n");
+    }
+}
+
+
+
+
+>>
+3 : Fizz
+5 : Buzz
+6 : Fizz
+9 : Fizz
+10 : Buzz
+12 : Fizz
+15 : fizz buzz
+18 : Fizz
+20 : Buzz
+21 : Fizz
+24 : Fizz
+25 : Buzz
+27 : Fizz
+30 : fizz buzz
+33 : Fizz
+35 : Buzz
+36 : Fizz
+39 : Fizz
+40 : Buzz
+42 : Fizz
+45 : fizz buzz
+48 : Fizz
+50 : Buzz
+51 : Fizz
+54 : Fizz
+55 : Buzz
+57 : Fizz
+60 : fizz buzz
+63 : Fizz
+65 : Buzz
+66 : Fizz
+69 : Fizz
+70 : Buzz
+72 : Fizz
+75 : fizz buzz
+78 : Fizz
+80 : Buzz
+81 : Fizz
+84 : Fizz
+85 : Buzz
+87 : Fizz
+90 : fizz buzz
+93 : Fizz
+95 : Buzz
+96 : Fizz
+99 : Fizz
+100 : Buzz

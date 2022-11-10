@@ -1,0 +1,34 @@
+18. Write a program in Java to make such a pattern like right angle triangle with number increased by 1.
+
+import java.util.Scanner;
+public class SampleSolutionTest {
+
+    public static void main(String[] args)
+
+    {
+            int k = 1;
+
+            System.out.print("Input number of rows: ");
+            Scanner in = new Scanner(System.in);
+            int n = in.nextInt();
+
+            for(int i=1;i<=n;i++){ //to have 4 rows
+                for(int j=1; j<=i;j++){ //each rows increased by 1 column
+                    System.out.print(k++);
+                    }
+                System.out.println("");
+            }
+        }
+    }
+    /*
+    i: which row
+    j: which column
+    print(): print what at the coordinate
+     */
+
+>> 
+Input number of rows: 4
+1
+23
+456
+78910

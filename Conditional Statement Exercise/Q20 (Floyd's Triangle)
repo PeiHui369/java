@@ -1,0 +1,51 @@
+20. Write a program in Java to print the Floyd's Triangle
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input number of rows(half of the diamond): ");
+        int num = keyboard.nextInt();
+        keyboard.close();
+
+        int k = 1, i, j;
+        for (i = 0; i <= num; i++) {
+            for (j = 0; j <= i; j++) {
+                System.out.print(k++ + " ");
+            }
+            System.out.println(" ");
+        }
+    }
+}
+
+
+>>
+Input number of rows(half of the diamond): 4
+1  
+2 3  
+4 5 6  
+7 8 9 10  
+11 12 13 14 15 
+
+===========================================================================
+import java.util.Scanner;
+public class Main {
+public static void main(String[] args)
+ {
+   int numberOfRows;
+   System.out.print("Input number of rows : ");
+   Scanner in = new Scanner(System.in);
+		    numberOfRows = in.nextInt();
+   int number = 1;
+   for (int row = 1; row <= numberOfRows; row++)
+    {
+   for (int column = 1; column <= row; column++)
+     {
+       System.out.print(number + " ");
+       number++;
+     }
+     System.out.println();
+    }
+  }
+}

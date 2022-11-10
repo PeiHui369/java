@@ -1,0 +1,67 @@
+9. Write a Java program that takes a year from user and print whether that year is a leap year or not.
+
+/*
+A year is a leap year if the following conditions are satisfied: 
+The year is multiple of 400.
+The year is multiple of 4 and not multiple of 100.
+
+        int c1 = year % 4;
+        int c2 = year % 100;
+        int c3 = year % 400;
+        if (c1==0 && c2 !=0 || c3 ==0)
+*/
+
+import java.util.Scanner;
+public class w3 {
+
+
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input a year: ");
+        int year = keyboard.nextInt();
+        String result;
+
+        int c1 = year % 4;
+        int c2 = year % 100;
+        int c3 = year % 400;
+        if (c1==0 && c2 !=0 || c3 ==0){
+            result = year + " is a leap year";
+        }else{
+            result = year + " is not a leap year";
+        }
+        System.out.println(result);
+    }
+}
+
+>>
+Input a year: 2012
+2012 is a leap year
+
+===============================================================
+import java.util.Scanner;
+public class Exercise9 {
+
+    
+  public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Input the year: ");
+        int year = in.nextInt();
+
+        boolean x = (year % 4) == 0;
+        boolean y = (year % 100) != 0;
+        boolean z = ((year % 100 == 0) && (year % 400 == 0));
+
+        if (x && (y || z))
+        {
+            System.out.println(year + " is a leap year");
+        }
+        else
+        {
+            System.out.println(year + " is not a leap year");
+        }
+    }
+}
+

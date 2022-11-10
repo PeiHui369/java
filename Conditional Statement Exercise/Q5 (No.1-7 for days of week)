@@ -1,0 +1,65 @@
+5. Write a Java program that keeps a number from the user and generates an integer between 1 and 7 and displays the name of the weekday. 
+
+
+import java.lang.*;
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input a number: ");
+        int num = keyboard.nextInt();
+
+        if(num==1){System.out.println("Monday");}
+        else if(num==2){System.out.println("Tuesday");}
+        else if(num==3){System.out.println("Wednesday");}
+        else if(num==4){System.out.println("Thursday");}
+        else if(num==5){System.out.println("Friday");}
+        else if(num==6){System.out.println("Saturday");}
+        else if(num==7){System.out.println("Sunday");}
+        else{System.out.println("Not a day.");}
+    }
+}
+
+>>
+Input a number: 3
+Wednesday
+
+===========================================================
+<SAMPLE SOLUTION>
+import java.util.Scanner;
+public class Exercise5 {
+
+    
+  public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input number: ");
+        int day = in.nextInt();
+
+        System.out.println(getDayName(day));
+    }
+
+    // Get the name for the Week
+    public static String getDayName(int day) {
+        String dayName = "";
+        switch (day) {
+            case 1: dayName = "Monday"; break;
+            case 2: dayName = "Tuesday"; break;
+            case 3: dayName = "Wednesday"; break;
+            case 4: dayName = "Thursday"; break;
+            case 5: dayName = "Friday"; break;
+            case 6: dayName = "Saturday"; break;
+            case 7: dayName = "Sunday"; break;
+            default:dayName = "Invalid day range";
+        }
+
+        return dayName;
+    }
+}
+
+/*
+Use switch(val){ case: = ; break; default:=;} return
+- Have definite val
+*/

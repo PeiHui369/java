@@ -1,0 +1,50 @@
+3. Write a Java program that reads an integer between 0 and 1000 and adds all the digits in the integer. 
+>Ques: Why my method cannot works?
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.print("Input an integer between 0 and 1000: ");
+        String num = keyboard.nextLine();
+        keyboard.close();
+
+        int sum=0;
+        char[] ch = num.toCharArray();
+        for(int i=0; i<ch.length; i++){
+            sum += ch[i];
+        }
+        System.out.printf("The sum of all digits in %s is %d",num, sum);
+    }
+}
+
+>>
+Input an integer between 0 and 1000: 565
+The sum of all digits in 565 is 160
+
+=============================================================================
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] Strings) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Input an integer between 0 and 1000: ");
+        int num = input.nextInt();
+
+        int firstDigit = num % 10;
+        int remainingNumber = num / 10;
+        int SecondDigit = remainingNumber % 10;
+        remainingNumber = remainingNumber / 10;
+        int thirdDigit = remainingNumber % 10;
+        remainingNumber = remainingNumber / 10;
+        int fourthDigit = remainingNumber % 10;
+        int sum = thirdDigit + SecondDigit + firstDigit + fourthDigit;
+        System.out.println("The sum of all digits in " + num + " is " + sum);
+
+    }
+}
+
+/* %10 & /10 to access digits from right to left*?

@@ -1,0 +1,43 @@
+12. Write a Java program to compare two given signed and unsigned numbers.
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+    int in1 = Integer.MIN_VALUE;
+		int in2 = Integer.MAX_VALUE;
+		System.out.println("Signed integers: " + in1 + ", " + in2);
+		System.out.println("-----------------------------------------");
+		int compare_Signed_num = Integer.compare(in1, in2);
+		System.out.println("Result of comparing signed numbers: " + compare_Signed_num);
+		int compare_Unsigned_num = Integer.compareUnsigned(in1, in2);
+        System.out.println("Result of comparing unsigned numbers: " + compare_Unsigned_num);
+    }
+}
+
+>>
+Signed integers: -2147483648, 2147483647
+-----------------------------------------
+Result of comparing signed numbers: -1
+Result of comparing unsigned numbers: 1
+
+
+/*
+1. Integer.MAX_VALUE = 2147483647
+2. Integer.MIN_VALUE = -2147483648
+
+3. Integer.compare(x,y)
+This method returns the value zero if (x==y),
+if (x < y) then it returns a value less than zero
+and if (x > y) then it returns a value greater than zero.
+
+4. Integer.compareUnsigned(x,y) - same as 3 but:
+ int m = 15;
+ int n = -8;
+ >>-1
+ as 15 is greater than -8, but -8 will be treated as an unsigned number
+ -8 will be greater than 15
+ Output will be a value less than zero
+*/
+
+

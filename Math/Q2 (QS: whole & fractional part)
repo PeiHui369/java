@@ -1,0 +1,34 @@
+2. Write a Java program to get whole and fractional parts from a double value. 
+/*
+fractional: value % 1
+whole: value - fractional
+ */
+ 
+ public class w3{
+    public static void main(String[] args){
+    double value = 12.56;
+    double fractionalPart = value%1;
+    double integralPart = value - fractionalPart;
+    System.out.printf("Original value: %f \nIntegral part: %.1f \nFractional part: %f",value,integralPart,fractionalPart);
+    }
+}
+
+>>
+Original value: 12.560000 
+Integral part: 12.0 
+Fractional part: 0.560000
+
+=========================================================================================================
+import java.util.*;
+  public class Example2 {
+  public static void main(String[] args) {
+  double value = 12.56;
+  double fractional_part = value % 1;
+  double integral_part = value - fractional_part;  
+  System.out.print("\nOriginal value: "+value);
+  System.out.print("\nIntegral part: "+integral_part);
+  System.out.print("\nFractional part: "+fractional_part);
+  System.out.println();  
+  }
+}
+

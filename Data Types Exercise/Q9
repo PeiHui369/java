@@ -1,0 +1,75 @@
+9. Write a Java program that accepts two integers from the user and then prints the sum, the difference, the product, the average, the distance (the difference between integer), the maximum (the larger of the two integers), the minimum (smaller of the two integers).
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.print("Input 1st integer: ");
+        int num1 = keyboard.nextInt();
+        System.out.print("Input 2nd integer: ");
+        int num2 = keyboard.nextInt();
+        keyboard.close();
+
+        int sum = num1 + num2;
+        int dif = Math.abs(num1-num2);
+        int pro = num1*num2;
+        double ave = sum/2;
+        int dis = dif;
+
+        System.out.println("Sum of two integers: " +sum);
+        System.out.println("Difference of two integers: " +dif);
+        System.out.println("Product of two integers: " +pro);
+        System.out.println("Average of two integers: " +ave);
+        System.out.println("Distance of two integers: " +dis);
+        System.out.println("Max integer: "+Math.max(num1,num2));
+        System.out.println("Min integer: "+Math.min(num1,num2));
+    }
+}
+
+>>
+Input 1st integer: 25
+Input 2nd integer: 5
+Sum of two integers: 30
+Difference of two integers: 20
+Product of two integers: 125
+Average of two integers: 15.0
+Distance of two integers: 20
+Max integer: 25
+Min integer: 5
+
+
+========================================================================
+<SAMPLE SOLUTION>
+
+import java.util.Scanner;
+public class Exercise9 {
+
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input 1st integer: ");
+        int firstInt = in.nextInt();
+        System.out.print("Input 2nd integer: ");
+        int secondInt = in.nextInt();
+
+        System.out.printf("Sum of two integers: %d%n", firstInt + secondInt);
+        System.out.printf("Difference of two integers: %d%n", firstInt - secondInt);
+        System.out.printf("Product of two integers: %d%n", firstInt * secondInt);
+        System.out.printf("Average of two integers: %.2f%n", (double) (firstInt + secondInt) / 2);
+        System.out.printf("Distance of two integers: %d%n", Math.abs(firstInt - secondInt));
+        System.out.printf("Max integer: %d%n", Math.max(firstInt, secondInt));
+        System.out.printf("Min integer: %d%n", Math.min(firstInt, secondInt));
+    }
+}
+
+>>
+Input 1st integer: 25                                                                                       
+Input 2nd integer: 5                                                                                        
+Sum of two integers: 30                                                                                     
+Difference of two integers: 20                                                                              
+Product of two integers: 125                                                                                
+Average of two integers: 15.00                                                                              
+Distance of two integers: 20                                                                                
+Max integer: 25                                                                                             
+Min integer: 5 

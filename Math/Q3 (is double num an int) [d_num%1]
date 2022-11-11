@@ -1,0 +1,27 @@
+3. Write a Java program to test if a double number is an integer.
+ 
+/*
+double num is int: (d_num % 1) == 0
+*/
+
+public class w3 {
+    public static void main(String[] args) {
+        double value = 12.56;
+        if (value % 1 == 0) {
+            System.out.println("an integer");
+        } else {
+            System.out.println("not an integer");
+        }
+    }
+}
+
+>>
+not an integer
+
+
+/*
+System.out.println(12.00%1);
+  >> 0.0
+System.out.println(12.56%1);
+  >>0.5600000000000005
+*/

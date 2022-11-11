@@ -1,0 +1,36 @@
+2. Write a Java program that reads a number in inches, converts it to meters.
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.println("Input a value for inch: ");
+        double inch = keyboard.nextDouble();
+        keyboard.close();
+
+        double meter = inch*0.0254;
+        System.out.println(inch + " inch is " +meter+ " meters");
+    }
+}
+
+>>
+Input a value for inch: 
+1000
+1000.0 inch is 25.4 meters
+
+===================================================================
+import java.util.Scanner;
+public class Exercise2 {
+
+    public static void main(String[] Strings) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Input a value for inch: ");
+        double inch = input.nextDouble();
+        double meters = inch * 0.0254;
+        System.out.println(inch + " inch is " + meters + " meters");
+
+    }
+}

@@ -1,0 +1,79 @@
+10. Write a Java program to break an integer into a sequence of individual digits.
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.print("Input six non-negative digits: ");
+        String num = keyboard.nextLine();
+        keyboard.close();
+
+        char[] ch = num.toCharArray();
+        for(int i=0;i<ch.length;i++){
+            System.out.print(ch[i] + " ");
+        }
+    }
+}
+
+>>
+Input six non-negative digits: 123456
+1 2 3 4 5 6
+
+-------------------------------------------------------------------
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner (System.in);
+        System.out.print("Input six non-negative digits: ");
+        int num = keyboard.nextInt();
+        keyboard.close();
+
+        int digit1 = num / 100000;
+        num%=100000;
+        System.out.print(digit1 + " ");
+        int digit2 = num / 10000;
+        num%=10000;
+        System.out.print(digit2 + " ");
+        int digit3 = num / 1000;
+        num%=1000;
+        System.out.print(digit3 + " ");
+        int digit4 = num / 100;
+        num%=100;
+        System.out.print(digit4 + " ");
+        int digit5 = num / 10;
+        System.out.print(digit5 + " ");
+        int digit6 = num%10;;
+        System.out.print(digit6 + " ");
+    }
+}
+
+>>
+Input six non-negative digits: 123456
+1 2 3 4 5 6 
+
+=============================================================================
+<SAMPLE SOLUTION>
+import java.util.Scanner;
+public class Exercise11 {
+
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input six non-negative digits: ");
+        int input = in.nextInt();
+        int n1 = input / 100000 % 10;
+        int n2 = input / 10000 % 10;
+        int n3 = input / 1000 % 10;
+        int n4 = input / 100 % 10;
+        int n5 = input / 10 % 10;
+        int n6 = input % 10;
+      System.out.println(n1 + " " + n2 + " " + n3 + " " + n4 + " " + n5 + " " + n6);
+
+    }
+}
+
+>>
+Input six non-negative digits: 123456                                                                         
+1 2 3 4 5 6 

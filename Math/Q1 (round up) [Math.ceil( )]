@@ -1,0 +1,14 @@
+1. Write a Java program to round up the result of integer division.
+
+/*
+To round up: Math.ceil()
+*/
+
+public class w3{
+    public static void main(String[] args){
+    System.out.println(Math.ceil(1.22));
+    }
+}
+
+>>
+2.0

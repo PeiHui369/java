@@ -1,0 +1,28 @@
+//.getNext(): access next data
+//.getData(): get the data
+//.getNext().getData(): access next data & get
+
+public class Node {
+    public static void main(String[] args){
+        Node x = new Node(1,null);
+        Node y = new Node(2, null);
+        System.out.println(y.getNext().getData()); //y.getNext = x.getData
+
+    }
+    private int data;
+    private Node next;
+
+    public Node(int d, Node nx){//constructor
+        data = d;
+        next = nx;
+    }
+}
+
+    public int getData(){ return data; } //getter
+    public Node getNext(){ return next; }
+    public void setData(int d){ data = d; } //setter
+    public void setNext(Node n){ next = n; }
+
+
+
+

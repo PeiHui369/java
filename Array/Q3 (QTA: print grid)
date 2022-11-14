@@ -1,0 +1,29 @@
+3. Write a Java program to print the following grid.
+Ques: How to know why it print 0? how to change?
+
+import java.util.Arrays;
+
+public class w3{
+    public static void main(String[] args){
+
+        int [][]a = new int[10][10];
+        for(int i = 0; i<10; i++){
+            for(int j = 0; j<10; j++){
+                System.out.printf("%2d",a[i][j]); //allow integer up to 2 digits long --> leave empty spaces in between
+            }
+            System.out.println();
+        }
+    }
+}
+
+>>
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0

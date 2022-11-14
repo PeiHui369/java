@@ -1,0 +1,22 @@
+12. Write a Java program to find the duplicate values of an array of integer values.
+
+import java.util.Arrays;
+
+public class w3 {
+    public static void main(String[] args){
+        int[] arr = {1,2,5,5,6,6,7,2};
+        for(int i = 0; i<arr.length-1; i++){
+            for(int j= i+1; j<arr.length; j++){//for each i, j will go through all items next to it to see if same
+                if((arr[i]==arr[j]&&(i!=j))){
+                    System.out.println("Duplicate Element : "+arr[j]); //Print i or j both same result
+                }
+
+            }
+        }
+    }
+}
+
+>>
+Duplicate Element : 2
+Duplicate Element : 5
+Duplicate Element : 6

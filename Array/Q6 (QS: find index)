@@ -1,0 +1,39 @@
+6. Write a Java program to find the index of an array element.
+
+/*
+public static int findIndex(int[] name, int item){
+  if(name == null) return -1;
+  int i = 0;
+  while (i < name.length){
+    if(name[i] == item) return i;
+    else i++;
+    }
+    return -1;
+}
+
+<Main.java>
+System.out.println(findIndex(name,item));
+*/
+
+import java.util.Arrays;
+
+public class w3 {
+    public static int findIndex(int[] arr, int t) {
+        if (arr == null) return -1;
+        int i = 0;
+        while (i < arr.length) {
+            if (arr[i] == t) return i;
+            else i++;
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr ={25,14,56,15,36,56,77,18,29,49};
+        System.out.println("Index position of 25 is: " + findIndex(arr, 25));
+        System.out.println("Index position of 77 is: " + findIndex(arr, 77));
+
+    }
+}
+
+

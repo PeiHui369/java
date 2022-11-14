@@ -8,6 +8,9 @@ public static boolean contains (int[] arr, int item){
    }
    return false;
 }
+
+<main.java>
+System.out.println(contains(name,item));
 */
 
 import java.util.Arrays;

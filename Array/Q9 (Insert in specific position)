@@ -1,0 +1,32 @@
+9. Write a Java program to insert an element (specific position) into an array.
+/*
+for(int i = arr.length-1; i>InsertIndex; i--){
+  arr[i] = arr[i-1];
+  }
+  
+  arr[InsertIndex] = NewValue;
+*/
+
+
+import java.util.Arrays;
+
+public class w3 {
+
+    public static void main(String[] args) {
+        int[] ori = {25, 14, 56, 15, 36, 56, 77, 18, 29, 49};
+
+        int indexPosition = 2;//insert in 3rd position (index-2
+        int newValue = 5;
+
+        System.out.println("Original Array : " + Arrays.toString(ori));
+
+        for (int i = ori.length - 1; i > 2; i--) {//2 is position to insert
+            ori[i] = ori[i - 1]; //remove the last element, then proceed to move backward all element by 1, until last index no.>2
+        }
+        ori[2] = 5;//5(new value) insert at 2(indexPosition)
+        System.out.println("New Array: " + Arrays.toString(ori));
+
+    }
+}
+
+

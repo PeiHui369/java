@@ -1,0 +1,62 @@
+22. Write a Java program to find all pairs of elements in an array whose sum is equal to a specified number.
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class w3 {
+
+    public static void main(String[] args) {
+        int sum=0, speNum = 15;
+        int[] arr = {2,7,4,-5,11,5,20};
+        for(int i =0; i<arr.length; i++){
+            for(int j=1; j<arr.length-1; j++){
+                sum = arr[i] + arr[j];
+                        if(sum==speNum){
+                            System.out.println("The pairs is "+arr[i]+" and "+arr[j]);
+                        }
+            }
+        }
+    }
+}
+
+>>
+The pairs is 4 and 11
+The pairs is 11 and 4 //will have duplicate pairs
+The pairs is 20 and -5
+
+============================================================================================
+SAMPLE SOLUTION
+----------------
+public class Exercise22 {
+static void  pairs_value(int inputArray[], int inputNumber)
+  {
+  System.out.println("Pairs of elements and their sum : ");
+ 
+  for (int i =  0; i < inputArray.length; i++)
+  {
+  for (int j  = i+1; j < inputArray.length; j++)
+  {
+  if(inputArray[i]+inputArray[j] == inputNumber)
+  {
+  System.out.println(inputArray[i]+" + "+inputArray[j]+" =  "+inputNumber);
+  }
+  }
+  }
+  }
+  
+  public static void  main(String[] args)
+  {
+  pairs_value(new int[] {2, 7, 4, -5, 11, 5, 20}, 15);
+  
+  pairs_value(new int[] {14, -15, 9, 16, 25, 45, 12, 8}, 30);
+  
+  }
+}
+
+>>
+Pairs of elements and their sum :                                                                             
+4 + 11 = 15                                                                                                
+-5 + 20 = 15                                                                                                
+Pairs of elements and their sum :                                                                             
+14 + 16 = 30                                                                                                
+-15 + 45 = 30 

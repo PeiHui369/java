@@ -1,0 +1,56 @@
+161. Write a Java program to find the kth smallest and largest element in a given array. Elements in the array can be in any order. Go to the editor
+
+Expected Output:
+Original Array:
+[1, 4, 17, 7, 25, 3, 100]
+K'th smallest element of the said array:
+3
+K'th largest element of the said array:
+25
+
+----------------------------------------------------------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args){
+                int[] arr = {1, 4, 17, 7, 25, 3, 100};
+                System.out.println("Enter k: ");
+                Scanner keyboard = new Scanner(System.in);
+                int k = keyboard.nextInt();
+                System.out.println("Original Array: ");
+                System.out.println(Arrays.toString(arr));
+                Arrays.sort(arr);
+                System.out.println("K'th largest element: " + arr[arr.length-k]);
+                System.out.println("K'th smallest element: "+arr[k-1]);
+    }
+}
+
+>>
+Enter k: 
+2
+Original Array: 
+[1, 4, 17, 7, 25, 3, 100]
+K'th largest element: 25
+K'th smallest element: 3
+
+===============================================================================
+<SAMPLE SOLUTION>
+import java.util.*;
+public class Solution {
+  public static void main(String[] args) 
+    {
+        Integer arr[] = new Integer[]{1, 4, 17, 7, 25, 3, 100};
+        int k = 2;
+		System.out.println("Original Array: ");
+		System.out.println(Arrays.toString(arr));
+		System.out.println("K'th smallest element of the said array: ");
+        Arrays.sort(arr);       		
+        System.out.print(arr[k-1] + " ");
+		System.out.println("\nK'th largest element of the said array:");          
+        Arrays.sort(arr, Collections.reverseOrder());  		
+        System.out.print(arr[k-1] + " ");
+	}
+}
+
+/*-use Arrays.sort(arr, Collections.reverseOrder()) instead of arr[arr.length-k];

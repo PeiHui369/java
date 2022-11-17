@@ -1,0 +1,38 @@
+159. Write a Java program to find the k largest elements in a given array. Elements in the array can be in any order.
+
+Expected Output:
+Original Array:
+[1, 4, 17, 7, 25, 3, 100]
+3 largest elements of the said array are:
+100 25 17
+
+/*
+To print array: Arrays.toString(name)
+To sort descending: Arrays.sort(name, Collections.reverseOrder());
+for(int i = 0; i < k; i++){System.out.print(arr[i] + " ")}
+*/
+
+-------------------------------------------------------------------------------------------------------------------------
+<SAMPLE SOLUTION>
+import java.util.*;
+public class Solution {
+	
+    public static void main(String[] args) 
+    {
+        Integer arr[] = new Integer[]{1, 4, 17, 7, 25, 3, 100};
+        int k = 3;
+		System.out.println("Original Array: ");
+		System.out.println(Arrays.toString(arr));
+		System.out.println(k +" largest elements of the said array are:");
+        Arrays.sort(arr, Collections.reverseOrder());         
+       for (int i = 0; i < k; i++) 
+          System.out.print(arr[i] + " ");
+      }      
+  }
+
+>>
+Original Array: 
+[1, 4, 17, 7, 25, 3, 100]
+3 largest elements of the said array are:
+100 25 17 
+

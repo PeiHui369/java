@@ -1,0 +1,35 @@
+10. Write a Java program to compare a given string to the specified string buffer. 
+
+> Important Constructors:
+- StringBuffer() : empty with capacity of 16
+- StringBuffer(String str): with specified string
+- StringBuffer(int capacity): empty with specified capacity as length
+
+> Method
+- sb.append() : concatenates given argument
+- sb.insert(indexNo.,str) : insert str at given position
+- sb.replace(beginIndex, endIndex, str) : replace str from specified beginIndex & endIndex-1
+- sb.delete(beginIndex, endIndex) : delete str from specified beginIndex to endIndex-1
+- sb.reverse() : reverse current string
+- sb.capacity() : returns current [default: 16; increase: (oldcapacity*2)+2]
+
+Refer more to StringBuffer file
+----------------------------------------------------------------------------
+<SAMPLE SOLUTION>
+public class Exercise10 {
+
+public static void main(String[] args) {
+
+    String str1 = "example.com", str2 = "Example.com";
+    StringBuffer strbuf = new StringBuffer(str1);
+    
+    System.out.println("Comparing "+str1+" and "+strbuf+": " + str1.contentEquals(strbuf));
+    
+    System.out.println("Comparing "+str2+" and "+strbuf+": " + str2.contentEquals(strbuf));
+    
+      }
+}
+
+>>
+Comparing example.com and example.com: true                                                                   
+Comparing Example.com and example.com: false 

@@ -1,0 +1,38 @@
+- delete characters within a StringBuffer
+- delete( ) method 
+deletes a sequence of characters from the invoking object. 
+Here, the start Index specifies the index of the first character to remove, 
+and the end Index specifies an index one past the last character to remove. 
+Thus, the substring deleted runs from start Index to endIndex–1. 
+The resulting StringBuffer object is returned.
+-  deleteCharAt( ) method 
+deletes the character at the index specified by loc. It returns the resulting StringBuffer object.
+
+-------------------------------------------------------------------------------------------
+// Java Program to Illustrate StringBuffer class
+// via delete() and deleteCharAt() Methods
+ 
+// Importing I/O classes
+import java.io.*;
+ 
+// Main class
+class GFG {
+ 
+    // Main driver method
+    public static void main(String[] args)
+    {
+        StringBuffer s = new StringBuffer("GeeksforGeeks");
+ 
+        s.delete(0, 5);
+        // Returns forGeeks
+        System.out.println(s);
+ 
+        s.deleteCharAt(7);
+        // Returns forGeek
+        System.out.println(s);
+    }
+}
+
+>>
+forGeeks
+forGeek

@@ -15,12 +15,9 @@ Matcher m = pattern.matcher(text);
 - String starts with a specific number: "^5.*$"
 - Check number at end of string: ".*[0-9]$"
 
-
-
- >
- public static String validate(String ip) {
-          return ip.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
-Remove leading zeros from IP address
+> Replace 
+- Replace Word: str.replace("target1","replacement1").replace("target2","replacement2");//add on .replace(,) for following
+- Remove leading zeros from IP address: str.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
    
 
 1. String contains alphabets or numbers
@@ -122,4 +119,9 @@ public static String validate(String text) {
             return "Found a match!";
         else
             return "Not matched!";
+   }
+   
+   12. Replace words in string
+   public static String validate(String text) {
+	   return text.replace("Python", "Java").replace("code", "coding");
    }

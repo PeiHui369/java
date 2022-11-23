@@ -1,0 +1,113 @@
+> text.matches()
+- ^[\\w]+$ : alphabets or num
+- pq*? : p followed by 0 or more 1s
+- "^[a-z]+_[a-z]+$": lowercase letters joined with underscore
+- "[A-Z][a-z]+$" :1 uppercase followed by lowercase
+- "p.*?q$": String has a 'p' followed by anything, end in 'q'
+
+>
+Pattern pattern = Pattern.compile(~);
+Matcher m = pattern.matcher(text);
+		if (m.find()){}
+- Check if a word contains char 'g' in given string: "\\w*g.\\w*"
+- Matches word containing 'g', not at start or end of word: "\\Bg\\B"
+- string contains only upper & lowercase, num, underscores: "^[a-zA-Z0-9_]*$"
+- String starts with a specific number: "^5.*$"
+
+ >
+ public static String validate(String ip) {
+          return ip.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
+Remove leading zeros from IP address
+   
+
+1. String contains alphabets or numbers
+
+public static boolean validate(String text) {
+    return text.matches("^[\\w]+$");
+  }
+  
+  2. String foolwed by 0 abdn ire1
+
+   public static String validate(String text) {
+	   if (text.matches("pq*?"))
+                return "Found a match!";
+        else
+                return "Not matched!";
+   }
+
+3. Sequences of lowercase letters joined with underscore
+public static String validate(String text) {
+	   if (text.matches("^[a-z]+_[a-z]+$"))
+                return "Found a match!";
+       else
+                return "Not matched!";
+   }
+  
+  4. Sequence of 1 uppercase letters followed by lowercase letters
+   public static String validate(String text) {
+	   if (text.matches("[A-Z][a-z]+$"))
+                return "Found a match!";
+       else
+                return "Not matched!";
+  }
+  
+  
+  5. String has a 'p' followed by anything, end in 'q'
+   public static String validate(String text) {
+	   if (text.matches("p.*?q$"))
+                return "Found a match!";
+       else
+                return "Not matched!";
+   }
+   
+   6. Check word contains char 'g' in given string
+    public static String validate(String text) {
+	    Pattern pattern = Pattern.compile("\\w*g.\\w*");
+		 Matcher m = pattern.matcher(text);
+		
+	   if (m.find())
+                return "Found a match!";
+       else
+                return "Not matched!";
+   }
+   
+   7. Matches word containing 'g', not at start or end of word
+    public static String validate(String text) {
+	    Pattern pattern = Pattern.compile("\\Bg\\B");
+		 Matcher m = pattern.matcher(text);
+		
+	   if (m.find())
+                return "Found a match!";
+       else
+                return "Not matched!";
+   }
+   
+   8. string contains only upper & lowercase, num, underscores
+    public static String validate(String text) {
+	    Pattern pattern = Pattern.compile("^[a-zA-Z0-9_]*$");
+		 Matcher m = pattern.matcher(text);
+		
+	   if (m.find())
+                return "Found a match!";
+       else
+                return "Not matched!";
+   }
+   
+   9. String starts with a specific number
+   public static String validate(String text) {
+	    Pattern pattern = Pattern.compile("^5.*$");
+		 Matcher m = pattern.matcher(text);
+		
+	   if (m.find())
+                return "Found a match!";
+       else
+                return "Not matched!";
+   }
+   
+   10. Remove leading zeros from IP address
+    public static String validate(String ip) {
+          return ip.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");
+   }
+
+   
+   

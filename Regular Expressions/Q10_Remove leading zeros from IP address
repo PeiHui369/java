@@ -1,0 +1,21 @@
+10. Write a Java program to remove leading zeros from a given IP address.
+
+import java.util.*;
+public class test {
+ 
+   public static void main(String[] args) {
+	     
+	    System.out.println(validate("216.08.094.196"));
+		System.out.println(validate("08.008.0008.00008"));
+		System.out.println(validate("01.102.103.104"));
+        }
+
+   public static String validate(String ip) {
+          return ip.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");
+   }
+}
+
+>>
+216.8.94.196
+8.8.8.8
+1.102.103.104

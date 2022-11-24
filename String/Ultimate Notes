@@ -1,0 +1,35 @@
+> to get the last index of a string within a string
+str.lastIndexOf("a", str.length() - 1); //("stringToFindInStr",str.lenth()-1: until the last char)
+
+> Length of string
+str.length()
+
+> Region str1 matches region str2
+// Determine whether characters 9 through 15 in str1 
+// match characters 9 through 15 in str2.
+        boolean match2 = str1.regionMatches(9, str2, 9, 8); 
+        //(startIndexStr1, strToMatch, startIndexStr2, lenOfBoth);
+
+> Replace char
+str.replace(oldChar, newChar);
+
+> String first word
+str.startsWith()
+
+> get substring
+// Get a substring of the above string starting from index 10 and ending at index 26.
+        String new_str = str.substring(10, 26);
+
+>
+// Convert the above string to a char array.
+        char[] arr = str.toCharArray();
+        
+>
+str.toLoweCase()
+
+> Trim leading/trailing white spaces
+str.trim();
+
+
+        
+        

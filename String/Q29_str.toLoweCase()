@@ -1,0 +1,19 @@
+29. Write a Java program to convert all the characters in a string to lowercase.
+
+public class Exercise29 {
+       public static void main(String[] args)
+    {
+        String str = "The Quick BroWn FoX!";
+
+        // Convert the above string to all lowercase.
+        String lowerStr = str.toLowerCase();
+
+        // Display the two strings for comparison.
+        System.out.println("Original String: " + str);
+        System.out.println("String in lowercase: " + lowerStr);
+    }
+}
+
+>>
+Original String: The Quick BroWn FoX!                                                                         
+String in lowercase: the quick brown fox!

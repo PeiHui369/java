@@ -18,7 +18,9 @@ Matcher m = pattern.matcher(text);
 > Replace 
 - Replace Word: str.replace("target1","replacement1").replace("target2","replacement2");//add on .replace(,) for following
 - Remove leading zeros from IP address: str.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
-   
+- Check if a word present: str.contains("python")) 
+- Count no.of vowels: return text.replaceAll("[^aeiouAEIOU]", "").length();
+- Remove all vowels: String result = text.replaceAll("(?i)[aeiou]", "");
 
 1. String contains alphabets or numbers
 
@@ -125,3 +127,20 @@ public static String validate(String text) {
    public static String validate(String text) {
 	   return text.replace("Python", "Java").replace("code", "coding");
    }
+   
+   13. Check if a word present, replace it/ print another word:
+   if (str.contains("python")) {
+			return "Java";}
+
+   14. Count no. of vowels:
+   public static int validate(String text) {
+	   return text.replaceAll("[^aeiouAEIOU]", "").length();
+   }
+   
+   15. Remove all vowels
+  public static String validate(String text) {
+	   String result = text.replaceAll("(?i)[aeiou]", "");
+	   return result;
+	   }
+   
+   

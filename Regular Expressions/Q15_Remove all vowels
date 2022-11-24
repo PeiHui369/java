@@ -1,0 +1,37 @@
+15. Write a Java program to remove all the vowels of a given string. Return the new string.
+
+public class test {
+ 
+   public static void main(String[] args) {	   
+	    String text = "LOWERED";
+		System.out.println("Original string: "+text);
+		System.out.println("After removing vowels: New string: "+validate(text));
+		text = "Java";
+		System.out.println("\nOriginal string: "+text);
+		System.out.println("After removing vowels: New string: "+validate(text));
+		text = "MID-CENTRALIZED";
+		System.out.println("\nOriginal string: "+text);
+		System.out.println("After removing vowels: New string: "+validate(text));
+		text = "C++";
+		System.out.println("\nOriginal string: "+text);
+		System.out.println("After removing vowels: New string: "+validate(text));
+        }
+
+   public static String validate(String text) {
+	   String result = text.replaceAll("(?i)[aeiou]", "");
+	   return result;
+  }
+}
+
+>>
+Original string: LOWERED
+After removing vowels: New string: LWRD
+
+Original string: Java
+After removing vowels: New string: Jv
+
+Original string: MID-CENTRALIZED
+After removing vowels: New string: MD-CNTRLZD
+
+Original string: C++
+After removing vowels: New string: C++

@@ -17,18 +17,26 @@ Matcher m = pattern.matcher(text);
 
 > Replace 
 - Replace Word: str.replace("target1","replacement1").replace("target2","replacement2");//add on .replace(,) for following
-- Remove leading zeros from IP address: str.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
 - Check if a word present: str.contains("python")) 
+
+> replaceAll
+- Remove leading zeros from IP address: str.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
 - Count no.of vowels: return text.replaceAll("[^aeiouAEIOU]", "").length();
 - Remove all vowels: String result: text.replaceAll("(?i)[aeiou]", "");
 - Replace vowels with specified char: text.replaceAll("[aeiouAEIOU]", "" + chr);
 - Remove specific letter from str: String s = text.replaceAll("(?i)[pqr]", "");
-
-> Count
-- num of d.p.: 
+- Count num of d.p.: 
 if(n.contains("."))
 	return n.replaceAll(".*\\.(?=\\d?)", "").length();
 		return 0;
+- remove all non-alphanumeric characters: return text.replaceAll("(?i)[^A-Z]", "");
+- Move lowercase letters to front: return text.replaceAll("[A-Z]", "") + text.replaceAll("[a-z]", "");
+- Add dash before & after vowel: return text.replaceAll("([AEIOUaeiou])","-$1-");
+- Insert dash(-) between upper case & lower case: return text.replaceAll("(?<=[A-Z])(?=[a-z])", "-");
+
+> Separate consonant & vowels
+text1 = text.replaceAll("(?i)[^aeiou]", "");//get consonants, vowels become ""
+text2 = text.replaceAll("(?i)[aeiou]", ""); //get vowels, consonant become ""
 		
 > no. of digits validity(PIN: 4, 6, 8)
 name.matches("\\d{4}|\\d{6}|\\d{8}")
@@ -36,16 +44,22 @@ name.matches("\\d{4}|\\d{6}|\\d{8}")
 > set thousands separator
 return(Integer.parseInt(num.substring(0, len-3))) + '#' + num.substring(len-3);} //.substring(beginIindex, endIndex)
 
-> remove all non-alphanumeric characters
-return text.replaceAll("(?i)[^A-Z]", "");
-
-> validate phone number (follow rules)
-
-> 
-text1 = text.replaceAll("(?i)[^aeiou]", "");//get consonants, vowels become ""
-text2 = text.replaceAll("(?i)[aeiou]", ""); //get vowels, consonant become ""
+> validate phone number (follow rules) => Q22
 		
-		
+> Get last n vowels
+String s = text.replaceAll("(?i)[^aeiou]", "");
+int l = s.length();
+return (n > s.length()) ? "Number of vowels mismatch!!!" : s.substring(s.length() - n);
+	
+> check valid hex code
+return text.matches("#[0-9A-Fa-f]{6}");
+
+> Reverse words of length >3 => Q28
+
+> Check Mathematical Expression
+return text.matches("((?:(?:^|[-+_*/])(?:\\s*-?\\d+(\\.\\d+)?(?:[eE][+-]?\\d+)?\\s*))+$)");
+
+
 1. String contains alphabets or numbers
 
 public static boolean validate(String text) {
@@ -209,10 +223,56 @@ Regex explanation:
 [- ]? - May have another optional "-" after numeric digits
 (\\d{4})$ - ends with four digits
 
-    23. Separate consonant & vowel
+    23. Move lower case letters to front
+    public static String validate(String text) {
+        return text.replaceAll("[A-Z]", "") + text.replaceAll("[a-z]", "");
+   }
+
+    24. Separate consonant & vowel
     public static String validate(String text) {
 		String text1 = text.replaceAll("(?i)[^aeiou]", "");
 		String text2 = text.replaceAll("(?i)[aeiou]", "");
 		return text2 + text1;
    }
     
+    25. Get last n vowels
+    public static String validate(String text, int n) {
+		String s = text.replaceAll("(?i)[^aeiou]", "");
+		int l = s.length();
+		return (n > s.length()) ? "Number of vowels mismatch!!!" : s.substring(s.length() - n);
+   }
+   
+   26. Check hex code valid
+   public static boolean validate(String text) {
+	   return text.matches("#[0-9A-Fa-f]{6}");
+   }
+   
+   27. Add dash before & after vowels
+   public static String validate(String text) {
+	   return text.replaceAll("([AEIOUaeiou])","-$1-");
+   }
+   
+   28. Reverse words of length higher than 3
+    public static String validate(String text) {
+	    String[] words = text.split(" ");
+        StringBuilder result_str = new StringBuilder();
+        for (String word : words) {
+            if (word.length() >= 4) {
+                result_str.append(new StringBuilder(word).reverse());
+            } else {
+                result_str.append(word);
+            }
+            result_str.append(" ");
+        }
+        return result_str.toString().trim();
+    }
+    
+    29. Check Mathematical Expression
+    public static boolean validate(String text) {
+	   return text.matches("((?:(?:^|[-+_*/])(?:\\s*-?\\d+(\\.\\d+)?(?:[eE][+-]?\\d+)?\\s*))+$)");
+    }
+    
+    30. Insert dash(-) between upper case and lower case
+    public static String validate(String text) {
+	   return text.replaceAll("(?<=[A-Z])(?=[a-z])", "-");
+    }

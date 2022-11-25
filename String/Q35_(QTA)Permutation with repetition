@@ -1,0 +1,59 @@
+35. Write a Java program to print all permutations of a given string with repetition.
+
+import java.util.*;
+public class Main {
+
+ public static void main(String[] args) {
+  permutationWithRepeation("PQR");
+
+ }
+
+ private static void permutationWithRepeation(String str1) {
+  System.out.println("The given string is: PQR");
+  System.out.println("The permuted strings are:");
+  showPermutation(str1, "");
+ }
+
+ private static void showPermutation(String str1, String NewStringToPrint) {
+
+  if (NewStringToPrint.length() == str1.length()) {
+   System.out.println(NewStringToPrint);
+   return;
+  }
+  for (int i = 0; i < str1.length(); i++) {
+
+   showPermutation(str1, NewStringToPrint + str1.charAt(i));
+  }
+ }
+}
+
+>>
+The given string is: PQR
+The permuted strings are:
+PPP
+PPQ
+PPR
+PQP
+PQQ
+PQR
+PRP
+PRQ
+PRR
+QPP
+QPQ
+QPR
+QQP
+QQQ
+QQR
+QRP
+QRQ
+QRR
+RPP
+RPQ
+RPR
+RQP
+RQQ
+RQR
+RRP
+RRQ
+RRR

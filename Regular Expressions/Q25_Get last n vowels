@@ -1,0 +1,53 @@
+25. Write a Java program to get last n vowels of a given string.
+
+public class test {
+ 
+   public static void main(String[] args) {	   
+	    String text = "Java";
+		int n = 2;
+		System.out.println("Original String: "+text);
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));
+		text = "JavaScript";
+		n = 2;
+		System.out.println("Original String: "+text);
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));
+		n = 3;
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));
+		text = "SQLite";
+		n = 2;
+		System.out.println("Original String: "+text);
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));
+		text = "The quick brown fox jumps over the lazy dog.";
+		n = 2;
+		System.out.println("Original String: "+text);
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));
+		n = 3;
+		System.out.println("Original String: "+text);
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));
+		n = 15;
+		System.out.println("Original String: "+text);
+		System.out.println("Last "+ n + " vowels of a given string: "+validate(text,n));		
+	}
+
+   public static String validate(String text, int n) {
+		String s = text.replaceAll("(?i)[^aeiou]", "");
+		int l = s.length();
+		return (n > s.length()) ? "Number of vowels mismatch!!!" : s.substring(s.length() - n);
+   }
+}
+
+>>
+Original String: Java
+Last 2 vowels of a given string: aa
+Original String: JavaScript
+Last 2 vowels of a given string: ai
+Last 3 vowels of a given string: aai
+Original String: SQLite
+Last 2 vowels of a given string: ie
+Original String: The quick brown fox jumps over the lazy dog.
+Last 2 vowels of a given string: ao
+Original String: The quick brown fox jumps over the lazy dog.
+Last 3 vowels of a given string: eao
+Original String: The quick brown fox jumps over the lazy dog.
+Last 15 vowels of a given string: Number of vowels mismatch!!!
+Pictorial Presentation:

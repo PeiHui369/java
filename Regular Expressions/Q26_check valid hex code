@@ -1,0 +1,45 @@
+26. Write a Java program to check whether a given string is a valid hex code or not.
+
+// A hexadecimal color value is a six-digit code preceded by a # sign, and is exactly 6 characters in length. Each character must be an alphabetic character from A-F (uppercase or lowercase.) or a digit from 0-9.
+
+public class test {
+ 
+   public static void main(String[] args) {	   
+	    String text = "123456";
+		System.out.println("Original String: "+text);
+		System.out.println("Check the said string is a valid hex code or not? "+validate(text));
+		text = "#eaecff";
+		System.out.println("\nOriginal String: "+text);
+		System.out.println("Check the said string is a valid hex code or not? "+validate(text));
+		text = "#FF0000";
+		System.out.println("\nOriginal String: "+text);
+		System.out.println("Check the said string is a valid hex code or not? "+validate(text));
+		text = "#DD5C5C";
+		System.out.println("\nOriginal String: "+text);
+		System.out.println("Check the said string is a valid hex code or not? "+validate(text));
+		text = "#0000000";
+		System.out.println("\nOriginal String: "+text);
+		System.out.println("Check the said string is a valid hex code or not? "+validate(text));		
+	}
+
+   public static boolean validate(String text) {
+	   return text.matches("#[0-9A-Fa-f]{6}");
+   }
+}
+
+>>
+Original String: 123456
+Check the said string is a valid hex code or not? false
+
+Original String: #eaecff
+Check the said string is a valid hex code or not? true
+
+Original String: #FF0000
+Check the said string is a valid hex code or not? true
+
+Original String: #DD5C5C
+Check the said string is a valid hex code or not? true
+
+Original String: #0000000
+Check the said string is a valid hex code or not? false
+

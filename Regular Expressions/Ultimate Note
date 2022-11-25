@@ -20,7 +20,16 @@ Matcher m = pattern.matcher(text);
 - Remove leading zeros from IP address: str.replaceAll("(?<=^|\\.)0+(?!\\.|$)","");}
 - Check if a word present: str.contains("python")) 
 - Count no.of vowels: return text.replaceAll("[^aeiouAEIOU]", "").length();
-- Remove all vowels: String result = text.replaceAll("(?i)[aeiou]", "");
+- Remove all vowels: String result: text.replaceAll("(?i)[aeiou]", "");
+- Replace vowels with specified char: text.replaceAll("[aeiouAEIOU]", "" + chr);
+
+> Count
+- num of d.p.: 
+if(n.contains("."))
+	return n.replaceAll(".*\\.(?=\\d?)", "").length();
+		return 0;
+		
+
 
 1. String contains alphabets or numbers
 
@@ -142,5 +151,7 @@ public static String validate(String text) {
 	   String result = text.replaceAll("(?i)[aeiou]", "");
 	   return result;
 	   }
+	   
+
    
    

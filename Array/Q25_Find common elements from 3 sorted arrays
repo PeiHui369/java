@@ -1,0 +1,61 @@
+25. Write a Java program to find common elements from three sorted (in non-decreasing order) arrays. 
+
+import java.util.*;
+public class Exercise25 {
+public static void main(String[] args) {
+	ArrayList<Integer> common = new ArrayList<Integer>();
+   int array1[] = {2, 4, 8};
+   int array2[] = {2, 3, 4, 8, 10, 16};
+   int array3[] = {4, 8, 14, 40};
+   
+	int x = 0, y = 0, z = 0;
+	while (x < array1.length && y < array2.length && z < array3.length){
+  //same length add
+		if (array1[x] == array2[y] && array2[y] == array3[z]){
+			common.add(array1[x]);
+			x++;
+			y++;
+			z++;
+		}
+		else if (array1[x] < array2[y])
+			x++;
+		else if (array2[y] < array3[z])
+			y++;
+		else
+			z++;
+	}
+	System.out.println("Common elements from three sorted (in non-decreasing order ) arrays: ");
+System.out.println(common);
+}
+}
+
+
+    /* 1st loop
+    x: 2
+    y: 2
+    z: 4
+    so y < z, y++;
+    
+    2nd loop
+    x: 2
+    y: 3
+    z: 4
+    so x < y, x++;
+    
+    3rd loop
+    x: 4
+    y: 3
+    z: 4
+    so y < z, y++;
+    
+    4th loop
+    x: 4
+    y: 4
+    z: 4
+    x = y = z, so add 4 into ArrayList
+    */
+    
+
+>>                                                                                 
+Common elements from three sorted (in non-decreasing order ) arrays:   
+[4, 8]

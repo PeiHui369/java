@@ -22,6 +22,7 @@ Matcher m = pattern.matcher(text);
 - Count no.of vowels: return text.replaceAll("[^aeiouAEIOU]", "").length();
 - Remove all vowels: String result: text.replaceAll("(?i)[aeiou]", "");
 - Replace vowels with specified char: text.replaceAll("[aeiouAEIOU]", "" + chr);
+- Remove specific letter from str: String s = text.replaceAll("(?i)[pqr]", "");
 
 > Count
 - num of d.p.: 
@@ -29,8 +30,22 @@ if(n.contains("."))
 	return n.replaceAll(".*\\.(?=\\d?)", "").length();
 		return 0;
 		
+> no. of digits validity(PIN: 4, 6, 8)
+name.matches("\\d{4}|\\d{6}|\\d{8}")
 
+> set thousands separator
+return(Integer.parseInt(num.substring(0, len-3))) + '#' + num.substring(len-3);} //.substring(beginIindex, endIndex)
 
+> remove all non-alphanumeric characters
+return text.replaceAll("(?i)[^A-Z]", "");
+
+> validate phone number (follow rules)
+
+> 
+text1 = text.replaceAll("(?i)[^aeiou]", "");//get consonants, vowels become ""
+text2 = text.replaceAll("(?i)[aeiou]", ""); //get vowels, consonant become ""
+		
+		
 1. String contains alphabets or numbers
 
 public static boolean validate(String text) {
@@ -152,6 +167,52 @@ public static String validate(String text) {
 	   return result;
 	   }
 	   
+   18. no. of digits validity(PIN: 4, 6, 8)
+   public static boolean validate(String n) {
+	   return n.matches("\\d{4}|\\d{6}|\\d{8}");
+   }
+   
+   
+   19. Remove specific letter from str
+   public static String validate(String text) {
+	     	String s = text.replaceAll("(?i)[pqr]", "");
+    return text.equals(s) ? "Not found." : s;
+   }
 
+   20. set thousands separator
+   public static String validate(int n) {
+		String num = Integer.toString(n);
+		int len = num.length();
+		if(len < 4) {
+			return num;
+		}
+		//You can use any character as separator 
+		return validate(Integer.parseInt(num.substring(0, len-3))) + '#' + num.substring(len-3);
+   }
+
+   21. remove non-alphanumeric char
+   public static String validate(String text) {
+        return text.replaceAll("(?i)[^A-Z]", "");
+   }
    
+   22. Validate a phone number follow given rules
+    public static Boolean validate(String text) {
+        return text.matches("\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}");
+   }
    
+Regex explanation:
+^\\(? - May start with an option "("
+(\\d{3}) - Followed by 3 digits
+\\)? - May have an optional ")"
+[- ]? - May have an optional "-" after the first 3 digits or after optional ) character
+(\\d{3}) - Followed by 3 digits.
+[- ]? - May have another optional "-" after numeric digits
+(\\d{4})$ - ends with four digits
+
+    23. Separate consonant & vowel
+    public static String validate(String text) {
+		String text1 = text.replaceAll("(?i)[^aeiou]", "");
+		String text2 = text.replaceAll("(?i)[aeiou]", "");
+		return text2 + text1;
+   }
+    

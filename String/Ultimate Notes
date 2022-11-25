@@ -31,5 +31,9 @@ str.toLoweCase()
 str.trim();
 
 
+
+<QTA>
+Q32_QTA[Find longest Palindromic Substring]
+Q33_(QTA)find all interleavings
         
         

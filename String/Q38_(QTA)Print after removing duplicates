@@ -1,0 +1,26 @@
+38. Write a Java program to print after removing duplicates from a given string. 
+#Q: Line 15,16
+
+import java.util.*;
+public class Main {
+ public static void main(String[] args) {
+  String str1 = "w3resource";
+  System.out.println("The given string is: " + str1);
+  System.out.println("After removing duplicates characters the new string is: " + removeDuplicateChars(str1));
+ }
+ private static String removeDuplicateChars(String sourceStr) {
+  char[] arr1 = sourceStr.toCharArray();
+  String targetStr = "";
+  for (char value: arr1) {
+   if (targetStr.indexOf(value) == -1) {
+    targetStr += value;
+   }
+  }
+  return targetStr;
+ }
+}
+
+
+>>
+The given string is: w3resource
+After removing duplicates characters the new string is: w3resouc

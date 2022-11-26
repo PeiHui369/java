@@ -1,0 +1,38 @@
+25. Find common elements from 3 sorted arrays
+  int x = 0, y = 0, z = 0;
+	while (x < array1.length && y < array2.length && z < array3.length){
+		if (array1[x] == array2[y] && array2[y] == array3[z]){
+			common.add(array1[x]);
+			x++;
+			y++;
+			z++;
+		}
+		else if (array1[x] < array2[y])
+			x++;
+		else if (array2[y] < array3[z])
+			y++;
+		else
+			z++;
+	}
+  
+  27. No. of odd & even
+  if(array_nums[i] % 2 == 0)
+			ctr++;
+  - even = ctr;
+  - odd = array_nums.length - ctr
+  
+  28. To get max & min
+  if(array_nums[i] > max)
+			max = array_nums[i];
+		else if(array_nums[i] < min)
+			min = array_nums[i];
+      
+  29. Check array without 0 and -1
+  for (int number : numbers) {
+      if (number == 0 || number == -1) {
+        return false;
+      }
+    }
+    
+    
+      

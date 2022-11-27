@@ -1,0 +1,38 @@
+- store items in "key/value" pairs (Can different types)
+
+> Create
+HashMap<String, String> objectName = new HashMap<String, String>();
+
+> Add items
+objectName.put("key","value")
+
+> Access item
+objectName.get("key")
+
+> Remove an item
+objectName.remove("key")
+
+> Remove all item
+objectName.clear();
+
+> Size
+objectName.size();
+
+> Loop through
+- If only want keys
+for(String i : objectName.keySet()){
+  System.out.println(i)
+  }
+  
+- If only want values
+for(String i : objectName.values()){
+  System.out.println(i)
+  }
+  
+- If want both keys & values
+for (String i : objectName.keySet()){
+  System.out.println("key: " + i + " value: " + objectName.get(i));
+ }
+ 
+ 
+  

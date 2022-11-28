@@ -1,0 +1,58 @@
+49. Write a Java program to find first non-repeating character from a stream of characters.
+
+import java.util.*;
+
+public class Main {
+
+public static void main(String[] args) 
+{  
+  
+int MXCHAR = 256;
+ 
+  List < Character > inDLL = new ArrayList < Character > ();
+  boolean[] repeatyn = new boolean[MXCHAR];
+  String chrstream = "godisgood";
+  System.out.println("String: " + chrstream);
+  for (int i = 0; i < chrstream.length(); i++) {
+   char x = chrstream.charAt(i);
+   System.out.println("Reading: " + x);
+   
+   if (!repeatyn[x]) { //default value will always be false
+    
+    if (!(inDLL.contains(x))) { //if not contains in list, will be added
+     inDLL.add(x);
+    } else {
+     inDLL.remove((Character) x); //if contains in list, will be removed
+     repeatyn[x] = true; //now the boolean true again, repeated value has been removed
+    }
+   }
+   
+   if (inDLL.size() != 0) { //if the list size not zero, contain value
+    System.out.print("The first non-repeating character so far is:  "); 
+    System.out.println(inDLL.get(0)); //print out the first value in list
+   }
+  }
+ }
+
+}
+
+>>
+String: godisgood
+Reading: g
+The first non-repeating character so far is:  g
+Reading: o
+The first non-repeating character so far is:  g
+Reading: d
+The first non-repeating character so far is:  g
+Reading: i
+The first non-repeating character so far is:  g
+Reading: s
+The first non-repeating character so far is:  g
+Reading: g
+The first non-repeating character so far is:  o
+Reading: o
+The first non-repeating character so far is:  d
+Reading: o
+The first non-repeating character so far is:  d
+Reading: d
+The first non-repeating character so far is:  i

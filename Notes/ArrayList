@@ -1,0 +1,40 @@
+- size can modified: can add/remove item
+
+> Create
+ArrayList <Type> name = new ArrayList <Type> ();
+
+> Add items
+name.add()
+
+> Access item
+name.get(indexNo)
+
+> Change
+name.set(indexNo, "new")
+
+> Remove
+name.remove(indexNo)
+
+> Remove all elements
+name.clear()
+
+> Size
+name.size()
+
+> Loop
+for (int i = 0; i < name.length(); i++){
+  System.out.println(name.get(i));
+  }
+
+or
+
+for (Type i : name){
+  System.out.println(i);
+}
+
+> Type
+Integer, Boolean, Character, Double
+
+> Sort
+Collections.sort(name)
+

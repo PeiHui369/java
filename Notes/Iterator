@@ -1,0 +1,15 @@
+- collection is changing size
+
+> Getting
+Iterator <Type> itName = arrlistName.iterator();
+
+> Print 1st item
+System.out.println(itName.next)
+
+> Loop
+while(itName.hasNext()){
+  System.out.println(itName.next())
+  }
+  
+> Remove
+itName.remove()

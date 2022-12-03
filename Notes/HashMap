@@ -1,0 +1,33 @@
+HashMap <Type, Type> name = new HashMap <Type, Type>();
+
+> Add
+name.put("key", "value)
+
+> Acess
+name.get("key")
+
+> Remove
+name.remove("key")
+
+> Remove all
+name.clear();
+
+> Size
+name.size()
+
+> Print keys
+for (Type i : name.keySet()){
+  System.out.println(i);
+  }
+  
+> Print values
+for (Type i : name.values()){
+  System.out.println(i);
+  }
+  
+> Print keys & values
+for (Type i : name.keySet()){
+  System.out.println("key: " + i + " value: " + name.get(i));
+  }
+  
+

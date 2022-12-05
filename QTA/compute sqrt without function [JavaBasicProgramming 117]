@@ -1,0 +1,180 @@
+117. Write a Java program to compute the square root of a given integer.
+QUES: Line 33-51
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Input a positive integer: ");
+        int num = keyboard.nextInt();
+        keyboard.close();
+        int root = (int)Math.sqrt(num);
+        System.out.printf("Square root of %d is: %d",num,root);
+        }
+    }
+
+====================================================================
+<SELF MADE sqrt MEHTOD>
+
+import java.util.*; 
+public class Exercise117 {
+ public static void main(String[] args)
+ {
+        int num;
+        Scanner in = new Scanner(System.in);	
+        System.out.print("Input a positive integer: ");
+        int n = in.nextInt(); 
+        System.out.printf("Square root of %d is: ",n);
+		System.out.println(sqrt(n)); 
+    }
+    
+private static int sqrt(int num) {
+        if (num == 0 || num == 1) {
+			return num;
+		}
+		int a = 0;
+		int b = num;
+		while (a <= b) {
+			int mid = (a + b) >> 1;
+			if (num / mid < mid) {
+				b = mid - 1;
+			} else {
+				if (num / (mid + 1) <= mid) {
+					return mid;
+				}
+				a = mid + 1;
+			}
+		}
+		return a;
+	}
+}
+
+====================================================================
+<DICTIONARY>
+1. >> Signed Right Shift Operator
+- The left operands value is moved right by the number of bits specified by the right operand.
+
+Assume if a = 60 and b = -60; now in binary format, they will be as follows −
+
+a = 0000 0000 0000 0000 0000 0000 0011 1100
+b = 1111 1111 1111 1111 1111 1111 1100 0100
+In Java, negative numbers are stored as 2's complement.
+
+Thus a >> 1 = 0000 0000 0000 0000 0000 0000 0001 1110
+And b >> 1 = 1111 1111 1111 1111 1111 1111 1110 0010
+
+===========================================================================
+<EXPLANATION>
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        int num=25;
+        if (num == 0 || num == 1) {
+            System.out.println(num);
+        }
+        int a = 0;
+        int b = num;
+        while (a <= b) {
+            int mid = (a + b)/2;# //25 right shift become 2, add 1 infront to balance
+            System.out.println("a+b: "+(a+b));
+            System.out.println("m: "+mid);
+            System.out.println("num: "+num);
+            if (num / mid < mid) {
+                System.out.println("if num/mid < mid: "+num/mid +"<" +mid);
+                b = mid - 1;
+                System.out.println("b: "+b);
+            } else {
+                if (num / (mid + 1) <= mid) {
+                    System.out.println("num/(mid+1): "+num/(mid+1)+" <= mid"+mid);
+                    System.out.println(mid);
+                }
+                a = mid + 1;
+                System.out.println(a);
+            }
+        }
+    }
+}
+
+>> #Longer
+a+b: 25
+m: 12
+num: 25
+if num/mid < mid: 2<12
+b: 11
+a+b: 11
+m: 5
+num: 25
+num/(mid+1): 4 <= mid5
+5
+6
+a+b: 17
+m: 8
+num: 25
+if num/mid < mid: 3<8
+b: 7
+a+b: 13
+m: 6
+num: 25
+if num/mid < mid: 4<6
+b: 5
+
+OR
+
+import java.util.Scanner;
+public class w3 {
+
+    public static void main(String[] args) {
+        int num=25;
+        if (num == 0 || num == 1) {
+            System.out.println(num);
+        }
+        int a = 0;
+        int b = num;
+        while (a <= b) {
+            int mid = (a + b) >> 1;# //25 right shift become 2, add 1 infront to balance
+            System.out.println("a+b: "+(a+b));
+            System.out.println("m: "+mid);
+            System.out.println("num: "+num);
+            if (num / mid < mid) {
+                System.out.println("if num/mid < mid: "+num/mid +"<" +mid);
+                b = mid - 1;
+                System.out.println("b: "+b);
+            } else {
+                if (num / (mid + 1) <= mid) {
+                    System.out.println("num/(mid+1): "+num/(mid+1)+" <= mid"+mid);
+                    System.out.println(mid);
+                }
+                a = mid + 1;
+                System.out.println(a);
+            }
+        }
+    }
+}
+
+a+b: 25
+m: 12
+num: 25
+if num/mid < mid: 2<12
+b: 11
+a+b: 11
+m: 5
+num: 25
+num/(mid+1): 4 <= mid5
+5
+6
+a+b: 17
+m: 8
+num: 25
+if num/mid < mid: 3<8
+b: 7
+a+b: 13
+m: 6
+num: 25
+if num/mid < mid: 4<6
+b: 5
+
+
+
+

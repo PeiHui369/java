@@ -1,0 +1,63 @@
+69. Write a Java program to find minimum subarray sum of specified size in a given array of integers.
+Ques: why is line
+
+Example:
+Input :
+nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9,10}
+Output:
+Sub-array size: 4
+Sub-array from 0 to 3 and sum is: 10
+
+===
+
+import java.util.*;
+class solution {
+
+	public static int [] find_min_subarray_sum(int[] nums, int k)
+	{
+		int sub_arr_sum = 0;
+		int min_sub_arr = Integer.MAX_VALUE;
+		int last = 0;
+		int[] result = new int[3];
+
+		for (int i = 0; i < nums.length; i++)
+		{
+    //Add all the element
+			sub_arr_sum += nums[i];
+
+			if (i + 1 >= k)
+			{
+      //if i equals the specified size, we set the min_sub_arr as the current sub_arr_sum, and last as the indexNo. of last element
+      //as when i exceeds k, the sub_arr_sum > min_sub_arr, the below codes does not function
+				if (min_sub_arr > sub_arr_sum)
+				{
+					min_sub_arr = sub_arr_sum;
+					last = i;
+				}
+        
+        //Minus all the element which exceeds the size from the sub_arr_sum as they should not be included
+				sub_arr_sum -= nums[i + 1 - k];
+			}
+		}
+		result[0] = last - k + 1;
+		result[1] = last;
+		result[2] = min_sub_arr;
+		return result;		
+	}
+
+	public static void main(String[] args)
+	{
+		int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9,10};
+		int k = 4;
+        System.out.printf("\nOriginal array: "+Arrays.toString(nums));
+		System.out.printf("\nSub-array size: %d", k);
+		int [] result = find_min_subarray_sum(nums, k);
+		System.out.printf("\nSub-array from %d to %d and sum is: %d", result[0], result[1], result[2]);
+	}
+}
+
+
+>>
+Original array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Sub-array size: 4
+Sub-array from 0 to 3 and sum is: 10

@@ -1,5 +1,5 @@
 108. Write a Java program to add all the digits of a given positive integer until the result has a single digit.
-> Ques ask: Line 12 how function?
+
 
 import java.util.Scanner;
 public class Example108 {
@@ -10,6 +10,10 @@ public class Example108 {
 		if (n>0)
 		{
            System.out.print("The single digit number is: "+(n == 0 ? 0 : (n % 9 == 0 ? 9 : n % 9)));
+	   /*
+	   is n equals to 0? if yes, then n is 0; if no, try find out value as below
+	   is n % 9 equals to 0? if yes, the n is 9; if no, the n is the remainder when divide by 9
+	   */
 		}
 		System.out.println("\n");  
     }

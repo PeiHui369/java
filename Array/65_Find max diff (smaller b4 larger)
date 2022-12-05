@@ -1,0 +1,37 @@
+65. Write a Java program to find maximum difference between two elements in a given array of integers such that smaller element appears before larger element.   Go to the editor
+
+Example:
+Input :
+nums = { 2, 3, 1, 7, 9, 5, 11, 3, 5 }
+Output:
+The maximum difference between two elements of the said array elements
+10
+
+import java.util.Arrays;
+class solution
+{
+  public static int diff_between_two_elemnts(int[] nums)
+	{
+  //Initialize
+		int diff_two_elemnts = Integer.MIN_VALUE;
+
+  //Compare one element with all other elements
+		for (int i = 0; i < nums.length - 1; i++) {
+			for (int j = i + 1; j < nums.length; j++) {
+  //diff_two_elemnts will be the larger number (initialize value/ difference value)
+  //use nums[j] - nums[i] because larger-smaller as stated in condition
+				diff_two_elemnts = Integer.max(diff_two_elemnts,nums[j] - nums[i]);
+			}
+		}
+
+		return diff_two_elemnts;
+	}
+
+	public static void main(String[] args)
+	{
+		int[] nums = { 2, 3, 1, 7, 9, 5, 11, 3, 5 };
+		System.out.println("\nOriginal array: "+Arrays.toString(nums));
+
+		System.out.print("The maximum difference between two elements of the said array elements\n" + diff_between_two_elemnts(nums));
+	}
+}

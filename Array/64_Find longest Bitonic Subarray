@@ -1,0 +1,175 @@
+64. Write a Java program to find Longest Bitonic Subarray in a given array.   
+
+A bitonic subarray is a subarray of a given array where elements are first sorted in increasing order, then in decreasing order. 
+A strictly increasing or strictly decreasing subarray is also accepted as bitonic subarray.
+
+Example:
+Input :
+nums = { 4, 5, 9, 5, 6, 10, 11, 9, 6, 4, 5 }
+Output:
+The longest bitonic subarray is [3,9]
+Elements of the said sub-array: 5 6 10 11 9 6 4
+The length of longest bitonic subarray is 7
+
+===
+
+import java.util.Arrays;
+class solution
+{
+	public static int find_Bitonic_Subarray(int[] nums)
+	{
+		int[] incre_array = new int[nums.length];
+		incre_array[0] = 1;
+		for (int i = 1; i < nums.length; i++) {
+			incre_array[i] = 1;
+			if (nums[i - 1] < nums[i]) {
+				incre_array[i] = incre_array[i - 1] + 1;
+			}
+		}
+ 
+ /*
+ incre_array[0] = 1
+ for (int i = 1; i<11; i++){
+  incre_array[1] = 1
+  if( nums[0] < nums[1] ) { //(4<5)
+  incre_array[1] = incre_array[0] + 1 = 1+1 = 2
+  
+  incre_array[2] = 1
+  (5<9)
+  incre_array[2] = incre_array[1] + 1 = 2+1 = 3
+  
+  incre_array[3] = 1
+  (9<6) False
+  
+  ...
+  }
+  
+ >> incre_array = { 1, 2, 3, 1, 2, 3, 4, 1, 1, 1, 2 }
+ */
+
+		int[] decre_array = new int[nums.length];
+		decre_array[nums.length - 1] = 1;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			decre_array[i] = 1;
+			if (nums[i] > nums[i + 1]) {
+				decre_array[i] = decre_array[i + 1] + 1;
+			}
+		}
+    
+/*
+decre_array[11-1] = decre_array[10] = 1
+for(int i = 11-2 = 9; i>=0; i--) {
+  decre_array[9] = 1
+  if (nums[9] > nums[10]){ // (4 > 5) FALSE
+  
+   decre_array[8] = 1
+  if (nums[8] > nums[9]){ // (6 > 4) TRUE
+    decre_array[8] = decre_array[9] + 1 = 1+1 = 2 }
+    
+    decre_array[7] = 1
+  if (nums[7] > nums[8]){ // (9 > 6) TRUE
+    decre_array[7] = decre_array[8] + 1 = 2+1 = 3 }
+    
+    decre_array[6] = 1
+  if (nums[6] > nums[7]){ // (11 > 9) TRUE
+    decre_array[6] = decre_array[7] + 1 = 3+1 = 4 }
+    
+    decre_array[5] = 1
+  if (nums[5] > nums[6]){ // (10 > 11) FALSE
+  
+  decre_array[4] = 1
+  if (nums[4] > nums[5]){ // (6 > 10) FALSE
+  
+    decre_array[3] = 1
+  if (nums[3] > nums[4]){ // (5 > 6) FALSE
+  
+  decre_array[2] = 1
+  if (nums[2] > nums[3]){ // (9 > 5) TRUE
+    decre_array[2] = decre_array[3] + 1 = 1+1 = 2
+ 
+  decre_array[1] = 1
+  if (nums[1] > nums[2]){ // (5 > 6) FALSE
+  
+    decre_array[0] = 1
+  if (nums[0] > nums[1]){ // (4 > 5) FALSE
+    }
+>> decre_array = { 1, 1, 2, 1, 1, 1, 4, 3, 2, 1, 1 } 
+*/
+
+		int lbs_len = 1;
+		int start = 0, end = 0;
+
+		for (int i = 0; i < nums.length; i++)
+		{
+			if (lbs_len < incre_array[i] + decre_array[i] - 1)
+			{
+				lbs_len = incre_array[i] + decre_array[i] - 1;
+				start = i - incre_array[i] + 1;
+				end = i + decre_array[i] - 1;
+			}
+		}
+
+/*
+incre_array = { 1, 2, 3, 1, 2, 3, 4, 1, 1, 1, 2 }
+decre_array = { 1, 1, 2, 1, 1, 1, 4, 3, 2, 1, 1 } 
+
+i=0
+if( 1 < 1) FALSE
+
+i=1
+if( 1 < 2) 
+lbs_len = 2+1-1 = 2
+start = 1 - 2 + 1 = -2
+end = 1 + 1 - 1 = 1
+
+i=2
+if( 2 < 4) 
+lbs_len = 3+2-1 = 4
+start = 2 - 3 + 1 = 0
+end = 2 + 2 - 1 = 3
+
+i=3
+if( 4 < 1) FALSE
+
+i=4
+if( 4 < 2) FALSE
+
+i=5
+if( 4 < 3) FALSE
+
+i=6
+if( 4 < 7) TRUE
+lbs_len = 4+4-1 =7
+start = 6 - 4 + 1 = 3
+end = 6 + 4 - 1 = 9
+
+i=7,8,9,10 
+FALSE
+
+([start,end])         The longest bitonic subarray is [3,9]
+(nums[start:end+1])   Elements of the said sub-array: 5, 6, 10, 11, 9, 6, 4
+//for(int x = 3; x<=9; x++) {System.out.print(nums[3]+" ");}
+(lbs_len)             The length of longest bitonic subarray is: 7
+*/
+
+		// print longest bitonic sub-array
+		System.out.println("The longest bitonic subarray is [" + start + "," + end + "]");
+		System.out.print("Elements of the said sub-array: ");
+	    for (int x = start; x <= end; x++)
+	     {
+			
+		  System.out.print(nums[x]+" ");			
+		 }	
+
+		System.out.println("\nThe length of longest bitonic subarray is " + lbs_len);
+
+		return lbs_len;
+	}
+
+	public static void main(String[] args)
+	{
+		int[] nums = { 4, 5, 9, 5, 6, 10, 11, 9, 6, 4, 5 };
+		System.out.println("\nOriginal array: "+Arrays.toString(nums));
+		find_Bitonic_Subarray(nums);
+	}
+}

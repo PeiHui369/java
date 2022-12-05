@@ -1,0 +1,74 @@
+156. Write a Java program that returns the largest integer but not larger than the base-2 logarithm of a specified integer. 
+ i) log2 n = a round down to integer, OR
+ ii) calc no. of times n/2 can be done, not >1, the no. 
+
+Original Number: 2350
+Result: 115
+
+--------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class Solution {
+	     
+    public static void main(String[] args) {
+        int n = 2350;
+		System.out.printf("Original Number: %d\n", n);
+		int shift_right_count = 0;
+        do {
+            n >>= 1;
+            shift_right_count++;
+        } while (n != 0);
+         shift_right_count--;
+        System.out.printf("Result: %s\r\n", shift_right_count);
+    }
+}
+
+===============================================================================================
+<ANALYSIS>
+import java.util.Scanner;
+public class Main {
+	     
+    public static void main(String[] args) {
+        int n = 2350;
+		System.out.printf("Original Number: %d\n", n);
+		int shift_right_count = 0;
+        do {
+            n >>= 1; //Divide by 2
+            shift_right_count++; //Calc can divide by 2 how many times
+            //Since is integer, does not print decimal
+            System.out.println(n);
+            System.out.println(shift_right_count);
+            //when n/2 = 0.x, will end the loop, and decrease count by 1(because does not included)
+        } while (n != 0);
+         shift_right_count--;
+        System.out.printf("Result: %s\r\n", shift_right_count);
+    }
+}
+
+>>
+Original Number: 2350
+1175
+1
+587
+2
+293
+3
+146
+4
+73
+5
+36
+6
+18
+7
+9
+8
+4
+9
+2
+10
+1
+11
+0
+12
+Result: 11
+ 

@@ -1,5 +1,5 @@
 105. Write a Java program to check if a group of numbers (l) at the start and end of a given array are same.
-//Ques ask: why end++
+//l: No. of numbers to check if same
 
 <OWN METHOD>
 
@@ -35,8 +35,8 @@ import java.io.*;
 	
 	int result = 0;
 	int l = 2;
-  int start = 0; //access first digit
-	int end = array_nums.length-l; //access last digit
+  	int start = 0; //access first digit
+	int end = array_nums.length-l; //access the first end digits to compare
 	for(; l > 0; l--)
 	{
 		if(array_nums[start] != array_nums[end])

@@ -1,0 +1,73 @@
+54. Write a Java program to check if a given array contains a subarray with 0 sum.   Go to the editor
+
+Example:
+Input :
+nums1= { 1, 2, -2, 3, 4, 5, 6 }
+nums2 = { 1, 2, 3, 4, 5, 6 }
+nums3 = { 1, 2, -3, 4, 5, 6 }
+Output:
+Does the said array contain a subarray with 0 sum: true
+Does the said array contain a subarray with 0 sum: false
+Does the said array contain a subarray with 0 sum: true
+
+===
+
+import java.io.*;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        int[] nums1 = { 1, 2, 3, 4, 5, 6 };
+
+        boolean zero = false;
+        for(int i = 0; i < nums1.length; i++){
+            for(int j = i + 1; j < nums1.length-1; j++){
+                if(Math.abs(nums1[i]) == Math.abs(nums1[j])){
+                    zero = true;
+                    break;
+                }
+            }
+        }
+        System.out.println(zero);
+    }
+}
+
+----
+<SAMPLE SOLUTION>
+
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Arrays;
+
+class solution
+{
+	public static Boolean find_subarray_sum_zero(int[] nums)
+	{
+		Set<Integer> set = new HashSet<>();
+		set.add(0);
+		int suba_sum = 0;
+		for (int i = 0; i < nums.length; i++)
+		{			
+			suba_sum += nums[i];
+
+     		if (set.contains(suba_sum)) {
+				return true;
+			}
+		set.add(suba_sum);
+		}
+
+		return false;
+	}
+
+	public static void main (String[] args)
+	{
+		int[] nums1= { 1, 2, -2, 3, 4, 5, 6 };
+		System.out.println("Original array: "+Arrays.toString(nums1));
+		System.out.println("Does the said array contain a subarray with 0 sum: "+find_subarray_sum_zero(nums1));		
+		int[] nums2 = { 1, 2, 3, 4, 5, 6 };
+		System.out.println("\nOriginal array: "+Arrays.toString(nums2));
+		System.out.println("Does the said array contain a subarray with 0 sum: "+find_subarray_sum_zero(nums2));	
+        int[] nums3 = { 1, 2, -3, 4, 5, 6 };
+		System.out.println("\nOriginal array: "+Arrays.toString(nums3));
+		System.out.println("Does the said array contain a subarray with 0 sum: "+find_subarray_sum_zero(nums3));
+	}
+}

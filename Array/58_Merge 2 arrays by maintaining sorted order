@@ -1,0 +1,78 @@
+58. Given two sorted arrays A and B of size p and q, write a Java program to merge elements of A with B by maintaining the sorted order 
+i.e. fill A with first p smallest elements and fill B with remaining elements.   
+
+Example:
+Input :
+int[] A = { 1, 5, 6, 7, 8, 10 }
+int[] B = { 2, 4, 9 }
+Output:
+Sorted Arrays:
+A: [1, 2, 4, 5, 6, 7]
+B: [8, 9, 10]
+
+===
+
+import java.util.Arrays;
+
+class solution
+{
+	public static void merge_sorted_arrays(int[] A, int p, int[] B, int q)
+	{
+		
+		for (int i = 0; i < p; i++)
+		{
+    //if A element bigger than first B element, swap value of both
+			if (A[i] > B[0])
+			{
+				int temp = A[i];
+				A[i] = B[0];
+				B[0] = temp;
+
+/*
+if ( 5>2 )
+int temp = 5
+A[1] = 2
+B[0] = 5
+A = { 1,2,6,7,8,10 }
+B = { 5,4,9 }
+
+int first_arr = B[0] = 5
+int k;
+for(k=1; k<3 && B[k]<first_arr; k++){ //fulfill condition for B[k] < first_arr as 4<5, or else skip this loop
+  B[1-1] = B[0] = B[1] = 4
+  //k + 1 = 1+1 = 2
+  }
+  B[2-1] = B[1] = 5;
+}
+A = { 1,2,6,7,8,10 }
+B = { 4,5,9 }
+*/
+				int first_arr = B[0];
+				int k;
+				for (k = 1; k < q && B[k] < first_arr; k++) {
+					B[k - 1] = B[k];
+				}
+
+				B[k - 1] = first_arr;
+			}
+		}
+	}
+
+	public static void main (String[] args)
+	{
+		int[] A = { 1, 5, 6, 7, 8, 10 };
+		int[] B = { 2, 4, 9 };
+		int p = A.length;
+		int q = B.length;
+
+		System.out.println("Original Arrays:");
+		System.out.println("A: " + Arrays.toString(A));
+		System.out.println("B: " + Arrays.toString(B));
+		
+		merge_sorted_arrays(A, p, B, q);
+        
+		System.out.println("\nSorted Arrays:");
+		System.out.println("A: " + Arrays.toString(A));
+		System.out.println("B: " + Arrays.toString(B));
+	}
+}

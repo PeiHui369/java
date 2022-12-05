@@ -12,8 +12,8 @@ public class Example114 {
      char[] A = str.toCharArray();
 	 int offset=3;
      int len = A.length;
-     offset %= len;
-     reverse(A, 0, len - offset - 1);
+     offset %= len; //offset = 3 [as 3/6 = 0 r 3]
+     reverse(A, 0, len - offset - 1); //len-offset-1 = 6 - 3 - 1 = 2
      reverse(A, len - offset, len - 1);
      reverse(A, 0, len - 1);
      System.out.println("\n"+Arrays.toString(A));

@@ -1,0 +1,60 @@
+114. Write a Java program to given a string and an offset, rotate string by offset (rotate from left to right).
+> Offset? From where to rotate (pictorial presentation at discord)
+> QUES: 
+reverse(A, 0, len - 1); get dbafec instead of defabc
+
+
+import java.util.*;
+import java.util.*;
+public class Example114 {
+     public static void main(String[] arg) 
+   {
+	 String str = "abcdef"; 
+     char[] A = str.toCharArray();
+	 int offset=3;
+     int len = A.length;
+     offset %= len; //offset = 3 [as 3/6 = 0 r 3]
+     reverse(A, 0, len - offset - 1); //len-offset-1 = 6 - 3 - 1 = 2
+     /* 
+     temp = [0] = a
+     [0] = [2] = c
+     [2] = a
+     >> cbadef
+     */
+    
+     reverse(A, len - offset, len - 1); //len - offset = 6-3 =3 //len - 1 = 6 - 1 =5
+     /* 
+     temp (= [3]) = d
+     [3] (= [5]) = f
+     [5] = temp = d
+     >> cbafed
+     */
+     
+     reverse(A, 0, len - 1);
+     /*
+     temp (=[0]) = c
+     [0] (=[5]) = d
+     [5] (=temp) = c
+     >> dbafec
+     */
+     
+     System.out.println("\n"+Arrays.toString(A));
+    }
+
+    private static void reverse(char[] str, int start, int end) {
+        while (start < end) {
+            char temp = str[start];
+            str[start] = str[end];
+            str[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+
+/*
+ offset %= len; 
+reverse(A, 0, len - offset - 1); 
+reverse(A, 0, len - 1);
+reverse(A, 0, len - 1); 
+use temp to hold value when swapping */

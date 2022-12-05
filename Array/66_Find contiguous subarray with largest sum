@@ -1,0 +1,75 @@
+66. Write a Java program to find contiguous subarray within a given array of integers which has the largest sum.
+
+In computer science, the maximum sum subarray problem is the task of finding a contiguous subarray with the largest sum, 
+within a given one-dimensional array A[1...n] of numbers. 
+Formally, the task is to find indices and with, such that the sum is as large as possible.
+
+Example:
+Input :
+int[] A = {1, 2, -3, -4, 0, 6, 7, 8, 9}
+Output:
+The largest sum of contiguous sub-array: 30
+
+/**KEYLINE**/
+- Add all elements, if sum<0 take 0 for next loop, the total sum is the contiguous subarray with largest sum
+
+===
+
+import java.util.Arrays;
+class solution	
+{
+	public static int largest_sum(int[] A)
+	{
+  //Initialize
+		int max_ele_val = 0;
+		int max_end = 0;
+    
+    //Loop through all element
+		for (int i: A)
+		{
+    //max_end = total sum
+			max_end = max_end + i;
+      
+    //if max_end<0, take 0 as max_end
+			max_end = Integer.max(max_end, 0);
+
+    //max_ele_val takes its previous value or max_end value, depends which larger
+			max_ele_val = Integer.max(max_ele_val, max_end);
+		}
+		return max_ele_val;
+	}
+	public static void main(String[] args)
+	{
+		int[] A = {1, 2, -3, -4, 0, 6, 7, 8, 9};
+		System.out.println("\nOriginal array: "+Arrays.toString(A));
+		System.out.println("The largest sum of contiguous sub-array: " + largest_sum(A));
+	}
+}
+
+/*
+max_end = 0 + 1 = 1
+max_end = Integer.max(1,0) = 1
+max_ele_val = Integer.max(0,1) = 1
+
+max_end = 3
+max_ele_val = 3
+
+max_end = 0
+max_ele_val = 3
+
+max_end = -4
+max_end = 0
+max_ele_val = 3
+
+max_end = 6
+max_ele_val = 6
+
+max_end = 13
+max_ele_val = 13
+
+max_end = 21
+max_ele_val = 21
+
+max_end = 30
+max_ele_val = 30
+*/

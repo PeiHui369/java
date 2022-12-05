@@ -1,0 +1,56 @@
+155. Write a Java program to print an array after changing the rows and columns of a given two-dimensional array. 
+
+Original Array:
+10 20 30
+40 50 60
+After changing the rows and columns of the said array:
+10 40
+20 50
+30 60
+
+/*LINE 29-33*/
+/*
+int[][] newArr == new int[oriArr[0].length][oriArr.length]
+for (int i = 0; i < oriArr.length; i++) {
+			for (int j = 0; j < oriArr[0].length; j++) { 
+				newArr[j][i] = oriArr[i][j];//#interchange [i][j]
+			}
+      */
+      
+-------------------------------------------------------------------------------------------------------------------
+<SAMPLE SOLUTION>
+import java.util.Scanner;
+public class Solution {
+	public static void main(String[] args) {
+		int[][] twodm = {
+				{10, 20, 30},
+				{40, 50, 60}
+		};
+		System.out.print("Original Array:\n");
+		print_array(twodm);
+		System.out.print("After changing the rows and columns of the said array:");
+		transpose(twodm);
+		}
+	
+	private static void transpose(int[][] twodm) {
+		
+		int[][] newtwodm = new int[twodm[0].length][twodm.length];
+		
+		for (int i = 0; i < twodm.length; i++) {//to access the row (no. of sub array)
+			for (int j = 0; j < twodm[0].length; j++) { //to access the columns (length of sub array)
+				newtwodm[j][i] = twodm[i][j];//#interchange [i][j]
+			}
+		}
+		print_array(newtwodm);
+	}
+	private static void print_array(int[][] twodm) {
+		for (int i = 0; i < twodm.length; i++) {
+			for (int j = 0; j < twodm[0].length; j++) {
+				System.out.print(twodm[i][j] + " ");
+			}
+			System.out.println();
+		}
+	
+	}
+}
+

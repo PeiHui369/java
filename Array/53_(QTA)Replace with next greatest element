@@ -1,0 +1,80 @@
+53. Write a Java program to replace every element with the next greatest element (from right side) in a given array of integers. 
+There is no element next to the last element, therefore replace it with -1.
+
+QTA: How is -6 reappear? (Line 27 vs Line 41)
+
+import java.io.*;
+import java.util.Arrays;
+public class Main 
+{
+   public static void main (String[] args)
+    {
+        int nums[] = {45, 20, 100, 23, -5, 2, -6};
+		int result[];
+		System.out.println("Original Array ");
+        System.out.println(Arrays.toString(nums));
+
+        result = next_greatest_num(nums);
+        System.out.println("The modified array:");
+        System.out.println(Arrays.toString(result));
+    }
+ 
+    static int [] next_greatest_num(int arr_nums[])
+    {
+        int size = arr_nums.length;
+        int max_from_right_num =  arr_nums[size-1]; //max_from_right_num = last element
+        arr_nums[size-1] = -1; //last element = -1
+ >> {45, 20, 100, 23, -5, 2, -1}
+ 
+        for (int i = size-2; i >= 0; i--) //compare start with second last element
+        {
+            int temp = arr_nums[i]; //store current element as temp
+            arr_nums[i] = max_from_right_num; //current element will be equals to the last element
+            if(max_from_right_num < temp) //if last element smaller than temp or smaller than current element
+            max_from_right_num = temp; //then last element will be current element value
+            
+            /*
+            arr_nums[5] = 2
+            temp = 2
+            arr_nums[5] = -6
+            if (-1 < 2) {maxFromRight = 2}
+            >> {45, 20, 100, 23, -5, -6, -1}
+            
+            arr_nums[4] = -5
+            temp = -5
+            arr_nums[4] = 2
+            if (2 < -5) FALSE
+            >> {45, 20, 100, 23, 2, -6, -1}
+            
+            arr_nums[3] = 23
+            temp = 23
+            arr_nums[3] = 2
+            if(2 < 23) {maxFromRight = 23}
+            >> {45, 20, 100, 2, 2, -6, -1}
+            
+            arr_nums[2] = 100
+            temp = 100
+            arr_nums[2] = 23
+            if(23 < 100) {maxFromRight = 100}
+            >> {45, 20, 23, 2, 2, -6, -1}
+            
+            arr_nums[1] = 20
+            temp = 20
+            arr_nums[2] = 100
+            if(100 < 20) FALSE
+            >> {45, 100, 23, 2, 2, -6, -1}
+            
+            arr_nums[1] = 45
+            temp = 45
+            arr_nums[1] = 100
+            if(45 < 100) FALSE
+            >> {100, 100, 23, 2, 2, -6, -1}
+            */
+        }
+        
+        
+		return arr_nums;
+    } 
+}
+
+

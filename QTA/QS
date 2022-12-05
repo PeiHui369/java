@@ -1,0 +1,10 @@
+// Pictorial Presentation in Discord
+
+100. Write a Java program to count the two elements of two given arrays of integers with same length, differ by 1 or less.
+> Ques analysis: 1 element with same index no. from each array subtract tgt, if diff = 1, then count as 1 pair, etc.
+
+if(Math.abs(array_nums1[i] - array_nums2[i]) <= 1 && array_nums1[i] != array_nums2[i])
+            ctr++;
+            
+            
+

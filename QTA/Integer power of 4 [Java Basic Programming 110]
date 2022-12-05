@@ -1,0 +1,79 @@
+110. Write a Java program to check whether a given integer is a power of 4 or not.
+<SAMPLE SOLUTION>
+
+Question #:
+if ((n & (n - 1)) != 0)
+(n & 0x55555555) != 0)
+
+----
+
+import java.util.Scanner;
+public class Example110 {
+     public static void main(String[] arg) 
+	 {
+	   int test = 0;
+	   Scanner in = new Scanner(System.in);	
+	   System.out.print("Input a positive integer: ");
+	   int n = in.nextInt(); 
+       if (n < 1) {
+			 System.out.print(Boolean.toString(false));
+			 test = 1;
+		}
+		if ((n & (n - 1)) != 0) {#
+			System.out.print(Boolean.toString(false));
+			test = 1;
+		}
+		if (test==0)
+		{
+			System.out.print(Boolean.toString((n & 0x55555555) != 0));    #  	
+		}
+		System.out.print("\n");
+	}	
+}
+
+/*
+Boolean.toString(booleanValue) //return booleanValue stated
+*/
+
+===
+<OTHER SOLUTION>
+// Java program to find whether a given number is a power of
+// 4 or not
+
+import java.io.*;
+
+class GFG {
+
+	// Function to check if x is a power of 4
+	public boolean isPowerOfFour(int n)
+	{
+                  (//eg. n = 64; log10 64 / log10 4 = 3; 4^3 = 64 >>True
+		if (n != 0 && n == (int)Math.pow(4, (Math.log(n) / Math.log(4)))) { 
+			return true;
+		}
+		return false;
+	}
+
+	public static void main(String[] args)
+	{
+		GFG g = new GFG();
+		int test_no = 64;
+		if (g.isPowerOfFour(test_no)) {
+			System.out.print(test_no + " is a power of 4 ");
+		}
+		else {
+			System.out.print(test_no
+							+ " is not a power of 4");
+		}
+	}
+}
+
+/*
+@ Math.log()
+-ve int >> NAN
++ ∞ (or n/0) >> Infinity
++ 0 >> -Infinity
++ double >> arg
+- log(base of the num)
+*/
+

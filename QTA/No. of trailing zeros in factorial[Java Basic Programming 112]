@@ -1,0 +1,8 @@
+112. Write a Java program to compute the number of trailing zeros in a factorial
+Key: Trailing 0s in n! = Count of 5s in prime factors of n!
+
+while (n != 0) 
+		{
+			ctr += n / 5;
+			n /= 5;
+		}

@@ -1,0 +1,98 @@
+63. Write a Java program to replace each element of the array with product of every other element in a given array of integers.   Go to the editor
+
+Example:
+Input :
+nums1 = { 1, 2, 3, 4, 5, 6, 7}
+nums2 = {0, 1, 2, 3, 4, 5, 6, 7}
+Output:
+Array with product of every other element:
+[5040, 2520, 1680, 1260, 1008, 840, 720]
+Array with product of every other element:
+[5040, 0, 0, 0, 0, 0, 0, 0]64_
+
+===
+
+import java.util.Arrays;
+
+class solution
+{
+	public static int[] find_Product_in_array(int[] nums)
+	{
+		int n = nums.length;
+
+		int[] left_element = new int[n];
+		int[] right_element = new int[n];
+
+		left_element[0] = 1;
+		for (int i = 1; i < n; i++) {
+			left_element[i] = nums[i - 1] * left_element[i - 1];
+		}
+
+		right_element[n - 1] = 1;
+		for (int j = n - 2; j >= 0; j--) {
+			right_element[j] = nums[j + 1] * right_element[j + 1];
+		}
+
+		for (int i = 0; i < n; i++) {
+			nums[i] = left_element[i] * right_element[i];
+		}
+	return nums;	
+	}
+  
+  /*
+  Initialize first left & last right = 1
+  left[n] = nums[n-1] * left[n-1]
+  right[n-2] = nums[n-1] * right[n-1]
+  nums[n] = left[n] * right[n]
+  ---
+  int n = 7
+  left_element[0] = 1;
+  for (int i = 1; i < 7; i++){
+    left_element[1] = nums[0] * left_element[0] = 1 * 1 = 1
+    [2] = 2*1 = 2
+    [3] = 3*2 = 6
+    [4] = 4*6 = 24
+    [5] = 5*24 = 120
+    [6] = 6*120 = 720
+    }
+    >>left_element = { 1, 1, 2, 6, 24, 120, 720 }
+ 
+ right_element[6] = 1;
+for(int j = 7-2 = 5; j>=0; j--){
+  right_element[5] = nums[6] * right_element[6] = 7*1 = 7
+  [4] = 6*7 = 42
+  [3] = 5*42 = 210
+  [2] = 4*210 = 840
+  [1] = 3*840 = 2520
+  [0] = 2*2520 = 5040
+  }
+  >>right_element = { 5040, 2520, 840, 210, 42, 7, 1 }
+  
+  for(int i = 0; i < 7; i++){
+  nums[0] = left_element[0] * right_element[0] = 1*5040 = 5040
+  [1] = 1*2520 = 2520
+  [2] = 2*840 = 1680
+  [3] = 6*210 = 1260
+  [4] = 24*42 = 1008
+  [5] = 120*7 = 840
+  [6] = 720*1 = 720
+  }
+  >> nums = { 5040, 1680, 1260, 1008, 840, 720 }
+
+  */
+    
+
+	public static void main(String[] args)
+	{
+		int[] nums1 = { 1, 2, 3, 4, 5, 6, 7};
+		System.out.println("Original array:\n"+Arrays.toString(nums1));
+		int[] result1 = find_Product_in_array(nums1);
+		System.out.println("Array with product of every other element:\n" + Arrays.toString(result1));
+
+		int[] nums2 = {0, 1, 2, 3, 4, 5, 6, 7};
+		System.out.println("\nOriginal array:\n"+Arrays.toString(nums2));
+		int[] result2 = find_Product_in_array(nums2);
+		System.out.println("Array with product of every other element:\n" + Arrays.toString(result2));
+
+	}
+}

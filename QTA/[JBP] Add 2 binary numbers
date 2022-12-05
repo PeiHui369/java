@@ -1,0 +1,200 @@
+17.
+
+<SAMPLE SOLUTION> 
+//17. Write a Java program to add two binary numbers.
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        //Declare variable
+        long binary1, binary2;
+        int i=0, remainder=0;
+
+        //Create an array
+        int[] sum = new int[20];
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Input first binary number: ");
+        binary1 = sc.nextLong();
+        System.out.print("Input second binary number: ");
+        binary2 = sc.nextLong();
+
+        while (binary1 != 0 || binary2 !=0){
+            sum[i++] = (int)((binary1 % 10 + binary2 % 10 + remainder)%2);
+            remainder = (int)((binary1 % 10 + binary2 %10 + remainder)/2);
+            binary1 = binary1/10;
+            binary2 = binary2/10;
+        }
+        if(remainder != 0){
+            sum[i++] = remainder;
+        }
+        --i;
+        System.out.print("Sum of two binary numbers: ");
+        while(i>=0){
+            System.out.print(sum[i--]);
+        }
+        System.out.print("\n");
+   }
+}
+
+>>
+first binary number: 100010
+Input second binary number: 110010
+Sum of two binary numbers: 1010100
+
+
+//Q: How line 22-33 function?
+
+//17. Write a Java program to add two binary numbers.
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        //Declare variable
+        long binary1, binary2;
+        int i=0, remainder=0;
+
+        //Create an array
+        int[] sum = new int[20];
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Input first binimport java.util.Scanner;
+        
+         binary1 = sc.nextLong();
+        System.out.print("Input second binary number: ");
+        binary2 = sc.nextLong();
+
+        while (binary1 != 0 || binary2 !=0){
+            sum[i++] = (int)((binary1 % 10 + binary2 % 10 + remainder)%2);
+            remainder = (int)((binary1 % 10 + binary2 %10 + remainder)/2);
+            binary1 = binary1/10;
+            binary2 = binary2/10;
+        }
+        if(remainder != 0){
+            sum[i++] = remainder;
+        }
+        --i;
+        System.out.print("Sum of two binary numbers: ");
+        while(i>=0){
+            System.out.print(sum[i--]);
+        }
+        System.out.print("\n");
+   }
+}
+
+>>
+first binary number: 100010
+Input second binary number: 110010
+Sum of two binary numbers: 1010100
+
+
+//Q: How line 22-33 function?
+
+
+<Other Solution 1>
+/*
+ * Java Program to add two binary numbers.
+ * You can either write your own method or you 
+ * can use Java API for doing binary addition.
+ * 
+ * input: 1010 + 101
+ * output = 1111
+ */
+
+public class Main {
+
+  public static void main(String[] args) {
+
+    System.out.println("Welcome to Java program to add two binary numbers");
+    Scanner scnr = new Scanner(System.in);
+
+    System.out.println("Please enter first binary number");
+    String first = scnr.nextLine();
+
+    System.out.println("Please enter second binary number");
+    String second = scnr.nextLine();
+
+    String addition = add(first, second);
+    System.out.println("addition of two binary number is : " + addition);
+
+    String sum = sum(first, second);
+    System.out.println("Sum of two binary number is : " + sum);
+
+    scnr.close();
+
+  }
+
+/*
+1. Get input
+2. Convert to decimal
+Integer.parseInt(number, oriBase);
+3. Sum +
+4. Return as binary number
+return Integer.toBinary =String(sum);
+  /**
+   * Java method to calculate sum of two binary numbers this method calculate
+   * sum by first converting binary String to binary numbers and then adding
+   * them using binary arithmetic.
+   * 
+   * @param first
+   * @param second
+   * @return sum of two given binary numbers
+   */
+  public static String add(String first, String second) {
+    int b1 = Integer.parseInt(first, 2);
+    int b2 = Integer.parseInt(second, 2);
+    int sum = b1 + b2;
+    return Integer.toBinaryString(sum);
+  }
+
+
+<Other Solution 2> (how function?)
+  /**
+   * Java method to add two binary numbers. This method doesn't use Java API,
+   * instead develop it's own logic to perform binary addition.
+   * 
+   * @param bin1
+   * @param bin2
+   * @return addition of two binary numbers
+   */
+  public static String sum(String b1, String b2) {
+    int len1 = b1.length();
+    int len2 = b2.length();
+    int carry = 0;
+    String res = "";
+    // the final length of the result depends on the bigger length between b1
+    // and b,
+    // (also the value of carry, if carry = 1, add "1" at the head of result,
+    // otherwise)
+    int maxLen = Math.max(len1, len2);
+    for (int i = 0; i < maxLen; i++) {
+
+      // start from last char of String b1 and b2
+      // notice that left side is an int and right side is char
+      // so we need to minus the decimal value of '0'
+      int p = i < len1 ? b1.charAt(len1 - 1 - i) - '0' : 0;
+      int q = i < len2 ? b2.charAt(len2 - 1 - i) - '0' : 0;
+      int tmp = p + q + carry;
+      carry = tmp / 2;
+      res = tmp % 2 + res;
+    }
+    return (carry == 0) ? res : "1" + res;
+  }
+
+}
+
+Output
+Welcome to Java program to add two binary numbers
+Please enter first binary number
+1010
+Please enter second binary number
+11
+addition of two binary number is : 1101
+Sum of two binary number is : 1101
+
+
+       

@@ -1,4 +1,6 @@
 103. Write a Java program to create a new array from a given array of integers, new array will contain the elements from the given array after the last element value 10. 
+> Ques Analysis: Create a new array using ori array value after value"10"
+> Key Line: access backwards, While(oriArr[i] != 10), add value into newArr
 
 import java.util.*; 
 import java.io.*; 

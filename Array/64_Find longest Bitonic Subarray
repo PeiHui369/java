@@ -73,6 +73,9 @@ class solution
 ======================================================================================
 ANALYSIS
 =======================================================================================
+Incre_array: initial & all initial 1, add 1 if b4 < after, first index = 1
+Decre_array: initial & all initial 1, add 1 if b4 > after, first index = arrLen - 2
+# if (lbs_len < incre_array[i] + decre_array[i] - 1) (if fulfill condition then lbs_len = incre[i] + decre[i] - 1, else remains, inital = 1)
 
 import java.util.Arrays;
 class solution

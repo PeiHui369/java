@@ -1,5 +1,5 @@
 68. Write a Java program to create all possible permutations of a given array of distinct integers.   Go to the editor
-Ques: List<List>
+Ques: List<List>, How code function to find permutations
 
 Example:
 Input :

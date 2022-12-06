@@ -1,0 +1,53 @@
+78. Write a Java program that checks an array is negative dominant or not. 
+If the array is negative dominant return true otherwise false.   
+
+//When an array contains strictly more unique negative values than unique positive values, it is said to be negative dominant.
+
+Example:
+Original array of numbers:
+[1, -2, -5, -4, 3, -6]
+Check Negative Dominance in the said array!true
+
+===
+
+public class Main{
+    public static void main(String[] args){
+        int[] nums = {1,-2,-5,-4,3,-6};
+        int countNeg=0, countPo=0;
+
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i]<0){countNeg++;}
+            else if(nums[i]>0){countPo++;}
+        }
+
+        if(countNeg>countPo){System.out.println("Negative Dominant");}
+        else if(countNeg<countPo){System.out.println("Not Negative Dominant");}
+        else{System.out.println("No dominance");}
+    }
+}
+
+--------------------------------------
+SAMPLE SOLUTION
+--------------------------------------
+
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+  public static void main(String[] args) {
+    int[] nums = {1,-2, -5,-4,3,-6};
+    //int[] nums = {1, 2, 5, -4, 3, -6};
+    //int[] nums = {1, 2, -5, -4, -3, 6};
+    System.out.printf("\nOriginal array of numbers:\n" + Arrays.toString(nums));
+    boolean result = test(nums);
+    System.out.printf("\nCheck Negative Dominance in the said array!" + result);
+  }
+  public static boolean test(int[] nums) {
+    long count_negative, count_positive;
+    nums = Arrays.stream(nums).distinct().toArray();#
+    count_negative = Arrays.stream(nums).filter(s -> s < 0).count();#
+    count_positive = Arrays.stream(nums).filter(s -> s > 0).count();#
+    return count_negative > count_positive;
+  }
+}

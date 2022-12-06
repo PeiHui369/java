@@ -1,0 +1,70 @@
+//22. Write a Java program to convert a binary number to decimal number.
+
+import java.util.Scanner;
+
+public class w3 {
+    public static void main(String[] args) {
+        long biNum, decNum =0, j=1, remainder;
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Input a binary number: ");
+        biNum = sc.nextLong();
+
+        while(biNum != 0){
+            remainder = biNum % 10;
+            decNum = decNum + remainder * j;;
+            j = j*2;
+            biNum = biNum/10;
+        }
+        System.out.println("Decimal Number: "+ decNum);
+    }
+}
+
+-------------------------------------------
+SAMPLE SOLUTION
+-------------------------------------------
+import java.util.Scanner;
+public class Exercise22 {
+ public static void main(String[] args) 
+ {
+  Scanner sc = new Scanner(System.in);
+  long binaryNumber, decimalNumber = 0, j = 1, remainder;
+  System.out.print("Input a binary number: ");
+  binaryNumber = sc.nextLong();
+
+  while (binaryNumber != 0) 
+  {
+   remainder = binaryNumber % 10; (divide by 10, take remainder)
+   decimalNumber = decimalNumber + remainder * j;
+   j = j * 2;
+   binaryNumber = binaryNumber / 10;
+  }
+  
+  /* binaryNumber = 10
+  remainder = 10%10 = 0
+  decimalNumber = 0 + 0 * 1
+  j = 1 * 2 = 2
+  binaryNumber = 10/10 = 1
+  
+  binaryNumber = 1
+  remainder = 1%10 = 1
+  decimalNumber = 0 + 1 * 2 = 2
+  j = 2*2 = 4
+  binaryNumber = 1/10 = 0.1 --> 0
+  
+  while loop stop
+  */
+  
+  System.out.println("Decimal Number: " + decimalNumber);
+ }
+}
+
+-------------------------------------------
+ADVANCED SOLUTION
+-------------------------------------------
+
+-------------------------------------------
+OUTPUT
+-------------------------------------------
+Input a binary number: 
+100
+Decimal Number: 4

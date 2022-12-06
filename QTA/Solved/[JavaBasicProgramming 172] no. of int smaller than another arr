@@ -1,0 +1,96 @@
+172. Write a Java program to get the number of element in a given array of integers that are smaller than the integer of another given array of integers. Go to the editor
+
+Expected Output:
+0
+3
+7
+
+/*
+To loop through all each condtion: use all if(){}
+*/
+------------------------------------------------------------------------
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8};
+        int ctr1 = 0, ctr4 = 0, ctr8 = 0;
+
+        for(int i = 0; i<array.length; i++){
+            if(array[i]<1) {
+                ctr1 += 1;
+            }
+            if (array[i]<4) {
+                ctr4 += 1;
+            }
+            if(array[i]<8){
+                ctr8 += 1;
+            }
+        }
+
+        System.out.printf("%d \n%d \n%d",ctr1,ctr4,ctr8);
+    }
+}
+
+>>
+0
+3
+7
+
+====================================================================================
+<SAMPLE SOLUTION>
+
+import java.util.ArrayList;
+import java.util.Arrays;
+public class Solution {
+ public static void main(String[] args) {
+ //array
+ int[] main_arra = {1, 2, 3, 4, 5, 6, 7, 8};
+		int[]query_arra = {1, 4, 8};
+  
+ //ArrayList <Type> name = method (array1, array2);#
+  ArrayList < Integer > result = count_smaller_number(main_arra, query_arra);
+  
+  //To loop through all element in ArrayList: i < name.size()
+  //To print: name.get(i)
+  for (int i = 0; i < result.size(); i++) {
+   System.out.println(result.get(i));
+  }
+ }
+ 
+ //Method
+ public static ArrayList < Integer > count_smaller_number(int[] main_arra, int[] query_arra) {
+ // create new ArrayList
+  ArrayList < Integer > result = new ArrayList < > ();
+  
+  //To arrange ascendingly
+  Arrays.sort(main_arra);
+  
+  //To loop through all element in array of INTEGER TO COMPARE WITH
+  for (int i = 0; i < query_arra.length; i++) {
+  
+  //KeyLine to put the compared result into ArrayList
+   result.add(temp(main_arra, query_arra[i])); 
+  }
+  return result;
+ }
+ 
+ private static int temp(int[] main_arra, int num) {
+  int ctr = 0;
+  //To loop through all element in ORI ARRAY
+  for (int i = 0; i < main_arra.length; i++) {
+  //KeyLine to compare
+   if (main_arra[i] < num) {
+    ctr++;
+   } else {
+    break;
+   }
+  }
+  return ctr;
+ }
+}
+
+/*
+- used ArrayList

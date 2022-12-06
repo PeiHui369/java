@@ -1,0 +1,64 @@
+74. Write a Java program to find all triplets equal to a given sum in a unsorted array of integers.   Go to the editor
+
+Example:
+Input :
+nums = { 1, 6, 3, 0, 8, 4, 1, 7 }
+Output:
+Triplets of sum 7
+(0 1 6)
+(0 3 4)
+
+===
+
+import java.util.Arrays;
+
+	class solution {
+	
+		public static void find_and_print_all_Triplets(int[] nums, int sum, int alen)
+		{
+		System.out.println("\nTriplets of sum "+sum);
+		for (int i = 0; i <= alen - 3; i++)
+			{
+      // k: find out still need how much to reached given sum
+				int k = sum - nums[i];
+        
+        // l: next element; h: last element
+				int l_index = i + 1, h_index = nums.length - 1;
+	
+        //To find in between possible but not repeating values
+				while (l_index < h_index)
+				{
+        //if sum of the next + last less than k, so need increase value of next
+					if (nums[l_index] + nums[h_index] < k) {
+						l_index++;
+					}
+	
+        //if sum of the next + last more than k, so need decrease value of last
+				else if (nums[l_index] + nums[h_index] > k) {
+						h_index--;
+					}
+	
+        // Find out value & print for first pair
+        // Increase l_index and h_index to find if still have other value available
+					else {
+						System.out.println("(" + nums[i] + " " + nums[l_index] + " " + nums[h_index] + ")");
+						l_index++;
+						h_index--;
+					}
+				}
+        //increase i by one to move to next element to repeat to find pairs
+			}
+		}
+    
+		public static void main(String[] args)
+		{
+			int[] nums = { 1, 6, 3, 0, 8, 4, 1, 7 };
+			int alen = nums.length;
+			System.out.println("\nOriginal array: "+Arrays.toString(nums));
+			// sort the array in ascending order
+			Arrays.sort(nums);# //Unsorted array can be sorted 
+			int sum = 7;
+	
+			find_and_print_all_Triplets(nums, sum, alen);
+		}
+	}

@@ -1,0 +1,102 @@
+>> CONSTRUCTORS
+StringBuilder()
+- No character, Initial capacity: 16 char
+
+StringBuilder (int capacity)
+- No character, Specified initial capacity in arg
+
+StringBulder(CharSequence seq)
+- Same characters
+
+StringBuilder(String str)
+- Initialized to contents of specified string
+
+
+> Create
+StringBuilder str1 = new StringBuilder()
+
+>> METHODS
+StringBuilder.append(Type varName)
+
+StringBuilder.appendCodePoint(int codePoint)
+
+int capacity()
+- returns current capacity
+
+char charAt(int index)
+- returns char value at specified index
+
+IntStream chars()
+- returns a stream of int zero-extending char values
+
+int codePointAt(int index)
+- returns character (Unicode code point) at specified index
+
+int codePointBefore(int index)
+- returns character (Unicode code point) before specified index
+
+int codePointCount (int beginindex, int endIndex)
+- returns number of Unicode code points in specified text range
+
+IntStream codePoints()
+- returns a stream of code point values
+
+StringBuilder delete(int start, int end)
+- removes char in substring
+
+StringBuilder deleteCharAt(int index)
+- removes char at specified position
+
+void ensureCapacity(int minimumCapacity)
+- ensures capacity at least equal to specified minimum
+
+void getChars(int srcBegin, int srcEnd, char[] dst, int dstBegin)
+- characters copied into destination character array dst
+
+int indexOf()
+- returns index within this string of first occurence of specified substring
+
+StringBuilder insert(int offset, boolean b)
+- inserts string representation of booalternatelean argument
+
+StringBuilder insert()
+- inserts string representation of char arg 
+
+int lastIndexOf()
+- returns index within this string of last occurence of specified substring
+
+int length()
+- returns length (char count)
+
+int offsetByCodePoints (int index, int codePointOffset)
+- returns index within seq that is offset from given index by codePointOffset code points
+
+StrngBuilder replace (int start, int end, String str)
+- replaces char in a substring with char in specified string
+
+StringBuilder reverse()
+
+void setCharAt (int index, char ch)
+- char at specified index set to ch
+
+void setLength (int newLength)
+- sets length of char seq
+
+CharSequence subSequence (int start, int end)
+- returns a new char seq that is subseq of this seq
+
+String substring()
+- returns new String that contains a subsequence of characters currently contained in this char seq
+
+Strng toString()
+- returns a string representing data in seq
+
+void trimToSize()
+- attempts to reduce storage used for char seq
+
+
+
+
+
+
+

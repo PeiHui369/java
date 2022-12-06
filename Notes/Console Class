@@ -1,0 +1,53 @@
+- Used to get input from console
+- Provides methods to read texts & passwords
+- *Read Password* Not displayed to user
+- java.io.Console
+
+String text = System.console().readLine();
+System.out.println("Text is: " + text);
+
+> Declaration
+public final class Console extends Object implements Flu
+
+> Methods
+Reader reader()
+- retrieve reader object associated with console
+
+String readLine()
+- read a single line
+
+String readLine (Stirng fmt, Object...args)
+- provides a formatted prompt when reads the single line of text
+
+char[] readPassword()
+- read password not being displayed
+
+char[] readPassword (String fmt, Object... args)
+- provides a formatted prompt then reads the password that not being displayed
+
+Console format (String format, Object...args)
+- write a formatted string to console output stream
+
+Console printf (String format, Object... args)
+- write a string to the console output stream
+
+PrintWriter writer
+- retrieve PrintWriter object associated with console
+
+void flush()
+- flushes the console
+
+> To get the object of console
+public static Console console () {}
+Console c = System.console(); 
+
+> Example
+import java.io.Console;  
+class ReadStringTest{    
+public static void main(String args[]){    
+Console c=System.console();    
+System.out.println("Enter your name: ");    
+String n=c.readLine();    
+System.out.println("Welcome "+n);    
+}    
+}  

@@ -1,0 +1,73 @@
+19. Write a program in Java to make such a pattern like a pyramid with a number which will repeat the number in the same row.
+
+import java.util.Scanner;
+public class Exercise19 {
+
+  public static void main(String[] args)
+{
+   int i,j,n,s,x;
+   System.out.print ("Input number of rows : ");
+   Scanner in = new Scanner(System.in);
+		    n = in.nextInt();
+
+   s=n+4-1;
+    for(i=1;i<=n;i++)
+   {
+   for(x=s;x!=0;x--)
+    {
+   System.out.print(" ");
+    }
+    for(j=1;j<=i;j++)
+    {
+     System.out.print(i+" ");
+     }
+	System.out.println();
+    s--;
+   }
+}
+}
+
+>>
+Input number of rows : 4                                                                                      
+       1                                                                                                      
+      2 2                                                                                                     
+     3 3 3                                                                                                    
+    4 4 4 4 
+    
+    
+    ==================================
+    ANALYSIS
+    ==================================
+    
+import java.util.Scanner;
+public class Exercise19 {
+
+  public static void main(String[] args)
+{
+   int i,j,n,s,x;
+   System.out.print ("Input number of rows : ");
+   Scanner in = new Scanner(System.in);
+		    n = in.nextInt();
+
+   s=n+4-1; //Number of spaces before print the first digit
+    for(i=1;i<=n;i++) //Digit to print out, each row digit will increase by 1
+   {
+   
+   for(x=s;x!=0;x--)  //Each row the spaces before printed decrease by 1
+    {
+   System.out.print(" ");
+    }
+       1      //spaces = 7                                                                                                     
+      2 2     //spaces = 6                                                                                                
+     3 3 3    //spaces = 5                                                                                                
+    4 4 4 4   //spaces = 4
+    
+    for(j=1;j<=i;j++) //i = numberth of row; j = column = i; which number rows, which no. of column, repeat hw many times
+    {
+     System.out.print(i+" ");
+     }
+	System.out.println();
+    s--;
+   }
+}
+}

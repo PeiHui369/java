@@ -1,0 +1,69 @@
+55. Write a Java program to remove all adjacent duplicates recursively from a given string. Go to the editor
+
+#Ques: if(i!=str.length()-1)
+             n=n+str.charAt(i);
+             
+Sample Output:
+
+The given string is: aabaarbarccrabmq
+The new string after removing all adjacent duplicates is:
+brmq
+
+---
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Main
+ {
+     public static void check(String str)
+     {
+    
+         //if str len <= 1, no duplicate
+         if(str.length()<=1) 
+         {
+             System.out.println(str);
+             return;
+         }
+         
+         String n=new String();
+         int count=0;
+         
+         //loop through all char in str
+         for(int i=0;i<str.length();i++)
+         {
+             //still have next char AND this char equals to next char
+             while(i<str.length()-1 && str.charAt(i)==str.charAt(i+1))
+             {
+             
+             //str len exception AND this char not equals to next next char
+             //Check if repeated 3 times
+                 if(i<str.length()-2 &&str.charAt(i)!=str.charAt(i+2))
+                 i+=2; //if yes, then i+=2 to check next
+                 else
+                 i++; //if no, then i++ to check next
+                 count++;
+             }
+             
+             //if != str len
+             if(i!=str.length()-1)
+             n=n+str.charAt(i);
+             else
+             {if(i==str.length()-1 && str.charAt(i)!=str.charAt(i-1))
+                 n=n+str.charAt(i); //Add char into n string
+             }
+         }
+         if(count>0)
+         check(n); //check again n
+         else
+         System.out.println(n);
+     }
+
+public static void main (String[] args)
+  {
+    String ab="aabaarbarccrabmq";
+    System.out.println("The given string is: "+ab);
+    System.out.println("The new string after removing all adjacent duplicates is:");
+
+    check(ab);
+    }
+}

@@ -1,0 +1,27 @@
+71. Write a Java program to form the largest number from a given list of non negative integers.   Go to the editor
+
+Example:
+Input :
+nums = {1, 2, 3, 0, 4, 6}
+Output:
+Largest number using the said array numbers: 643210
+
+===
+import java.util.*;
+public class solution {
+	
+ public static String  largest_Numbers(int[] num) {
+        String[] array_nums = Arrays.stream(num).mapToObj(String::valueOf).toArray(String[]::new);#
+        Arrays.sort(array_nums, (String str1, String str2) -> (str2 + str1).compareTo(str1 + str2));#
+        return Arrays.stream(array_nums).reduce((a, b) -> a.equals("0") ? b : a + b).get();#
+    }	
+	
+  public static void main(String[] args)
+  {
+    int[] nums = {1, 2, 3, 0, 4, 6};
+	System.out.printf("\nOriginal array: "+Arrays.toString(nums));	
+	System.out.printf("\nLargest number using the said array numbers: "+largest_Numbers(nums));
+   }  
+}
+
+Other Solution (which ok?): https://stackoverflow.com/questions/68803704/find-largest-number-description-given-a-list-of-non-negative-integers-arrang 

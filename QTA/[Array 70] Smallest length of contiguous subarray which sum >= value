@@ -1,0 +1,66 @@
+70. Write a Java program to find the smallest length of a contiguous subarray of which the sum is greater than or equal to specified value. 
+Return 0 instead.   
+
+//A contiguous subarray is simply a subarray of an array with a condition that the elements of the subarray should be in exact sequence as the sequence of the elements in the array
+
+Ques: Why need to have i and j? Don't understand start from the if with while loop. Why ans is 2 not 3 (as 1+2+3 = 6)?_
+
+Example:
+Input :
+nums = {1, 2, 3, 4, 6}
+Output:
+Minimum length of a contiguous subarray of which the sum is 8, 2
+
+===
+import java.util.Arrays;
+public class solution {
+  public static void main(String[] args)
+  {
+    int[] nums = {1, 2, 3, 4, 6};
+	int m_len = 8;
+    int result = min_SubArray_length(8, nums);
+	System.out.printf("\nOriginal array: "+Arrays.toString(nums));
+	System.out.printf("\nMinimum length of a contiguous subarray of which the sum is %d, %d ",m_len, result);
+  }
+
+  public static int min_SubArray_length(int s, int[] nums) {
+  
+  //Initialize
+    int sum = 0, ctr = 0, min_len = Integer.MAX_VALUE;
+    
+  //if the first num >= specified sum, return 1
+    for (int i = 0, j = 0; j < nums.length; ) {
+      if (nums[j] >= s) {
+        return 1;
+        
+   //else, add the num to get sum, each time added new element --> ctr+1
+      } else {
+        sum += nums[j];
+        ctr++;
+        
+        //if reached specified sum, will choose either initialized min_len or ctr
+        if (sum >= s) {
+          min_len = Math.min(min_len, ctr);
+          
+          //if j>i; sum - nums[i]
+          while (j > i) {
+            sum -= nums[i];
+            ctr--;
+            i++;
+            if (sum < s) break;
+            min_len = Math.min(min_len, ctr);
+          }
+        }
+      }
+      j++;
+    }
+    if (min_len == Integer.MAX_VALUE) {
+      return 0;
+    }
+    return min_len;
+  }
+}
+
+>>
+Original array: [1, 2, 3, 4, 6]
+Minimum length of a contiguous subarray of which the sum is 8, 2

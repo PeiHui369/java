@@ -1,0 +1,34 @@
+24. Write a Java program to find a missing number in an array
+
+//Ques: what is the restricted condition for the formula? if apply for (1,3,5,7,9,11) or (3,4,5,6,7,8) cannot function well
+
+**Expected numsum (include the missing number) : expected_total_num * (expected_total_num + 1)/2
+
+import java.util.*;
+public class Exercise24 {
+ public static void main(String[] args) {
+
+   int total_num;
+   int[] numbers = new int[]{1,2,3,4,6,7};
+   total_num = 7;
+   int expected_num_sum = total_num * ((total_num + 1) / 2);
+   int num_sum = 0;
+   for (int i: numbers) {
+    num_sum += i;
+   }
+       System.out.print( expected_num_sum - num_sum);
+	   System.out.print("\n");
+  }
+ }
+ 
+ /*
+ int expected_num_sum = 7 * ((7+1)/2) = 7*4 = 28
+ int num_sum = 0
+ for(int i :numbers){
+  num_sum+=i;}
+
+>>
+num_sum = 23
+expected_num_sum = 28
+missing number = 28 -23 = 5
+ */

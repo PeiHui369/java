@@ -1,0 +1,91 @@
+54. Write a Java program to find the smallest window in a string containing all characters of another string. Go to the editor
+
+#Ques: Why have char bigger or smaller than?
+
+Sample Output:
+
+The given string is: welcome to w3resource
+Characters to find in the main sring are: tower
+The smallest window which contains the finding characters is : to w3re
+
+---
+import java.util.*;
+class Main
+{
+    public static String pickSubstring(String samp_str ,String pat_str)
+	{
+        int ln1  = samp_str.length();
+        int ln2  = pat_str.length();
+        
+        //Exception (str2 < str1)
+        if(ln1 < ln2)
+		{ 
+            System.out.println("No such window can exist");
+            return "";
+        }
+        
+        //Create array
+        int gvn_strg [] = new int[256];
+        int pat_stgr [] = new int[256];
+        
+        //Loop through pat str, store char inside arr
+        for(int i=0;i<ln2;i++)
+            pat_stgr[pat_str.charAt(i)]++;
+            
+        //Initialize
+        int ctr = 0,start = 0,start_index = -1,min_length = Integer.MAX_VALUE;
+        
+        
+        for(int j=0;j<ln1;j++)
+		{
+    
+            //Store main str char in sample arr
+            gvn_strg[samp_str.charAt(j)]++;
+            
+            //if(pat str char not 0 AND main str less than pat str)
+            if(pat_stgr[samp_str.charAt(j)] != 0 && gvn_strg[samp_str.charAt(j)] <= pat_stgr[samp_str.charAt(j)])
+                ctr++;
+                
+            //if ctr = len of pat str
+            if(ctr == ln2)
+			{
+      
+                // WHILE (1st char of main str > 1st char of pat str OR pat
+                while(gvn_strg[samp_str.charAt(start)] > pat_stgr[samp_str.charAt(start)] || pat_stgr[samp_str.charAt(start)] == 0)
+				{
+                    
+                    //
+                    if(gvn_strg[samp_str.charAt(start)] > pat_stgr[samp_str.charAt(start)] || pat_stgr[samp_str.charAt(start)] == 0)
+                        gvn_strg[samp_str.charAt(start)]--;
+                    start++;
+                }
+                
+                int length_window = j - start + 1; //calc length of window
+                
+                //Reassign value
+                if(min_length > length_window)
+				{
+                    min_length = length_window;
+                    start_index = start;
+                }
+            }
+        }
+        
+        //if start = -1, then no window exists
+        if(start_index == -1)
+		{
+            System.out.println("No such window exists");
+            return "";
+        }
+        return samp_str.substring(start_index,start_index + min_length);
+    }
+    public static void main(String args[])
+	{
+        String str = "welcome to w3resource";
+        String pat = "tower";
+        System.out.println("The given string is: "+str);
+        System.out.println("Characters to find in the main string are: "+pat);
+        
+        System.out.print("The smallest window which contains the finding characters is : " + pickSubstring(str, pat));
+    }
+}

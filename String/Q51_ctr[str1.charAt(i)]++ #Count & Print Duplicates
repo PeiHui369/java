@@ -1,0 +1,37 @@
+51. Write a Java program to count and print all the duplicates in the input string. Go to the editor
+
+***# ctr[str1.charAt(i)]++; 
+
+Sample Output:
+
+The given string is: w3resource
+The duplicate characters and counts are: 
+e  appears  2  times
+r  appears  2  times
+
+---
+import java.util.*; 
+public class Main 
+{
+    static final int MAX_CHARS = 256;
+    static void CountCharacters(String str1, int[] ctr)
+    {
+       for (int i = 0; i < str1.length();  i++)
+          ctr[str1.charAt(i)]++; //ctr calc how many times charAt(i) appear, then loop to the next element
+    }
+    static void showDuplicates(String str1)
+    {
+      int ctr[] = new int[MAX_CHARS];
+      CountCharacters(str1, ctr); //count all the char, store values inside ctr array
+      for (int i = 0; i < MAX_CHARS; i++)
+        if(ctr[i] > 1) //print out those who appear more than once
+            System.out.printf("%c  appears  %d  times\n", i,  ctr[i]);
+    }
+    public static void main(String[] args)
+    {
+        String str1 = "w3resource";
+		System.out.println("The given string is: "+str1);
+		System.out.println("The duplicate characters and counts are: ");
+        showDuplicates(str1);
+    }
+}

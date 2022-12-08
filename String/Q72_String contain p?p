@@ -1,0 +1,37 @@
+72. Write a Java program to return true if a given string contain the string 'pop', but the middle 'o' also may other character. Go to the editor
+
+# i < len - 2 (the word to find is 3, so exception)
+# if (stng.charAt(i) == 'p' && stng.charAt(i+2) == 'p')
+
+Sample Output:
+
+The given string is: dikchapop
+Is p?p appear in the given string? true
+
+The given string is: dikp$pdik
+Is p?p appear in the given string? truev
+
+===
+import java.util.*;
+public class Main
+{
+
+public boolean popInTheString(String stng) 
+{
+  int len = stng.length();
+  for (int i = 0; i < len - 2; i++) 
+  {
+    if (stng.charAt(i) == 'p' && stng.charAt(i+2) == 'p')
+    return true;
+  }
+  return false;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "dikchapop";
+      System.out.println("The given string is: "+str1);
+      System.out.println("Is p?p appear in the given string? "+m.popInTheString(str1));
+	  }
+}

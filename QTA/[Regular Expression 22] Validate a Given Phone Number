@@ -1,0 +1,99 @@
+22. Write a Java program to validate a given phone number.
+
+Following are valid phone number examples:
+“(123)4567890", "1234567890", "123-456-7890", "(123)456-7890",
+Following are invalid phone numbers:
+"(1234567890)","123)4567890", "12345678901", "(1)234567890", "(123)-4567890", "1", "12-3456-7890", "123-4567", "Hello world"};
+
+Regex explanation:
+^\\(? - May start with an option "("
+(\\d{3}) - Followed by 3 digits
+\\)? - May have an optional ")"
+[- ]? - May have an optional "-" after the first 3 digits or after optional ) character
+(\\d{3}) - Followed by 3 digits.
+[- ]? - May have another optional "-" after numeric digits
+(\\d{4})$ - ends with four digits
+
+-----------------------------------------------------------------------
+//Ref.https://bit.ly/33gB1TY
+public class test {
+ 
+   public static void main(String[] args) {	   
+	    String text ="(123)4567890";
+		System.out.println("Original Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));
+	    text ="(123)4567890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));
+	    text ="1234567890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="123-456-7890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="(1234567890)";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="123)4567890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="12345678901";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="(1)234567890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="(123)-4567890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="1";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));		
+	    text ="12-3456-7890";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));
+	    text ="123-4567";
+		System.out.println("\nOriginal Phone number: "+text);
+		System.out.println("Check the said Phone number is true or not! "+validate(text));
+	}
+   public static Boolean validate(String text) {
+        return text.matches("\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}");
+   }
+}
+
+>>
+Original Phone number: (123)4567890
+Check the said Phone number is true or not! true
+
+Original Phone number: (123)4567890
+Check the said Phone number is true or not! true
+
+Original Phone number: 1234567890
+Check the said Phone number is true or not! true
+
+Original Phone number: 123-456-7890
+Check the said Phone number is true or not! true
+
+Original Phone number: (1234567890)
+Check the said Phone number is true or not! false
+
+Original Phone number: 123)4567890
+Check the said Phone number is true or not! false
+
+Original Phone number: 12345678901
+Check the said Phone number is true or not! false
+
+Original Phone number: (1)234567890
+Check the said Phone number is true or not! false
+
+Original Phone number: (123)-4567890
+Check the said Phone number is true or not! false
+
+Original Phone number: 1
+Check the said Phone number is true or not! false
+
+Original Phone number: 12-3456-7890
+Check the said Phone number is true or not! false
+
+Original Phone number: 123-4567
+Check the said Phone number is true or not! false

@@ -1,0 +1,61 @@
+75. Write a Java program to check whether a given substring presents in the middle of another given string. 
+Here middle means difference between the number of characters to the left and right of the given substring not more than 1. 
+
+# Middle = left - right (!>1)
+#
+if (len%2 == 0 && abc.equals(stng.substring(mid_pos-1,mid_pos+2))) 
+else if (abc.equals(stng.substring(mid_pos-1,mid_pos+2)) || abc.equals(stng.substring(mid_pos-2,mid_pos+1))) 
+
+Sample Output:
+
+The given string is: xxxabcxxxxx
+Is abc appear in middle? false
+
+The given string is: xxabcxxx
+Is abc appear in middle? true
+
+===
+import java.util.*;
+public class Main
+{
+public boolean abcInMiddle(String stng) 
+{
+
+  String abc = "abc";
+  int l = stng.length();
+  int mid_pos = l / 2;
+  
+  //Exception
+  if (l < 3)
+    return false;
+    
+    //Can divide half
+  if (l % 2 != 0) 
+  {
+  //check if abc appears at midpos index
+    if (abc.equals(stng.substring(mid_pos-1,mid_pos+2))) 
+	{
+      return true;
+    } else 
+	{
+        return false;
+      }
+  } 
+  
+  //acceptable also if divide 2 get remainder, so 'abc' can appear b4 or after midpost
+  else if (abc.equals(stng.substring(mid_pos-1,mid_pos+2)) || abc.equals(stng.substring(mid_pos-2,mid_pos+1))) 
+	  {
+          return true;
+  } 
+  else
+      return false; 
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "xxabcxxx";
+      System.out.println("The given string is: "+str1);
+      System.out.println("Is abc appear in middle? "+m.abcInMiddle(str1));
+	  }
+}

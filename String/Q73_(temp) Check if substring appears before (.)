@@ -1,0 +1,53 @@
+73. Write a Java program to check whether a substring appears before a period(.) within a given string. Go to the editor
+
+Sample Output:
+
+The given strings is: testabc.test
+Is 'abc' appear before period? true
+
+The given string is: test.abctest
+Is 'abc' appear before period? false
+
+period(.) = 46
+
+===
+import java.util.*;
+public class Main
+{
+public Boolean abcBeforePeriod(String stng) 
+{
+
+//Initialize
+  int len = stng.length();
+  String abc = "abc";
+  Boolean match = false;
+  
+//Exception
+  if (len < 3)
+    return false;
+    
+ //loop through, len-2 as 'abc' 3 chars
+  for (int i = 0; i < len - 2; i ++) 
+  {
+  
+  //Take temp as the window to compare 
+    String temp = stng.substring(i, i+3);
+    
+ //if abc appears at first index >>TRUE
+    if (temp.compareTo(abc) == 0 && i == 0)
+      match = true;
+      
+  //if abc appear and not after "." >> TRUE
+    else if(temp.compareTo(abc) == 0 && stng.charAt(i-1) != 46)
+      match = true;
+  } 
+  return match;
+}
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "testabc.test";
+      System.out.println("The given string is: "+str1);
+      System.out.println("Is 'abc' appear before period? "+m.abcBeforePeriod(str1));
+	  }
+}

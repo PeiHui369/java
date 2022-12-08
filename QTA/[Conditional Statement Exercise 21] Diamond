@@ -1,0 +1,76 @@
+21. Write a program in Java to display the pattern like a diamond. 
+/*odd number: 2*i-1*/
+
+import java.util.Scanner;
+public class Exercise21 {
+
+  public static void main(String[] args)
+	  
+	  
+{
+   int i,j,r;
+   System.out.print("Input number of rows (half of the diamond) : ");
+   Scanner in = new Scanner(System.in);
+		    r = in.nextInt();
+        
+        //0 to 7
+   for(i=0;i<=r;i++) 
+   {
+     for(j=1;j<=r-i;j++)
+     System.out.print(" ");
+     for(j=1;j<=2*i-1;j++)
+       System.out.print("*");
+     System.out.print("\n");
+   }
+   
+   
+  /*
+   for i = 0
+    for j = 1; j <= 7; j++
+     >>       |
+    for j = 1; j <= 2*0-1 (=0-1=0); j++
+     >>       *
+    
+    for i = 1
+    for j = 1; j <= 6; j++
+     >>      |
+    for j = 1; j <= 2*1 (=2); j++
+     >>      **
+     
+        *
+      **
+    
+     
+
+      
+     
+      
+   */
+ 
+   for(i=r-1;i>=1;i--)
+   {
+     for(j=1;j<=r-i;j++)
+     System.out.print(" ");
+     for(j=1;j<=2*i-1;j++)
+       System.out.print("*");
+     System.out.print("\n");
+   }
+ 
+}
+}
+
+>>
+Input number of rows (half of the diamond) : 7                                                                                                       
+      *                                                                                                       
+     ***                                                                                                      
+    *****                                                                                                     
+   *******                                                                                                    
+  *********                                                                                                   
+ ***********                                                                                                  
+*************                                                                                                 
+ ***********                                                                                                  
+  *********                                                                                                   
+   *******                                                                                                    
+    *****                                                                                                     
+     ***                                                                                                      
+      *

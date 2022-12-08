@@ -1,0 +1,47 @@
+74. Write a Java program to check whether a prefix string creates using the first specific characters in a given string, appears somewhere else in the string. Go to the editor
+
+#   if(n_chr+i <= len)
+	{ if (pre_str.equals(stng.substring(i,n_chr+i))) 
+        return true;
+        
+Sample Output:
+
+The given strings is: MrsJemsmrsam
+The prefix string length is: 3
+Is 'Mrs' appear else where in the string? false
+
+The given string is: MrsJemsMrsam
+The prefix string length is: 3
+Is 'Mrs' appear else where in the string? true
+
+===
+import java.util.*;
+public class Main
+{
+public boolean nChrStringSomewhere (String stng, int n_chr) 
+{
+  int len = stng.length();
+  String pre_str = stng.substring(0,n_chr); //pre_str = Mrs
+  
+  for (int i = n_chr; i < len; i++) //i = 3; i <12
+  {
+    if(n_chr+i <= len) //3 + 3 <= len (so can exist twice)
+	{
+      if (pre_str.equals(stng.substring(i,n_chr+i))) //check if the prestr appear else where
+        return true;
+    }
+  }
+  return false;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "MrsJemsMrsam";
+      int n=3;
+	  String prechr=str1.substring(0,n);
+      System.out.println("The given string is: "+str1);
+      System.out.println("The prefix string length is: "+n);
+      System.out.println("Is '"+ prechr+"' appear else where in the string? "+m.nChrStringSomewhere(str1,n));
+	  }
+}

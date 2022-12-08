@@ -1,0 +1,31 @@
+61. Write a Java program to create a new string taking specified number of characters from first and last position of a given string. Go to the editor
+
+#str.substring(0,n) + str.substring(str.length()- n, str.length())
+
+Sample Output:
+
+The given strings is: Welcome
+The given numbers is: 3
+The new string is: Welome
+
+===
+import java.util.*;
+public class Main
+{
+public String nTwice(String str, int n) 
+{
+  return str.substring(0,n) + str.substring(str.length()- n, str.length());
+}
+
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "Welcome";
+	  int n1 =  3;
+	  
+      System.out.println("The given strings is: "+str1);
+	  System.out.println("The given numbers is: "+n1);
+      System.out.println("The new string is: "+m.nTwice(str1,n1));
+	  }
+}

@@ -1,0 +1,71 @@
+69. Write a Java program to return the substring that is between the first and last appearance of the substring 'toast' in the given string,or return the empty string if substirng 'toast' does not exists. Go to the editor
+
+Sample Output:
+
+The given strings is: sweettoastbuttertoast
+The new string is: butter
+
+# How codes function
+
+===
+import java.util.*;
+public class Main
+{
+public String pickMiddleOfBread(String stng) 
+{
+//Initialize
+  int len = stng.length();
+  String tmpString = "";
+  String resultString = "";
+  int st = 0;
+  int en = 0;
+  boolean found = false;
+  
+//Exception, len(toast) = 5, front & end = 10
+  if (len <= 10)
+    return "";
+    
+ //Loop through all char
+  for (int i = 0; i < len - 4; i++) 
+  {
+    tmpString = stng.substring(i, i+5); //Directly select the word length
+    
+    //If found 
+    if (tmpString.equals("toast") && found == true)
+      en = i; 
+    //If not found
+    if (tmpString.equals("toast") && found == false) 
+	{
+      st = i+5;
+      found = true;
+    }
+  }
+  resultString = stng.substring(st,en);
+  return resultString;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "sweettoastbuttertoast";
+      System.out.println("The given strings is: "+str1);
+      System.out.println("The new string is: "+m.pickMiddleOfBread(str1));
+	  }
+}
+
+/* 
+i = 0,1,2,3 ...
+
+i = 4
+st = 9
+
+i = 5
+en = 5
+
+i = 6,7,8,9,10,11,12,13,14
+
+i=15
+st=20
+
+i=16
+en=16

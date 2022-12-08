@@ -1,0 +1,47 @@
+67. Write a Java program to read a string and if one or both of the first two characters is equal to specified character return without those characters otherwise return the string unchanged. Go to the editor
+
+Sample Output:
+
+The given strings is: oocyte
+The new string is: cyte
+
+The given strings is: boat
+The new string is: bat
+
+The given strings is: own
+The new string is: wn
+
+===
+import java.util.*;
+public class Main
+{
+
+public String exceptTwoO(String stng) 
+{
+  String temp = "";
+  for (int i = 0; i < stng.length(); i++) 
+  {
+  
+  //remains first char if not equals
+    if (i == 0 && stng.charAt(i) != 'x')
+      temp += stng.charAt(i);
+      
+       //remains 2nd char if not equals
+    else if (i == 1 && stng.charAt(i) != 'x')
+      temp += stng.charAt(i);
+      
+      //others all remains
+    else if (i > 1)
+      temp += stng.charAt(i);
+  }
+  return temp;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "xxcyte";
+      System.out.println("The given strings is: "+str1);
+      System.out.println("The new string is: "+m.exceptTwoO(str1));
+	  }
+}

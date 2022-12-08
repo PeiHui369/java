@@ -1,0 +1,50 @@
+66. Write a Java program to read a string and return the string without the first two characters. 
+Keep the first character if it is 'g' and keep the second character if it is 'h'. 
+
+#for loop go through each char, so if condition can function
+
+Sample Output:
+
+The given strings is: goat
+The new string is: gat
+
+he given strings is: photo
+The new string is: hoto
+
+The given strings is: ghost
+The new string is: ghost
+
+===
+import java.util.*;
+public class Main
+{
+
+public String exceptFirstTwo(String stng) 
+{   
+  int len = stng.length();
+  String temp = "";
+  for (int i = 0; i < len; i++) 
+  {
+  //If first g, remains
+    if (i == 0 && stng.charAt(i) == 'g')
+      temp += 'g';
+   
+  //If second h, remains
+    else if (i == 1 && stng.charAt(i) == 'h')
+      temp += 'h';
+      
+  //If else, removes first & second char
+    else if (i > 1)
+      temp += stng.charAt(i);
+  }
+    return temp;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "ghost";
+      System.out.println("The given strings is: "+str1);
+      System.out.println("The new string is: "+m.exceptFirstTwo(str1));
+	  }
+}

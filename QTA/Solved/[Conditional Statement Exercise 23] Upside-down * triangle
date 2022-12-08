@@ -1,0 +1,66 @@
+23. Write a java program to generate a following *'s triangle.
+
+import java.util.Scanner;
+public class Exercise23 {
+   public static void main(String args[]) 
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input the number: ");
+        int n = in.nextInt();
+        for (int i = n; i > 0; i--)  
+        {
+            for (int spc = n - i; spc > 0; spc--) 
+            {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) 
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+}
+  
+>>
+Input the number: 6                                                                                           
+******                                                                                                       
+ *****                                                                                                       
+  ****                                                                                                       
+   ***                                                                                                       
+    **                                                                                                       
+     *
+     
+ ======================
+ ANALYSIS
+ =====================
+/* for loop [i = 6] 5,4,3,2,1
+[spc=6-6=0] 1,2,3,4,5
+[j=0] 1,2,3,4,5
+
+
+[i = 6]
+  [spc = 0; spc > 0] FALSE
+  [j = 0; j < 6; j++]
+******
+
+[i = 5]
+  [spc = 1; spc > 0] 
+ |
+  [j = 0; j < 5; j++]
+ *****
+ 
+[i = 4]
+ [spc = 2; spc > 0] 
+  |
+  [j = 0; j < 4; j++]
+  ****
+
+>>>
+******
+ *****
+  ****
+  
+  ...
+  */

@@ -1,0 +1,60 @@
+71. Write a Java program to check two given strings whether any one of them appear at the end of the other string (ignore case sensitivity). 
+
+Sample Output:
+
+The given strings are: xyz  and pqrxyz
+Is one string appears at the end of other? true
+
+The given strings are: pqrxyz  and xyz
+Is one string appears at the end of other? true
+
+===
+import java.util.*;
+public class Main
+{
+
+public boolean anyStringAtEnd(String stng1, String stng2) 
+{
+
+//Convert to lower case (ignore case sensitivity) & find length
+  stng1 = stng1.toLowerCase();
+  int aLen = stng1.length();
+  stng2 = stng2.toLowerCase();
+  int bLen = stng2.length();
+  
+
+  if (aLen < bLen) 
+  {
+    String temp = stng2.substring(bLen - aLen, bLen);
+    if (temp.compareTo(stng1) == 0)
+      return true;
+    else
+      return false;
+  } 
+  
+  else 
+    {
+    String temp = stng1.substring(aLen - bLen, aLen);
+    if (temp.compareTo(stng2) == 0)
+      return true;
+    else
+      return false;
+  }
+}
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "pqrxyz";
+	  String str2= "xyz";
+      System.out.println("The given strings are: "+str1+"  and "+str2);
+      System.out.println("Is one string appears at the end of other? "+m.anyStringAtEnd(str1,str2));
+	  }
+}
+
+/* 
+aLen = 6; bLen = 3
+aLen - bLen = 6-3 = 3 //similar to get the last 3 char: aLen -3
+String temp = stng1.substring(3, 6); //print from index 3 until including index 5
+    if (temp.compareTo(stng2) == 0) //xyz compareTo xyz = 0 (Strings equal)
+      return true;
+*/

@@ -1,0 +1,60 @@
+70. Write a Java program to check whether a string is pq-balanced or not.A String is pq-balanced if for all the p's in the string atleast one 'q' must exists right of the p's.But 'q' before the 'p' makes the pq-balanced false. Go to the editor
+
+#
+
+Sample Output:
+
+The given strings is: gfpmpnppqab
+The string is pq-balanced? true
+
+The given strings is: gfpmpnpqpab
+The string is pq-balanced? false
+
+===
+import java.util.*;
+public class Main
+{
+
+public boolean pqBalanceString(String stng) 
+{
+  Boolean p = false;
+  Boolean q = false;
+  int len = stng.length();
+  
+  for (int i = 0; i < len; i++) 
+  {
+  
+  //Found p, no found q before, no q before p, q false
+    if (stng.charAt(i) == 'p' && q == true)
+	{
+      p = true;
+      q = false;
+    } 
+    
+    //found p, true
+	else if (stng.charAt(i) == 'p') 
+	{
+      p = true;
+    }
+    
+    //found q, found p before, have p before q
+    if (stng.charAt(i) == 'q' && p == true)
+      q = true;
+  }
+  
+  //if no found p, but only found q, q true also
+  if (p == false)
+    q = true;
+    
+    //q as control, q true True, q false False
+  return q;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "gfpmpnppqab";
+      System.out.println("The given strings is: "+str1);
+      System.out.println("The string is pq-balanced? "+m.pqBalanceString(str1));
+	  }
+}

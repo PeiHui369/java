@@ -1,0 +1,56 @@
+80. Write a Java program to check whether the character immediately before and after a specified character is same in a given string. Go to the editor
+
+Sample Output:
+
+The given string is: moon#night
+The before and after character are same: true
+
+The given string is: bat##ball
+The before and after character are same: false
+
+The given string is: #moon#night
+The before and after character are same: true
+
+#
+if (tmpString.equals("#") && i > 0 && i < l-1) 
+  if (stng.charAt(i-1) == stng.charAt(i+1))
+
+===
+
+import java.util.*;
+public class Main
+{
+
+public boolean leftAndRightSame(String stng) 
+{
+// Initialize
+  int l = stng.length();
+  boolean found = true;
+  
+  //To loop through all the char
+  for (int i = 0; i < l; i++) 
+  {
+    String tmpString = stng.substring(i,i+1);
+    
+    //Found the char, not at first or last
+    if (tmpString.equals("#") && i > 0 && i < l-1) 
+	{
+  
+      // Check if the letter before & letter after same
+      if (stng.charAt(i-1) == stng.charAt(i+1))
+        found = true;
+      else
+        found = false;
+    }
+  }
+  return found;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "moon#night";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The before and after character are same: "+m.leftAndRightSame(str1));
+	  }
+}

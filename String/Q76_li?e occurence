@@ -1,0 +1,46 @@
+76. Write a Java program to count how many times the substring 'life' present at anywhere in a given string. 
+Counting can also happen for the substring 'li?e', any character instead of 'f'. Go to the editor
+
+Sample Output:
+
+The given string is: liveonwildlife
+The substring life or li?e appear number of times: 2
+
+#
+    if (firsttwo.compareTo(stng.substring(i,i+2)) == 0 && lastone.compareTo(stng.substring(i+3, i+4)) == 0)
+      ctr++;
+
+===
+import java.util.*;
+public class Main
+{
+
+public int substringCounting(String stng) 
+{
+  int l = stng.length();
+  int ctr = 0;
+  String firsttwo = "li";
+  String lastone = "e";
+  
+  //Exception less than "li?e" cannot be
+  if (l < 4)
+    return 0;
+    
+    //else loop through and find
+  for (int i = 0; i < l - 3; i++) 
+  {
+  //compare if same = 0
+    if (firsttwo.compareTo(stng.substring(i,i+2)) == 0 && lastone.compareTo(stng.substring(i+3, i+4)) == 0)
+      ctr++;
+  }
+  return ctr;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "liveonwildlife";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The substring life or li?e appear number of times: "+m.substringCounting(str1));
+	  }
+}

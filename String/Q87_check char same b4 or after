@@ -1,0 +1,47 @@
+87. Write a Java program to check whether a specified character is happy or not. A character is happy when the same character appears to its left or right in a string. 
+
+Sample Output:
+
+The given string is: azzlea
+Is z happy in the string: true
+
+The given string is: azmzlea
+Is z happy in the string: falses
+
+===
+import java.util.*;
+public class Main
+{
+public boolean aCharacterIsHappy(String stng) 
+{
+
+//I
+  int l = stng.length();
+  boolean char_happy = true;
+  
+// i < l (can reach last char, as before last might same)
+  for (int i = 0; i < l; i++) 
+  {
+// check if the index lead to specified char
+    if (stng.charAt(i) == 'z') #
+	{
+      //yes, check before same
+      if (i > 0 && stng.charAt(i-1) == 'z') #
+        char_happy = true;
+      //check after same
+      else if (i < l-1 && stng.charAt(i+1) == 'z') #
+        char_happy = true;
+      else
+        char_happy = false;
+    }
+  }
+  return char_happy;
+}
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "azzlea";
+      System.out.println("The given string is: "+str1);
+      System.out.println("Is Z happy in the string: "+m.aCharacterIsHappy(str1));
+	  }
+}

@@ -1,0 +1,38 @@
+86. Write a Java program to count the number of triples (characters appearing three times in a row) in a given string. 
+
+Sample Output:
+
+The given string is: welllcommmmeee
+The number of triples in the string is: 4
+
+===
+import java.util.*;
+public class Main
+{
+public int noOfTriples(String stng) 
+{
+
+//I
+  int l = stng.length();
+  int ctr = 0;
+  
+//i < l-2 : as it has to be triple (3 char)
+  for (int i = 0; i < l-2; i++)
+  {
+    //take 1 char
+    char tmp = stng.charAt(i); #
+    //if same with next and next next, then is a triples
+    if (tmp == stng.charAt(i+1) && tmp == stng.charAt(i+2)) #
+      ctr++;
+  }
+  return ctr;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "welllcommmmeee";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The number of triples in the string is: "+m.noOfTriples(str1));
+	  }
+}

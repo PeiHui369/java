@@ -1,0 +1,43 @@
+83. Write a Java program to make a new string from two given string in such a way that, each character of two string will come respectively. 
+
+Sample Output:
+
+The given strings  are: welcome  and  w3resource
+The new string is: wwe3lrceosmoeurce
+
+===
+import java.util.*;
+public class Main
+{
+
+
+public String stringMixing(String stng1, String stng2) 
+{
+  int len1 = stng1.length();
+  int len2 = stng2.length();
+  int max_len = Math.max(len1, len2);
+  String newstring = "";
+  
+  //Slice each char of string, add  to newstring 
+  #
+  for (int i = 0; i < max_len; i++) 
+  {
+  //in condition that still have the char
+    if (i <= len1-1)
+      newstring += stng1.substring(i,i+1);
+    if (i <= len2-1)
+      newstring += stng2.substring(i,i+1);
+  }
+  #
+  return newstring;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "welcome";
+      String str2 =  "w3resource";	  
+      System.out.println("The given strings  are: "+str1+"  and  "+str2);
+      System.out.println("The new string is: "+m.stringMixing(str1,str2));
+	  }
+}

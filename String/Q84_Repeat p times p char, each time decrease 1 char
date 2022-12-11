@@ -1,0 +1,39 @@
+84. Write a Java program to make a new string made of p number of characters 
+from the first of a given string and followed by p-1 number characters till the p is greater than zero. 
+
+Sample Output:
+
+The given string is: welcome
+Number of repetition characters and repetition: 4
+The new string is: welcwelwew
+
+===
+import java.util.*;
+public class Main
+{
+public String beginningRepetition(String stng, int n) 
+{
+  int l = stng.length();
+  String newstring = "";
+  
+  //Slice string with substring
+  // n: no. of repetition char (decrease by 1 each loop, until =0 stop)
+  #
+  for (int i = n; n > 0; n--)
+  {
+    newstring += stng.substring(0,n);
+  }
+  #
+  return newstring;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "welcome";
+	  int rep_no=4;
+      System.out.println("The given string is: "+str1);
+	  System.out.println("Number of repetition characters and repetition: "+rep_no);
+      System.out.println("The new string is: "+m.beginningRepetition(str1,rep_no));
+	  }
+}

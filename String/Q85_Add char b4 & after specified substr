@@ -1,0 +1,67 @@
+85. Write a Java program to make a new string with each character of just before and after of a non-empty substring whichever it appears in a non-empty given string. 
+
+Sample Output:
+
+The given string are: weablcoabmeab  and ab
+The new string is: elome
+
+===
+import java.util.*;
+public class Main
+{
+public String mAndTstring(String m_stng, String t_stng) 
+{
+
+// Initialize
+  int m_st_len = m_stng.length();
+  int t_st_len = t_stng.length();
+  String fin = ""; //to create new str that add content ltr
+  
+// i < m_st_len - t_st_len + 1  (13-2+1 = 12)
+  for (int i = 0; i < m_st_len-t_st_len+1; i++) 
+  {
+  //Slice, tmp is the element and the window of the len: "ab"
+    String tmp = m_stng.substring(i,i+t_st_len);
+    
+    //If not first index and the is "ab"
+    //Add this & before it element to the str
+    if (i > 0 && tmp.equals(t_stng))
+      fin += m_stng.substring(i-1,i);
+      
+      // i < 13-2 (=11)
+      //Add element after the "ab"
+    if (i < m_st_len-t_st_len && tmp.equals(t_stng))
+      fin += m_stng.substring(i+t_st_len,i+t_st_len+1);
+  }
+  return fin;
+}
+
+/*
+i = 0
+tmp = we
+if(1) F
+if(2) F
+
+i = 1
+tmp = ea
+
+i = 2
+tmp = ab
+if(1) T
+fin += m_Stng.substring(1,2) (=e)
+if(2)
+fin += m_stng.substring( 2+2(=4), 2+2+1(=5) ) (=l)
+
+>>fin = el
+...
+*/
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "weablcoabmeab";
+      String str2 =  "ab";	  
+      System.out.println("The given string are: "+str1+"  and "+str2);
+      System.out.println("The new string is: "+m.mAndTstring(str1,str2));
+	  }
+}

@@ -1,0 +1,74 @@
+88. Write a Java program to return a string where every appearance of the lowercase word 'is' has been replaced with 'is not'. Go to the editor
+
+Sample Output:
+
+The given string is: it is a string
+The new string is: it is not a string
+
+===
+import java.util.*;
+public class Main
+{
+public String wordReplaceBy(String stng) 
+{
+
+//I
+  String newstring = "";
+  int l = stng.length();
+  
+// Loop all char
+  for(int i = 0; i < l; i++)
+  {
+  
+   //(if char before exist AND is a letter) OR (if next2 char exist AND is a letter)
+   //IsLetter(Char) Determines if the specified character is a letter. IsLetter(Int32) Determines if the specified character (Unicode code point) is a letter.
+    if(i-1 >= 0 && Character.isLetter(stng.charAt(i-1))|| i+2 < l && Character.isLetter(stng.charAt(i+2))) #
+	{
+      newstring += stng.charAt(i);@
+    }
+    
+    // if next char exist AND with next is "is"
+    else if(i+1 < l && stng.substring(i, i+2).equals("is")) #
+	{
+      //add "is not" to new string
+      newstring += "is not"; #
+      i++;
+    }
+    
+    //ele just add into newstring
+    else newstring += stng.charAt(i); @
+  }
+  return newstring;
+}
+
+/*
+i = 0
+char = i
+>> newstring = i
+
+i = 1
+char = t
+if( 0>=0 && 3<14) 
+>> newstring = it
+
+i = 2
+char = " "
+>> newstring = it 
+
+i = 3
+char = i
+if( 2>=0 && 5<14)
+>> newstring = it i
+
+- after if TRUE will skip, how it go through else if to get "is"?
+- why is an else direct add all? @@
+*/
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "it is a string";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The new string is: "+m.wordReplaceBy(str1));
+	  }
+}

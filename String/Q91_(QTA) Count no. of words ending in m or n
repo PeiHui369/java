@@ -1,0 +1,45 @@
+91. Write a Java program to count the number of words ending in 'm' or 'n' (not case sensitive) in a given text. 
+
+Ques: @
+
+Sample Output:
+
+The given string is: mam is in the room
+The number of words ends eith m or n is: 3
+
+===
+import java.util.*;
+public class Main
+{
+public int endWithmOrn(String stng) 
+{
+
+  int l = stng.length();
+  int ctr = 0;
+  stng = stng.toLowerCase(); //To avoid case sensitive
+  
+  for (int i = 0; i < l; i++) 
+  {
+  //if the char is 'm' or 'n'
+    if (stng.charAt(i) == 'm' || stng.charAt(i) == 'n') 
+	{
+      //Check if exist, and it is not a letter (to be a word)
+      if (i < l-1 && !Character.isLetter(stng.charAt(i+1))) #
+        ctr++;
+        
+      //If is last in sentence, also can add @
+      else if (i == l-1)@
+        ctr++;
+    }
+  }
+  return ctr;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "mam is in the room";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The number of words ends eith m or n is: "+m.endWithmOrn(str1));
+	  }
+}

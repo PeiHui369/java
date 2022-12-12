@@ -1,0 +1,48 @@
+100. Write a Java program to check if a given string contains another string. Return true or false. Go to the editor
+
+Sample Output:
+
+Original string:
+Java is the foundation for virtually every type of networked application and is the global standard for developing and  delivering embedded and mobile applications, games, Web-based content,  and enterprise software. With more than 9 million developers worldwide, Java enables you to efficiently develop, deploy and use exciting applications and services.
+
+Is 'million' present in the said text?
+true
+
+Is 'millions' present in the said text?
+false
+
+===
+public class Main {
+    
+    public static void main(String[] args) {
+          String main_string = "Java is the foundation for virtually every type of "+
+           "networked application and is the global standard for developing and "+
+           " delivering embedded and mobile applications, games, Web-based content, "+
+           " and enterprise software. With more than 9 million developers worldwide,"+
+           " Java enables you to efficiently develop, deploy and use exciting applications and services.";
+            
+            System.out.println("Original string:");
+           System.out.println(main_string);
+           
+           String sub_string1 = "million";
+            String sub_string2 = "millions";
+           
+           boolean result1 = is_present(main_string, sub_string1);
+            System.out.println("\nIs '"+sub_string1+"'"+ " present in the said text?");
+           System.out.println(result1);
+           
+           boolean result2 = is_present(main_string, sub_string2);
+            System.out.println("\nIs '"+sub_string2+"'"+ " present in the said text?");
+           System.out.println(result2);                        
+ }
+ 
+ 
+    public static boolean is_present(String main_string, String sub_string) {
+      //Exception if no content
+      if (main_string == null || sub_string == null || main_string.isEmpty() || sub_string.isEmpty()) { 
+            return false;
+       }
+       // if found get index position of the substr, if not found get -1 -> false
+       return main_string.indexOf(sub_string) != -1; #
+   }
+}

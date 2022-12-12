@@ -1,0 +1,34 @@
+108. Write a Java program to check whether there are two consecutive (following each other continuously.), identical letters in a given string. 
+
+Original word: Follow
+If there are two consecutive identical letters in the said string: true
+Original word: Java
+If there are two consecutive identical letters in the said string: false
+Original word: Yellow
+If there are two consecutive identical letters in the said string: true
+
+===
+
+public class test { 
+   public static void main(String[] args) {	   
+	    String text = "Follow";
+		System.out.println("Original word: "+text);
+		System.out.println("If there are two consecutive identical letters in the said string: "+ test(text));
+		text = "Java";
+		System.out.println("Original word: "+text);
+		System.out.println("If there are two consecutive identical letters in the said string: "+ test(text));
+		text = "Yellow";
+		System.out.println("Original word: "+text);
+		System.out.println("If there are two consecutive identical letters in the said string: "+ test(text));
+        }
+
+   public static boolean test(String text) {
+      //To loop through all char, start at 0
+			for (int i=0;i<text.length()-1;i++)
+      
+      //If this char equals next char, then true
+			if (text.charAt(i)==text.charAt(i+1))
+				return true;
+		return false;
+  }
+}

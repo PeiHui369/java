@@ -1,0 +1,51 @@
+112. Write a Java program that checks the letters of the second string are present in the first string. Return true otherwise false. Go to the editor
+
+# str1.contains(String.valueOf(str2.charAt(i)) 
+
+Sample Output:
+
+Input the first string: 
+ Java
+Input the second string: 
+ Ja
+Check first string contains letters from the second string:
+true
+
+---
+Sample Data:
+
+("Python", "python") -> false
+("Java", "Ja") -> true
+("Check first string", "sifC") ->true
+
+===
+import java.util.Scanner;
+ public class Main {
+   public static void main(String[] args) {
+     Scanner myObj = new Scanner(System.in);
+     System.out.println("Input the first string: ");
+     String text = myObj.nextLine();
+     System.out.println("Input the second string: ");
+     String word = myObj.nextLine();
+     System.out.println("Check first string contains letters from the second string:\n" + test(text, word));
+   }
+   
+   
+   public static boolean test(String first_string, String second_string) {
+   
+   //str2 longer than str1 -> FALSE
+     if (second_string.length() > first_string.length()) return false;
+     
+   //str2 no content -> TRUE
+     if (second_string.isEmpty())
+       return true;
+       
+       //loop through 
+       //[ str1.contains(String.valueOf(str2.charAt(i)) ]
+     for (int i = 0; i < second_string.length(); i++) {
+       if (!first_string.contains(String.valueOf(second_string.charAt(i)))) #
+         return false;
+     }
+     return true;
+   }
+ }

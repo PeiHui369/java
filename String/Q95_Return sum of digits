@@ -1,0 +1,48 @@
+95. Write a Java program to return the sum of the digits present in the given string. If there is no digits the sum return is 0. Go to the editor
+
+# if(Character.isDigit(str.charAt(i){
+String tmp = str.substring(i,i+1)
+sum += Integer.parseInt(tmp);
+}
+
+
+Sample Output:
+
+The given string is: ab5c2d4ef12s
+The sum of the digits in the string is: 14
+
+===
+import java.util.*;
+public class Main
+{
+public int sumOfDigits(String stng) 
+{
+
+  int l = stng.length();
+  int sum = 0;
+  
+  
+  for (int i = 0; i < l; i++) 
+  {
+  //If is digit
+    if (Character.isDigit(stng.charAt(i))) 
+	{
+  //Slice out the string
+      String tmp = stng.substring(i,i+1);
+      //Convert to int, sum together
+      sum += Integer.parseInt(tmp);
+    }
+  }
+  return sum;
+}
+
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "ab5c2d4ef12s";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The sum of the digits in the string is: "+m.sumOfDigits(str1));
+	  }
+}
+

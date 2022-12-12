@@ -1,0 +1,71 @@
+93. Write a Java program to find the longest substring appears at both ends of a given string. 
+
+Sample Output:
+
+The given string is: playersplay
+The longest substring in the string is: play
+
+===
+import java.util.*;
+public class Main
+{
+public String appearInBothEnds(String stng) 
+{
+
+//Initialize
+  int l = stng.length();
+  String f_str = "";
+  String tmp = "";
+  
+  // Loop
+  for (int i = 0; i < l; i++) 
+  {
+  //add all char
+    tmp += stng.charAt(i);
+    int t_len = tmp.length();
+    
+    //if i less than half
+    if (i < l / 2 && tmp.equals(stng.substring(l-t_len,l))) #
+      f_str = tmp;
+  }
+  return f_str;
+}
+
+/*
+i = 0
+tmp += p
+int t_len = 1
+if(0 < 11/2 (=5)
+  if(tmp.equals(stng.substring(11-1,11)) -> stng.substring(10,11) -> y != p --> FALSE
+  
+i = 1
+tmp += l ->tmp=pl
+int t_len = 2
+if(1<5 && tmp.equals(stng.substring(9,11)) -> ay!= pl --> FALSE
+
+i = 2
+tmp += a ->tmp=pla
+int t_len = 3
+if(2<5 && tmp.equals(stng.substring(8,11)) -> lay!= pla --> FALSE
+
+i = 3
+tmp += y ->tmp=play
+int t_len = 4
+if(3<5 && tmp.equals(stng.substring(8,11)) -> play== play --> TRUE
+  f_str = tmp;
+
+...
+
+  >>play
+*/
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "playersplay";
+      System.out.println("The given string is: "+str1);
+      System.out.println("The longest substring in the string is: "+m.appearInBothEnds(str1));
+	  }
+}
+
+

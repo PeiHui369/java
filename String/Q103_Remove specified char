@@ -1,0 +1,44 @@
+103. Write a Java program to remove a specified character from a given string. 
+
+Sample Output:
+
+Original string:
+abcdefabcdeabcdaaa
+
+Second string:
+bcdefbcdebcd
+
+===
+
+public class Main {    
+    public static void main(String[] args) {
+    
+       String str1 = "abcdefabcdeabcdaaa";
+       char g_char = 'a';
+        String result = remove_Character(str1, g_char);
+        System.out.println("\nOriginal string:");
+        System.out.println(str1);    
+        System.out.println("\nSecond string:");
+       System.out.println(result);                                
+   }
+   
+  public static String remove_Character(String str1, char g_char) {
+       //Exception
+       if (str1 == null || str1.isEmpty()) {
+          return "";
+       }
+       
+       // Create a StringBuilder
+       StringBuilder sb = new StringBuilder();#
+       //Create array, Convert all char in str to array
+       char[] chArray = str1.toCharArray();
+       
+       //loop through all char, if not equals the char to be found, add it into String Builder
+       for (int i = 0; i < chArray.length; i++) {
+           if (chArray[i] != g_char) {#
+               sb.append(chArray[i]);
+           }
+       }
+       return sb.toString();
+   }
+}

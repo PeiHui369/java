@@ -1,0 +1,60 @@
+111. Write a Java program that removes a specified word from a given text. Return the new string. Go to the editor
+
+Sample Output:
+
+Input a string: 
+ Exercises Practice Solution
+Input a word to remove: 
+ Solution
+New string, after removing the said word:
+Exercises Practice 
+
+---
+("Exercises Practice Solution", " Solution") -> "Exercises Practice"
+("Red Green Blue", "Green") -> "Red Blue"
+("Java Number Exercises”, “Java”) -> "Number Exercises"
+
+===
+import java.util.Scanner;   
+ public class Main {
+   public static void main(String[] args) {
+    Scanner myObj = new Scanner(System.in);   
+    System.out.println("Input a string: ");
+    String text = myObj.nextLine();
+    System.out.println("Input a word to remove: ");
+    String word = myObj.nextLine();
+    System.out.println("New string, after removing the said word:\n"+test(text,word));
+  }
+  
+ public static String test(String text, String word) 
+  	{
+    // [ text.replace(ori,new) ]
+		String result_str = text.replace(word, ""); #
+    
+    /* \s+ will match one or more whitespace characters */
+    // If there is more than one spaces, only leave 1 space
+		result_str = result_str.replaceAll("\\s+", " "); #
+    
+		return result_str;
+  }  
+}
+
+============================
+SOLUTION 2
+============================
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner myObj = new Scanner(System.in);
+    System.out.println("Input a string: ");
+    String text = myObj.nextLine();
+    System.out.println("Input a word to remove: ");
+    String word = myObj.nextLine();
+    System.out.println("New string, after removing the said word:\n" + test(text, word));
+  }
+
+  public static String test(String text, String word) {
+    return text.replace(word, "").replace("  ", " ");#
+  }
+}

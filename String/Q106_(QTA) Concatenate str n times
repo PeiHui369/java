@@ -1,0 +1,52 @@
+106. Write a Java program to concatenate a given string with itself of a given number of times. 
+
+Sample Output:
+
+Original string: PHP
+
+After repeating 7 times: PHPPHPPHPPHPPHPPHPPHP
+
+@Ques: Max size of str exceeded error
+
+===
+
+import java.util.Arrays;
+public class Main {    
+    public static void main(String[] args) {
+        String str1 = "PHP";
+        System.out.println("Original string: "+str1);
+        String resultV1 = repeat_str(str1, 7);
+       System.out.println("\nAfter repeating 7 times: "+resultV1);
+   }
+   
+public static String repeat_str(String str1, int n) {
+
+      // Exception: not exist or empty
+       if (str1 == null || str1.isEmpty()) {
+           return "";
+       }
+       
+       // Exception: if no need repeat
+       if (n <= 0) {
+           return str1;
+       }
+       
+       // Exception: too many times?
+       if (Integer.MAX_VALUE / n < str1.length()) { @
+           throw new OutOfMemoryError("Maximum size of a String will be exceeded");
+       }
+       
+       /*
+       MAX_VALUE is a number in the Java Integer сlass of java. lang package. It is the maximum possible Integer number that can be represented in 32 bits. Its exact value is 2147483647 i.e. 231-1.
+       */
+       
+       // String Builder: size = len * n
+       StringBuilder x = new StringBuilder(str1.length() * n);
+       
+       // loop all char, n as control
+       for (int i = 1; i <= n; i++) {
+           x.append(str1);
+       }
+       return x.toString();
+   }
+}

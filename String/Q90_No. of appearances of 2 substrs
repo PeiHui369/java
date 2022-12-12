@@ -1,0 +1,59 @@
+90. Write a Java program to check the number of appearances of the two substrings appear anywhere in the string. 
+
+#If need slice 3 chars
+i<l-2
+.substring(i,i+3)
+
+Sample Output:
+
+The given string is: Thisisthethesis
+Are the appearance of 'the' and 'is' equal? false
+
+===
+import java.util.*;
+public class Main
+{
+public boolean isAndTheEquality(String stng) 
+{
+  int l = stng.length();
+  int st_the = 0;
+  int st_is = 0;
+  
+  for (int i = 0; i < l; i++) 
+  {
+  
+    //slice 3 char for "the"
+    //if equals "the" then add in counter
+    if (i < l - 2) 
+	{
+      String tmp = stng.substring(i,i+3);
+      if (tmp.equals("the"))
+        st_the++;
+    }
+    
+    //slice 2 chars for "is"
+    //if equals "is" then add in counter
+    if (i < l - 1) 
+	{
+      String tmp2 = stng.substring(i,i+2);
+      if (tmp2.equals("is"))
+        st_is++;
+    }
+   
+  }
+  
+  //if no. of occ equals then TRUE
+  if (st_the == st_is)
+    return true;
+  else
+    return false;
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "Thisisthethesis";
+      System.out.println("The given string is: "+str1);
+      System.out.println("Are the appearance of 'the' and 'is' equal? "+m.isAndTheEquality(str1));
+	  }
+}

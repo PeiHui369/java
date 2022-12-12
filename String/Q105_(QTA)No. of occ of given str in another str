@@ -1,0 +1,49 @@
+105. Write a Java program to count the occurrences of a given string in another given string.
+
+Sample Output:
+
+aa' has occured 3 times in 'abcd abc aabc baa abcaa'
+
+@Ques
+
+===
+import java.util.Arrays;
+
+public class Main {    
+    public static void main(String[] args) {
+        String main_string = "abcd abc aabc baa abcaa";
+       String sub_string = "aa";
+       int countV1 = count_sub_str_in_main_str(main_string, sub_string);
+       System.out.println(sub_string + "' has occured " + countV1 + " times in '" + main_string + "'");            
+   }
+   
+  public static int count_sub_str_in_main_str(String main_string, String sub_string) {
+  
+      //Exception: Not exist
+       if (main_string == null || sub_string == null) {
+           throw new IllegalArgumentException("The given strings cannot be null");
+       }
+       
+       //Exception: No value assigned
+       if (main_string.isEmpty() || sub_string.isEmpty()) {
+           return 0;
+       }
+       
+       /*
+        An empty string is a String object with an assigned value, but its length is equal to zero. A null string has no value at all
+       */
+
+       int position = 0;
+       int ctr = 0;
+       int n = sub_string.length();
+       
+       while ((position = main_string.indexOf(sub_string, position)) != -1) { @
+           position = position + n; @
+           ctr++;
+       }
+       return ctr;
+   }
+}
+
+
+

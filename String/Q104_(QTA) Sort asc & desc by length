@@ -1,0 +1,53 @@
+104. Write a Java program to sort in ascending and descending order by length of the given array of strings.
+
+Sample Output:
+
+Original unsorted colors: [Green, White, Black, Pink, Orange, Blue, Champagne, Indigo, Ivory]
+
+Sorted color (descending order): [Champagne, Orange, Indigo, Green, White, Black, Ivory, Pink, Blue]
+
+Sorted color (ascending order): [Pink, Blue, Green, White, Black, Ivory, Orange, Indigo, Champagne]
+
+@Ques: why need create a public enum...?
+@Ques: why use .DESC and .ASC? why use "->"?
+
+# descending = (-1) * ascending 
+===
+
+import java.util.Arrays;
+public class Main {    
+   private static String[] strs = {"Green", "White", "Black", "Pink", "Orange", "Blue", "Champagne", "Indigo", "Ivory"};
+    
+    @
+    public enum sort_asc_dsc{
+       ASC, DESC 
+   }
+   @
+    
+    public static void main(String[] args) {
+       System.out.println("\nOriginal unsorted colors: " + Arrays.toString(strs));
+        sort_array_by_length(strs, sort_asc_dsc.DESC);
+       System.out.println("\nSorted color (descending order): " + Arrays.toString(strs));
+       sort_array_by_length(strs, sort_asc_dsc.ASC);
+       System.out.println("\nSorted color (ascending order): " + Arrays.toString(strs));            
+   }
+   
+   public static void sort_array_by_length(String[] strs, sort_asc_dsc direction) {
+   
+   //Exception: No content
+       if (strs == null || direction == null || strs.length == 0) {
+           return;
+       }
+       
+       @
+       //If direction is ASC
+       if (direction.equals(sort_asc_dsc.ASC)) {
+           Arrays.sort(strs, (String str1, String str2)
+                   -> Integer.compare(str1.length(), str2.length()));
+       } else if (direction.equals(sort_asc_dsc.DESC)) {
+           Arrays.sort(strs, (String str1, String str2)
+                   -> (-1) * Integer.compare(str1.length(), str2.length()));
+       }
+       @
+   }
+}

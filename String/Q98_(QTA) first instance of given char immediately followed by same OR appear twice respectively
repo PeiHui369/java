@@ -1,0 +1,36 @@
+98. Write a Java program to check whether the first instance of a given character is immediately followed by the same character in a given string. 
+
+Sample Output:
+
+The given string is: fizzez
+Is 'z' appear twice respectively? true
+
+@Ques
+===
+
+import java.util.*;
+public class Main
+{
+boolean appearTwice(String stng) 
+{
+
+//get position of the char
+  int i = stng.indexOf("z");
+  
+//Exception if not found
+  if (i == -1) return false; 
+//Exception if no next
+  if (i+1 >= stng.length()) return false;
+  
+
+  return stng.substring(i+1, i+2).equals("z"); @How function
+}
+
+public static void main (String[] args)
+    {
+      Main m= new Main();
+      String str1 =  "fizzez";
+      System.out.println("The given string is: "+str1);
+      System.out.println("Is 'z' appear twice respectively? "+m.appearTwice(str1));
+	  }
+}

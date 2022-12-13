@@ -44,6 +44,22 @@ cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
 System.out.println(cal.getTime());
 
 Q9_calc first & last day of each week
+// Get calendar set to current date and time
+      Calendar c = Calendar.getInstance();
+
+     // Set the calendar to monday of the current week
+     c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+
+        System.out.println();
+     // Print dates of the current week starting on Monday
+       DateFormat df = new SimpleDateFormat("EEE dd/MM/yyyy");#
+       System.out.println(df.format(c.getTime()));
+        for (int i = 0; i <6; i++) {
+         c.add(Calendar.DATE, 1);
+           }
+        System.out.println(df.format(c.getTime()));
+		System.out.println();
+     }
 
 Q10_Get the name of the first and last day of a month
 	 String firstDay = ym.atDay(1).getDayOfWeek().name(); 
@@ -223,8 +239,28 @@ Q41_display combine local date and time in a single object
     LocalTime local_Time = LocalTime.now();
     LocalDateTime localDateTime = LocalDateTime.of(local_Dt, local_Time);
     String localDateTimeAsString = localDateTime
- 
 
+42,43,44
+
+Q45_Print format pattern for date & time
+ LocalDate /localDate/ = LocalDate.noew()
+ DateTimeFormatter /formatterLocalDate/ = DateTimeFormatter.ofPattern("");
+ result = /formatterLocalDate/.format(/localDate/);
+
+Q46_Count no. of days between 2 years
+if (ly > fy) {
+     for (int i = fy; i <= ly; i++) {
+       System.out.println("Year: " + i + " = " + number_of_days(i));
+     }
+     
+ public static int number_of_days(int year) {
+   if (is_Leap_Year(year)) return 366;
+   else return 365;
+ }
+ public static boolean is_Leap_Year(int year) {
+   return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
+ }
+}
 
 
       

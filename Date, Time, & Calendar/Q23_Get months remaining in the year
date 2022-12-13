@@ -1,0 +1,20 @@
+23. Write a Java program to get the months remaining in the year.
+
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
+public class Exercise23 {
+   public static void main(String[] args)
+    {
+     LocalDate today = LocalDate.now(); 
+     LocalDate lastDayOfYear = today.with(TemporalAdjusters.lastDayOfYear());
+     Period period = today.until(lastDayOfYear);
+     System.out.println();
+     System.out.println("Months remaining in the year: "+period.getMonths());	
+     System.out.println();
+   }
+}
+
+>>
+Months remaining in the year: 6 
+
+N.B.: The result may varry for your system date and time.

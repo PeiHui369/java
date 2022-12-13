@@ -1,0 +1,19 @@
+34. Write a Java program to get today's date at midnight time. 
+
+import java.util.*;
+public class Exercise34 {
+   public static void main(String[] args)
+    {
+      Calendar cal = new GregorianCalendar();
+      cal.set(Calendar.HOUR_OF_DAY, 0); //anything 0 - 23
+      cal.set(Calendar.MINUTE, 0);
+      cal.set(Calendar.SECOND, 0);
+      System.out.println("\n"+cal.getTime()+"\n");
+    
+    }
+}
+
+>>
+Wed Jun 21 00:00:00 IST 2017 
+
+N.B.: The result may varry for your system date and time.

@@ -1,0 +1,21 @@
+40. Write a Java program to display current date without time and current time without date.
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
+
+public class Main {
+
+    public static void main(String[] args){        
+        LocalDate l_date = LocalDate.now();        
+        System.out.println("Current date: " + l_date);
+        
+        LocalTime l_time = LocalTime.now();        
+        System.out.println("Current time: " + l_time);
+    }
+}
+
+>>
+Current date: 2019-11-16
+Current time: 07:54:47.217
+N.B.: The value may be changed accroding to your system date and time.

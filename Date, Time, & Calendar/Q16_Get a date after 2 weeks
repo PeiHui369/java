@@ -1,0 +1,22 @@
+16. Write a Java program to get a date after 2 weeks.
+
+import java.util.*;
+public class Exercise16 {
+   public static void main(String[] args)
+    {
+     //two weeks
+     int noOfDays = 14; 
+     Calendar cal = Calendar.getInstance();
+     Date cdate = cal.getTime();
+     cal.add(Calendar.DAY_OF_YEAR, noOfDays);
+     Date date = cal.getTime();
+     System.out.println("\nCurrent Date: " + cdate+"\n");  
+     System.out.println("Day after two weeks: " + date+"\n");  	
+    }
+}
+
+
+>>
+Current Date: Tue Jun 20 17:12:49 IST 2017                                                                    
+Day after two weeks: Tue Jul 04 17:12:49 IST 2017 
+N.B.: The result may varry for your system date and time.

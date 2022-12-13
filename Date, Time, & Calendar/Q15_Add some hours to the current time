@@ -1,0 +1,19 @@
+15. Write a Java program to add some hours to the current time.
+
+import java.time.*;
+public class Exercise15 {
+   public static void main(String[] args)
+    {
+      LocalTime time = LocalTime.now(); 
+      // adding four hours
+      LocalTime newTime = time.plusHours(4);
+      System.out.println();
+      System.out.println("Time after 2 hours : " + newTime);
+      System.out.println();
+    }
+}
+
+
+>>
+Time after 2 hours : 20:54:14.640
+N.B.: The result may varry for your system date and time.

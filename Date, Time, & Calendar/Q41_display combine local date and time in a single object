@@ -1,0 +1,39 @@
+41. Write a Java program to display combine local date and time in a single object.
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Main {
+    public static void main(String[] args) {     
+    
+        //Display Local Date
+        LocalDate local_Dt = LocalDate.now();
+        String localDateAsString = local_Dt
+                .format(DateTimeFormatter.ofPattern("yyyy-MMM-dd"));
+        System.out.println("Local Date: " + localDateAsString);  
+        
+        //Display Local Time
+        LocalTime local_Time = LocalTime.now();
+        String localTimeAsString = local_Time
+                .format(DateTimeFormatter.ofPattern("hh:mm:ss a"));
+        System.out.println("Local Time: " + localTimeAsString);     
+        
+        //Display Local Date & Time
+        LocalDateTime localDateTime = LocalDateTime.of(local_Dt, local_Time);        
+        String localDateTimeAsString = localDateTime
+                .format(DateTimeFormatter.ofPattern("yyyy-MMM-dd hh:mm:ss a"));        
+        System.out.println("\nCombine local Date Time: " + localDateTimeAsString);
+    }    
+}
+
+>>
+Local Date: 2019-Nov-16
+Local Time: 08:21:24 AM
+
+Combine local Date Time: 2019-Nov-16 08:21:24 AM
+N.B.: The value may be changed accroding to your system date and time.
+
+
+

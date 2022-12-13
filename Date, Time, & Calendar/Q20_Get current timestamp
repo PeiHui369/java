@@ -1,0 +1,15 @@
+20. Write a Java program to get current timestamp.
+
+import java.time.*;
+public class Exercise20 {
+   public static void main(String[] args)
+    {
+    Instant timestamp = Instant.now(); 
+    System.out.println("\nCurrent Timestamp: " + timestamp+"\n"); 
+    }
+}
+
+>>
+Current Timestamp: 2017-06-20T12:33:51.108Z 
+
+N.B.: The result may varry for your system date and time.

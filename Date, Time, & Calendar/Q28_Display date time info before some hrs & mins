@@ -1,0 +1,21 @@
+28. Write a Java program to display the date time information before some hours and minutes from current date time.
+
+import java.time.*;
+
+public class DateParseFormatExample28 {
+
+	public static void main(String[] args) {
+	
+    // Before 7 houres and 30 minutes
+     LocalDateTime dateTime = LocalDateTime.now().minusHours(5).minusMinutes(30);
+      System.out.println("\nCurrent Date and Time:  " + LocalDateTime.now());  
+      System.out.println("Before 7 hours and 30 minutes: " + dateTime+"\n");  
+	}
+
+}
+
+
+>>
+Current Date and Time:  2017-06-21T12:32:48.638                                                               
+Before 7 hours and 30 minutes: 2017-06-21T07:02:48.638
+N.B.: The result may varry for your system date and time.

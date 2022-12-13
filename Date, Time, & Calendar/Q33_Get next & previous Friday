@@ -1,0 +1,17 @@
+33. Write a Java program to get the next and previous Friday. 
+
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
+public class Exercise33 {
+   public static void main(String[] args)
+    {
+    LocalDate dt = LocalDate.now();    
+    System.out.println("\nNext Friday: "+dt.with(TemporalAdjusters.next(DayOfWeek.FRIDAY)));
+    System.out.println("Previous Friday: "+dt.with(TemporalAdjusters.previous(DayOfWeek.FRIDAY))+"\n");
+    }
+}
+
+>>
+Next Friday: 2017-06-23                                                                                       
+Previous Friday: 2017-06-16
+N.B.: The result may varry for your system date and time.

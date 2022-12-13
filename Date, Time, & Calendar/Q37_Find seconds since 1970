@@ -1,0 +1,13 @@
+37. Write a Java program to find seconds since 1970.
+
+public class Exercise37 {
+  public static void main(String[] args)
+   {
+     long seconds = System.currentTimeMillis() / 1000l;
+     System.out.println("\nSeconds since 1970: "+seconds+"\n");
+   }
+}
+
+>>
+Seconds since 1970: 1498036900
+N.B.: The value may be changed accroding to your system date and time.

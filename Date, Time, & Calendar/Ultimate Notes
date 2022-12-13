@@ -45,5 +45,59 @@ System.out.println(cal.getTime());
 
 Q9_calc first & last day of each week
 
+Q10_Get the name of the first and last day of a month
+	 String firstDay = ym.atDay(1).getDayOfWeek().name(); 
+	 String lastDay = ym.atEndOfMonth().getDayOfWeek().name(); 
+   
+Q11_Get no. of days of month
+   Calendar cal = Calendar.getInstance();
+   int days = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+   
+Q12_Get localized day-in-week name
+   DateFormatSymbols symbols = new DateFormatSymbols(new Locale("de")); //Localized in German
+   String[] dayNames = symbols.getWeekdays();
+    for (String s : dayNames) {
+    
+Q13_Get a day of week of specific date
+   Calendar cal = Calendar.getInstance();
+ //Set your date: cal.setTime(yourDate);
+	 System.out.println();
+   int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK); #
+   
+Q14_Get current local time
+    LocalTime time = LocalTime.now(); // in hour, minutes, seconds, nano seconds
+    
+Q15_Add some hours to the current time
+    LocalTime time = LocalTime.now(); 
+    LocalTime newTime = time.plusHours(4);# // adding four hours
+    
+Q16_Get a date after 2 weeks
+     int noOfDays = 14; #
+     Calendar cal = Calendar.getInstance();
+     Date cdate = cal.getTime();
+     cal.add(Calendar.DAY_OF_YEAR, noOfDays); #
+     Date date = cal.getTime(); #
+     
+ Q17_Get a date b4 & after 1 year
+     //get this year
+     Calendar cal = Calendar.getInstance();
+      Date cdate = cal.getTime();
+      // get next year
+      cal.add(Calendar.YEAR, 1); #
+      Date nyear = cal.getTime();
+      //get previous year
+      cal.add(Calendar.YEAR, -2); #
+      Date pyear = cal.getTime();
 
+Q18_To check leap year
+    if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))
+    
+Q19_Get year & months between 2 dates (difference between 2 dates)
+    LocalDate today = LocalDate.now();    
+    LocalDate userday = LocalDate.of(2015, Month.MAY, 15); 
+    Period diff = Period.between(userday, today); 
+    
+Q20_Get current timestamp
+     Instant timestamp = Instant.now(); 
+    
     

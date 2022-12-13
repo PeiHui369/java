@@ -1,0 +1,19 @@
+22. Write a Java program to get the dates 10 days before and after today. 
+
+import java.time.*;
+public class Exercise22 {
+   public static void main(String[] args)
+    {
+     LocalDate today = LocalDate.now(); 
+     System.out.println("\nCurrent Date: "+today);
+     System.out.println("10 days before today will be "+today.plusDays(-10));
+     System.out.println("10 days after today will be "+today.plusDays(10)+"\n");
+   }
+}
+
+
+>>
+Current Date: 2017-06-20                                                                                      
+10 days before today will be 2017-06-10                                                                       
+10 days after today will be 2017-06-30
+N.B.: The result may varry for your system date and time.

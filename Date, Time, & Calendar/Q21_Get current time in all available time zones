@@ -1,0 +1,44 @@
+21. Write a Java program to get the current time in all the available time zones.
+
+import java.time.*;
+public class Exercise21 {
+   public static void main(String[] args)
+    {
+    ZoneId.SHORT_IDS.keySet().
+    stream().forEach( 
+    zoneKey ->System.out.println(" "+ ZoneId.of( ZoneId.SHORT_IDS.get( zoneKey ) ) +": "+ LocalDateTime.now(ZoneId.of(ZoneId.SHORT_IDS.get( zoneKey ) ) ) ) );
+    }
+}
+
+>>
+ Asia/Shanghai: 2017-06-20T20:43:19.642                                                                       
+ Africa/Cairo: 2017-06-20T14:43:19.643                                                                        
+ America/St_Johns: 2017-06-20T10:13:19.645                                                                    
+ America/Puerto_Rico: 2017-06-20T08:43:19.647                                                                 
+ America/Phoenix: 2017-06-20T05:43:19.647                                                                     
+ Asia/Karachi: 2017-06-20T17:43:19.647                                                                        
+ America/Anchorage: 2017-06-20T04:43:19.647                                                                   
+ Asia/Dhaka: 2017-06-20T18:43:19.647                                                                          
+ America/Chicago: 2017-06-20T07:43:19.648                                                                     
+ -05:00: 2017-06-20T07:43:19.648                                                                              
+ -10:00: 2017-06-20T02:43:19.648                                                                              
+ Asia/Tokyo: 2017-06-20T21:43:19.649                                                                          
+ Asia/Kolkata: 2017-06-20T18:13:19.649                                                                        
+ America/Argentina/Buenos_Aires: 2017-06-20T09:43:19.649                                                      
+ Pacific/Auckland: 2017-06-21T00:43:19.649                                                                    
+ -07:00: 2017-06-20T05:43:19.649                                                                              
+ Australia/Sydney: 2017-06-20T22:43:19.649                                                                    
+ America/Sao_Paulo: 2017-06-20T09:43:19.650                                                                   
+ America/Los_Angeles: 2017-06-20T05:43:19.650                                                                 
+ Australia/Darwin: 2017-06-20T22:13:19.650                                                                    
+ Pacific/Guadalcanal: 2017-06-20T23:43:19.650                                                                 
+ Asia/Ho_Chi_Minh: 2017-06-20T19:43:19.650                                                                    
+ Africa/Harare: 2017-06-20T14:43:19.650                                                                       
+ Europe/Paris: 2017-06-20T14:43:19.651                                                                        
+ Africa/Addis_Ababa: 2017-06-20T15:43:19.651                                                                  
+ America/Indiana/Indianapolis: 2017-06-20T08:43:19.651                                                        
+ Pacific/Apia: 2017-06-21T01:43:19.651                                                                        
+ Asia/Yerevan: 2017-06-20T16:43:19.651            
+ 
+N.B.: The result may varry for your system date and time.
+

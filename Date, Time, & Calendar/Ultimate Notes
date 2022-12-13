@@ -100,4 +100,70 @@ Q19_Get year & months between 2 dates (difference between 2 dates)
 Q20_Get current timestamp
      Instant timestamp = Instant.now(); 
     
+Q21_Get current time in all available time zones
+    ZoneId.SHORT_IDS.keySet().
+    stream().forEach( 
+    zoneKey ->System.out.println(" "+ ZoneId.of( ZoneId.SHORT_IDS.get( zoneKey ) ) +": "+ LocalDateTime.now(ZoneId.of(ZoneId.SHORT_IDS.get( zoneKey ) ) ) ) );
     
+Q22_Get dates 10days b4 & after
+    #name.plusDays( +ve or -ve value)
+     LocalDate today = LocalDate.now(); 
+     today.plusDays(-10)
+     today.plusDays(10)
+     
+Q23_Get months remaining in the year
+     LocalDate today = LocalDate.now(); 
+     LocalDate lastDayOfYear = today.with(TemporalAdjusters.lastDayOfYear());
+     Period period = today.until(lastDayOfYear);
+     period.getMonths() //Change to month
+     
+Q24_Display dates in format
+//Refer to the file
+
+Q25_Get info (leap&length) of year
+    Year yr = Year.now();	//Current year
+    Year yr = Year.of(2001);    //Given year
+     boolean isLeap = yr.isLeap(); // false
+     int length = yr.length(); // 365
+     
+Q26_Get info of current or given month
+ // information about the month
+      LocalDate ldt = LocalDate.of(2016, Month.FEBRUARY, 10);
+      Month mn = ldt.getMonth(); // FEBRUARY
+      int mnIntValue = mn.getValue(); // 2
+      int minLength = mn.minLength(); // 28
+      int maxLength = mn.maxLength(); // 29
+      Month firstMonthOfQuarter = mn.firstMonthOfQuarter(); // JANUARY
+  
+Q27_Get info of given time
+      LocalTime time = LocalTime.of(12, 24, 32);  
+      int hour = time.getHour(); 
+      int minute = time.getMinute();  
+      
+Q28_Display date time info before some hrs & mins
+     LocalDateTime dateTime = LocalDateTime.now().minusHours(5).minusMinutes(30); // Before 5 houres and 30 minutes
+      int second = time.getSecond(); 
+ 
+Q29_Convert str to date
+   String string = "May 1, 2016";
+   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+   LocalDate date = LocalDate.parse(string, formatter);
+   
+Q30_Compute difference between 2 dates
+   LocalDate pdate = LocalDate.of(2012, 01, 01);
+   LocalDate now = LocalDate.now();
+   Period diff = Period.between(pdate, now);
+   diff.getYears(), diff.getMonths(), diff.getDays()
+   
+Q31_Compute difference between 2 dates (in time)
+     LocalDateTime dateTime = LocalDateTime.of(2016, 9, 16, 0, 0);
+     LocalDateTime dateTime2 = LocalDateTime.now();
+     int diffInNano = java.time.Duration.between(dateTime, dateTime2).getNano();
+     long diffInSeconds = java.time.Duration.between(dateTime, dateTime2).getSeconds();
+     long diffInMilli = java.time.Duration.between(dateTime, dateTime2).toMillis();
+     long diffInMinutes = java.time.Duration.between(dateTime, dateTime2).toMinutes();
+     long diffInHours = java.time.Duration.between(dateTime, dateTime2).toHours();]
+     # java.time.Duration.between (dateTime1, dateTime2) : .getNano(), .getSeconds(), .toMillis(), .toMinutes(), .toHours()
+     
+   
+ 

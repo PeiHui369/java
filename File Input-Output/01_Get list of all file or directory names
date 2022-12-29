@@ -1,0 +1,15 @@
+1. Write a Java program to get a list of all file/directory names from the given
+
+import java.io.Fle;
+import java.util.Date;
+
+public class Exercise1{
+  public static void main(String a[])
+  {
+      File file = new File("/home/students/"); #
+      String[] fileList = file.list(); #
+      for(String name:fileList){ #
+        System.out.println(name);
+      }
+    }
+  }

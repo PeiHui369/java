@@ -1,0 +1,187 @@
+ 03_Check if exists
+ File my_file_dir = new File("/home/students/xyz.txt");
+      if(my_file_dir.exists()) {}
+      
+ 04_Check read & write permission
+       if (my_file_dir.canWrite())
+       if (my_file_dir.canRead()) 
+ 
+05_check is directory or file
+  if (my_file_dir.isDirectory())
+  if (my_file_dir.isFile()) 
+ 
+06_Compare 2 files lexicographically
+ int var = str1.compareTo(str2);
+ 
+07_Get last modified time
+    File file = new File("test.txt");
+    Date date=new Date(file.lastModified());
+    
+08_Read input from java console
+    BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+    String name = R.readLine();
+    
+09_get file size in bytes, kb, mb
+<Main> System.out.println(filesize_in_Bytes(file))
+
+    private static String filesize_in_megaBytes(File file) {
+        return (double) file.length()/(1024*1024)+" mb";
+    }
+ 
+    private static String filesize_in_kiloBytes(File file) {
+        return (double) file.length()/1024+"  kb";
+    }
+ 
+    private static String filesize_in_Bytes(File file) {
+        return file.length()+" bytes";
+    }
+    
+10_Read contents from a file into byte array
+String file_name = "/home/students/test.txt";
+        InputStream fins = null;
+        try {
+            fins = new FileInputStream(file_name);
+            byte file_content[] = new byte[2*1024];
+            int read_count = 0;
+            while((read_count = fins.read(file_content)) > 0){
+                System.out.println(new String(file_content, 0, read_count-1));
+            }
+
+11_Read a file content line by line
+        BufferedReader br = null;
+        String strLine = "";
+        try {
+            br = new BufferedReader( new FileReader("/home/students/test.txt"));
+            while( (strLine = br.readLine()) != null){
+                System.out.println(strLine);
+            }
+            br.close();
+        }
+ 
+ 12_Read plain text file
+        StringBuilder sb = new StringBuilder(); 
+        String strLine = "";
+        try {
+             BufferedReader br = new BufferedReader(new FileReader("/home/students/test.txt"));
+             while (strLine != null)
+             {
+                sb.append(strLine);
+                sb.append(System.lineSeparator());
+                strLine = br.readLine();
+                System.out.println(strLine);
+            }
+             br.close();
+        }
+        
+13_Read file line by line & store into var
+        StringBuilder sb = new StringBuilder();
+        String strLine = "";
+        String str_data = "";
+        try {
+             BufferedReader br = new BufferedReader(new FileReader("/home/students/test.txt"));
+             while (strLine != null)
+             {
+                if (strLine == null)
+                  break;
+                str_data += strLine;
+                strLine = br.readLine();
+                
+            }
+              System.out.println(str_data);
+             br.close();
+             
+14_Store text file content line by line into array     
+        StringBuilder sb = new StringBuilder();
+        String strLine = "";
+        List<String> list = new ArrayList<String>();
+        try {
+             BufferedReader br = new BufferedReader(new FileReader("/home/students/test.txt"));
+              while (strLine != null)
+               {
+                strLine = br.readLine();
+                sb.append(strLine);
+                sb.append(System.lineSeparator());
+                strLine = br.readLine();
+                if (strLine==null)
+                   break;
+                list.add(strLine);
+            }
+         System.out.println(Arrays.toString(list.toArray()));
+             br.close();
+        
+15_Write & read plain text file
+//Answer provided is wrong
+
+16_Append text to existing file
+        StringBuilder sb = new StringBuilder();
+        String strLine = "";
+        try
+          {
+             String filename= "/home/students/myfile.txt";
+             FileWriter fw = new FileWriter(filename,false); 
+             //appends the string to the file
+             fw.write("Python Exercises\n");
+             fw.close();
+             BufferedReader br = new BufferedReader(new FileReader("/home/students/myfile.txt"));
+             //read the file content
+             while (strLine != null)
+             {
+                sb.append(strLine);
+                sb.append(System.lineSeparator());
+                strLine = br.readLine();
+                System.out.println(strLine);
+            }
+             br.close();                          
+           }
+           
+17. Write a Java program to read first 3 lines from a file.
+        BufferedReader br = null;
+        String strLine = "";
+        try {
+            LineNumberReader reader = new LineNumberReader(new InputStreamReader(new FileInputStream("/home/students/test.txt"), "UTF-8"));
+             while (((strLine = reader.readLine()) != null) && reader.getLineNumber() <= 3){
+                System.out.println(strLine);
+            }
+           reader.close();
+
+18_Find longest word in text file
+ public static void main(String [ ] args) throws FileNotFoundException {
+              new Exercise18().findLongestWords();
+         }
+
+     public String findLongestWords() throws FileNotFoundException {
+
+       String longest_word = "";
+       String current;
+       Scanner sc = new Scanner(new File("/home/students/test.txt"));
+
+
+       while (sc.hasNext()) {
+          current = sc.next();
+           if (current.length() > longest_word.length()) {
+             longest_word = current;
+           }
+
+       }
+         System.out.println("\n"+longest_word+"\n");
+            return longest_word;
+            }
+}
+
+ <Difference between path & absolute path>
+- f.getPath()
+Original Path: program.txt
+- f.getAbsolutePath()
+Absolute Path: C:\Users\pc\eclipse-workspace1\arnab\program.txt
+
+<EXCEPTION>
+ } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try{
+                if(fins != null) fins.close();
+            } catch(Exception ex){
+                 
+            }

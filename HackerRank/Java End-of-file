@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+    
+        Scanner scanner = new Scanner (System.in);
+        String text = "";
+        int counter = 0;
+        
+        while(scanner.hasNext()){
+            text = scanner.nextLine();
+            counter ++;
+            System.out.println(counter + " " + text);
+        }
+    }
+}

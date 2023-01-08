@@ -15,10 +15,10 @@ class Add{
         int sum=0;
         for(int i:n){
             sum+=i;
-             sb.append(i+"+");
+             sb.append(i+"+"); //Add to the string
               }
         
-        sb=sb.deleteCharAt(sb.length()-1);
+        sb=sb.deleteCharAt(sb.length()-1); //Remove the last "+"
         
         
         

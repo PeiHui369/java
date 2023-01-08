@@ -1,3 +1,16 @@
+>> Test valid pattern
+Pattern pattern = Pattern.compile(syntax[i]);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  Scanner.hasNext() to read n lines of input until you reach EOF, then number and print all n lines of content.
  
  

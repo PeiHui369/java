@@ -1,0 +1,29 @@
+
+import java.util.regex.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Solution
+{
+	 public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in)); //Read input
+        int n = Integer.parseInt(bufferedReader.readLine()); //Convert the input to integer, tell to read how many line
+        String[] syntax = new String[n]; //Create array
+        for (int i = 0; i < syntax.length; i++) { //Loops the no. of time need to read input
+            syntax[i] = bufferedReader.readLine(); //read the line, save in array
+        }
+        for (int i = 0; i < syntax.length; i++) { //for all element in array
+            try {
+                Pattern pattern = Pattern.compile(syntax[i]); //As object to test valid or not
+                System.out.println("Valid");
+            } catch (PatternSyntaxException e) {
+                System.out.println("Invalid");
+            }
+        }
+	}
+}
+
+<https://www.hackerrank.com/challenges/pattern-syntax-checker/problem?isFullScreen=true&h_r=next-challenge&h_v=zen>
+
+

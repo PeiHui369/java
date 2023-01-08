@@ -1,0 +1,43 @@
+ Scanner.hasNext() to read n lines of input until you reach EOF, then number and print all n lines of content.
+ 
+ 
+>> Given day,month,year find day of week
+ public static String findDay(int month, int day, int year) {
+        return new GregorianCalendar(year, --month, day)
+            .getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())
+            .toUpperCase();
+}
+
+>> String pattern
+// Java program to demonstrate
+// Pattern.compile() method
+
+import java.util.regex.*;
+
+public class GFG {
+	public static void main(String[] args)
+	{
+		// create a REGEX String
+		String REGEX = ".*www.*"; #
+
+		// creare the string
+		// in which you want to search
+		String actualString
+			= "www.geeksforgeeks.org";
+
+		// compile the regex to create pattern
+		// using compile() method
+		Pattern pattern = Pattern.compile(REGEX); #
+
+		// get a matcher object from pattern
+		Matcher matcher = pattern.matcher(actualString); #
+
+		// check whether Regex string is
+		// found in actualString or not
+		boolean matches = matcher.matches(); #
+
+		System.out.println("actualString "
+						+ "contains REGEX = "
+						+ matches);
+	}
+}

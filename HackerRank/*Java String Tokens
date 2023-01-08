@@ -1,0 +1,50 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        // Write your code here.
+         char y=s.charAt(s.length()-1);
+    if (Character.isAlphabetic(y)){
+        s=s+" ";
+    }
+    char c='!',b;
+    int j=0;
+    String a;
+    ArrayList<String> r = new ArrayList<String>();
+    for(int i=0;i<s.length();i++){
+       b=c;
+       c=s.charAt(i); 
+      // System.out.println("c= "+c+" ");
+       if(Character.isAlphabetic(c))  
+       continue;
+       else{
+          if(Character.isAlphabetic(b)){
+
+         a= s.substring(j,i);
+         //System.out.println("a= "+a+" ");
+
+          j=i+1;
+          r.add(a);}
+          else{
+              j=j+1;
+          continue;
+          }
+       }
+   }
+
+ System.out.println(r.size());
+ for(int i=0;i<r.size();i++){
+ System.out.println(r.get(i));
+}
+        scan.close();
+        
+        
+    }
+
+    
+}
+

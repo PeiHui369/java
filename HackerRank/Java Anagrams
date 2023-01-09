@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    static boolean isAnagram(String a, String b) {
+        //Convert both str to lowerCase
+         String A=a.toLowerCase();
+        String B=b.toLowerCase();
+        
+        //length not equal >> false
+        if(A.length()!=B.length()) return false;
+        
+        // for i for j
+            for(int i=0;i<A.length();i++){
+            int countA=0;
+            int countB=0;
+            for(int j=0;j<A.length();j++){
+                if (A.charAt(i)==A.charAt(j)) countA++;//#
+        
+                if (A.charAt(i)==B.charAt(j)) countB++;//#
+            } 
+            if(countA==countB)  continue;//#
+            else  return false;
+            }
+        
+        return true;
+    }
+        
+    
+
+    public static void main(String[] args) {

@@ -1,0 +1,31 @@
+import java.util.Scanner;
+class UsernameValidator {
+    /*
+     * Write regular expression here.
+     */
+    public static final String regularExpression = "^[A-Za-z][A-Za-z0-9_]{7,29}$"; #
+    
+    /*
+    ^[A-Za-z] >> 1st char alphabetic (uppercase or lowercase)
+    [A-Za-z0-9_]: can contain alphanumeric(uppercase, lowercase, digits) char & underscores(_)
+    {7,29} 8 to 30 characters inclusive
+    */
+}
+
+
+public class Solution {
+    private static final Scanner scan = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+        int n = Integer.parseInt(scan.nextLine());
+        while (n-- != 0) {
+            String userName = scan.nextLine();
+
+            if (userName.matches(UsernameValidator.regularExpression)) {
+                System.out.println("Valid");
+            } else {
+                System.out.println("Invalid");
+            }           
+        }
+    }
+}

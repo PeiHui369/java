@@ -1,3 +1,22 @@
+<Introduction>
+>> Welcome to Java!
+System.out.println("")
+
+>> Stdin & StdOut I
+Scanner sc = new Scanner (System.in);
+Type varName = sc.nextType();
+sc.close();
+
+>> If-Else
+if(){}
+else if(){}
+else{}
+
+- Ternary operator
+ansType varName = (condition? true:false);
+
+
+
 Java Exception Handling
 class C {
   accessModifier Type Method(Parameters) throws Exception{

@@ -33,6 +33,21 @@ str1.substring(0,1).toUpperCase() + str1.substring(1, str1.length())
 >>Java Substring
 str.substring (beginIndexInclusive, endIndexExclusive)
 
+>>Java Substring Comparisons 
+- Get smallest & largest substrings (length k, string s)
+ String smallest = "z"; #
+ String largest = "";
+ for(int i =0; i<=s.length()-k; i++){ #
+            String line = (s.substring(i,i+k)); #
+            if(line.compareTo(smallest)<0){
+                smallest = line;
+            }
+            if(line.compareTo(largest)>0){
+                largest = line;
+            }
+            
+        }
+
 >> Java String Reverse
 - Palindrome: (word/phrase/number/sequence of characters) reads the same backward or forward
  boolean isEqual = true;       
@@ -42,6 +57,24 @@ str.substring (beginIndexInclusive, endIndexExclusive)
             }
         }
 
+>> Java Anagrams 
+2 strs contain all same chars in same frequencies
+[1] str.toLowerCase(); //if case-insensitive
+[2] str1.length() != str2.length() //>>false
+[3] (A is str1, B is str2)
+        for(int i=0;i<A.length();i++){
+            int countA=0;
+            int countB=0;
+            
+            for(int j=0;j<A.length();j++){
+                if (A.charAt(i)==A.charAt(j)) countA++; #
+        
+                if (A.charAt(i)==B.charAt(j)) countB++; #
+            
+            } 
+            if(countA==countB)  continue; #
+            else  return false;
+            }
 
 Java Exception Handling
 class C {

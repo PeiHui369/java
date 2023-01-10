@@ -1,3 +1,7 @@
+<To further study>
+Java Iterator [?]
+Java BigDecimal [QTA]
+
 <Introduction>
 >> Welcome to Java!
 System.out.println("")
@@ -283,3 +287,37 @@ for(int i = 0; i < mylist.size(); i++){
 	    
 // To call count method in main
 count(arrayListName);
+
+<BIGNUMBER>
+>> BigInteger
+- Type: BigInteger
+- Arithmetic: a.add(b), a.multiply(b)
+
+>> Java Primality Test
+BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+String n = bufferedReader.readLine();
+BigInteger bigInteger = new BigInteger(n + "");
+if(bigInteger.isProbablePrime(1)) #
+
+<EXCEPTION HANDLING>
+try{ //what to do }
+catch(Exception){}//Can be >=1
+finally{sc.close();}
+
+OR
+
+class C {
+  accessModifier Type Method(Parameters) throws Exception{
+  if()
+    throw(new Exception("");
+  else if()
+    throw(new Exception("");
+  else()
+    return
+}
+
+- Print
+ catch(Exception e){System.out.println(e);}
+ 
+ - Other type
+ i. catch(InputMismatchException e) {System.out.print("java.util.InputMismatchException");}

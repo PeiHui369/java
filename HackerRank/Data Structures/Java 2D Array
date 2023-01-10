@@ -1,3 +1,22 @@
+- m * n 2D array
+- hourglass: (if use 1, as long as have 1 in any position acceptable)
+a b c
+  d
+e f g
+
+====
+sum of hourglass = sum of all numbers within it
+Find largest sum of hourglass:
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 2 4 4 0
+0 0 0 2 0 0
+0 0 1 2 4 0
+----------------
+
+
+
 <https://www.hackerrank.com/challenges/java-2d-array/problem?isFullScreen=true&h_r=next-challenge&h_v=zen>
 import java.io.*;
 import java.math.*;

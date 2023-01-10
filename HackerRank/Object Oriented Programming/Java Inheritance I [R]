@@ -1,3 +1,7 @@
+class A{ method p}
+class B extend A{ method q}
+- B.p() & B.q() //B can excess all in A
+
 import java.io.*;
 import java.util.*;
 import java.text.*;

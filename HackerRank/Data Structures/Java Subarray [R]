@@ -1,3 +1,5 @@
+Given an array of n integers, find and print its number of negative subarrays on a new line.
+
 import java.io.*;
 import java.util.*;
 import java.text.*;

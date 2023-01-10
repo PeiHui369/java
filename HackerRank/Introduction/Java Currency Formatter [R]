@@ -1,3 +1,17 @@
+main{
+Solution sol = new Solution();
+        System.out.println("US: " + sol.formattedPayment(Locale.US, payment)); // Locale just capitalize its name
+        System.out.println("India: "+ sol.formattedPayment(new Locale("en", "IN"), payment)); //Special case
+        }
+
+public String formattedPayment(Locale locale, double payment) {
+     NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
+     return nf.format(payment);
+}
+
+=====================
+
+
 import java.util.*;
 import java.text.*;
 

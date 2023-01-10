@@ -19,6 +19,7 @@ else{}
 - Ternary operator
 ansType varName = (condition? true:false);
 
+<STRINGS>
 >> Java Strings Introduction
 - To initialize
 String str = " "
@@ -85,23 +86,29 @@ str.substring (beginIndexInclusive, endIndexExclusive)
 - To split words by words & store in array
          String[] tokens = S.split("[^a-zA-Z]");
 
-
-<
-
-
-
-Java Exception Handling
-class C {
-  accessModifier Type Method(Parameters) throws Exception{
-  if()
-    throw(new Exception("");
-  else if()
-    throw(new Exception("");
-  else()
-    return
+>> Java Regex
+ - IP Address
+ <Main>
+ Scanner in = new Scanner(System.in);
+        while(in.hasNext()){ 
+            String IP = in.next();
+            System.out.println(IP.matches(new MyRegex().pattern)); }#
+	    
+class MyRegex{
+     String Limit_0_255 = "(\\d{1,2}|(0|1)\\d{2}|2[0-4]\\d|25[0-5])";
+/*
+/d is used for digits in regular expressions
+(0|1)\\d{2} checks for a three digit number between 0 and 1
+\\d{1,2} check for a one or two digit number
+2[0-4]\\d|25[0-5] checks for numbers between 200 and 255
+\\. represents a dot
+*/
+     
+    //IP address has 4 parts
+    public String pattern = Limit_0_255 + "\\." + Limit_0_255
+            + "\\." + Limit_0_255
+            + "\\." + Limit_0_255;
 }
-
-
 
 
 
@@ -217,6 +224,16 @@ return max;
             
         }
         scanner.close();
+	
+>> Java Stack
+
+Stack<String> stack = new Stack<String>();
+stack.isEmpty(): Check if is empty
+stack.empty() : If is empty condition
+stack.pop()   : Remove last/top element
+stack.push(item) : Add item to last/top
+stack.lastElement().equals(""): Check if last element equals to ""
+
 
 <OBJECT ORIENTED PROGRAMMING>
 >> Java Inheritance I

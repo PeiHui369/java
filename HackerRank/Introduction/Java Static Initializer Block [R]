@@ -1,0 +1,78 @@
+- Initializing Fields
+public class BedAndBreakfast {
+
+    // initialize to 10
+    public static int capacity = 10;
+
+    // initialize to false
+    private boolean full = false;
+}
+~Limitations: logic(error handling, for loop to fill complex array)
+
+- Static Initialization block: Block of code enclosed in braces() & preceded by "static" keyword
+static {
+    // whatever code is needed for initialization goes here
+}
+~ a class can have any number of it & they can appear anywhere in class body
+~ Runtime system guarantees called in order that appear in source code
+
+- Private static method
+class Whatever {
+    public static varType myVar = initializeClassVariable();
+        
+    private static varType initializeClassVariable() {
+
+        // initialization code goes here
+    }
+}
+~ can be reused later
+
+- Initialzing Instacnce Members
+class Whatever {
+    private varType myVar = initializeInstanceVariable();
+        
+    protected final varType initializeInstanceVariable() {
+
+        // initialization code goes here
+    }
+}
+~ A final method cannot be overridden in a subclass.
+
+==============
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    static boolean flag;
+    static Scanner sc = new Scanner(System.in);
+    //System.out.println("Please enter breadth: ");
+    static int B = sc.nextInt();
+
+    //System.out.println("Please enter height: ");
+    static int H = sc.nextInt();
+
+    static{
+        if(B>0 && H>0){
+                flag = true;
+        }else{
+            flag = false;
+            System.out.println("java.lang.Exception: Breadth and height must be positive");
+        }
+    }
+
+
+
+public static void main(String[] args){
+		if(flag){
+			int area=B*H;
+			System.out.print(area);
+		}
+		
+	}//end of main
+
+}//end of class
+

@@ -1,0 +1,67 @@
+>> Constructors
+BufferedReader(Reader rd):	to create a buffered character input stream that uses the *default* size for an input buffer.
+BufferedReader(Reader rd, int size): to create a buffered character input stream that uses the *specified* size for an input buffer.
+
+>> Methods
+// To call method: br.method()
+int read():	reading a single character.
+int read(char[] cbuf, int off, int len):	reading characters into a portion of an array.
+boolean markSupported()	: to test the input stream support for the mark and reset method.
+String readLine() :	reading a line of text.
+boolean ready() :	test whether the input stream is ready to be read.
+long skip(long n) :	for skipping the characters
+void reset() :	repositions the stream at a position the mark method was last called on this input stream.
+void mark(int readAheadLimit)	: marking the present position in a stream.
+*void close(): closes the input stream and releases any of the system resources associated with the stream.
+
+>> Example: From File
+package com.javatpoint;  
+import java.io.*;  
+public class BufferedReaderExample {  
+    public static void main(String args[])throws Exception{    
+          FileReader fr=new FileReader("D:\\testout.txt");     #
+          BufferedReader br=new BufferedReader(fr);            #
+  
+          int i;    
+          while((i=br.read())!=-1){                            #//while still have next char
+          System.out.print((char)i);  
+          }  
+          br.close();    
+          fr.close();    
+    }    
+}    
+
+>> Example: From Console (Reading data from console by InputStreamReader and BufferedReader)
+package com.javatpoint;  
+import java.io.*;  
+public class BufferedReaderExample{    
+public static void main(String args[])throws Exception{             
+    InputStreamReader r=new InputStreamReader(System.in);     #  
+    BufferedReader br=new BufferedReader(r);                  #
+    System.out.println("Enter your name");    
+    String name=br.readLine();                                #
+    System.out.println("Welcome "+name);    
+}    
+}  
+
+>> Example: From Console (reading data from console until user writes stop)
+package com.javatpoint;  
+import java.io.*;  
+public class BufferedReaderExample{    
+public static void main(String args[])throws Exception{             
+     InputStreamReader r=new InputStreamReader(System.in);        #  
+     BufferedReader br=new BufferedReader(r);                     #
+     String name="";    
+     while(!name.equals("stop")){                                 #
+      System.out.println("Enter data: ");    
+      name=br.readLine();                                         #
+      System.out.println("data is: "+name);    
+     }              
+    br.close();    
+    r.close();    
+    }    
+    }  
+
+
+
+

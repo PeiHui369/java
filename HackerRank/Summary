@@ -2,7 +2,7 @@
 >> Welcome to Java!
 System.out.println("")
 
->> Stdin & StdOut I
+>> Java Stdin and Stdout I 
 Scanner sc = new Scanner (System.in);
 Type varName = sc.nextType();
 sc.close();
@@ -15,6 +15,32 @@ else{}
 - Ternary operator
 ansType varName = (condition? true:false);
 
+>> Java Strings Introduction
+- To initialize
+String str = " "
+
+- To length
+str.length()
+
+- To compare lexicographically
+str1.compareTo(str2)
+str1.compareToIgnoreCase(str2)
+[str1 > str2 : +ve] [str1 = str2 : 0] [str1 < str2 : -ve]
+
+- To capitalize the 1st letter
+str1.substring(0,1).toUpperCase() + str1.substring(1, str1.length())
+
+>>Java Substring
+str.substring (beginIndexInclusive, endIndexExclusive)
+
+>> Java String Reverse
+- Palindrome: (word/phrase/number/sequence of characters) reads the same backward or forward
+ boolean isEqual = true;       
+        for(int i = 0; i<=A.length()-1; i++){
+            if(A.charAt(i) != A.charAt(A.length()-1-i)){
+                isEqual = false;
+            }
+        }
 
 
 Java Exception Handling
@@ -27,6 +53,9 @@ class C {
   else()
     return
 }
+
+
+
 
 
 <DATA STRUCTURES>

@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+         String S = sc.nextLine();
+         
+         // To split words by words & store in array
+         String[] tokens = S.split("[^a-zA-Z]");
+         /*S  is composed of any of the following: English alphabetic letters, blank spaces, exclamation points (!), commas (,), question marks (?), periods (.), underscores (_), apostrophes ('), and at symbols (@).*/
+         
+         int numTokens = 0;
+        
+        // To loop through the array
+        // Each word length must >0
+        // Calc num of word
+         for (int i=0; i<tokens.length; ++i) 
+             if (tokens[i].length() > 0) 
+                 numTokens++;
+             
+         System.out.println(numTokens);
+        
+        //Loop to print
+         for (int i=0; i<tokens.length;++i)
+             if (tokens[i].length() > 0)
+                 System.out.println(tokens[i]);
+    }
+}

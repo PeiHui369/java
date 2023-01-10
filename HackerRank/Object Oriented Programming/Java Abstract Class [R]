@@ -1,8 +1,21 @@
+//abstract class X instantiated (X create new instances/ Object)
+// create another class that extends abstract class --> create instance of the new class
+abstract class Book{}
+class MyBook extends Book {}
+main{ MyBook objName = new MyBook() }
+
+//method abstract & has no body --> implement body of that method in child class
+abstract: abstract void setTitle(String s);
+child:  void setTitle(String s){title = s;}
+=====
+    
 //A Java abstract class is a class that can't be instantiated. That means you cannot create new instances of an abstract class.
 /*
 You have to create another class that extends the abstract class. Then you can create an instance of the new class.
 Notice that setTitle method is abstract too and has no body. That means you must implement the body of that method in the child class.
 */
+
+--------------------
 
 import java.util.*;
 abstract class Book{

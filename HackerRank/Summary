@@ -214,6 +214,7 @@ return max;
         }
         scanner.close();
 
+<OBJECT ORIENTED PROGRAMMING>
 >> Java Inheritance I
 class A{ method p}
 class B extend A{ method q}
@@ -236,3 +237,49 @@ main{ MyBook objName = new MyBook() }
 //method abstract & has no body --> implement body of that method in child class
 abstract: abstract void setTitle(String s);
 child:  void setTitle(String s){title = s;}
+
+>> Java Interface
+- can only contain method signatures and fields
+- can be used to achieve polymorphism. 
+- 
+interface A{ int divisor_sum(int n);}
+class B implements A{  public int divisor_sum(int n){...return;}}
+- To get the name of interface
+Class[] theInterfaces = o.getClass().getInterfaces();
+String interfaceName = theInterfaces[i].getName();
+
+>> Java Method Overriding 
+class A { Type method1(){p} }
+class B extends A { @Override Type method1(){q}}
+- B inherits A methods
+
+<Main>
+A objName = new A; 
+A.method() >> p
+B objName = new B;
+B.method() >> q
+
+>> Java Method Overriding 2 (Super Keyword)
+//super.func() to call the overriden function in superclass
+class B extends A{ Type function1(){q}
+String temp = super.function1()
+} 
+Output: p
+
+>>Java Instanceof keyword
+//Add into arraylist distinguish by each class according to value
+if(s.equals("Value")){
+	arrayListName.add(new difClass());}
+	
+//To get a class name of object O
+O.getClass().getName()
+
+// To calc no. of element in each class
+for(int i = 0; i < mylist.size(); i++){
+         Object element=mylist.get(i);
+         if(element.getClass().getName() == "Student") 
+            a++;
+	    //follow by b & c
+	    
+// To call count method in main
+count(arrayListName);

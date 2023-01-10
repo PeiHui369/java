@@ -1,0 +1,156 @@
+NO PARAMETER
+--------------
+<Lambda.java>
+public class Lambdas{
+  public static void main(String[] args){
+  
+  //Create a new object of the class that implement
+  Cat myCat = new Cat();
+  /* myCat.print();  >> Meow */
+  printThing(myCat); // >>Meow
+  }
+  
+  //Pass the object into method as printable parameter
+  static void printThing(Printable thing){ //Takes Printable as arg which can be any object that implements Printable interface
+  thing.print(); //Implement body
+  }
+}
+
+<Printable.java>
+public interface Printable {
+
+  void print();
+  
+} 
+
+//Class that implement
+<Cat.java>
+public class Cat implements Printable{
+  public String name;
+  public int age;
+  
+  public Cat(){}
+
+//Have implementation of print method so it would print out what we wanted
+  public void print(){
+    System.out.println("Meow");
+   }
+ }
+ 
+ =====================
+ - Implement method inside of a class
+ 
+ public class Lambdas{
+  public static void main(String[] args){
+  
+  Cat myCat = new Cat();
+  printThing(
+     public void print(){
+    System.out.println("Meow");
+   }
+  );
+ 
+ - Using lambdas to pass in a method implementation as a parameter: X access level, X name of method, X return type; 
+ (Parameter) -> {What method does} : Can leave our {} if only 1 statement
+ 
+  public class Lambdas{
+  public static void main(String[] args){
+  
+  Cat myCat = new Cat();
+  printThing(
+      () -> {
+    System.out.println("Meow"); 
+   }
+  );
+  
+  Using a lambda to pass in implementation of print method as an object: Variable
+  - Make method implementations into objects like  any other that can be saved into variables and passed into method as parameter
+  public class Lambdas{
+  public static void main(String[] args){
+  
+  Cat myCat = new Cat();
+  Printable lambdaPrintable = () -> System.out.println("Meow");
+  printThing(lambdaPrintable)
+   }
+  );
+  
+  =================================
+  1 PARAMETER
+  --------------
+  <Printable.java>
+public interface Printable {
+    //Take parameters
+  void print(String suffix);
+} 
+
+<Lambdas.java>
+public class Lambdas{
+  public static void main(String[] args){
+  
+  Printable lambdaPrintable = (s) -> {System.out.println("Meow " + s)}; //name a parameters, X need specify type (alr in interface) //single parameter can exclude parentheses
+  printThing(lambdaPrintable)
+   };
+   
+  static void printThing(Printable thing){ 
+  thing.print("!");//as suffix 
+  }
+ )
+ 
+ >>OUTPUT: Meow !
+ 
+ ==========================
+ 2 PARAMETERS
+ -------------
+ <Printable.java>
+public interface Printable {
+    //Take parameters
+  void print(String prefix, String suffix);
+} 
+
+<Lambdas.java>
+public class Lambdas{
+  public static void main(String[] args){
+  
+  Printable lambdaPrintable = (p, s) -> {System.out.println("Meow " + s); 
+  printThing(lambdaPrintable)
+   };
+   
+  static void printThing(Printable thing){ 
+  thing.print("!");//as suffix 
+  }
+ }
+ 
+ =======================================
+ Interface have RETURN TYPE
+ ---------------------------
+ <Printable.java>
+public interface Printable {
+  String print(String suffix);
+} 
+ 
+<Lambdas.java>
+public class Lambdas{
+  public static void main(String[] args){
+  
+  Printable lambdaPrintable = (s) -> {
+    System.out.println("Meow " + s);
+    return "Meow";
+  };
+   printThing(lambdaPrintable);
+ 
+ /*
+ OR
+ //If method implementation is only 1 expression, java interprets that as being return value, X need use return keyword
+ Printable lambdaPrintable = (s) -> "Meow" + s;
+ printThing(lambdaPrintable);
+ */
+ 
+ Abstract method: Method in interface has no implementation
+ Functional Interface: Interface with exactly 1 method; Can add annotations @FunctionalInterface
+ SAM Interface: Have single abstract method (can have other type of method)
+ 
+ Lambdas: (only be used in Functional Interface) A shortcut to defining an implementation of a functional interface (X need to create a class to implement & new object); allows treat code as parameters
+ 
+ Interface with >1 abstract method: do with anonymous inner classes
+ 
+ 

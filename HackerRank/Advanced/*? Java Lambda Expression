@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class isPal {
+
+    public boolean isOdd(int a)
+    {
+        return a%2==0?false:true;
+    }
+    public boolean isPrime(int a)
+    {
+        boolean t=true;
+        for(int i=2;i<a/2;i++)
+        {
+            if(a%i==0)
+            t=false;
+        }
+        return t;
+
+    }
+    public boolean isPalindrome(int a)
+    {
+        StringBuilder br=new StringBuilder();
+        br.append(a);
+        br.reverse();
+        int rs=Integer.parseInt(br.toString());
+        if(a==rs)
+        return true;
+        else
+        return false;
+
+    }
+    public static void main(String[] args)
+    {
+        isPal sl=new isPal();
+        Scanner sc=new Scanner(System.in);
+
+        int T=sc.nextInt();
+        sc.nextLine();
+        while(T-->0)
+        {
+
+            String in=sc.nextLine();
+            String[] sr=in.split(" ");
+            switch(Integer.parseInt(sr[0]))
+            {
+                case 1:if(sl.isOdd(Integer.parseInt(sr[1])))
+                        System.out.println("ODD");
+                        else
+                        System.out.println("EVEN");
+                        break;
+                case 2:if(sl.isPrime(Integer.parseInt(sr[1])))
+                        System.out.println("PRIME");
+                        else
+                        System.out.println("COMPOSITE");
+                        break;
+                case 3:if(sl.isPalindrome(Integer.parseInt(sr[1])))
+                        System.out.println("PALINDROME");
+                        else
+                        System.out.println("NOT PALINDROME");
+                        break;
+
+            }
+        }
+
+
+}    
+}

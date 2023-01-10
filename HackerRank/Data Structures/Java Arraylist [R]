@@ -1,3 +1,8 @@
+Given n lines
+In each line >=0 integers
+Tell the number located in yth position of xth line
+
+=================
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -10,32 +15,45 @@ public class Solution {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        
+        //Create ArrayList for list
         List<Integer>[] list = new ArrayList[n];        
         
         for(int i=0; i<n; i++){
             int sizeOfTheLine = scanner.nextInt();
+            
+            //Create ArrayList for line
             List<Integer> line = new ArrayList<>();
+            //1st element of line is the size
             line.add(sizeOfTheLine);
+            // Prompt input to fulfill no. of element in each line
             for(int j=0; j<sizeOfTheLine; j++){
                 line.add(scanner.nextInt());
             }
+            //Save the line into list
             list[i] = line;
         }
         
+        //Prompt input for queries (no. of ques)
         int queries = scanner.nextInt();
+        //Prompt input for location (no. of times = no. of queries)
         for(int i=0; i<queries; i++){
             int x = scanner.nextInt();
             int y = scanner.nextInt();
             
+            /*
             // int num = 0;
             // num = list[x-1].get(y);
             // if(num != 0){
             //     System.out.println(num);
             // }
             // if(num == 0) System.out.println("ERROR!");
-                
+            */
+            
             try{
-                System.out.println(list[x-1].get(y));
+            //index in list = (xth - 1)line
+            //yth element = index is y as the 1st element abt length is included
+                System.out.println(list[x-1].get(y)); #
             }catch(Exception e ){
                 System.out.println("ERROR!");
             }

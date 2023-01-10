@@ -22,7 +22,7 @@ class Hacker{}
 
 
 public class InstanceOFTutorial{
-	
+[2] count
    static String count(ArrayList mylist){
       int a = 0,b = 0,c = 0;
       for(int i = 0; i < mylist.size(); i++){
@@ -38,16 +38,35 @@ public class InstanceOFTutorial{
       return ret;
    }
 
+//[1] get input
    public static void main(String []args){
       ArrayList mylist = new ArrayList();
       Scanner sc = new Scanner(System.in);
       int t = sc.nextInt();
       for(int i=0; i<t; i++){
          String s=sc.next();
+	 //Add into arraylist distinguish by each class according to value
          if(s.equals("Student"))mylist.add(new Student());
          if(s.equals("Rockstar"))mylist.add(new Rockstar());
          if(s.equals("Hacker"))mylist.add(new Hacker());
       }
-      System.out.println(count(mylist));
+      System.out.println(count(mylist)); //call the count method //for each element
    }
 }
+
+//Add into arraylist distinguish by each class according to value
+if(s.equals("Value")){
+	arrayListName.add(new difClass());}
+	
+//To get a class name of object O
+O.getClass().getName()
+
+// To calc no. of element in each class
+for(int i = 0; i < mylist.size(); i++){
+         Object element=mylist.get(i);
+         if(element.getClass().getName() == "Student") 
+            a++;
+	    //follow by b & c
+	    
+// To call count method in main
+count(arrayListName);

@@ -1,5 +1,11 @@
 - can only contain method signatures and fields
 - can be used to achieve polymorphism. 
+- 
+interface A{ int divisor_sum(int n);}
+class B implements A{  public int divisor_sum(int n){...return;}}
+- To get the name of interface
+Class[] theInterfaces = o.getClass().getInterfaces();
+String interfaceName = theInterfaces[i].getName();
 
 /*
 You are given an interface AdvancedArithmetic which contains a method signature int divisor_sum(int n). 

@@ -1,3 +1,17 @@
+- class A inherits from a superclass named Arithmetic
+class A extends Arithmetic{}
+- To get name of superClass
+objName.getClass().getSuperclass().getName()
+====
+
+- class Arithmetic{
+method Add(int n1, int n2){
+return n1+n2;}
+}
+- class Adder extends Arithmetic {
+}
+-------------------
+
 import java.io.*;
 import java.util.*;
 import java.text.*;

@@ -1,0 +1,61 @@
+- a stack or LIFO (last in, first out) is an abstract data type that serves as a collection of elements, with two principal operations: 
+i. push, which adds an element to the collection, and 
+ii. pop, which removes the last element that was added.
+
+String containing only parenthesis balanced if
+i. empty
+ii. A and B correct, AB correct
+iii. A correct, (A) {A} [A] correct
+
+- correctly balanced strings are: "{}()", "[{()}]", "({()})"
+- unbalanced strings are: "{}(", "({)}", "[[", "}{" etc.
+
+===========
+import java.util.*;
+class Solution{
+
+public static void main(String []argh)
+    {
+        Scanner sc = new Scanner(System.in);
+        Stack<String> stack = new Stack<String>();
+        
+        while (sc.hasNext()) {
+            String input=sc.next();
+            
+            for(int i = 0; i < input.length(); i++) {
+                String item = input.charAt(i) + "";
+                if (stack.isEmpty()) { //If empty, add item
+                    stack.push(item);     
+                } else if (            //If not empty, check last element = item
+                    stack.lastElement().equals("(") && item.equals(")") ||
+                    stack.lastElement().equals("{") && item.equals("}") ||
+                    stack.lastElement().equals("[") && item.equals("]")
+                    
+                ) {
+                    stack.pop();        //if matched, remove the last element
+                } else {
+                    stack.push(item);   //if not matched, pushes item onto the top/last
+                }
+                
+            }
+            
+            if (stack.empty()) {        //if all matched -> removed, then is true
+                System.out.println("true");
+            } else {
+                System.out.println("false");
+            } 
+            stack.clear();                  // Resetting the Stack
+        }
+        
+    }
+}
+
+=========================
+Stack<String> stack = new Stack<String>();
+stack.isEmpty(): Check if is empty
+stack.empty() : If is empty condition
+stack.pop()   : Remove last/top element
+stack.push(item) : Add item to last/top
+stack.lastElement().equals(""): Check if last element equals to ""
+
+

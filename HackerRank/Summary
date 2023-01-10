@@ -76,6 +76,16 @@ str.substring (beginIndexInclusive, endIndexExclusive)
             else  return false;
             }
 
+
+>> Java String Tokens
+- To split words by words & store in array
+         String[] tokens = S.split("[^a-zA-Z]");
+
+
+<
+
+
+
 Java Exception Handling
 class C {
   accessModifier Type Method(Parameters) throws Exception{
@@ -102,3 +112,35 @@ while(scan.hasNextInt()){
 int[] arrName = new int[4]; //store 4 integers, index from 0 to (size - 1)
 - To store:
 arrName[3] = 12;
+
+>> Java Subarray
+- input [1st line: array length] [2nd line: n spaces-separated integers]
+        Scanner scanner = new Scanner(System.in);
+        int[] numbers = new int[scanner.nextInt()];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+  
+- FIND NO. OF NEGATIVE SUBARRAY
+ // To access each subarray (from n = 1 to n = array.length)
+        int k = 0;
+        int count = 0;
+
+        while (k < numbers.length) {
+            for (int i = 0; i < numbers.length - k; i++) {
+                int sum = 0;
+                for (int j = i; j < i + 1 + k; j++) {
+//To sum each subarray
+         sum += numbers[j];
+                }
+//If is -ve subarray, count+1
+         if (sum < 0)
+             count++;
+//Continue to access next subarray, increase n
+            }
+            k++;
+        }
+
+
+
+

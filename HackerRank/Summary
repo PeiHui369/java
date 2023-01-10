@@ -19,6 +19,39 @@ else{}
 - Ternary operator
 ansType varName = (condition? true:false);
 
+>> End Of File (EOF)
+ while(scanner.hasNext()){
+            text = scanner.nextLine();
+            counter ++;
+            System.out.println(counter + " " + text);}
+	
+>> Java Datatypes
+Java has 8 primitive data types; char, boolean, byte, short, int, long, float, and double. 
+For this exercise, we'll work with the primitives used to hold integer values (byte, short, int, and long):
+
+A byte is an 8-bit signed integer.
+A short is a 16-bit signed integer.
+An int is a 32-bit signed integer.
+A long is a 64-bit signed integer.
+Given an input integer, you must determine which primitive data types are capable of properly storing that input.
+
+ for(int i=0;i<t;i++)
+        {
+            try
+            {
+                long x=sc.nextLong();
+                System.out.println(x+" can be fitted in:");
+                if(x>=-128 && x<=127)System.out.println("* byte");
+                if(x>=-32768 && x<=32767)System.out.println("* short");
+                if(x>=Math.pow(-2,31) && x<=Math.pow(2,31)-1) System.out.println("* int");
+                if(x>=Math.pow(-2,63) && x<=Math.pow(2,63)-1) System.out.println("* long");
+            }
+            catch(Exception e)
+            {
+                System.out.println(sc.next()+" can't be fitted anywhere.");
+            }
+
+
 <STRINGS>
 >> Java Strings Introduction
 - To initialize
@@ -110,6 +143,32 @@ class MyRegex{
             + "\\." + Limit_0_255;
 }
 
+>> Java Regex 2
+-  remove instances of words that are repeated more than once, but retain the first occurrence of any case-insensitive repeated word. 
+RegEx match repeated word --> 2nd compile arg--> 2 necessary arg for replaceAll
+
+ String regex = "\\b(\\w+)(?:\\W+\\1\\b)+" ;
+ Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE); #
+
+        Scanner in = new Scanner(System.in);
+        int numSentences = Integer.parseInt(in.nextLine());
+        
+        while (numSentences-- > 0) { #
+            String input = in.nextLine();
+            
+            Matcher m = p.matcher(input);#
+            
+            // Check for subsequences of input that match the compiled pattern
+            while (m.find()) { #
+                input = input.replaceAll(m.group()/* The regex to replace */,m.group(1) /* The replacement. */); #
+            }
+            
+            // Prints the modified sentence.
+            System.out.println(input);
+        }
+        in.close();
+    }
+}
 
 
 <DATA STRUCTURES>
@@ -233,6 +292,36 @@ stack.empty() : If is empty condition
 stack.pop()   : Remove last/top element
 stack.push(item) : Add item to last/top
 stack.lastElement().equals(""): Check if last element equals to ""
+
+>> Java Sort
+Name ID CGPA (Arrange CGPA, if same then arrange ID)
+for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (data[i][2].compareTo(data[j][2]) < 0) { //#3rd element indexNo =2: ID Name CGPA
+                    temp = data[j];
+                    data[j] = data[i];
+                    data[i] = temp;
+                } else if (data[i][2].compareTo(data[j][2]) == 0) {
+                    if (data[i][1].compareTo(data[j][1]) > 0) { //#
+                        temp = data[j];
+                        data[j] = data[i];
+                        data[i] = temp;
+                    }
+                }
+            }
+        }
+
+>> Java Currency Formatter
+main{
+Solution sol = new Solution();
+        System.out.println("US: " + sol.formattedPayment(Locale.US, payment)); // Locale just capitalize its name
+        System.out.println("India: "+ sol.formattedPayment(new Locale("en", "IN"), payment)); //Special case
+        }
+
+public String formattedPayment(Locale locale, double payment) {
+     NumberFormat nf = NumberFormat.getCurrencyInstance(locale);
+     return nf.format(payment);
+}
 
 
 <OBJECT ORIENTED PROGRAMMING>

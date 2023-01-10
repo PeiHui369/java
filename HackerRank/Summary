@@ -1,0 +1,23 @@
+Java Exception Handling
+class C {
+  accessModifier Type Method(Parameters) throws Exception{
+  if()
+    throw(new Exception("");
+  else if()
+    throw(new Exception("");
+  else()
+    return
+}
+
+
+<DATA STRUCTURES>
+
+>> Java 1D Array
+while(scan.hasNextInt()){ 
+      a[count++] = scan.nextInt(); //Increase count by 1 after assign
+}
+
+- To initialize:
+int[] arrName = new int[4]; //store 4 integers, index from 0 to (size - 1)
+- To store:
+arrName[3] = 12;

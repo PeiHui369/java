@@ -1,0 +1,54 @@
+/*
+Deque: an abstract data type that generalizes a queue, for which elements can be added to or removed from either the front (head) or back (tail).
+- implement Deque interfaces using collections: LinkedList // ArrayDeque
+Deque deque = new LinkedList<>(); OR
+Deque deque = new ArrayDeque<>();
+
+To find max no. of unique integers, N among subarrays of size M
+    //Prompt input N,M
+    Deque deque = new LinkedList<>();
+    HashSet hashSet = new HashSet<>();
+    for (int i = 0; i < n; i++) {
+    //Prompt input elements of integers
+        deque.add(input);
+        hashSet.add(input);
+            if (deque.size() == m) {
+                max = Math.max(max, hashSet.size());
+                int remove = (int) deque.removeFirst();
+                if (!deque.contains(remove)) {
+                    hashSet.remove(remove);
+      }
+      //Print max
+ 
+
+Given N integers, find max no. of unique integers among all possible contiguous subarrays of size M
+*/
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Deque deque = new LinkedList<>();                   //#
+        HashSet hashSet = new HashSet<>();                  //#
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            int input = scanner.nextInt();
+            deque.add(input);                               //add input to deque & hashset
+            hashSet.add(input);
+            if (deque.size() == m) {                        //if deque has meet the size of subarray
+                max = Math.max(max, hashSet.size());        //compare by Math.max() to see if hashSet meet size M too
+                int remove = (int) deque.removeFirst();     //# removeFirst of deque 
+                if (!deque.contains(remove)) {              //if there is no more same element as the removed, remove from HashSet too
+                    hashSet.remove(remove);
+                }
+            }
+        }
+        System.out.println(max);                           //Print max num of unique integers
+    }
+}
+

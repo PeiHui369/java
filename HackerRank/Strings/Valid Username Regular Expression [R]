@@ -1,3 +1,19 @@
+/*
+@ 
+^[A-Za-z] >> 1st char alphabetic (uppercase or lowercase)
+[A-Za-z0-9_]: can contain alphanumeric(uppercase, lowercase, digits) char & underscores(_)
+{7,29} 8 to 30 characters inclusive
+
+class UsernameValidator {
+     public static final String regularExpression = "^[A-Za-z][A-Za-z0-9_]{7,29}$";
+}
+
+<Main>
+ if (userName.matches(UsernameValidator.regularExpression)) {
+                System.out.println("Valid");
+            }
+*/
+
 import java.util.Scanner;
 class UsernameValidator {
     /*

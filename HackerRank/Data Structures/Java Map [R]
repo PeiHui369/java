@@ -1,0 +1,69 @@
+
+/*
+Map: Interface
+Hashmap: Set of Key Value pairs
+- To create
+Hashmap <WrapperClassofKey, WrraperClassofValue> mapName = new HashMap<> ()
+if key & value same type, only write WrapperClass(type) once
+
+- To add
+mapName.put("Key1","value1");
+exact same key will override
+
+- System.out.println(mapName)
+{Key1 = value1} //Doesn't guarantee certain order
+
+- To get the value
+System.out.println(mapName.get("key1")); >> value1
+
+- To see if key exists
+System.out.println(mapName.containsKey("key1")); >>true/false
+
+- To replace
+mapName.replace("key1","value1New"); //If key1 doesn't exists, will just skip
+
+- mapName.putIfAbsent("key1", "value1"); //If wasnt in map, get add; else skip
+
+- mapName.remove("key1"); //key1 & value1 pair get removed
+
+@ To save data in HashMap & use key to find
+HashMap<String, Integer> hm = new HashMap<>();
+hm.put(name, phone);
+if(hm.containsKey(s)) { 
+                System.out.println(s+"="+hm.get(s));
+                }
+     
+
+
+*/
+
+
+//Complete this code or write your own from scratch
+import java.util.*;
+import java.io.*;
+
+class Solution{
+    public static void main(String []argh) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        HashMap<String, Integer> hm = new HashMap<>(); //#
+        in.nextLine();
+        for(int i=0; i<n; i++) {
+            String name=in.nextLine();
+            int phone=in.nextInt();
+            hm.put(name, phone); //#
+            in.nextLine();   
+        }
+        while(in.hasNext())
+        {
+            String s = in.nextLine();
+            //#
+            if(hm.containsKey(s)) { 
+                System.out.println(s+"="+hm.get(s));
+            } else {
+                System.out.println("Not found");
+            }
+            //#
+        }
+    }
+}

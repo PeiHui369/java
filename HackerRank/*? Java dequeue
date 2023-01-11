@@ -1,4 +1,7 @@
-
+/*
+To
+Given N integers, find max no. of unique integers among all possible contiguous subarrays of size M
+*/
 
 import java.io.*;
 import java.util.*;

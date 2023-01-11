@@ -184,6 +184,43 @@ RegEx match repeated word --> 2nd compile arg--> 2 necessary arg for replaceAll
     }
 }
 
+>> JAVA TAG CONTENT EXTRACTOR
+/*
+tag-based language (XML or HTML):
+<tag> contents </tag>
+- both start & end tags must be same
+- tags can be nested, content between nested tags invalid
+- tags can consist of any printable characters
+
+ Pattern pattern = Pattern.compile("<(.+)>([^<>]+)</\\1>"); //###
+ for (int i = 0; i < testCases; i++) {
+    boolean matched = false;
+    String string = in.nextLine();
+    Matcher matcher = pattern.matcher(string);              //###
+    while (matcher.find()) {
+          System.out.println(matcher.group(2));
+                matched = true;
+    }
+    if (!matched) {
+         System.out.println("None");
+    }
+                   
+*/
+
+>> PATTERN SYNTAX CHECKER
+/*
+Regex: match/search for patterns in a text
+
+@ Check syntax of the pattern valid (can compile using Pattern.compile method)
+for (int i = 0; i < syntax.length; i++) { //for all element in array
+            try {
+                Pattern pattern = Pattern.compile(syntax[i]);  //###
+                System.out.println("Valid");
+            } catch (PatternSyntaxException e) {
+                System.out.println("Invalid");
+            }
+        }
+*/
 
 <DATA STRUCTURES>
 
@@ -450,7 +487,116 @@ Checker checker = new Checker();
         Checker checker = new Checker();
 Arrays.sort(player, checker);
 
+>> JAVA DEQUE
+/*
+Deque: an abstract data type that generalizes a queue, for which elements can be added to or removed from either the front (head) or back (tail).
+- implement Deque interfaces using collections: LinkedList // ArrayDeque
+Deque deque = new LinkedList<>(); OR
+Deque deque = new ArrayDeque<>();
 
+To find max no. of unique integers, N among subarrays of size M
+    //Prompt input N,M
+    Deque deque = new LinkedList<>();
+    HashSet hashSet = new HashSet<>();
+    for (int i = 0; i < n; i++) {
+    //Prompt input elements of integers
+        deque.add(input);
+        hashSet.add(input);
+            if (deque.size() == m) {
+                max = Math.max(max, hashSet.size());
+                int remove = (int) deque.removeFirst();
+                if (!deque.contains(remove)) {
+                    hashSet.remove(remove);
+      }
+      //Print max
+ */
+ 
+ >> JAVA HASHSET
+ /*
+Set
+- store certain values, without particular order, no repeated values
+
+- Unique pairs of Name
+T: no. of pairs
+next T lines: contain 2 strings separated by single space
+ Set<String> name = new HashSet<String>();
+ for(int i=0; i<t;i++){
+            String fullName = pair_left[i]+" "+pair_right[i];
+            name.add(fullName);
+            System.out.println(name.size());
+ }
+ 
+ 
+ >> Java Generics : Unique Pairs
+ /*
+- To handle multiple datatypes using a single method
+
+@ Write single method printArray to print all elements of both (integer & string) arrays
+- To define
+class Printer
+{
+    static <T> void printArray(T[] t) {
+    for (T t1 : t)
+        System.out.println(t1);
+
+    } 
+}
+- To call
+Printer myPrinter = new Printer();
+myPrinter.printArray(intArray);
+myPrinter.printArray(stringArray);
+
+- Check (Method Overloading not allowed)
+int count = 0;
+
+        for (Method method : Printer.class.getDeclaredMethods()) {
+            String name = method.getName();
+
+            if(name.equals("printArray"))
+                count++;
+        }
+
+        if(count > 1)System.out.println("Method overloading is not allowed!");
+*/
+
+>> Java MAP
+
+/*
+Map: Interface
+Hashmap: Set of Key Value pairs
+- To create
+Hashmap <WrapperClassofKey, WrraperClassofValue> mapName = new HashMap<> ()
+if key & value same type, only write WrapperClass(type) once
+
+- To add
+mapName.put("Key1","value1");
+exact same key will override
+
+- System.out.println(mapName)
+{Key1 = value1} //Doesn't guarantee certain order
+
+- To get the value
+System.out.println(mapName.get("key1")); >> value1
+
+- To see if key exists
+System.out.println(mapName.containsKey("key1")); >>true/false
+
+- To replace
+mapName.replace("key1","value1New"); //If key1 doesn't exists, will just skip
+
+- mapName.putIfAbsent("key1", "value1"); //If wasnt in map, get add; else skip
+
+- mapName.remove("key1"); //key1 & value1 pair get removed
+
+@ To save data in HashMap & use key to find
+HashMap<String, Integer> hm = new HashMap<>();
+hm.put(name, phone);
+if(hm.containsKey(s)) { 
+                System.out.println(s+"="+hm.get(s));
+                }
+     
+*/
+ 
 <BIGNUMBER>
 >> BigInteger
 - Type: BigInteger

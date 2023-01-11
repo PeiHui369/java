@@ -1,0 +1,50 @@
+- To create
+Set <Type> varName = new HashSet<>(); //Faster than TreeSet
+work the same as Set<Integer> numberSet = new TreeSet<> (numberList); //Print in alphabetical order
+Set<Integer> numberSet = new LinkedHashSet<> (numberList); //Print in insertion order //as fast as HashSet
+
+- To add
+varName.add("a")
+// element added are not arranged according to any order
+// does not allow duplicate
+varName.addAll(listName);
+Set<Integer> setName = new HashSet<> (listName);
+
+- To remove
+varName.remove("a")
+
+varName.size();
+varName.contains("a"); >> true/false
+varName.isEmpty(); >>true/false
+varName.clear(); //0 elements
+
+- To iterate
+[METHOD 1]
+for(String name: varName){
+  System.out.println(name);
+}
+
+[METHOD 2: Lambda Expressions]
+varName.forEach(System.out::println);
+
+[METHOD 3]
+Iterator<String> namesIterator = varName.iterator();
+while(namesIterator.hasNext()){
+  System.out.println(namesIterator.next());
+  }
+  
+>> WITH LIST
+List<Integer> numberList = new ArrayList<>();
+numberList.add(1);
+numberList.add(2);
+numberList.add(3);
+numberList.add(2);
+numberList.add(1);
+System.out.println(numberList);
+>> [1,2,3,2,1]
+
+Set<Integer> numberSet = new HashSet<> ():
+numberSet.addAll(numberList);
+System.out.println(numberSet);
+>> [1,2,3]
+

@@ -1,3 +1,20 @@
+/*
+Comparators: compare 2 objects
+
+Interface Comparator <T>
+- int compare (T o1, T o2)
+o1<o2 : -1
+o1 = o2 : 0
+o1 > o2 : 1
+Throw NullPointerException & ClassCastException
+
+- boolean equals (Object obj)
+
+Given array of n Player objects, comparator sorts in decreasing score order
+If >=2 same score, sort alphabetically <- Create Checker class implements Comparator interface & int compare (Player a, Player b) method implementing Comparator.compare( T o1, T o2) method
+
+*/
+
 import java.util.*;
 
 // Write your Checker class here

@@ -11,7 +11,7 @@ tag-based language (XML or HTML):
     String string = in.nextLine();
     Matcher matcher = pattern.matcher(string);              //###
     while (matcher.find()) {
-          System.out.println(matcher.group(2));
+          System.out.println(matcher.group(2));             // This method takes a parameter group which is the group from which the group index of the matched pattern is required.
                 matched = true;
     }
     if (!matched) {

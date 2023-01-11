@@ -1,3 +1,19 @@
+/*
+Set
+- store certain values, without particular order, no repeated values
+
+- Unique pairs of Name
+T: no. of pairs
+next T lines: contain 2 strings separated by single space
+ Set<String> name = new HashSet<String>();
+ for(int i=0; i<t;i++){
+            String fullName = pair_left[i]+" "+pair_right[i];
+            name.add(fullName);
+            System.out.println(name.size());
+ }
+ 
+*/
+
 import java.io.*;
 import java.util.*;
 import java.text.*;

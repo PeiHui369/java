@@ -1,3 +1,16 @@
+/*
+Regex: match/search for patterns in a text
+
+@ Check syntax of the pattern valid (can compile using Pattern.compile method)
+for (int i = 0; i < syntax.length; i++) { //for all element in array
+            try {
+                Pattern pattern = Pattern.compile(syntax[i]);  //###
+                System.out.println("Valid");
+            } catch (PatternSyntaxException e) {
+                System.out.println("Invalid");
+            }
+        }
+*/
 
 import java.util.regex.*;
 import java.io.BufferedReader;

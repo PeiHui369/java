@@ -415,6 +415,42 @@ for(int i = 0; i < mylist.size(); i++){
 // To call count method in main
 count(arrayListName);
 
+>> JAVA COMPARATOR
+Comparators: compare 2 objects
+
+Interface Comparator <T>
+- int compare (T o1, T o2)
+o1<o2 : -1
+o1 = o2 : 0
+o1 > o2 : 1
+Throw NullPointerException & ClassCastException
+
+- boolean equals (Object obj)
+
+Given array of n Player objects, comparator sorts in decreasing score order
+If >=2 same score, sort alphabetically <- Create Checker class implements Comparator interface & int compare (Player a, Player b) method implementing Comparator.compare( T o1, T o2) method
+
+class Checker implements Comparator<Player> {
+    @Override
+    public int compare(Player a, Player b){
+        if(a.score == b.score){
+            return a.name.compareToIgnoreCase(b.name);
+        }else if(a.score > b.score) {
+            return -1;
+        } else if(a.score < b.score) {
+            return 1;
+        }
+        return 1;
+    }
+}
+
+<Main>
+Checker checker = new Checker();
+ Player[] player = new Player[n];
+        Checker checker = new Checker();
+Arrays.sort(player, checker);
+
+
 <BIGNUMBER>
 >> BigInteger
 - Type: BigInteger

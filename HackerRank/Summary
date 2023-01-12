@@ -760,3 +760,221 @@ class C {
  
  - Other type
  i. catch(InputMismatchException e) {System.out.print("java.util.InputMismatchException");}
+
+
+
+
+
+
+<<< <ADVANCED> >>>
+
+>> JAVA REFLECTION <<
+
+/*
+Java Reflection
+-to inspect attributes of a class in runtime
+
+@ Retrieve list of public fields of a class
+getDeclaredMethods()
+
+            Class student = Student.class; //Name of the class: Student
+            Method[] methods = student.getDeclaredMethods();
+
+            ArrayList<String> methodList = new ArrayList<>();
+            for(Method method : methods){
+                methodList.add(method.getName());
+            }
+            Collections.sort(methodList);
+            for(String name: methodList){
+                System.out.println(name);
+                
+            }
+        }
+*/
+
+>> JAVA MD5 <<
+MD5 (Message-Digest algorithm 5) is a widely-used cryptographic hash function with a 128-bit hash value. 
+Here are some common uses for MD5:
+- To store a one-way hash of a password.
+- To provide some assurance that a transferred file has arrived intact.
+
+@Given an alphanumeric string, , denoting a password, compute and print its MD5 encryption value.
+ try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(str.getBytes());
+            // return bytesToHex(md.digest
+            byte[] digest = md.digest();
+            for (byte b : digest) {
+                System.out.printf("%02x", b);
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+
+>> JAVA VARAGS - SIMPLE ADDITION <<
+/*
+@
+create class Add
+print sum of numbers & passed to function Add
+
+<Main>
+ try{
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			int n1=Integer.parseInt(br.readLine()); //repeat til n6
+			Add ob=new Add(); //#
+			ob.add(n1,n2); //#repeat til (n1,n2,n3,n4,n5.n6)
+			
+			//check method overload
+<class Add>
+class Add{
+    
+    public void add(int ...n){
+        
+        StringBuilder sb=new StringBuilder(); //#
+        
+        int sum=0;
+        for(int i:n){
+            sum+=i;
+             sb.append(i+"+"); //#Add to the string
+              }
+        
+        sb=sb.deleteCharAt(sb.length()-1); //#Remove the last "+"
+        
+        System.out.println(sb.append("="+sum).toString());
+    }
+}				
+
+>> JAVA SHA-256 <<
+/*
+Cryptographic hash functions: 
+- mathematical operation run on digital data
+- by comparing the computed hash (output produced by executing a hashing algorithm) to a known & expected hash value) --> determine data's integrity
+- eg. computing hash of downloaded file & result to previously published hash result --> show whether download has been modified/tampered
+- extremely collision-resistant: extremely difficult to produce same hash output from 2 diff input values
+
+Secure Hash Algorithm 2 (SHA-2): 
+- a set of cryptographic hash functions designed by the National Security Agency (NSA)
+- consists of six identical hashing algorithms (i.e., SHA-256, SHA-512, SHA-224, SHA-384, SHA-512/224, SHA-512/256) with a variable digest size
+
+SHA-256:
+- 256-bit (32 byte) hashing algorithm
+- can calculate a hash code for an input of up to 264-1 bits
+- undergoes 64 rounds of hashing & calculates a hash code that is a 64-digit hexademical number
+@
+        MessageDigest m = MessageDigest.getInstance("SHA-256");
+        m.reset();
+        m.update(input.nextLine().getBytes());
+        for (byte i : m.digest()) {
+            System.out.print(String.format("%02x", i));
+        }
+*/
+
+>> METHOD OVERLOAD CHECK <<
+			Method[] methods=Add.class.getDeclaredMethods();
+			Set<String> set=new HashSet<>();
+			boolean overload=false; 		//if overload throws exception
+			for(int i=0;i<methods.length;i++)
+			{
+				if(set.contains(methods[i].getName()))
+				{
+					overload=true;
+					break;
+				}
+				set.add(methods[i].getName());
+		 	}
+
+			if(overload)
+			{
+				throw new Exception("Overloading not allowed");
+			}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+
+>> PRIME CHECKER <<
+
+/*
+import static java.lang.System.in; // for BufferedReader...(in))
+class Prime {
+    void checkPrime(int... numbers) {
+        for (int num : numbers) {
+            if (isPrime(num)) {
+                System.out.print(num + " ");
+            }
+        }
+        System.out.println();
+    }
+    
+    boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        } else if (n == 2) {
+            return true;
+        } else if (n % 2 == 0) {
+            return false;
+        }
+        int sqrt = (int) Math.sqrt(n);
+        for (int i = 3; i <= sqrt; i += 2) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }     
+}
+
+<Main>
+		BufferedReader br=new BufferedReader(new InputStreamReader(in));
+		int n1=Integer.parseInt(br.readLine()); //Repeat until n5
+		Prime ob=new Prime();
+		ob.checkPrime(n1); //Repeat until (n1,n2,n3,n4,n5)
+		//Check Method Overload
+		
+*/
+
+>> JAVA LAMBDA EXPRESSION <<
+.*
+- even
+a%2 == 0
+
+- isPrime:
+for(int i=2;i<a/2;i++)
+        {
+            if(a%i==0)
+            t=false;
+        }
+
+- isPalindrome
+        StringBuilder br=new StringBuilder();
+        br.append(a);
+        br.reverse();
+        int rs=Integer.parseInt(br.toString());
+        if(a==rs)
+        return true;
+        else
+        return false;
+
+<Main>
+isPal sl=new isPal();
+while(T-->0)
+        {
+
+            String in=sc.nextLine();
+            String[] sr=in.split(" ");
+            switch(Integer.parseInt(sr[0]))
+            {
+                case 1:if(sl.isOdd(Integer.parseInt(sr[1]))) // ODD : EVEN
+                             isPrime                         // PRIME : COMPOSITE
+                             isPalindrome                    // PALINDROME : NOT PALINDROME
+                             break;
+            }
+*/
+
+
+
+
+
+

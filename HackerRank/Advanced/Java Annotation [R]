@@ -1,3 +1,28 @@
+/* Annotation
+- To define metadata of a Java class or class element
+- Use at the compile time to instruct compiler about the build process
+- Use at runtime to get insight into the properties of class elements
+
+- To be added to an element
+@Entity
+Class DemoClass{}
+
+- To set a value to the annotation member
+@Entity(EntityName="DemoClass")
+Class DemoClass{}
+
+- To define own annotations
+@Target(ElementType.METHOD): specify where annotation can be used
+@Retention(RetentionPolicy.RUNTIME): defines annotation available at runtime
+@interface FamilyBudget {
+   String userRole() default "GUEST";
+}
+
+*/
+
+
+@Set a value to annotation member
+
 import java.lang.annotation.*;
 import java.lang.reflect.*;
 import java.util.*;

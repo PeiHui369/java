@@ -1,3 +1,42 @@
+
+/*
+import static java.lang.System.in; // for BufferedReader...(in))
+class Prime {
+    void checkPrime(int... numbers) {
+        for (int num : numbers) {
+            if (isPrime(num)) {
+                System.out.print(num + " ");
+            }
+        }
+        System.out.println();
+    }
+    
+    boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        } else if (n == 2) {
+            return true;
+        } else if (n % 2 == 0) {
+            return false;
+        }
+        int sqrt = (int) Math.sqrt(n);
+        for (int i = 3; i <= sqrt; i += 2) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }     
+}
+
+<Main>
+		BufferedReader br=new BufferedReader(new InputStreamReader(in));
+		int n1=Integer.parseInt(br.readLine()); //Repeat until n5
+		Prime ob=new Prime();
+		ob.checkPrime(n1); //Repeat until (n1,n2,n3,n4,n5)
+		
+*/
+
 import java.io.*;
 import java.util.*;
 import java.text.*;

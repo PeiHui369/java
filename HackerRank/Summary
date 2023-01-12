@@ -597,6 +597,136 @@ if(hm.containsKey(s)) {
      
 */
  
+>> JAVA BITSET
+/*
+BitSet class implements a vector of bit values: false(0) or true(1)[set bit] --> manipulate bits while optimizing space
+
+@ 
+Given 2 BitSets, B1 & B2 of size N
+all bits initialized to 0 perform a series of M operations
+After each operation, print no. of set bits in the respective BitSets as 2 space-separated integers on a new line
+1st line: 2 space separated integers N (length of both BitSets) & M (no. of operations to perform)
+AND     <set>   <set>
+OR      <set>   <set> 
+XOR     <set>   <set> 
+FLIP    <set>   <index>
+SET     <set>   <index> 
+<set>: int 1(B1) or 2 (B2)
+<index>: int denoting a bit's index in BitSet corresponding to <set>
+OPERATION LEFT_OPERAND  RIGHT_OPERAND
+
+BitSet b1 = new BitSet(n);
+BitSet b2 = new BitSet(n);
+BitSet[] bs = new BitSet[3];
+bs[1] = b1; 
+bs[2] = b2;
+ switch(op){
+        case("AND"):
+            bs[x].and(bs[y]);
+            break;
+        case("OR"):
+            bs[x].or(bs[y]);
+            break;
+        case("SET"):
+            bs[x].set(y);
+            break;
+        case("FLIP"):
+            bs[x].flip(y);
+            break;
+        case("XOR"):
+            bs[x].xor(bs[y]);
+    }
+    System.out.println(b1.cardinality() + " " + b2.cardinality());
+}
+
+*/
+
+>> JAVA PRIORITY QUEUE
+https://www.hackerrank.com/challenges/java-priority-queue/problem?isFullScreen=true
+/*
+- an abstract data type like a regular queue, where additionally each element has a "priority" associated with it
+- an element with high priority is served before an element with low priority
+
+@
+ENTER: Stud with some priority enters queue to be served
+SERVED: Stud with highest priority served(removed) from queue
+Compare with all enter
+Unique id assigned to each stud
+Priority criteria:
+    i. Highest CGPA first
+    ii. same CGPA by name
+    iii. same CGPA & name, by ID
+Implement method List<Student> getStudents(List<String>events)
+
+//Constructors & Method required
+class StudentCompare implements Comparator<Student> {
+    @Override
+    public int compare(Student student2, Student student1) {
+        int CgpaCompare = student1.getCgpa().compareTo(student2.getCgpa());
+        int NameCompare = student2.getName().compareTo(student1.getName());
+        int IDCompare = student2.getID().compareTo(student1.getID());
+        if (CgpaCompare == 0) {
+            if (NameCompare == 0) {
+                return IDCompare;
+            } else {
+                return NameCompare;
+            }
+        } else {
+            return CgpaCompare;
+        }
+    }
+}
+
+class Priorities {
+    List<Student> getStudents(List<String> events) {
+        List<Student> list = new ArrayList<>();
+        for (int i = 0; i < events.size(); i++) {
+            String[] strings = new String[1];
+            strings = events.get(i).split(" ");
+            if (events.get(i).split(" ")[0].equals("SERVED")) {
+                if (list.size() != 0) {
+                    Collections.sort(list, new StudentCompare());
+                    list.remove(0);
+                }
+            } else {
+                list.add(new Student(Integer.parseInt(strings[3]), strings[1], Double.parseDouble(strings[2])));
+            }
+        }
+        return list;
+    }
+}
+
+public class Solution {
+    private final static Scanner scan = new Scanner(System.in);
+    private final static Priorities priorities = new Priorities();
+    
+    public static void main(String[] args) {
+        int totalEvents = Integer.parseInt(scan.nextLine());    
+        List<String> events = new ArrayList<>();
+        
+        while (totalEvents-- != 0) {
+            String event = scan.nextLine();
+            events.add(event);
+        }
+        
+        List<Student> students = priorities.getStudents(events);
+        
+        if (students.isEmpty()) {
+            System.out.println("EMPTY");
+        } else {
+            for (Student st: students) {
+                System.out.println(st.getName());
+            }
+        }
+    }
+}
+
+
+
+*/
+
+
+
 <BIGNUMBER>
 >> BigInteger
 - Type: BigInteger

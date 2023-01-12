@@ -1,3 +1,42 @@
+/*
+- even
+a%2 == 0
+
+- isPrime:
+for(int i=2;i<a/2;i++)
+        {
+            if(a%i==0)
+            t=false;
+        }
+
+- isPalindrome
+        StringBuilder br=new StringBuilder();
+        br.append(a);
+        br.reverse();
+        int rs=Integer.parseInt(br.toString());
+        if(a==rs)
+        return true;
+        else
+        return false;
+
+<Main>
+isPal sl=new isPal();
+while(T-->0)
+        {
+
+            String in=sc.nextLine();
+            String[] sr=in.split(" ");
+            switch(Integer.parseInt(sr[0]))
+            {
+                case 1:if(sl.isOdd(Integer.parseInt(sr[1]))) // ODD : EVEN
+                             isPrime                         // PRIME : COMPOSITE
+                             isPalindrome                    // PALINDROME : NOT PALINDROME
+                             break;
+            }
+*/
+
+
+
 import java.util.Scanner;
 
 public class isPal {

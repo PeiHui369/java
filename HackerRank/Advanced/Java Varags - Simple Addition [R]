@@ -1,3 +1,47 @@
+/*
+@
+create class Add
+print sum of numbers & passed to function Add
+
+<Main>
+ try{
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			int n1=Integer.parseInt(br.readLine()); //repeat til n6
+			Add ob=new Add(); //#
+			ob.add(n1,n2); //#repeat til (n1,n2,n3,n4,n5.n6)
+			
+			Method[] methods=Add.class.getDeclaredMethods();
+			Set<String> set=new HashSet<>();
+			boolean overload=false; 		//if overload throws exception
+			for(int i=0;i<methods.length;i++)
+			{
+				if(set.contains(methods[i].getName()))
+				{
+					overload=true;
+					break;
+				}
+				set.add(methods[i].getName());
+		 	}
+<class Add>
+class Add{
+    
+    public void add(int ...n){
+        
+        StringBuilder sb=new StringBuilder(); //#
+        
+        int sum=0;
+        for(int i:n){
+            sum+=i;
+             sb.append(i+"+"); //#Add to the string
+              }
+        
+        sb=sb.deleteCharAt(sb.length()-1); //#Remove the last "+"
+        
+        System.out.println(sb.append("="+sum).toString());
+    }
+}				
+*/
+
 import java.io.*;
 import java.lang.reflect.*;
 import java.util.*;

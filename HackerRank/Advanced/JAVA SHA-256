@@ -1,0 +1,41 @@
+/*
+Cryptographic hash functions: 
+- mathematical operation run on digital data
+- by comparing the computed hash (output produced by executing a hashing algorithm) to a known & expected hash value) --> determine data's integrity
+- eg. computing hash of downloaded file & result to previously published hash result --> show whether download has been modified/tampered
+- extremely collision-resistant: extremely difficult to produce same hash output from 2 diff input values
+
+Secure Hash Algorithm 2 (SHA-2): 
+- a set of cryptographic hash functions designed by the National Security Agency (NSA)
+- consists of six identical hashing algorithms (i.e., SHA-256, SHA-512, SHA-224, SHA-384, SHA-512/224, SHA-512/256) with a variable digest size
+
+SHA-256:
+- 256-bit (32 byte) hashing algorithm
+- can calculate a hash code for an input of up to 264-1 bits
+- undergoes 64 rounds of hashing & calculates a hash code that is a 64-digit hexademical number
+@
+        MessageDigest m = MessageDigest.getInstance("SHA-256");
+        m.reset();
+        m.update(input.nextLine().getBytes());
+        for (byte i : m.digest()) {
+            System.out.print(String.format("%02x", i));
+        }
+*/
+
+import java.io.*;
+import java.util.*;
+import java.security.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        Scanner input = new Scanner(System.in);
+        MessageDigest m = MessageDigest.getInstance("SHA-256");
+        m.reset();
+        m.update(input.nextLine().getBytes());
+        for (byte i : m.digest()) {
+            System.out.print(String.format("%02x", i));
+        }
+        System.out.println();
+    }
+}

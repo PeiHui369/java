@@ -1,0 +1,42 @@
+23. Write a Java method that checks whether all the characters in a given string are vowels (a, e,i,o,u) or not. 
+Return true if each character of the string is a vowel, otherwise return false. Go to the editor
+
+Expected Output:
+
+Input a string:  AIEEE
+Check all the characters of the said string are vowels or not!
+true
+
+/*
+From Wikipedia-
+A vowel is a syllabic speech sound pronounced without any stricture in the vocal tract. Vowels are one of the two principal classes of speech sounds, the other being the consonant. Vowels vary in quality, in loudness and also in quantity (length). They are usually voiced and are closely involved in prosodic variation such as tone, intonation and stress.
+
+Write a Java method that checks whether all the characters in a given string are vowels (a, e,i,o,u) or not. Return true if each character of the string is a vowel, otherwise return false
+
+Sample Data:
+AIEEE ->true
+IAO -> true
+Java -> false
+Python -> false
+*/
+=============================
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Input a string: ");
+    String str = sc.nextLine();
+    System.out.print("Check all the characters of the said string are vowels or not!\n");
+    System.out.print(test(str));
+  }
+
+  public static boolean test(String input) {
+    String str_vowels = "aeiou";
+    String phrase = input.toLowerCase();
+    for (int i = 0; i < phrase.length(); i++) {
+      if (str_vowels.indexOf(phrase.charAt(i)) == -1)
+        return false;
+    }
+    return true;
+  }
+}

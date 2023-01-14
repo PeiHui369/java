@@ -1,0 +1,475 @@
+*9, 20, 19
+
+01_Smallest num
+# Math.min (a,b)  
+ public static double smallest(double x, double y, double z)
+    {
+        return Math.min(Math.min(x, y), z);
+    }
+    
+02_Average
+# (n1+n2+...)/n
+ public static double average(double x, double y, double z)
+    {
+        return (x + y + z) / 3;
+    }
+
+03_Middle Char
+position = str.length()/2         //...-1 for even length
+str.substring(position, position+length)
+
+ public static String middle(String str)
+    {
+        int position;
+        int length;
+        if (str.length() % 2 == 0)              //even
+        {
+            position = str.length() / 2 - 1; #
+            length = 2;#                        // 2 chars
+        }
+        else
+        {
+            position = str.length() / 2;#       //odd
+            length = 1;#                        //1 char
+        }
+        return str.substring(position, position + length);#
+    }
+    
+ 04_Count Vowels
+ //if(str.charAt(i) == 'a' /e/i/o/u){ count++; }
+ 
+ public static int count_Vowels(String str)
+    {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i'
+                    || str.charAt(i) == 'o' || str.charAt(i) == 'u')
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+05_Count words
+# if " " not first or last, count each times appear, result = count + 1
+ public static int count_Words(String str)
+    {
+       int count = 0;
+        if (!(" ".equals(str.substring(0, 1))) || !(" ".equals(str.substring(str.length() - 1))))
+        {
+            for (int i = 0; i < str.length(); i++)
+            {
+                if (str.charAt(i) == ' ')
+                {
+                    count++;
+                }
+            }
+            count = count + 1; 
+        }
+        return count; // returns 0 if string starts or ends with space " ".
+    }
+  
+  06_Sum of digits
+  # while(n>0){ result+=n%10; n/=10}
+  public static int sumDigits(long n) {
+		int result = 0;
+		
+		while(n > 0) {
+			result += n % 10;
+			n /= 10;
+		}
+  return result;
+	}
+
+07_Display first 50 pentagonal num
+# i=1; (i * (3 * i - 1))/2
+<Main>
+int count = 1;
+		for(int i = 1; i <= 50; i++){
+			System.out.printf("%-6d",getPentagonalNumber(i)); //Format: %-6d
+			if(count % 10 == 0) System.out.println();         //count%10==0 new line
+			count++;
+		}
+  
+  public static int getPentagonalNumber(int i) {
+		return (i * (3 * i - 1))/2;
+	}
+
+08_Compute future investment
+	rate *= 0.01;
+	
+	System.out.println("Years    FutureValue");
+	for(int i = 1; i <= year; i++) {
+    	int formatter = 19;
+	    if (i >= 10) formatter = 18;
+		System.out.printf(i + "%"+formatter+".2f\n", futureInvestmentValue(investment, rate/12, i));
+       }
+	 }
+ 
+ public static double futureInvestmentValue(double investmentAmount, double monthlyInterestRate, int years) {
+		return investmentAmount * Math.pow(1 + monthlyInterestRate, years * 12);
+	}
+}
+
+09_Print chars between 2 chars
+# for (int ctr = 1; char1 <= char2; ctr++, char1++) {
+            System.out.print(char1 + " ");
+
+<Main>  print_Chars('(', 'z', 20);
+ public static void print_Chars(char char1, char char2, int n) {
+        for (int ctr = 1; char1 <= char2; ctr++, char1++) {
+            System.out.print(char1 + " ");
+            if (ctr % n == 0) System.out.println("");
+        }
+		System.out.print("\n");
+}
+
+10_Leap Year
+ public static boolean is_LeapYear(int y)
+    {
+        boolean a = (y % 4) == 0;
+        boolean b = (y % 100) != 0;
+        boolean c = ((y % 100 == 0) && (y % 400 == 0));
+
+        return a && (b || c);
+    }
+
+
+11_Check valid password (10 chars, letters & digits, 2 digits)
+ public static boolean is_Valid_Password(String password) {
+
+        if (password.length() < PASSWORD_LENGTH) return false;
+
+        int charCount = 0;
+        int numCount = 0;
+        for (int i = 0; i < password.length(); i++) {
+
+            char ch = password.charAt(i);
+
+            if (is_Numeric(ch)) numCount++;
+            else if (is_Letter(ch)) charCount++;
+            else return false;
+        }
+
+
+        return (charCount >= 2 && numCount >= 2);
+    }
+
+    public static boolean is_Letter(char ch) {
+        ch = Character.toUpperCase(ch);
+        return (ch >= 'A' && ch <= 'Z');
+    }
+
+
+    public static boolean is_Numeric(char ch) {
+
+        return (ch >= '0' && ch <= '9');
+    }
+    
+ 12_Display n-by-n matrix
+ 
+ public static void printMatrix(int n) {
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                System.out.print((int)(Math.random() * 2) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+13_Calc area triangle
+#valid: sum of 2 sides greater than another
+# double s = (side1 + side2 + side3)/2;
+  area = Math.sqrt(s*(s - side1)*(s - side2)*(s - side3));
+  
+ public static boolean is_Valid(double side1, double side2, double side3) {
+        if( side1 + side2 > side3 &&
+                side2 + side3 > side1 &&
+                side1 + side3 > side2) return true;
+        else return false;
+    }
+   public static double area_triangle(double side1, double side2, double side3) {
+        double area = 0;
+        double s = (side1 + side2 + side3)/2;
+        area = Math.sqrt(s*(s - side1)*(s - side2)*(s - side3));
+        return area;
+    }
+
+14_Calc pentagon area
+     public static double pentagon_area(int n, double s) {
+        return  (n * s * s) / (4 * Math.tan(Math.PI/n));
+    }
+    
+15_(detailed)Display current date & time
+import java.util.Scanner;
+public class Exercise15 {
+ 
+ public static void main(String[] args) {
+
+        // Obtain the total milliseconds since midnight, Jan 1, 1970
+        long totalMilliseconds = System.currentTimeMillis();
+
+        // Obtain the total seconds since midnight, Jan 1, 1970
+        long totalSeconds = totalMilliseconds / 1000;
+
+        // Compute the current second in the minute in the hour
+        long currentSecond = (int)(totalSeconds % 60);
+
+        // Obtain the total minutes
+        long totalMinutes = totalSeconds / 60;
+
+        // Compute the current minute in the hour
+        long currentMinute = (int)(totalMinutes % 60);
+
+        // Obtain the total hours
+        long totalHours = totalMinutes / 60;
+
+        // Compute the current hour
+        long currentHour = (int)(totalHours % 24);
+
+        long totalDays = totalHours / 24;
+
+        // current year
+        int currentYear = (int)(totalDays / 365) + 1970;
+
+
+        long daysInCurrentYear = (totalDays - numberOfLeapYearsSince1970(currentYear)) % 365;
+        if (currentHour > 0) daysInCurrentYear++; // add today
+
+        // get current month number
+        int currentMonthNum = getMonthFromDays(currentYear, (int) daysInCurrentYear);
+
+        // getting current month name
+        String month = getMonthName(currentMonthNum);
+
+        // getting day of current month
+        int daysTillCurrentMonth = getNumOfDaysToReachThatMonth(currentYear, currentMonthNum);
+
+        int startDay = getStartDay(currentYear, currentMonthNum);
+        int today = (int) daysInCurrentYear - daysTillCurrentMonth;
+        String dayOfWeek = dayNameOfWeek( ((startDay + today) % 7));
+
+        // Display results
+        System.out.println("Current date and time: " + dayOfWeek + " " + month + " " + today +", " + currentYear
+        +" " + currentHour + ":"
+                + currentMinute + ":" + currentSecond );
+
+    }
+
+    public static String dayNameOfWeek(int dayOfWeek) {
+
+        switch (dayOfWeek) {
+            case 2: return "Monday";
+            case 3: return "Tuesday";
+            case 4: return "Wednesday";
+            case 5: return "Thursday";
+            case 6: return "Friday";
+            case 7: return "Saturday";
+            case 1: return "Sunday";
+            default: return null;
+        }
+    }
+
+    public static int numberOfLeapYearsSince1970(long year) {
+
+        int count = 0;
+        for (int i = 1970; i <= year; i++) {
+            if (isLeapYear(i))count++;
+        }
+        return count;
+    }
+
+
+    public static int getMonthFromDays(int year, int days) {
+        int dayTracker = 0;
+        for (int i = 1; i <= 12; i++) {
+
+            dayTracker += getNumberOfDaysInMonth(year, i);
+
+            if (dayTracker > days) return i;
+        }
+        return 12;
+    }
+
+    public static int getNumOfDaysToReachThatMonth(int year, int month) {
+        int dayTracker = 0;
+        for (int i = 1; i < month; i++) {
+
+            dayTracker += getNumberOfDaysInMonth(year, i);
+
+
+        }
+        return dayTracker;
+    }
+
+    /** Get the start day of month/1/year */
+    public static int getStartDay(int year, int month) {
+        final int START_DAY_FOR_JAN_1_1800 = 3;
+        // Get total number of days from 1/1/1800 to month/1/year
+        int totalNumberOfDays = getTotalNumberOfDays(year, month);
+
+        // Return the start day for month/1/year
+        return (totalNumberOfDays + START_DAY_FOR_JAN_1_1800) % 7;
+    }
+
+    /** Get the total number of days since January 1, 1800 */
+    public static int getTotalNumberOfDays(int year, int month) {
+        int total = 0;
+
+        // Get the total days from 1800 to 1/1/year
+        for (int i = 1800; i < year; i++)
+            if (isLeapYear(i))
+                total = total + 366;
+            else
+                total = total + 365;
+
+        // Add days from Jan to the month prior to the calendar month
+        for (int i = 1; i < month; i++)
+            total = total + getNumberOfDaysInMonth(year, i);
+
+        return total;
+    }
+
+    /** Get the number of days in a month */
+    public static int getNumberOfDaysInMonth(int year, int month) {
+
+        if (month == 1 || month == 3 || month == 5 || month == 7 ||
+                month == 8 || month == 10 || month == 12)
+            return 31;
+
+        if (month == 4 || month == 6 || month == 9 || month == 11)
+            return 30;
+
+        if (month == 2) return isLeapYear(year) ? 29 : 28;
+
+        return 0; // If month is incorrect
+    }
+
+    /** Determine if it is a leap year */
+    public static boolean isLeapYear(int year) {
+        return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+    }
+
+
+    /** Get the English name for the month 1-12 */
+    public static String getMonthName(int month) {
+        String monthName = "";
+        switch (month) {
+            case 1: monthName = "January"; break;
+            case 2: monthName = "February"; break;
+            case 3: monthName = "March"; break;
+            case 4: monthName = "April"; break;
+            case 5: monthName = "May"; break;
+            case 6: monthName = "June"; break;
+            case 7: monthName = "July"; break;
+            case 8: monthName = "August"; break;
+            case 9: monthName = "September"; break;
+            case 10: monthName = "October"; break;
+            case 11: monthName = "November"; break;
+            case 12: monthName = "December";
+        }
+
+        return monthName;
+    }
+
+}
+
+16_Find all twin prime num less than 100
+<Main> if (is_Prime(i) && is_Prime(i + 2)) {}
+ public static boolean is_Prime(long n) {
+        if (n < 2) return false;
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+17_Count num of digits with val 2
+ public static int test(int num)
+   {
+    int ctr = 0;
+    int n = num;
+    do{
+      if (n % 10 == 2){
+          ctr ++;
+      }
+      n /= 10;
+     }while(n > 0);
+      return ctr;
+   }
+
+18_Check 3 int consecutive
+ public static boolean test(int x, int y, int z){
+    int max_num = Math.max(x, Math.max(y, z));
+    int min_num = Math.min(x, Math.min(y, z));
+    int middle_num = x+y+z - max_num - min_num;
+    return (max_num - middle_num) == 1 && (middle_num - min_num == 1);
+  }
+
+19_num have midpoint
+ public static boolean test(int x, int y, int z){
+    int max = Math.max(x, Math.max(y,z));
+    int min = Math.min(x, Math.min(y,z));
+    double mid_point1 = (max + min) / 2.0;
+    int mid_point2 = x + y + z - max - min;
+    return (mid_point1 == mid_point2);
+  }
+
+20_Extracting 1st digit from + or -
+public static int test(int n){
+       int fact_num = 10;
+       while(n / fact_num != 0){
+        fact_num *= 10;
+    }
+    return Math.abs(n / (fact_num/10));
+  }
+
+21_Display factors of 3
+#while (result % 3 == 0){ print 3, result/=3}
+
+public static void test(int n){
+    System.out.print(n + " = ");
+    int result = n;
+    while (result % 3 == 0){
+        System.out.print("3 * ");
+        result = result / 3;
+    }
+    System.out.print(result);
+}
+
+22_Check digit even, true if all even 
+# n%2==0; n/=10
+
+public static boolean test(int n){
+    final int f = 10;
+    if (n == 0){
+        return false;
+    }
+    while(n != 0){
+        if((n % f) % 2 != 0){
+            return false;
+        }
+        n /= 10;
+    }
+     return true;
+   }
+ 
+23_Check all chars in str vowels
+#str_vowels = "aeiou"
+if (str_vowels.indexOf(phrase.charAt(i)) == -1)
+        return false;
+    }
+
+public static boolean test(String input) {
+    String str_vowels = "aeiou";
+    String phrase = input.toLowerCase();
+    for (int i = 0; i < phrase.length(); i++) {
+      if (str_vowels.indexOf(phrase.charAt(i)) == -1)
+        return false;
+    }
+    return true;
+  }
+

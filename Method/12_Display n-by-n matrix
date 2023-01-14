@@ -1,0 +1,40 @@
+12. Write a Java method (takes a number n as input) to displays an n-by-n matrix. Go to the editor
+
+Expected Output:
+
+Input a number: 10                                                                         
+1 0 0 1 1 0 0 0 1 1                                                                       
+0 0 1 0 1 0 1 0 0 0                                                                        
+0 1 0 1 0 0 0 0 0 1                                                                       
+1 1 1 0 0 0 0 1 1 1                                                                        
+1 1 0 1 1 1 0 1 0 0                                                                      
+1 0 0 0 1 1 0 0 0 0                                                                       
+0 0 1 0 0 0 0 1 1 1                                                                      
+1 1 0 1 0 1 0 0 1 0                                                                       
+0 0 1 0 0 0 0 1 1 0                                                        
+1 1 1 0 0 1 1 1 1 0
+
+==============================================
+import java.util.Scanner;
+
+public class Exercise12 {
+ 
+public static void main(String[] args)
+    {
+        
+        Scanner in = new Scanner(System.in);
+        System.out.print("Input a number: ");
+        int n = in.nextInt();
+        printMatrix(n);
+    }
+ 
+ public static void printMatrix(int n) {
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                System.out.print((int)(Math.random() * 2) + " ");
+            }
+            System.out.println();
+        }
+    }
+}

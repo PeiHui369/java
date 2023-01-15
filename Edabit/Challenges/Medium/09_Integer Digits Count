@@ -1,0 +1,40 @@
+Integer Digits Count
+Create a function that counts the integer's number of digits.
+
+Examples
+count(4666) ➞ 4
+
+count(544) ➞ 3
+
+count(318) ➞ 3
+ 
+count(-92563) ➞ 5
+ 
+count(-314890) ➞ 6
+
+count(654321) ➞ 6
+
+count(638476) ➞ 6
+Notes
+For an added challenge, try to solve this without using strings.
+Alternatively, you can solve this via a recursive approach.
+A recursive version of this challenge can be found via this link.
+
+===============================
+
+import java.lang.Math;
+public class IntegerDigits {
+	public static int count(int n) {
+		int count = 0;
+		int num = Math.abs(n);              # Math.abs(n) for -ve case      
+		if(	n==0	){                        # n is 0, 1 digit
+			count=1;                          #  
+		}else{                              #
+			while(num>0){         
+				num = num/10;
+				count++;
+			}
+		}
+		return count;
+	}
+}

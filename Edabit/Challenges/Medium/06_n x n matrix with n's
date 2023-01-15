@@ -24,3 +24,16 @@ squarePatch(0) ➞ []
 Notes
 n >= 0.
 If n = 0, return an empty array.
+
+====================================
+public class Challenge {
+	public static int[][] squarePatch(int n) {
+		int[][] matrix = new int[n][n];
+		for(int i = 0; i<matrix.length; i++){
+			for(int j = 0; j<matrix[0].length; j++){
+				matrix[i][j] = n;
+			}
+		}
+		return matrix;
+	}
+}

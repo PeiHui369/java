@@ -1,0 +1,190 @@
+class abstractAccount{ //Cannot create instance, haven't be implemented
+    private String ownerName;
+    private String ownerID;
+    private String accountNo;
+    private float balance;
+    
+    public Account (String name, String id, float balance){
+        ownerName= name;
+        ownerID = id;
+        this.balance = balance;
+    }
+    
+    //skip all accessors and mutators
+    
+    /*Move to other class*/
+    public abstract boolean withdrawPAcc (float amount){ 
+        /*Have this function called withdrawPAcc, but did not define --> Empty function --> Cannot create an instance
+        if (amount < balance){
+        balance -= amount;
+        return true;}
+        else {
+            return false;
+        }
+        */
+    }
+    
+    public abstract boolean withdrawBAcc (float amount){
+        /*
+        if (amount < (balance + overdraftLimit){
+            balance -= amount;
+            return true;}
+        else {
+            return false;
+        }
+         */
+    }
+    
+
+}
+// in runtime, will create Personal Account or Business Account, but not Account
+public class PersonalAccount extends Account{
+    public boolean withdrawPAcc (float amount){
+        if (amount < balance){
+            balance -= amount;
+            return true;}
+        else {
+            return false;
+        }
+}
+
+public class BusinessAccount extends Account{ 
+        public boolean withdrawBAcc (float amount){
+    if (amount < (balance + overdraftLimit){
+        balance -= amount;
+        return true;}
+        else {
+        return false;
+    }
+}
+        
+    }
+}
+=======================================================================
+
+
+
+class abstract Account{ //Cannot create instance, haven't be implemented
+    private String ownerName;
+    private String ownerID;
+    private String accountNo;
+    private float balance;
+    
+    public Account (String name, String id, float balance){
+        ownerName= name;
+        ownerID = id;
+        this.balance = balance;
+    }
+    
+    //skip all accessors and mutators
+    
+    /*Move to other class*/
+    public abstract boolean withdraw (float amount){
+    }
+    
+    
+    
+
+}
+// in runtime, will create Personal Account or Business Account, but not Account
+public class PersonalAccount extends Account implements Comparable{
+    public boolean withdraw (float amount){
+        if (amount < balance){
+            balance -= amount;
+            return true;}
+        else {
+            return false;
+        }
+        
+        public String toString(){
+            return super.getOwnerName() + "," +
+                    super.getOwnerID();
+        }
+        
+        public int compareTo(PersonalAccount acc){
+            if(this.getBalance() > acc.getBalance()){
+                return 1; //have more money
+            }else if(this.getBalance() < acc.getBalance()){
+                return -1;
+            }else{
+                return 0;
+            }
+            
+        }
+}
+
+
+public class BusinessAccount extends Account{ 
+        public boolean withdraw (float amount){
+    if (amount < (balance + overdraftLimit){
+        balance -= amount;
+        return true;}
+        else {
+        return false;
+    }
+}
+        
+    }
+}
+
+//child class can have function with same name ass parent class ---> Overrides: Polymorphism
+// Cannot define clearly in parent class, have diff behaviour in diff class(Situation): put abstract infront of class Name & method
+// Abstract method must provide implementation (else program cannot run) --> same function named in child class with defined how it works
+// Interface: Behaviours, No attributes (X create variable in instance, except constant)
+//Can only inherits 1 parent class, can implement many interfaces
+
+Upcasting
+
+
+
+
+x.clone()
+// call instructor
+// passing value from current field
+
+class abstract Account{ //Cannot create instance, haven't be implemented
+    private String ownerName;
+    private String ownerID;
+    private String accountNo;
+    private float balance;
+
+    public Account (String name, String id, float balance){
+        ownerName= name;
+        ownerID = id;
+        this.balance = balance;
+    }
+    
+    public Account clone(){
+        Account acc = new Account(this.ownerName, this.ownerID, this.balance); //have exactly the same attributes of everthing back
+        return acc;
+        }
+
+    //skip all accessors and mutators
+
+    /*Move to other class*/
+    public abstract boolean withdraw (float amount){
+    }
+    }
+
+// object can't be created using abstract class constructor (Cannot create an instance of abstract class) : didn't defined behaviour
+// abstract method serve as a placeholder
+
+// cannot create instance of INTERFACE : have behaviour, but didn't define properties
+
+complicated, can have many different types
+
+
+>> INNER CLASS <<
+public class ClassName{
+  private class ClassName{} //use only in this object
+  
+  
+  
+  
+  
+Encapsulatioin: hiding everything behind walls
+Inheritance: subclass belongs/demonstrating behaviour of parentClass
+Polymorphism: Ability to pass down to subclass, implementing interface & abstract class
+
+
+

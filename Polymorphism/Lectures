@@ -186,5 +186,6 @@ Encapsulatioin: hiding everything behind walls
 Inheritance: subclass belongs/demonstrating behaviour of parentClass
 Polymorphism: Ability to pass down to subclass, implementing interface & abstract class
 
-
+//Abstract class: to generalised core characteristics
+Polymorphism: Function overriding
 

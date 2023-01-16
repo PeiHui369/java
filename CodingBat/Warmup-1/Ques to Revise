@@ -1,0 +1,63 @@
+Not same boolean
+a. if(true && true){} else if(false && false){}
+b. if((true&&true) || (!true&&!true)) {}
+c. return a==b;
+
+
+- return true if one is negative and one is positive. Except if the parameter "negative" is true, then return true only if both are negative.
+public boolean posNeg(int a, int b, boolean negative) {
+  if (negative) {
+    return (a < 0 && b < 0);
+  }
+  else {
+    return ((a < 0 && b > 0) || (a > 0 && b < 0));
+  }
+}
+
+-
+if(a==b){return true;} return false;
+return a==b;
+
+- 
+Given 2 positive int values, return the larger value that is in the range 10..20 inclusive, or return 0 if neither is in that range.
+Solution:
+public int max1020(int a, int b) {
+  // First make it so the bigger value is in a
+  if (b > a) {
+    int temp = a;
+    a = b;
+    b = temp;
+  }
+  
+  // Knowing a is bigger, just check a first
+  if (a >= 10 && a <= 20) return a;
+  if (b >= 10 && b <= 20) return b;
+  return 0;
+}
+
+-
+Given a string, return a string made of the first 2 chars (if present), however include first char only if it is 'o' and include the second only if it is 'z', so "ozymandias" yields "oz".
+Editor font size %:
+100
+
+Shorter output 
+Solution:
+public String startOz(String str) {
+  String result = "";
+  
+  if (str.length() >= 1 && str.charAt(0)=='o') {
+    result = result + str.charAt(0);
+  }
+  
+  if (str.length() >= 2 && str.charAt(1)=='z') {
+    result = result + str.charAt(1);
+  }
+  
+  return result;
+}
+
+-Compare 3 int, return largest
+return Math.max(a,Math.max(b,c));
+
+-To avoid length error
+if (str.length() >= 3 && str.substring(0, 3).equals("not")) {}

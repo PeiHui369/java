@@ -1,0 +1,32 @@
+Terms
+Integral part: integer (floor function)
+
+09_Integer Digits Count
+
+import java.lang.Math;
+public class IntegerDigits {
+	public static int count(int n) {
+		int count = 0;
+		int num = Math.abs(n);              # Math.abs(n) for -ve case      
+		if(	n==0	){                        # n is 0, 1 digit
+			count=1;                          #  
+		}else{                              #
+			while(num>0){         
+				num = num/10;
+				count++;
+			}
+		}
+		return count;
+	}
+}
+
+10_Fix Error
+
+For string: var.equals("")
+For other condition: else{return null;}
+
+-Start from 12 use IDE for main to test
+public class Challenge must be created in new class (As it is public)
+
+- Need Solution
+https://edabit.com/challenge/3GvRKZPF2NRPz3DgQ

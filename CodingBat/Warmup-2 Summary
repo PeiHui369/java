@@ -41,4 +41,8 @@ Take 1 skip 1: for(int i = 0; i<str.length() ;i+=2)
 
 @  str.charAt(i) SAME AS str.substring(i, i+1)
 
-
+@ To print str: abc >> aababc
+for(int i = 0; i<str.length(); i++){
+    result += str.substring(0,i+1);
+    
+    

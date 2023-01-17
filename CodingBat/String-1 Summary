@@ -1,0 +1,13 @@
+@print middle 2 char
+n = str.length()/2
+str.substring(n-1,n+1)
+
+@ first & last n chars
+str.substring(0,n) + str.substring(str.length()-n)
+
+@ min length
+to get 3 char, str.length()>=3
+str.substring(i,i+3)
+
+@ get 3 middle char
+str.substring(n-1,n+2);

@@ -91,6 +91,76 @@ boolean foundSame = true;                                                       
 }
   return foundSame;
 
+@
+This is slightly more difficult version of the famous FizzBuzz problem which is sometimes given as a first problem for job interviews. (See also: FizzBuzz Code.) Consider the series of numbers beginning at start and running up to but not including end, so for example start=1 and end=5 gives the series 1, 2, 3, 4. Return a new String[] array containing the string form of these numbers, except for multiples of 3, use "Fizz" instead of the number, for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use "FizzBuzz". In Java, String.valueOf(xxx) will make the String form of an int or other type. This version is a little more complicated than the usual version since you have to allocate and index into an array instead of just printing, and we vary the start/end instead of just always doing 1..100.
+fizzBuzz(1, 6) → ["1", "2", "Fizz", "4", "Buzz"]
+fizzBuzz(1, 8) → ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7"]
+fizzBuzz(1, 11) → ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz"]
+---------------------------------------------------
+public String[] fizzBuzz(int start, int end) {
+  String[] fb = new String[end-start];
+  
+  int index = 0;                              // index initialize
+  for(int i = start; i < end; i++){         // i = start ~ end
+    boolean fizz = i%3 == 0;
+    boolean buzz = i%5 == 0;
+    
+    if(fizz & buzz){fb[index] = "FizzBuzz";}        //divisible 3&5 : FizzBuzz
+    else if (fizz){fb[index] = "Fizz";}             //divisible 3: Fizz;
+    else if (buzz){fb[index] = "Buzz";}             //divisible 5: Buzz;
+    else{fb[index] = String.valueOf(i);}            //convert int i to String: String.valueOf(i);
+    index++;                                        //increase index manually
+  }
+  return fb;
+}
+
+@ withoutTen([1, 10, 10, 2]) → [1, 2, 0, 0]
+int[] arr = new int [nums.length];                    //Create new array
+  int indexArr = 0;                                   //Initialize new array index outside
+  for(int i = 0; i<nums.length; i++){
+    if(nums[i]==10){}                                 //if is 10, do nothing
+    else{                                             //if not 10, add to new array; increase new array index by 1
+      arr[indexArr] = nums[i];
+      indexArr++;
+    }
+  }
+  for(int i = indexArr; i<nums.length; i++){          //the rest of size new array, start from the next last index of above loop, set as 0
+    arr[i] = 0;
+  }
+  return arr;
+
+@ all the even numbers come before all the odd numbers
+  int [] sorted = new int [ nums.length ];
+  int index = 0;
+  for(int i = 0; i<nums.length; i++){                             //if is even, add to sorted first
+    if(nums[i]%2 == 0){sorted[index] = nums[i]; index++;}
+  }
+  for(int i = 0; i<nums.length; i++){                             //if is odd, add to sorted later
+    if(nums[i]%2 != 0){sorted[index] = nums[i];index++;}          
+  }
+  return sorted;
+OR
+
+public int[] evenOdd(int[] nums) {
+  int countE = 0;
+  int countO = nums.length-1;
+  int[] array = new int[nums.length];
+  
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 == 0) {
+      array[countE] = nums[i];
+      countE++;
+    } 
+    else {
+      array[countO] = nums[i];
+      countO--;
+    }
+  }
+  return array;
+}
+
+
+
 [R]
 @
 Return the "centered" average of an array of ints, which we'll say is the mean average of the values, except 
@@ -208,3 +278,120 @@ public boolean tripleUp(int[] nums) {
   return foo;
 }
 
+@ 0 replaced by largest ODD number to right, else remains
+public int[] zeroMax(int[] nums) {
+  int max = 0;
+  for(int i = nums.length-1; i>=0; i--){              //#access backwards
+    if(nums[i]%2 != 0){max = Math.max(max,nums[i]);} //if is ODD, compare with max
+    if(nums[i]==0){nums[i] = max;}                    //replace with max ODD(max til this point), as accessing from backwards, it is to the next of this point
+  }
+  return nums;
+}
+
+@ Left shifted by one ((e.g.: shiftLeft([6, 2, 5, 3]) → [2, 5, 3, 6]
+
+public int[] shiftLeft(int[] nums) {
+  int[] shifted = new int [nums.length];
+  
+  if(nums.length == 0){return shifted;}       //nums no ele, return empty arr
+  
+  for(int i = 0; i<nums.length-1; i++){       //not last & not first shifted = index+1 of nums ele
+    if(i>0){shifted[i] = nums[i+1];}
+  }
+  
+  if(nums.length>1){shifted[0] = nums[1];}    //nums >1 ele: 1st shifted = nums last
+  shifted[nums.length-1] = nums[0];           //last shifted = nums first
+  return shifted;
+}
+
+@
+For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}
+tenRun([2, 10, 3, 4, 20, 5]) → [2, 10, 10, 10, 20, 20]
+tenRun([10, 1, 20, 2]) → [10, 10, 20, 20]
+tenRun([10, 1, 9, 20]) → [10, 10, 10, 20]
+
+public int[] tenRun(int[] nums) {
+  boolean ten = false;                //not found 10
+  int tmp = 0;
+  
+  for(int i = 0; i<nums.length; i++){
+    if(nums[i]%10==0){                //if found 10
+      tmp = nums[i];                  //tmp store the value of multiple of 10
+      ten = true;                     //found 10
+    } 
+    else if(nums[i]%10 != 0 && ten){  //not multiple of 10 and ten is found
+      nums[i] = tmp;                  //change this value to the tmp (multiple of 10 that found before this)
+    }
+  }
+  return nums;
+}
+
+@
+Given a non-empty array of ints, return a new array containing the elements from the original array that come after the last 4 in the original array. The original array will contain at least one 4. Note that it is valid in java to create an array of length 0.
+post4([2, 4, 1, 2]) → [1, 2]
+post4([4, 1, 4, 2]) → [2]
+
+public int[] post4(int[] nums) {
+  for(int i = nums.length-1; i>=0; i--){
+    if(nums[i] == 4){                           //if found 4
+      int[] post4 = new int [nums.length-i-1];  //create new arr: #length = nums.length - 1 -i
+      
+      for(int j = 0; j<post4.length; j++){      //to loop through all index of new arr to add element
+        post4[j] = nums[i+j+1];                 //# i:index4 |j:length needed to increase index4 to next index |+1:start from next of index4
+      }
+      return post4;
+    }
+  }
+  
+  int[] bar = new int[0];                       //if not found, create new arr of size 0
+  return bar;
+}
+
+@ 
+element alone if have diff values before & after it, this element replaced by left or right which is greater
+
+public int[] notAlone(int[] nums, int val) {
+  for(int i = 0; i < nums.length; i++){
+    if(i>0 && i<nums.length-1 && nums[i] == val){         //if not first ele, not last ele, equals to val
+      if(nums[i] != nums[i-1] && nums[i] != nums[i+1]){   //if val not same with ele before & ele after;
+        nums[i] = Math.max(nums[i-1], nums[i+1]);         //this will follow before ele or after ele that is greater
+      }
+    }
+  }
+  return nums;
+}
+
+@ all the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter.
+
+public int[] zeroFront(int[] nums){
+  int count = 0;                            //initialize index outside, is to count how many 0 has been find(should put the next 0 at what index)
+  for(int i = 0; i < nums.length; i++){     
+    if(nums[i] == 0){                       //if found 0 behind
+      nums[i] = nums[count];                //behind will get the value of the front (to be replaced)
+      nums[count] = 0;                      //front become 0
+      count++;                              //increase count by 1 when found 0
+    }
+  }
+  return nums;
+}
+
+@
+Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.
+sum67([1, 2, 2]) → 5
+sum67([1, 2, 2, 6, 99, 99, 7]) → 5
+sum67([1, 1, 6, 7, 2]) → 4
+--------------------------------------
+public int sum67(int[] nums) {
+  int sum = 0;
+  boolean stop = false;
+  
+  for (int i = 0; i < nums.length; i++) {       //loop through all ele
+    if (nums[i] == 6)                           //found 6, stop = true;
+      stop = true;
+    if (stop == false)                          //stop = false; continue adding each ele to sum
+      sum += nums[i];
+    if (nums[i] == 7 && stop == true)           //found 7 & stop = true (as found 6 before)>> stop = false >> continue adding each ele to sum
+      stop = false;
+  }
+  return sum;
+}

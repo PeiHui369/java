@@ -1,0 +1,9 @@
+[e]
+@Get user input
+Scanner scanner = new Scanner ();
+type varName = scanner.nextType();
+
+@Get random
+Random random = new Random();
+type varName = random.nextType();
+int dice = random.nextInt(6) + 1;   //6 is exclusiveUpperBound [0,1,2,3,4,5]; after +1 [1,2,3,4,5,6]

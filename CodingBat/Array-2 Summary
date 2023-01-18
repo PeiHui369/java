@@ -22,6 +22,34 @@ e.g. fizzArray(4) -> ["0", "1", "2", "3"]
 @ element only 1 or 4
 if(!(nums[i]==1 || nums[i]==4)){return false;}
 
+@ a true or b true, cannot both
+if(condA){a = true;}
+if(condB){b = true;}
+if((condA && !condB) || (!condA && condB)) {return true;}
+return false;
+
+@element in 2 arrays with same index differ by at most 2 but not equal
+int diff = Math.abs(nums1[i] - nums2[i]);
+    if(diff<=2 && diff!=0){count++;}
+
+@contains two 7's next to each other, or there are two 7's separated by one element
+for(int i = 0; i<nums.length-2; i++){
+   if((nums[i] == 7 && nums[i+1]==7) || (nums[i] == 7 && nums[i+2]==7) || (nums[i+1] == 7 && nums[i+2]==7) ){
+   return true;
+   }
+ }
+ 
+@ if there is a 1 in the array with a 2 somewhere later in the array.
+if(nums[i]==1){foundOne = true;}
+if(foundOne && nums[i] ==2){return true;}
+
+@ contains either 3 even or 3 odd values all next to each other.
+for (int i = 0; i<nums.length-2; i++){
+    if(nums[i]%2==0 && nums[i+1]%2==0 && nums[i+2]%2==0){countEven = true;}
+    else if(nums[i]%2!=0 && nums[i+1]%2!=0 && nums[i+2]%2!=0){countOdd = true;}
+}
+  return (countEven || countOdd);
+
 [r]
 @To not add 13 and the num next to it
  if(nums[i]==13){
@@ -49,6 +77,19 @@ return true;
 else
 return false; }
 
+@ Return true if the group of N numbers at the start and end of the array are the same.
+- e.g. 
+sameEnds([5, 6, 45, 99, 13, 5, 6], 1) → false
+sameEnds([5, 6, 45, 99, 13, 5, 6], 2) → true
+sameEnds([5, 6, 45, 99, 13, 5, 6], 3) → false
+
+boolean foundSame = true;                                                        // Initialize a boolean: TRUE
+  for(int i = 0; i<len; i++) {
+  //element with same index counting at behind to compare: nums [nums.length-len+i]
+    if(nums[i] == nums [nums.length-len+i]){foundSame = true;}                   // as the i need to continue increase to compare, we don't directly return true
+    else{foundSame = false;}
+}
+  return foundSame;
 
 [R]
 @
@@ -91,4 +132,54 @@ if ( nums[i] != val && nums[i+1] != val)
 result = false;
 }
   return result;
+}
+
+@ ELEMENT X TGT
+Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and no 3's are next to each other.
+haveThree([3, 1, 3, 1, 3]) → true
+haveThree([3, 1, 3, 3]) → false
+haveThree([3, 4, 3, 3, 4]) → false
+-------------------------------------------------------------------------------------------------------------------------------
+
+public boolean haveThree(int[] nums) {
+  int count = 0;
+  boolean found = false;                                               #not found -> Initialize: found = false
+  
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] != 3)
+      found = false;                                                    #this not 3 -> found = false (Reset every time when move to next element)
+    if (nums[i] == 3 && found == true)
+      return false;                                                     #this is 3 && found == true (Before this is also 3) -> return false
+    if (nums[i] == 3 && found == false) {
+      found = true;                                                     #this is 3 -> found = true (so if next is 3 then return false); this is 3 && found == false (before this is not 3) -> count+1
+      count++;
+    }
+  }
+  if (count == 3)
+    return true;
+  else
+   return false;
+}
+
+@ ELEMENT MUST TGT
+Given an array of ints, return true if every 2 that appears in the array is next to another 2.
+
+twoTwo([4, 2, 2, 3]) → true
+twoTwo([2, 2, 4]) → true
+twoTwo([2, 2, 4, 2]) → false
+
+public boolean twoTwo(int[] nums) {
+  boolean isTrue = false;
+  
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] == 2) {                                                          #Found 2; nums.length > 1                  
+      if (nums.length > 1 && i < nums.length-1 && nums[i+1] == 2)                # This 2 not the last element, right next to it is 2 also -> True               
+        isTrue = true;
+      else if (nums.length > 1 && i > 0 && nums[i-1] == 2)                       # This 2 not the first element, right before it is 2 also -> True
+        isTrue = true;
+      else
+        return false;
+    }  
+  }
+  return true;
 }

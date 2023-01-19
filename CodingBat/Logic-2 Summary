@@ -1,0 +1,106 @@
+@Rounding
+if(num%10 >= 5){return (num/10 + 1)*10;}
+  return (num/10)*10;
+  
+@evenly spaced; equal spaces between integers
+  int[] arr = {a,b,c};    //store in array
+  Arrays.sort(arr);       //sort to arrange in ascending order
+  return ((arr[1] - arr[0]) == (arr[2] - arr[1]));
+
+@(b-a<=1 OR c-a<=1) AND (b or c which not included in front >=2 from others) >> true
+return((Math.abs(a-b)<=1 && Math.abs(c-a)>=2 && Math.abs(c-b)>=2) || (Math.abs(a-c)<=1 && Math.abs(b-a)>=2 && Math.abs(b-c)>=2));
+
+[r]
+@ 07_Given 2 int values greater than 0, return whichever value is nearest to 21 without going over. Return 0 if they both go over.
+if(a>21 && b>21){return 0;}
+  else if(a>21){return b;}    //#
+  else if(b>21){return a;}    //#
+  
+  if(Math.abs(21-a) > Math.abs(21-b)){return b;}
+  else if(Math.abs(21-a) < Math.abs(21-b)){return a;}
+
+OR
+
+ int aVal = a;
+  if (aVal > 21) {
+    aVal = 0;
+  }
+  int bVal = b;
+  if (bVal > 21) {
+    bVal = 0;
+  }
+  
+  // Now it works to just return whichever is larger.
+  if (aVal > bVal) {
+    return aVal;
+  }
+  else {
+    return bVal;
+  }
+  //using the "ternary operator" ?: and Math.max() --> SHORTER
+
+[R]
+
+@01_makeBricks
+small = 1
+big = 5
+make goals by choosing from small & big given >> true if possible
+
+public boolean makeBricks(int small, int big, int goal) {
+  int digit = goal%10;
+  
+  if(goal>small + (big*5)){                   // if goal is greater than given total inches
+    return false;
+  }
+  
+  if(digit<5 && small<digit)                  //digit < 5 (won't include big); small<digit: given 1 inch cannot fulfill digit
+    return false;
+  else if (digit > 5 && digit > small +5)     //digit > 5 (will include big); small + 5 < digit: after put big as 5, the small still cannot fulfill remaining digit
+    return false;
+  else
+    return true;
+  
+}
+
+@02_sum, if same num ignored
+
+public int loneSum(int a, int b, int c) {
+  if(a==b && b==c){return 0;}
+  if(a==b){return c;}
+  if(b==c){return a;}
+  if(a==c){return b;}
+  return a+b+c;
+}
+
+@09_makeChocolate
+We want make a package of goal kilos of chocolate. 
+We have small bars (1 kilo each) and big bars (5 kilos each). 
+Return the number of small bars to use, assuming we always use big bars before small bars. 
+Return -1 if it can't be done.
+
+
+makeChocolate(4, 1, 9) → 4
+makeChocolate(4, 1, 10) → -1
+makeChocolate(4, 1, 7) → 2
+
+========================
+small : 1
+big: 5
+to make goals kilos, use big first
+
+-------------------------
+public int makeChocolate(int small, int big, int goal) {
+  if( goal > big*5 + small) return -1;
+  if( goal > big*5) {
+    int r = goal - big*5;
+    if( small >= r) {
+      return r;
+    }
+    return -1;
+  }
+  int z = goal%5;
+  if( small >= z) {
+      return z;
+    }
+  return -1;
+}

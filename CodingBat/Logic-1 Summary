@@ -1,0 +1,130 @@
+***  division, e.g. n/10, gives the left digit while the % "mod" n%10 gives the right digit
+*** one way to compute the number of digits of a non-negative int n is to convert it to a string with String.valueOf(n) and then check the length of the string.
+
+02_
+you>= 8 || date >=8     >> 2
+you<=2  || date <=2     >> 0    //cond if(1st) as if any <=2 directly 0
+else                    >> 1
+
+03_
+60 <= x <= 90 : play
+60 <= x <= 100 :summer >> play
+//60 same both cond
+if(x>=60){ if (( false && x<=90) || (true && x<=100) ){return true;}}
+
+04_
+if true, can be 5 higher in all cases
+if(false-nt birthday){
+x<=60 : 0
+x<=80 : 1
+else  : 2
+}if(true-birthday){
+x<=65 : 0
+x<=85 : 1
+else  : 2
+}
+
+08_
+ n>=1 && n<=10    : range 1..10, inclusive
+(n<=1 || n>=10)   : less or equal to 1, or greater or equal to 10.
+
+10_
+1 more than multiple of 10 : n%10==1
+
+11_ either true true; both true false
+initialize each cond as boo false
+if(cond1){true}
+if(cond2){true}
+
+if(boo1 && boo2){false}
+else if(boo1 || boo2){true}
+
+12_
+1 or 2 less than multiple of 20
+remainder: 20-1=19  20-2=18
+n%20==19 || n%20==18 >>true
+
+13_
+within 2 of a multiple of 10
+more than: n%10==2    n%10==1
+less than: (10-2=8) n%10==8   (10-1=9) n%10==9
+no remainder: n%10 ==0
+>>true
+
+14_
+if(a is teen, or b is teen, or both is teen){return 19;}
+if((a>=13 && a<=19)||(b>=13 && b<=19)){return 19;}
+
+15_
+Sleep: false            //In all cases: if(cond1)
+Normally: true          //Normally: else
+
+16_
+both >=5 : 1
+either double another : 2     //infer: must be >=5 too
+either <5 : 0   //all cases : else
+
+if(a>=5 && b>=5){
+  if(a>=2*b || b>=2*a){2}
+  else{1}
+}
+return 0;
+
+17_
+if: (both true) f&b >> FizzBuzz
+start f >> Fizz
+end b >> Buzz
+else >> str
+
+21_
+(a,b,c)
+c > b > a
+equalOk false >> all diff
+equalOk true >>any can be same
+
+22_
+2 or more same rightmost digit >> true
+ 
+ int A = a%10, B=b%10, C=c%10;
+  if(A==B || B==C || A==C){return true;}
+  
+23_
+one is 10 or more less than another
+
+return (Math.abs(a-b)>=10 || Math.abs(a-c)>=10 || Math.abs(b-c)>=10);
+
+[r] 24_
+Return the sum of two 6-sided dice rolls, each in the range 1..6. However, if noDoubles is true, if the two dice show the same value, increment one die to the next value, wrapping around to 1 if its value was 6.
+
+public int withoutDoubles(int die1, int die2, boolean noDoubles) {
+  if(noDoubles){
+    if(die1 == die2 && die1 != 6){
+      return die1+die2+1;               //increment one die to the next value
+    }else if(die1 == die2 && die1==6){
+      return die2+1;                    //wrapping around to 1 if value if 6
+    }
+  }
+  return die1+die2;
+}
+
+26_
+all 2: 10
+all same : 5
+
+ if(a==b & b==c){
+    if(a==2){return 10;}
+    else{return 5;}
+
+27_
+left digit: n/10
+right digit: n%10
+digit appear in both num (whether left or right): return (aL == bL || aL == bR || aR == bL || aR == bR);
+
+30_
+(a,b)
+sum same no. of digit: return sum
+sum >digits than a : return a
+
+sum = a+b;
+if(String.valueOf(a).length() == String.valueOf(sum).length()){return sum;}
+return a;

@@ -1,0 +1,26 @@
+
+Return true if the given non-negative number is a multiple of 3 or 5, but not both.
+Use the % "mod" operator -- see Introduction to Mod
+
+
+old35(3) → true
+old35(10) → true
+old35(15) → false
+
+=======================
+multiple of 3
+OR
+multiple of 5
+>> true (both: false)
+-----------------------
+
+public boolean old35(int n) {
+  boolean m3  = false, m5 = false;
+  if(n%3==0){m3=true;}
+  if(n%5==0){m5=true;}
+  
+  if(m3&&m5){return false;}
+  else if(m3 || m5){return true;}
+  return false;
+}
+

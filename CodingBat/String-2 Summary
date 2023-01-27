@@ -1,0 +1,15 @@
+11_repeatFront 
+repeatFront("Chocolate", 4) → "ChocChoChC"
+
+for(int i = 0; i<n; i++){
+    r+=str.substring(0,n-i);
+  }
+  
+12_repeatSeparator
+repeatSeparator("Word", "X", 3) → "WordXWordXWord"
+
+String str = word;
+  for(int i = 0; i<count-1; i++){
+    str = str + sep + word;
+  }
+  

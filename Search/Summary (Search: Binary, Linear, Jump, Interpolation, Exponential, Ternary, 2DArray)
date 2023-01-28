@@ -1,0 +1,152 @@
+01_Binary Search
+ static int binarySearch(int[] nums, int find) {
+            int high = nums.length;
+            int low = 0;
+            if(high>=low) {
+                int mid = (high + low)/2;
+                if(nums[mid]>find) {
+                low = mid+1;
+                }else if(nums[mid]<find) {
+                    high = mid - 1;
+                }else {
+                    return mid;
+                }
+            }
+            return -1;
+        }
+
+02_Linear Search
+ static int linearSearch (int[]nums, int find){
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i]==find){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+03_Jump Search
+ public static int jumpSearch(int[] nums, int item) {
+    int arraySize = nums.length;
+    int blockSize = (int)Math.floor(Math.sqrt(arraySize));
+    int prevItem = 0;
+
+    while(nums[Math.min(blockSize,arraySize-1)]<item){
+        prevItem = blockSize;
+        blockSize += (int)Math.floor(Math.sqrt(arraySize));
+        if(prevItem > arraySize){return -1;}
+    }
+    
+    while(nums[prevItem]<item){
+        prevItem++;
+        if(prevItem > Math.min(blockSize,arraySize)){return -1;}
+    }
+
+    if(nums[prevItem]==item){return prevItem;}
+        return -1;
+    }
+
+04_InterpolationSearch
+ public static int Interpolation_search(int[] nums, int searched_num) {
+        //firstIndex
+        int low_num = 0;
+        //lastIndex
+        int high_num = nums.length - 1;
+        //midIndex
+        int mid_num;
+
+        //lastIndexNum not equals firstIndexNum AND
+        // firstIndexNum less than toFind AND
+        // lastIndexNum greater than toFind
+        while (nums[high_num] != nums[low_num] && nums[low_num] < searched_num && nums[high_num] >= searched_num) {
+
+            //midIndex = firstIndex + ((toFind - firstIndexNum) * (lastIndexNum - firstIndexNum) / (lastIndexNum - firstIndexNum)); ###
+            mid_num = low_num + ((searched_num - nums[low_num]) * (high_num - low_num) / (nums[high_num] - nums[low_num]));
+
+            //toFind > midIndexNum : firstIndex = midIndex + 1 ((move to right of ori searchArea
+            if (searched_num > nums[mid_num])
+                low_num = mid_num + 1;
+            //toFind < midIndexNum : lastIndex = midIndex - 1 ((move to left of ori searchArea
+            else if (searched_num < nums[mid_num])
+                high_num = mid_num - 1;
+            //toFind is midIndexNum : return midIndex
+            else
+                return mid_num;
+        }
+
+        //If firstIndex(0) is toFind, then return firstIndex(0)
+        if (nums[low_num] == searched_num) {
+            return low_num;
+        //Not found
+        } else {
+            return -1;
+        }
+    }
+
+
+05_ExponentialSearch
+private static int exponentialSearch(int[] arr, int i) {
+        int startNum = 0;
+
+        //Exception for first index, if yes, then return 0;
+        if(arr[startNum] == i){return startNum;}
+
+        //Start whileLoop to find
+        startNum = 1;
+
+        //As long as index<length & this index num less than toFind, we multiply index by 2
+        while (startNum<arr.length && arr[startNum] <= i){
+            startNum*=2;
+        }
+        
+        //then we return the largest index with num<toFind to binarySearch method
+        // will startSearch at thisIndex/2 and end at thisIndex or length(if smaller)
+        return Arrays.binarySearch(arr, startNum/2, Math.min(startNum, arr.length), i);
+    }
+ 
+06_TernarySearch
+static int ternary_search(int[] nums, int val, int first_element, int last_element)
+        {
+            if(first_element>last_element){return -1;}                             
+            int mid1 = first_element + (last_element - first_element)/3;
+            int mid2 = first_element + 2*(last_element - first_element)/3;
+
+            if(val == nums[mid1]){return mid1;}
+            else if(val == nums[mid2]){return mid2;}
+            else if(val > nums[mid1]){first_element = mid1+1;}
+            else if(val < nums[mid2]){last_element = mid2-1;}
+            return ternary_search(nums, val, first_element, last_element);
+
+        }
+            //startSearchIndex > endSearchIndex : NOT FOUND (-1)
+            //Divide searchLength into 3 parts
+            // ARRpt1 | ARRpt2 || ARRpt3
+            // mid1 : |
+            // mid2 : ||
+            // if toFind at |, then return mid1
+            // if toFind at ||, then return mid2
+            // if toFind greater than |, then we set startSearch at |+1, because the val exist at ARRpt2 or ARRpt3; if at ARRpt3, then we will set startSearch at ||+1 in the next loop;
+            // if toFind smaller than ||, then we set endSearch at ||-1, because the val exist at ARRpt1 or ARRpt3; if at ARRpt1, then we will set endSearch at |-1 in the next loop;
+
+07_2dArraySearch
+static int [] Saddleback(int[][] nums, int row, int col, int toFind) {
+        int position[] = {-1, -1};
+
+        //outOfBound >> notFound >> -1
+        if (row < 0 || col >= nums[row].length) {
+            return position;
+        } //as row always move up, so outOfBound if <0; col always move right, increase, so outOfBound if larger than row length
+
+        //if not this, try next
+        if(nums[row][col] < toFind){
+            //toFind bigger, so go to right
+            return Saddleback(nums, row, col + 1, toFind);
+        }else if(nums[row][col]>toFind){
+            //toFind smaller, so go up (first ele in each row is the smallest in each row;)
+            return Saddleback(nums, row-1, col, toFind);
+        }else{
+                position[0] = row;
+                position[1] = col;
+                return position;
+        }
+    }

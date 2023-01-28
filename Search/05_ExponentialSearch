@@ -1,0 +1,63 @@
+5. Write a Java program to find a specified element in a given sorted array of elements using Exponential search. Go to the editor
+
+From Wikipedia, in computer science, an exponential search (also called doubling search or galloping search or Struzik search) is an algorithm, created by Jon Bentley and Andrew Chi-Chih Yao in 1976, for searching sorted, unbounded/infinite lists. There are numerous ways to implement this with the most common being to determine a range that the search key resides in and performing a binary search within that range. This takes O(log i) where i is the position of the search key in the list, if the search key is in the list, or the position where the search key should be, if the search key is not in the list.
+
+import java.util.Arrays;
+public class abc {
+	public static void main(String[] args) {
+		int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 21, 34, 45, 91, 120, 130, 456, 564};
+        int search_num = 120;
+		
+		// Find the index of searched item
+       int index_result = exponentialSearch(nums, search_num);
+
+       System.out.println(search_num + " is found at index " + index_result);		
+		
+	}
+
+	private static int exponentialSearch(int[] arr, int i) {
+		int start_num = 0;
+		
+		if(arr[start_num] == i)
+			return start_num;
+		start_num =1;
+		while(start_num < arr.length && arr[start_num] <= i) {
+			start_num*=2;
+		}
+		return Arrays.binarySearch(arr, start_num/2, Math.min(start_num, arr.length), i);
+	}
+}
+
+-----------------------------------------------------------
+import java.util.Arrays;
+public class w3 {
+    public static void main(String[] args) {
+        int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 21, 34, 45, 91, 120, 130, 456, 564};
+        int search_num = 120;
+
+        // Find the index of searched item
+        int index_result = exponentialSearch(nums, search_num);
+
+        System.out.println(search_num + " is found at index " + index_result);
+
+    }
+
+    private static int exponentialSearch(int[] arr, int i) {
+        int startNum = 0;
+
+        //Exception for first index, if yes, then return 0;
+        if(arr[startNum] == i){return startNum;}
+
+        //Start whileLoop to find
+        startNum = 1;
+
+        //As long as index<length & this index num less than toFind, we multiply index by 2
+        while (startNum<arr.length && arr[startNum] <= i){
+            startNum*=2;
+        }
+
+        //then we return the largest index with num<toFind to binarySearch method
+        // will startSearch at thisIndex/2 and end at thisIndex or length(if smaller)
+        return Arrays.binarySearch(arr, startNum/2, Math.min(startNum, arr.length), i);
+    }
+}

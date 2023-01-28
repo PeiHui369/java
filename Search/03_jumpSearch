@@ -1,0 +1,62 @@
+3. Write a Java program to find a specified element in a given sorted array of elements using Jump Search. Go to the editor
+From Wikipedia, in computer science, a jump search or block search refers to a search algorithm for ordered lists. It works by first checking all items Lkm, where ℜ ∈ ℵ and m is the block size, until an item is found that is larger than the search key. To find the exact position of the search key in the list a linear search is performed on the sublist L[(k-1)m, km].
+=====================================
+public class Main {
+
+	public static void main(String[] args) {
+        int nums[] = {1, 2, 3, 4, 5, 6, 7, 8, 21, 34, 45, 91, 120, 130, 456, 564};
+        int search_num = 120;
+
+       // Find the index of searched item
+       int index_result = jumpSearch(nums, search_num);
+
+       System.out.println(search_num + " is found at index " + index_result);
+
+	}
+	
+	    public static int jumpSearch(int[] nums, int item)	    {
+	        
+	    	int array_size = nums.length;
+	 
+	        // Find block size to be jumped
+	        int block_size = (int)Math.floor(Math.sqrt(array_size));              //#
+	 
+	        // If the element is present find the block where element is present
+	        int prev_item = 0;                                                      //Initialize prev_item=0;
+          
+          
+	        while (nums[Math.min(block_size, array_size)-1] < item)
+	        {
+	            prev_item = block_size;
+	            block_size += (int)Math.floor(Math.sqrt(array_size));
+	            if (prev_item >= array_size)
+	                return -1;
+	        }
+	 
+	        // Using a linear search for element in block beginning with previous item
+	        while (nums[prev_item] < item)
+	        {
+	            prev_item++;
+	            if (prev_item == Math.min(block_size, array_size))
+	                return -1;
+	        }
+	 
+	        // If element is found
+	        if (nums[prev_item] == item)
+	            return prev_item;
+	 
+	        return -1;
+	    } 	    
+}
+
+
+THINKING:
+   // 1st: Min(block_size & array_size-1) and compare smaller than toFind [each time jump, take the block, if end of the length, then take the last ele]
+          prev_item = block_size  [take the block]
+          block_size + with a blockSizeFormula  [increase the index as block]
+          if prev_item>=array_size >>X exist >> -1  [exceed length]
+          
+          //2nd while prev_item < item  [arr in ascending order, this ele with this index still less than toFind, so increase index by 1]
+          add prev_item by 1, if equals to the Min(block_sze & array_size) >> X exist >> -1 [if this index equals to min(blockSize, Arraysize), not exist because array last index always less arraySize by 1]
+          
+          if found item at index of prev_item, return prev_item  [if found toFind at this index, return this index]

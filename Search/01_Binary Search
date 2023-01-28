@@ -1,0 +1,32 @@
+Write a Java program to find a specified element in a given array of elements using Binary Search.
+
+public class w3 {
+    public static void main(String[] args) {
+        int[] nums = {1, 5, 6, 7, 8, 11};
+        int search_num = 6;
+        int index = binarySearch(nums, search_num);
+            if (index == -1) {
+                System.out.println(search_num + " is not in the array");
+            } else {
+                System.out.println(search_num + " is at index " + index);
+            }
+    }
+
+
+        static int binarySearch(int[] nums, int find) {
+            int high = nums.length;
+            int low = 0;
+            if(high>=low) {
+                int mid = (high + low)/2;
+                if(nums[mid]>find) {
+                low = mid+1;
+                }else if(nums[mid]<find) {
+                    high = mid - 1;
+                }else {
+                    return mid;
+                }
+            }
+            return -1;
+        }
+
+        }

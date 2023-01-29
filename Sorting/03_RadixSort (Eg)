@@ -119,6 +119,14 @@ Rolling Summation
 0   0   0   0   0   0   0   0
 
 //DONE SORTING
+                  0   1   2   3   4   5   6   7   8   9 ...(Size + 1)
+Input Array     :
+Counting Array  :
+Auxiliary Array :
 
+Number of pass = digits(each pass check one digit)
+Start from left most digit to right
 
+1st: Count how many times this digit appear and put in count array
+2nd: Start from right most number, if is this digit, check this digit as index in count array to get X, put this number at X index in Auxiliary Array
 

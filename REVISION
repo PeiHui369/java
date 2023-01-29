@@ -90,3 +90,55 @@ while (octal_num != 0)
       decimal_num = (long)(decimal_num + (octal_num % 10) * Math.pow(8, i++));
       octal_num = octal_num / 10;
      }
+
+@ convert OCT to BI
+- %10, binaryNum += rem [as index * place (*1000 each loop) ]
+int[] octal_numvalues = {0, 1, 10, 11, 100, 101, 110, 111}; //#
+  long octal_num, tempoctal_num, binary_num, place;
+  int rem;
+  tempoctal_num = octal_num;
+  binary_num = 0;
+  place = 1;
+  while (tempoctal_num != 0)
+  {
+   rem = (int)(tempoctal_num % 10);
+   binary_num = octal_numvalues[rem] * place + binary_num; //#
+   tempoctal_num /= 10;
+   place *= 1000;
+  }
+  
+@ convert OCT to HEX
+decnum = Integer.parseInt(octal_num, 8);
+hex_num = Integer.toHexString(decnum);
+
+@ convert HEX to DEC
+ public static int hex_to_decimal(String s)
+    {
+             String digits = "0123456789ABCDEF";
+             s = s.toUpperCase();
+             int val = 0;
+             for (int i = 0; i < s.length(); i++)
+             {
+                 char c = s.charAt(i);
+                 int d = digits.indexOf(c);
+                 val = 16*val + d;
+             }
+             return val;
+    }
+  
+@ convert HEX to BI
+- convert HEX to DEC, convert DEC to BI
+
+@ convert HEX to OCT
+- convert HEX to DEC, convert DEC to OCT
+
+
+
+
+
+
+
+
+
+
+

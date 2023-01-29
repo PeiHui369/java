@@ -1,0 +1,92 @@
+@Swapping 2 vars
+temp = a;
+a = b;
+b = temp; 
+
+<Number System>
+@ convert DEC to BI
+- %2 store in arr, divide 2, loop till = 0, print arr from last ele to first ele
+int bin_num[] = new int[100];
+quot = dec_num;
+		
+        while(quot != 0)
+        {
+            bin_num[i++] = quot%2;
+            quot = quot/2;
+        }
+
+@ convert BI to DEC
+- %10, multiply j add to dN, j*2, bN/10
+long binaryNumber, decimalNumber = 0, j = 1, remainder;
+while (binaryNumber != 0) 
+  {
+   remainder = binaryNumber % 10;
+   decimalNumber = decimalNumber + remainder * j;
+   j = j * 2;
+   binaryNumber = binaryNumber / 10;
+  }
+
+@ convert BI to HEX
+- convert BI to DEC, convert DEC to HEX
+int[] hex = new int[1000];
+int i = 1, j = 0, rem, dec = 0, bin;
+while (bin > 0) {
+   rem = bin % 2;
+   dec = dec + rem * i;
+   i = i * 2;
+   bin = bin / 10;
+  }
+   i = 0;
+  while (dec != 0) {
+   hex[i] = dec % 16;
+   dec = dec / 16;
+   i++;
+  }
+
+@ convert BI to OCT
+convert BI to DEC, convert DEC to OCT
+ int binnum, binnum1,rem, decnum=0, quot, i=1, j;
+ int octnum[] = new int[100];   //Print from last element to first element (j=i-1; j>0; j--)
+ while(binnum > 0)
+        {
+            rem = binnum % 10;
+            decnum = decnum + rem*i;
+            //System.out.println(rem);
+            i = i*2;
+            binnum = binnum/10;
+        }   
+
+		i=1;
+        quot = decnum;
+		
+        while(quot > 0)
+        {
+            octnum[i++] = quot % 8;
+            quot = quot / 8;
+        }        
+        
+@ convert DEC to HEX
+char hex[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+while(dec_num>0)
+        {
+            rem = dec_num%16;
+            hexdec_num = hex[rem] + hexdec_num;
+            dec_num = dec_num/16;
+        }
+        
+@ convert DEC to OCT
+- %8 store in arr, divide 8, loop till = 0, print arr from last ele to first ele 
+quot = dec_num;
+		
+        while(quot != 0)
+        {
+            oct_num[i++] = quot%8;
+            quot = quot/8;
+        }
+
+@ convert OCT to DEC
+while (octal_num != 0) 
+     {
+      decimal_num = (long)(decimal_num + (octal_num % 10) * Math.pow(8, i++));
+      octal_num = octal_num / 10;
+     }

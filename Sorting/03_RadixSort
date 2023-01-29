@@ -7,6 +7,8 @@
 6:
 7:
 
+Process digits from right to left
+
 <INPUT ARRAY>
 0: 12
 1: 13
@@ -17,6 +19,7 @@
 6: 24
 7: 25
 
+1st| Count occurances of digit
 <COUNT ARRAY>
 0: 0
 1: 0
@@ -27,11 +30,12 @@
 6: 0
 7: 0
 
+2nd| Rolling Summation to be used next as positions
 <COUNT ARRAY>
-0: -1
-1: -1
-2: 1
-3: 3
+0: -1 (Subtract 1 from 0 position)
+1: -1 (-1+0 = -1)
+2: 1  (-1+2 = 1)
+3: 3  (1+2 = 3)
 4: 5
 5: 7
 6: 7

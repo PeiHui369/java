@@ -49,7 +49,7 @@ Integer.parseInt(str)
             }
         }
 
-<3 int>
+<3 or n int>
 @ sum of 2 int equal to 3rd
 ((p + q) == r || (q + r) == p || (r + p) == q)
 
@@ -69,6 +69,54 @@ OR
 if (x%p == 0)
 	return( y/p - x/p + 1);
 return(y/p - x/p);
+
+@ one of them is 20 or more and less than the substractions of others. (total 3 int)
+(Math.abs(x - y) >= 20 || Math.abs(y - z) >= 20 || Math.abs(z - x) >= 20)
+
+@ 2 int; return larger; if 2 same, return 0 & if /6 same remainder, return smaller value;
+	if(x == y)
+		return 0;
+	    if(x % 6 == y % 6)
+		    return (x < y) ? x : y;
+	return (x > y) ? x : y;
+
+@ 2 int between 25 to 75; common digit true
+	if (p<25 || q>75)			//check in range
+		   return false;
+	   int x = p % 10;			//check leftmost digit
+	   int y = q % 10;
+	   p /= 10;				//check rightmost digit
+	   q /= 10;
+	   return (p == q || p == y || x == q || x == y);
+
+@ 2 int, calc modulus of 2 num without using %
+int divided = a / b;
+int result = a - (divided * b);
+
+@ compute sum of PRIME NUMBERS till 100
+// prime
+public static boolean is_Prime(int n) {
+		for (int i = 3; i * i <= n; i+= 2) {
+			if (n % i == 0) {
+				return false; 
+			}
+		}
+		return true;
+	}
+	
+//sum of 100 prime num
+while (ctr < 100) {
+			n++; 
+			if (n % 2 != 0) { 
+			// check if the number is even
+				if (is_Prime(n)) {
+					sum += n; 					
+				}
+			}
+                    ctr++; 	
+		}
+		
+
 
 <PRINTF>
 %d : int
@@ -101,16 +149,62 @@ int chr = 'Z'; //print chr
 
 <String>
 @ Capitalize first letter
-Scanner in = new Scanner(System.in);		//f
-String line = in.nextLine();
-String upper_case_line = ""; 
-Scanner lineScan = new Scanner(line); 
+Scanner in = new Scanner(System.in);		//create Scanner
+String line = in.nextLine();			//get input
+String upper_case_line = ""; 			//Initialize str var
+Scanner lineScan = new Scanner(line); 		//#Create scanner object
 while(lineScan.hasNext()) {
              String word = lineScan.next(); 
              upper_case_line += Character.toUpperCase(word.charAt(0)) + word.substring(1) + " "; 
          }
 
+@ convert str to lowercase
+- #str.toLowerCase();
+String line = in.nextLine();
+	 line = line.toLowerCase();
 
+@ find penultimate(next to last) word of a sentence
+-# str.split("regex"); https://www.geeksforgeeks.org/split-string-java-examples/
+String[] words = line.split("[ ]+"); //regex can be "[ ]+" or just " " for empty spaces
+System.out.println("Penultimate word: "+words[words.length - 2]);
+	 
+@ reverse word
+String word = in.nextLine();
+word = word.trim();			//Remove leading & trailing white-space chars from string
+String result = ""; 
+char[] ch=word.toCharArray();  
+for (int i = ch.length - 1; i >= 0; i--) {	//print from end to start of arr
+	result += ch[i];
+} //print(result.trim());
+
+@ Insert word in middle of str
+- Tutorial in Python 3.0
+main_string.substring(0, 7) + word + main_string.substring(6)
+
+@ 4 copies of last 3 char
+String last3 = str.substring(str.length()-3);
+System.out.println(last3 + last3 + last3 + last3);
+
+@ extract first half of string of even length
+str.substring(0, str.length()/2)
+
+@ print shortString + longString + shortString
+	if(str1.length() >= str2.length())
+		System.out.println( str2+str1+str2);
+	else
+	System.out.println(str1+str2+str1);	
+	
+@ concatenation of 2 strs (remove first char of each)
+str1.substring(1) + str2.substring(1)
+
+@ take first 3 char, if str length < 3 use # substitute
+	if(len >= 3)
+		System.out.println( str1.substring(0, 3));
+	else if(len == 1)
+		System.out.println( (str1.charAt(0)+"##"));
+	else
+		System.out.println("###");
+		
 <Calculation>
 @ hexagonArea
 - Math.tan; Math.PI

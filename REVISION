@@ -49,6 +49,30 @@ Integer.parseInt(str)
             }
         }
 
+@ read int, calc sumOfDigits, write num of each digit of sum in English
+<Main> //can use back sumDigits
+char[] numStr = str.toCharArray();
+for (int i = 0; i < numStr.length; i ++) {
+	sum += numStr[i] - '0';			//[?QTA : why must '0' ---EX87]
+}
+<printNumber.java>
+String[] number = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+//n is sumOfDigit
+if (n < 10) {	//1 digit
+	System.out.println(number[n]);
+}
+else if (n < 100) {	//2 digits
+	x = n / 10;		//x=24/10 = 2
+	y = n - x *10;		//y=24-2*10 = 4
+	System.out.println("In English: "+number[x] + " " + number[y]);
+}
+else {			//3 digits
+	x = n / 100;			
+	y = (n - x * 100) / 10;
+	z = n - x * 100 - y * 10;
+	System.out.println("In English: "+number[x] + " " + number[y] + " " + number[z]);
+}
+
 <3 or n int>
 @ sum of 2 int equal to 3rd
 ((p + q) == r || (q + r) == p || (r + p) == q)
@@ -214,6 +238,14 @@ str1.substring(1) + str2.substring(1)
 	result += (str1.length() >= 1) ? str1.charAt(0) : '#';
 	result += (str.length() >= 1) ? str2.charAt(str2.length()-1) : '#';
 	
+@ take last 3 char, put at front & back
+//if strLength < 3, return str
+    String subpart = string1.substring(string1.length()-3);
+    System.out.println(subpart + string1 + subpart);
+
+*@ str start with specified word
+System.out.println(str.startsWith("specifiedWord"));
+
 <Array>
 @ Test x appears either first or last ele
 (num_array[0] == 10 || num_array[num_array.length-1] == 10)
@@ -231,7 +263,167 @@ str1.substring(1) + str2.substring(1)
    System.out.println("Array lengths less than 2.");
   }
   
-  
+@ len 2, 1st ele from arr1, last ele from arr2
+- #Arrays.toString(arrName); //to print array in [,,] format
+int[] array_new = {array1[0], array2[2]}
+
+@ rotate in left direction
+- [20,30,40] -> [30,40,20]
+int[] newArr = {oriArr[1], oriArr[2], oriArr[0]};
+
+@ larger val between first & last
+- set max = first; then compare if last>first, max = last
+- mid val = arr[arr.length/2]
+int max_val = array_nums[0];
+	if(array_nums[2] >= max_val)
+		max_val = array_nums[2];
+
+@ multiply corresponding elements of 2 arrays of int
+			for (int i = 0; i < left_array.length; i++) {
+				int num1 = left_array[i];
+				int num2 = right_array[i];
+				result += Integer.toString(num1 * num2) + " "; 
+			}
+
+@ contains 10 next to 10 or 20 next to 20, but not both
+for(int i = 0; i < nums.length - 1; i++) {
+        if(nums[i] == 10 && nums[i+1] == 10)
+            found1010 = true;
+                        
+        if(nums[i] == 20 && nums[i+1] == 20)
+            found2020 = true;
+ }
+ System.out.printf( String.valueOf(found1010 != found2020));	
+
+@ rearrange odd b4 even
+while(i < array_nums.length && array_nums[i] % 2 == 0)		//If is even
+        i++;							//move to next
+              
+    for(int j = i + 1; j < array_nums.length; j++) {		//for the element need
+        if(array_nums[j] % 2 != 0) {
+            int temp = array_nums[i];
+            array_nums[i] = array_nums[j];
+            array_nums[j] = temp;
+            i++;
+        }
+    }           
+
+@ array size n with 0 to n-1 string values
+String[] arr_string = new String[n];
+	
+    for(int i = 0; i < n; i++)
+        arr_string[i] = String.valueOf(i); 
+
+@ check have x, then y later
+ for(int i = 0; i < array_nums.length; i++) {
+        if(array_nums[i] == x)
+            testd = true;
+                    
+        if(testd && array_nums[i] == y)
+		{
+         System.out.printf( String.valueOf(true));	
+         result = 1		 ;
+		}
+    }
+
+@ check contains a specified num next to each other or same specified num separated by one ele
+for(int i = 0; i < array_nums.length - 1; i++) {
+        if(array_nums[i] == x && array_nums[i+1] == x)
+            {
+         System.out.printf( String.valueOf(true));	
+         result = 1 ;
+		}
+                  
+        if(i <= array_nums.length - 3 && array_nums[i] == x && array_nums[i+2] == x)
+           {
+         System.out.printf( String.valueOf(true));	
+         result = 1 ;
+		}
+    } //result = 0 print false
+    
+@ check 20 appears 3 time, no 20's next to each other
+if(array_nums.length >= 1 && array_nums[0] == 20)		//if appear at first index, count+1
+        count++;
+
+    for(int i = 1; i < array_nums.length; i++) {		//for loop start at index 1
+        if(array_nums[i - 1] == 20 && array_nums[i] == 20)	//if this and next before is 20, then false
+		{
+         System.out.printf( String.valueOf(false));	
+         result = 1;						//skip the if loop for count = 3
+		}                   
+        if(array_nums[i] == 20)					//if this is 20, but next before not 20, then count+1
+            count++;
+    }
+    if (result==0)						//only after check no 20 next to 20
+ 	  {
+     	 System.out.printf( String.valueOf(count == 3));	         
+	  }	
+	  System.out.printf("\n");	
+    }
+
+*@ check a specified num appears in every pair of adjacent element
+boolean result = true;
+for(int i = 0; i < array_nums.length - 1; i++) {
+   if(array_nums[i] != x && array_nums[i + 1] != x) //#If this not x, and next not x
+   {
+         result = false;
+   }
+}
+
+@ count no. of corresponding element of 2 arr differ <=1
+for(int i = 0; i < array_nums1.length; i++) {			
+        if(Math.abs(array_nums1[i] - array_nums2[i]) <= 1 && array_nums1[i] != array_nums2[i])	//differ<=1 and not same
+            ctr++;
+    }
+
+@ to print BOOLEAN value: System.out.printf(String.valueOf(booleanCompare));
+
+@ check contains either 10 or 30
+for(int i = 0; i < array_nums.length; i++)
+     {
+      	if(array_nums[i] == 10 || array_nums[i] == 30)
+		{	
+  		
+		   result =0;
+		}
+      }
+	 if (result==1)
+ 	   System.out.printf( String.valueOf(false));	         
+     else
+	   System.out.printf(String.valueOf(true));
+  }
+
+@ newArr have ele after last 10 in oriArr
+int l = array_nums.length - 1;
+int[] new_array;
+while(array_nums[l] != 10)				//check from behind, where 10 exist is last index
+	l--;
+new_array = new int[array_nums.length - 1 - l];	
+for(int i = l + 1; i < array_nums.length; i++)		//start copy  after the lastindex
+	new_array[i - l - 1] = array_nums[i];		// i - l - 1 = 0
+
+@ newArr have ele before last 10 in oriArr //change all arr.length-1 to 0
+int l = 0;
+	int[] new_array;
+	while(array_nums[l] != 10)
+	  l++;
+	new_array = new int[l];
+	for(int i = 0; i < l; i++)
+		new_array[i] = array_nums[i];
+
+@ check a grp of num at start & end of arr same
+for(int l = 2; l > 0; l--)
+	{
+		if(array_nums[0] != array_nums[array_nums.length-1])
+			result = 1;					//1 false; 0 true
+		else
+		{
+			start++;
+			end++;
+		}
+	}
+
+
 <Calculation>
 @ hexagonArea
 - Math.tan; Math.PI
@@ -248,6 +440,9 @@ convert lat1, lon1, lat2, lon2 to radians
 earthRadius = 6371.01; //km
 // d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
 earthRadius * Math.acos(Math.sin(lat1)*Math.sin(lat2) + Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon1 - lon2)) //d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
+
+@ 
+- repeat process until n = 1: while(n != 1)
 
 
 
@@ -385,7 +580,7 @@ hex_num = Integer.toHexString(decnum);
 
 
 
-
+<System>
 @ Check JAVA installed
 -# System.getProperty("");
     System.out.println("\nJava Version: "+System.getProperty("java.version"));
@@ -395,6 +590,19 @@ hex_num = Integer.toHexString(decnum);
     System.out.println("Java Vendor URL: "+System.getProperty("java.vendor.url"));
     System.out.println("Java Class Path: "+System.getProperty("java.class.path")+"\n");
 
+@ 
+get current system environment: System.out.println(System.getenv());
+get current system properties: System.out.println(System.getProperties());
+
+@ check whether a security manager has already been established for the current application or not
+System.out.println(System.getSecurityManager());
+
+@ get value of (specified) environment variable PATH, TEMP, USERNAME
+System.out.println(System.getenv("PATH"));
+System.out.println(System.getenv("TEMP"));
+System.out.println(System.getenv("USERNAME"));
+
+<>
 @ fileSize
 - # new File(fileName).length() //in bytes
 - byte(1), kilobyte (1000), megabytes (1,000,000), gigabyte (1,000,000,000), terabyte (1,000,000,000,000)
@@ -408,6 +616,12 @@ SimpleDateFormat cdt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
 		cdt.setCalendar(Calendar.getInstance(TimeZone.getTimeZone("GMT")));
 		
 		System.out.println("\nNow: "+cdt.format(System.currentTimeMillis()));
+
+@ Measure how long some code takes to execute in nanoseconds
+long startTime = System.nanoTime(); 
+/*Block of code of program*/
+long estimatedTime = System.nanoTime() - startTime;
+
 
 @ Input & Display Password
 -# cons.readPassword("");

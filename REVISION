@@ -198,13 +198,40 @@ str.substring(0, str.length()/2)
 str1.substring(1) + str2.substring(1)
 
 @ take first 3 char, if str length < 3 use # substitute
-	if(len >= 3)
-		System.out.println( str1.substring(0, 3));
-	else if(len == 1)
-		System.out.println( (str1.charAt(0)+"##"));
-	else
-		System.out.println("###");
+	String str1 = "rr";
+        int len = str1.length();
+        if(len >= 3)
+            System.out.println( str1.substring(0, 3));
+        else if(len == 1)
+            System.out.println( (str1.charAt(0)+"##"));
+        else if(len == 2)
+            System.out.println( (str1 +"#"));
+        else
+            System.out.println("###");
 		
+@ take first char str1 & last char str2, if str len 0 use #
+	String result = "";
+	result += (str1.length() >= 1) ? str1.charAt(0) : '#';
+	result += (str.length() >= 1) ? str2.charAt(str2.length()-1) : '#';
+	
+<Array>
+@ Test x appears either first or last ele
+(num_array[0] == 10 || num_array[num_array.length-1] == 10)
+
+@ Test first & last ele same; Length>=2
+(num_array.length >= 2 && num_array[0] ==  num_array[num_array.length-1])
+
+@ Test first & last arr1 same arr2
+ if(num_array1.length>=2 && num_array2.length>=2)
+  {
+	  System.out.println(num_array1[0] == num_array2[0] || num_array1[num_array1.length-1] == num_array2[num_array2.length-1]);
+  }
+  else
+  {
+   System.out.println("Array lengths less than 2.");
+  }
+  
+  
 <Calculation>
 @ hexagonArea
 - Math.tan; Math.PI

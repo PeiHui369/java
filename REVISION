@@ -1,3 +1,5 @@
+
+
 @Swapping 2 vars
 temp = a;
 a = b;
@@ -17,6 +19,49 @@ for (int i = letters.length - 1; i >= 0; i--) {}	//print from last ele to first 
 @ count Letters, Spaces, Numbers, other Char
 char[] ch = str.toCharArray();
 Character.isLetter(ch[i]); //Repeat for .isDigit(), .isSpaceChar(); other Char use else{}
+			
+@ check even or odd
+- even: n%2 == 0
+- odd: n%2 != 0
+
+@ divisible by i
+n%i == 0
+
+@ convert STRING to INT
+Integer.parseInt(str)
+
+@convert seconds to hour,minute&seconds
+- SS : sec%60
+- MM : sec%60/60
+- HH : sec/60/60
+	int S = seconds % 60;
+        int H = seconds / 60;
+        int M = H % 60;
+        H = H / 60;
+
+<3 int>
+@ sum of 2 int equal to 3rd
+((p + q) == r || (q + r) == p || (r + p) == q)
+
+@ 2nd > 1st; 3rd > 2nd; abc true, 2nd nonid >1st
+if(abc)
+	return (r > q);
+return (q > p && r > q);
+
+@ >=2 have same rightmost digit (all int +)
+(p % 10 == q % 10) || (p % 10 == r % 10) || (q % 10 == r % 10)
+
+
+
+<PRINTF>
+%d : int
+%n : (platform indipendent) special code (placeholder) for new-line symbol (that might be \r\n or \n) in formatted string and \n is an actual symbol.
+\n : new line
+\t : 4 spaces
+
+<System.out.format>
+%tc: (dateTimeFormat) weekday month DD HH:MM:SS PDT year //%Tc: weekday & month in upper case
+
 
 
 <Characters>
@@ -202,6 +247,20 @@ hex_num = Integer.toHexString(decnum);
     System.out.println("Java Vendor: "+System.getProperty("java.vendor"));
     System.out.println("Java Vendor URL: "+System.getProperty("java.vendor.url"));
     System.out.println("Java Class Path: "+System.getProperty("java.class.path")+"\n");
+
+@ fileSize
+- # new File(fileName).length() //in bytes
+- byte(1), kilobyte (1000), megabytes (1,000,000), gigabyte (1,000,000,000), terabyte (1,000,000,000,000)
+new File("abc.txt").length() + " bytes"
+
+@ display system time
+System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
+
+@ display current date time
+SimpleDateFormat cdt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+		cdt.setCalendar(Calendar.getInstance(TimeZone.getTimeZone("GMT")));
+		
+		System.out.println("\nNow: "+cdt.format(System.currentTimeMillis()));
 
 @ Input & Display Password
 -# cons.readPassword("");

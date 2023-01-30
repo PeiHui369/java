@@ -39,6 +39,16 @@ Integer.parseInt(str)
         int M = H % 60;
         H = H / 60;
 
+@ factors
+	int ctr = 0;
+        for(int i=1; i<=(int)Math.sqrt(num); i++) {
+            if(num%i==0 && i*i!=num) {
+                ctr+=2;
+            } else if (i*i==num) {
+                ctr++;
+            }
+        }
+
 <3 int>
 @ sum of 2 int equal to 3rd
 ((p + q) == r || (q + r) == p || (r + p) == q)
@@ -51,7 +61,14 @@ return (q > p && r > q);
 @ >=2 have same rightmost digit (all int +)
 (p % 10 == q % 10) || (p % 10 == r % 10) || (q % 10 == r % 10)
 
-
+@ no. of integers within range x to y, divisible by z
+for(int i = x; i<=y; i++){
+            if(i%p==0){count++;}
+        }
+OR
+if (x%p == 0)
+	return( y/p - x/p + 1);
+return(y/p - x/p);
 
 <PRINTF>
 %d : int
@@ -61,8 +78,6 @@ return (q > p && r > q);
 
 <System.out.format>
 %tc: (dateTimeFormat) weekday month DD HH:MM:SS PDT year //%Tc: weekday & month in upper case
-
-
 
 <Characters>
 @ unique 3-digit numbers
@@ -84,7 +99,16 @@ for (String str : Charset.availableCharsets().keySet()) {
 @ ASCII value of char
 int chr = 'Z'; //print chr
 
-
+<String>
+@ Capitalize first letter
+Scanner in = new Scanner(System.in);		//f
+String line = in.nextLine();
+String upper_case_line = ""; 
+Scanner lineScan = new Scanner(line); 
+while(lineScan.hasNext()) {
+             String word = lineScan.next(); 
+             upper_case_line += Character.toUpperCase(word.charAt(0)) + word.substring(1) + " "; 
+         }
 
 
 <Calculation>
@@ -103,6 +127,8 @@ convert lat1, lon1, lat2, lon2 to radians
 earthRadius = 6371.01; //km
 // d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
 earthRadius * Math.acos(Math.sin(lat1)*Math.sin(lat2) + Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon1 - lon2)) //d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
+
+
 
 <Number System>
 @ convert DEC to BI

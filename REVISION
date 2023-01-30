@@ -3,6 +3,62 @@ temp = a;
 a = b;
 b = temp; 
 
+@sumDigits
+int sum = 0;
+while (n != 0) {
+            sum += n % 10;
+            n /= 10;
+        }
+
+@ reverseString
+char[] letters = str.toCharArray();
+for (int i = letters.length - 1; i >= 0; i--) {}	//print from last ele to first ele
+
+@ count Letters, Spaces, Numbers, other Char
+char[] ch = str.toCharArray();
+Character.isLetter(ch[i]); //Repeat for .isDigit(), .isSpaceChar(); other Char use else{}
+
+
+<Characters>
+@ unique 3-digit numbers
+- for(x=1; x<=4; x++); if(x!=y!=z); increase amount, print x y z
+for(int i = 1; i <= 4; i++){
+			for(int j = 1; j <= 4; j++){
+				for(int k = 1; k <= 4; k++){
+					if(k != i && k != j && i != j){
+						amount++;
+						System.out.println(i + "" + j + "" + k);
+						}}}}
+
+@ list available character sets in charset objects
+-#Charset.availableCharsets().keySet()	//Take this as array
+for (String str : Charset.availableCharsets().keySet()) {
+      System.out.println(str);
+    }
+    
+@ ASCII value of char
+int chr = 'Z'; //print chr
+
+
+
+
+<Calculation>
+@ hexagonArea
+- Math.tan; Math.PI
+//Area of a hexagon = (6 * s^2)/(4*tan(π/6))
+(6*(s*s))/(4*Math.tan(Math.PI/6)
+
+@ polygonArea
+//Area of a polygon = (n*s^2)/(4*tan(π/n))
+(ns * (side * side)) / (4.0 * Math.tan((Math.PI / ns))
+
+@ Distance between 2 points on earth surface
+- Math.toRadians
+convert lat1, lon1, lat2, lon2 to radians
+earthRadius = 6371.01; //km
+// d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
+earthRadius * Math.acos(Math.sin(lat1)*Math.sin(lat2) + Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon1 - lon2)) //d = radius * arccos(sin(x1) * sin(x2) + cos(x1) * cos(x2) * cos(y1 - y2))
+
 <Number System>
 @ convert DEC to BI
 - %2 store in arr, divide 2, loop till = 0, print arr from last ele to first ele
@@ -138,6 +194,32 @@ hex_num = Integer.toHexString(decnum);
 
 
 
+@ Check JAVA installed
+-# System.getProperty("");
+    System.out.println("\nJava Version: "+System.getProperty("java.version"));
+    System.out.println("Java Runtime Version: "+System.getProperty("java.runtime.version"));
+    System.out.println("Java Home: "+System.getProperty("java.home"));
+    System.out.println("Java Vendor: "+System.getProperty("java.vendor"));
+    System.out.println("Java Vendor URL: "+System.getProperty("java.vendor.url"));
+    System.out.println("Java Class Path: "+System.getProperty("java.class.path")+"\n");
+
+@ Input & Display Password
+-# cons.readPassword("");
+		Console cons;											//create object
+		if ((cons = System.console()) != null) {							//not empty
+			char[] pass_ward = null;								//create array to store
+			try {
+				pass_ward = cons.readPassword("Input your Password:");				//Read: cons.readPassword("");
+				System.out.println("Your password was: " + new String(pass_ward));		//Print: new String(charArr)
+			} finally {
+				if (pass_ward != null) {							//if charArr not empty
+					java.util.Arrays.fill(pass_ward, ' ');					//fill entire pass_ward array with ' ' according to the size set in try{}
+				}
+			}
+		} else {
+			throw new RuntimeException("Can't get password...No console");
+		}
+	}
 
 
 

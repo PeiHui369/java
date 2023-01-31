@@ -183,7 +183,31 @@ while (n != 0)
 			ctr += n / 5;
 			n /= 5;
 		}
-	
+
+@ Find distinct ways climb to the top (n steps to reach to the top) of stairs (either climb 1 or 2 steps)	[?QTA 134]
+-e.g.: n = 5 a) 1+1+1+1+1 = 5 b) 1+1+1+2 = 5 c) 1+2+2 = 5 d) 2+2+1 = 5 e) 2+1+1+1 = 5 f) 2+1+2 = 5 g) 1+2+1+1 = 5 h) 1+1+2+1 = 5
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-134.php
+
+class Solution {
+    public static int climbStairs(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        int[] s_case = new int[n + 1];
+        s_case[0] = 1;
+        s_case[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            s_case[i] = s_case[i - 1] + s_case[i - 2];
+        }      
+        return s_case[n];
+    }
+    /* Driver program to test above functions */
+    public static void main(String[] args) {
+		int steps = 5;		                        
+		System.out.println("Distinct ways can you climb to the top: "+climbStairs(steps));
+	}	
+}
+
 
 <3 or n int>
 @ sum of 2 int equal to 3rd
@@ -683,6 +707,58 @@ public static int searchInsert(int[] nums1, int target) {
         return index;
         }
 
+@ Median of sorted array
+ public static int getMedian(int[] array) {
+        if(array.length % 2 == 0) {
+            int mid = array.length / 2;
+            return (array[mid] + array[mid - 1]) / 2;
+        }
+        return array[array.length / 2];
+    }
+
+@ Find a num appears only ONCE, all numbers occur twice
+public static int getSingleNumber(int[] nums) {
+       if(nums == null || nums.length == 0) {
+         return -1;
+        }
+        int result = 0;
+        for (int i = 0; i < nums.length; i++) {
+            result ^= nums[i];				//# ^=
+        }
+        return result;
+    }
+}
+
+@ Find new length of a sorted array where each element appear only once (remove duplicates)
+static  int removeDuplicates(int[] nums) {
+        if (nums == null) {
+            return 0;
+        }
+        if (nums.length <= 1) {
+            return nums.length;
+        }
+        int current_pos = 0;						//prev
+        int moving_pos;							//this
+        for (moving_pos = 1; moving_pos < nums.length; moving_pos++) {
+            if (nums[current_pos] != nums[moving_pos]) {		//if prev != this 
+                nums[current_pos + 1] = nums[moving_pos];		//this element stays at this index 
+                current_pos++;						//if prev = this, will skip to next, and the next nonduplicate will take this index	
+            }
+        }
+        return current_pos + 1;
+    }
+
+@  find new length of sorted array (duplicate ele appeared at most twice)
+int index = 1;					//index 1
+for (int i = 2; i < nums.length; i++) {		//start 2
+       if (nums[i] != nums[index] || (nums[i] == nums[index] && nums[i] != nums[index - 1])) { //#if 2 != 1 || 2!=1 && 2!=0
+           index++;
+           nums[index] = nums[i];
+     }
+ }
+        return index + 1;
+
+
 <Matrix>
 ***@ Searches a value in m x n matrix
 	/* Create a matrix: 
@@ -728,6 +804,39 @@ public static int searchInsert(int[] nums1, int target) {
         }
         return false;
     }
+
+@ Find a path from top left to bottom right (minimizes sum of all numbers along its path) [?QTA 133]
+- move either down or right at any point in time
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-133.php
+
+public static int minPathSum(int[][] grid) {
+	//Exception
+        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
+            return 0;
+        }
+	
+	//Create newArr follow oriArr size
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] temp = new int[m][n];
+
+	//?
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+	    	   
+                   if (i == 0 && j == 0) {
+                    temp[i][j] = grid[i][j];
+                    continue;
+                } 
+                // Compute temp
+                int from_up = i == 0 ? Integer.MAX_VALUE : temp[i - 1][j];
+                int from_left = j == 0 ? Integer.MAX_VALUE : temp[i][j - 1];
+                temp[i][j] = Math.min(from_up, from_left) + grid[i][j];               
+            }
+        }
+       return temp[m - 1][n - 1];
+    }
+
 
 <Calculation>
 @ hexagonArea
@@ -946,8 +1055,7 @@ long estimatedTime = System.nanoTime() - startTime;
 		}
 	}
 
-<Linked List>
-[121] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-121.php
+
 
 <ArrayList>
 @ Create ArrayList
@@ -967,3 +1075,14 @@ public static int min_SubArray(ArrayList<Integer> nums) {
         }
         return min;								
  }
+
+
+>>HOTS<<
+<Linked List>
+[121] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-121.php
+
+<Binary Tree>
+[125] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-125.php
+[126] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-126.php
+[127] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-127.php
+[130] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-130.php

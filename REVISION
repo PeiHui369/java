@@ -208,6 +208,16 @@ class Solution {
 	}	
 }
 
+@ find no. of bits required to flip to convert 2 given integers
+- e.g. 27(11011) 23(10111) 2bits
+
+public static int bitSwapRequired(int x, int y) {
+        int ctr = 0;
+        for (int z = x ^ y; z != 0; z = z >>> 1) {
+            ctr += z & 1;
+        }
+        return ctr;
+    }
 
 <3 or n int>
 @ sum of 2 int equal to 3rd
@@ -425,7 +435,73 @@ public static int strStr(String source, String target) {
         return -1;
     }
 
+@ anagram: abc = cba
+public static boolean anagram_test(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            return false;
+        } else if (str1.length() != str2.length()) {
+            return false;
+        } else if (str1.length() == 0 && str2.length() == 0) {
+            return false;}
+        else{
+            int index = str2.length() - 1;
+            for (int i = 0; i < str1.length(); i++) {
+                if (str1.charAt(i) != str2.charAt(index)) {
+                    return false;
+                }
+                index--;
+            }
+        }
+        return true;
+    }
+OR
+public static boolean anagram_test(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            return false;
+        } else if (str1.length() != str2.length()) {
+            return false;
+        } else if (str1.length() == 0 && str2.length() == 0) {
+            return true;
+        }
+        int[] count = new int[256];
+        for (int i = 0; i < str1.length(); i++) {
+            count[str1.charAt(i)]++;
+            count[str2.charAt(i)]--;
+        }
+        for (int num : count) {
+            if (num != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 
+@ Find index of first unique character in string	//[?QTA 148]
+public static int first_Uniq_Char(String s) {
+         int[] freq = new int[256];
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (freq[s.charAt(i) - 'a'] == 1) return i;
+        }
+        return -1;
+	}
+
+@ Check if this string is permutation of another string		//[?QTA 149]
+ public static boolean stringPermutation(String str1, String str2) {
+        int[] arr = new int[500];
+        for (int i = 0; i < str1.length(); i++) {
+            arr[(int) str1.charAt(i)] += 1;
+        }
+        for (int i = 0; i < str2.length(); i++) {
+            arr[(int) str2.charAt(i)] -= 1;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) return false;
+        }
+        return true;
+    }
 
 <Array>
 @ Test x appears either first or last ele
@@ -758,7 +834,55 @@ for (int i = 2; i < nums.length; i++) {		//start 2
  }
         return index + 1;
 
+@ check if a string has all unique(non-duplicate) characters
+public static boolean is_Unique_str(String str) {
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        for (int i = 0; i < chars.length-1; i++) {
+            if (chars[i] == chars[i+1]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
+@
+public static boolean anagram_test(String str1, String str2) {
+        if (str1 == null || str2 == null) {
+            return false;
+        } else if (str1.length() != str2.length()) {
+            return false;
+        } else if (str1.length() == 0 && str2.length() == 0) {
+            return false;}
+        else{
+            int index = str2.length() - 1;
+            for (int i = 0; i < str1.length(); i++) {
+                if (str1.charAt(i) != str2.charAt(index)) {
+                    return false;
+                }
+                index--;
+            }
+        }
+        return true;
+    }
+  
+@ Remove all occurances of a specified value, Return new length
+public static int removeElement(int[] nums, int elem) {
+      int length = nums.length; 
+      if(length==0) return 0; 
+      int i=0; 
+      for(int j=0; j<length; j++)
+      {
+        if(nums[j]!=elem)
+        {
+          nums[i]=nums[j];
+          i++; 
+        }
+      }
+      if(i<length) nums[i]='\0';
+      return i; 
+    }
+    
 <Matrix>
 ***@ Searches a value in m x n matrix
 	/* Create a matrix: 
@@ -811,7 +935,7 @@ https://www.w3resource.com/java-exercises/basic/java-basic-exercise-133.php
 
 public static int minPathSum(int[][] grid) {
 	//Exception
-        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) {
+        if (grid == null || grid.length == 0 || grid[0] == null || grid[0].length == 0) { 
             return 0;
         }
 	
@@ -836,6 +960,82 @@ public static int minPathSum(int[][] grid) {
         }
        return temp[m - 1][n - 1];
     }
+
+@ find Possible Unique Paths from top-left corner to bottom-right corner of a given grid (m x n) //[?QTA 136]
+- Move either down or right at any point in time
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-136.php
+
+public class Solution {
+    /**
+     * @param n, m: positive integer (1 <= n ,m <= 100)
+     * @return an integer
+     */
+    public static int unique_Paths(int m, int n) {
+        if (m <= 0 || n <= 0) {
+            return 0;
+        }
+        int[][] grid = new int[m][n];
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                grid[i][j] = get_Paths(grid, i, j);
+            }
+        }
+        return grid[0][0];
+    }
+    
+    private static int get_Paths(int[][] grid, int i, int j) {
+        if (i >= grid.length - 1 || j >= grid[0].length - 1) {
+            return 1;
+        }
+        return grid[i][j + 1] + grid[i + 1][j];
+    }
+    
+  public static void main(String[] args) {
+		int m = 3;
+		int n = 2;
+		System.out.println("Unique paths from top-left corner to bottom-right corner of the said grid: "+unique_Paths(m, n));
+	}		
+} 
+
+@ Find possible unique paths considering some obstacles, from top-left corner to bottom-right corner of a specified grid (m x n) //[?QTA 137]
+You can move either down or right at any point in time and an obstacle and empty space is marked as 1 and 0 respectively in the grid. Sample grid:
+int[][] obstacle_Grid ={
+{0, 0, 0},
+{0, 1, 0},
+{0, 0, 0},
+};
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-137.php
+
+public class Solution {
+    public static int uniquePaths_With_obstacle_Grid(int[][] obstacle_Grid) {
+		int m = obstacle_Grid.length;
+		if (m <= 0) {
+			return 0;
+		}
+		int n = obstacle_Grid[0].length;
+		if (n <= 0) {
+			return 0;
+		}
+		int[][] dp = new int[m + 1][n + 1];
+		dp[m][n - 1] = 1;
+		for (int i = m - 1; i >= 0; --i) {
+			for (int j = n - 1; j >= 0; --j) {
+				dp[i][j] = (obstacle_Grid[i][j] == 0) ? dp[i + 1][j] + dp[i][j + 1] : 0;
+			}
+		}
+		return dp[0][0];
+	}
+    
+  public static void main(String[] args) {
+		int[][] obstacle_Grid ={
+                              {0, 0, 0}, 
+                              {0, 1, 0}, 
+                              {0, 0, 0}, 
+                              };
+		System.out.println("Unique paths from top-left corner to bottom-right corner of the said grid (considering some obstacles): "+uniquePaths_With_obstacle_Grid(obstacle_Grid));
+	}		
+}
+
 
 
 <Calculation>
@@ -1076,13 +1276,161 @@ public static int min_SubArray(ArrayList<Integer> nums) {
         return min;								
  }
 
+@ Return array of longest word
+ArrayList<String> aL = new ArrayList<String>();
+int longest_length = 0;
+for(String str: arr){
+	int length = str.length();
+	if(length > longest_length){
+		longest_length = length;
+		aL.clear();
+	}
+	if(length == longest_length){
+		aL.add(str);
+	}
+}
+
+@ merge all overlapping intervals from a given a collection of intervals
+#// Source: https://bit.ly/2PjMfds
+import java.util.*;
+
+public class Solution
+{   
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        ArrayList<Interval> x = new ArrayList<>();
+
+        x.add(new Interval(1, 3));
+        x.add(new Interval(2, 6));
+        x.add(new Interval(8, 10));
+        x.add(new Interval(15, 18));
+        x.add(new Interval(17, 20));
+
+        x = merge(x);
+
+        for(Interval i : x)
+        {
+            System.out.println(i.getStart() + " " + i.getEnd());
+        }
+    }
+
+    public static ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+
+        if(intervals.size() == 0 || intervals.size() == 1)
+            return intervals;
+
+        Collections.sort(intervals, new IntervalComparator());
+
+        Interval first = intervals.get(0);
+        int start = first.getStart();
+        int end = first.getEnd();
+
+        ArrayList<Interval> result = new ArrayList<Interval>();
+
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval current = intervals.get(i);
+            if (current.getStart() <= end) {
+                end = Math.max(current.getEnd(), end);
+            } else {
+                result.add(new Interval(start, end));
+                start = current.getStart();
+                end = current.getEnd();
+            }
+        }
+
+        result.add(new Interval(start, end));
+        return result;
+    }
+}
+
+class Interval 
+{
+    private int start;
+    private int end;
+
+    Interval() {
+        start = 0;
+        end = 0;
+    }
+
+    Interval(int s, int e) 
+    {
+        start = s;
+        end = e;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+}
+
+class IntervalComparator implements Comparator<Interval>
+{
+    public int compare(Interval i1, Interval i2)
+    {
+        return i1.getStart() - i2.getStart();
+    }
+}
+
 
 >>HOTS<<
 <Linked List>
 [121] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-121.php
+[135] Remove duplicates https://www.w3resource.com/java-exercises/basic/java-basic-exercise-135.php
 
 <Binary Tree>
 [125] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-125.php
 [126] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-126.php
 [127] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-127.php
 [130] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-130.php
+[150] Test is a subtree of another https://www.w3resource.com/java-exercises/basic/java-basic-exercise-150.php
+
+<Binary Search Tree>
+@ Convert sorted array to binary search tree. Maintain minimal height of the tree.
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-146.php
+
+<List> & <Map>
+
+@ get index of firstNum & lastNum of subarray where sumOfNums = 0
+1 2 3 -6 5 4 >> {1,2,3,-6} sum = 0
+import java.util.*;
+public class Solution {
+    public static List<Integer> subarraySum(int[] nums) {
+        List<Integer> temp = new ArrayList<>();
+        if (nums == null || nums.length == 0) {
+            return temp;
+        }
+        int pre_Sum = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(pre_Sum, -1);
+        for (int i = 0; i < nums.length; i++) {
+            pre_Sum += nums[i];
+            if (map.containsKey(pre_Sum)) {
+                temp.add(map.get(pre_Sum) + 1);
+                temp.add(i);
+                return temp;
+            }
+            map.put(pre_Sum, i);
+        }
+        return temp;
+    }
+    
+public static void main(String[] args) {
+		int [] nums = {1, 2, 3, -6, 5, 4};
+		System.out.println("Original Array : "+Arrays.toString(nums));
+		System.out.println("Index of the subarray of the said array where the sum of numbers is zero: "+subarraySum(nums));
+	}		
+}
+
+<List, listNode>
+[143] Merge 2 given sorted lists https://www.w3resource.com/java-exercises/basic/java-basic-exercise-143.php
+[145] Remove nth element from end https://www.w3resource.com/java-exercises/basic/java-basic-exercise-145.php
+
+
+
+
+

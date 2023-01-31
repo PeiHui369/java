@@ -140,7 +140,59 @@ while (ctr < 100) {
                     ctr++; 	
 		}
 		
+*@ add all digits until result single
+-%9 get single digit
+if (n>0)
+		{
+           System.out.print("The single digit number is: "+(n == 0 ? 0 : (n % 9 == 0 ? 9 : n % 9)));
+		}
 
+@ check power of 4
+- (n<1) : false
+- (n&(n-1)!=0): false
+- ((n & 0x55555555)!=0) : true
+
+//If the number is 0 then clearly it is not power of 4.
+        if (n < 1) {
+            System.out.print(Boolean.toString(false));
+            test = 1;
+        }
+
+        //If a number is power of 4 then it certainly is power of 2.
+        //(n & (n-1)) == 0 only checks if n is a power of 2 or 0
+        if ((n & (n - 1)) != 0) {                           //if(not power of 2)->false
+            System.out.print(Boolean.toString(false));
+            test = 1;
+        }
+        if (test==0)
+        {
+            //This statement checks if the bit is set at bit position 0,2,4,6,8 etc.Because then only it is a power of 4.
+            System.out.print(Boolean.toString((n & 0x55555555) != 0));
+OR
+ static void power_of_four(int N) {
+        float x = (float) (Math.log(N) / Math.log(4));    // Logb(N) = Log10(N)/log10(b).
+        int y = (int) (Math.log(N) / Math.log(4));
+        if ((N != 0) && (x ==y)){
+            System.out.println("true");
+        }else{
+            System.out.println("false");        }
+    }
+
+<SHAPE>
+*@ Form a staircase shape of n coins where every k-th row must have exactly k coins
+/* e.g.
+n = 3
+$
+$ $
+output: 2 (2 rows)
+n = 5
+$
+$ $
+$ $
+output: 2 (2 rows as 3rd row incomplete)
+*/
+if (n>0){
+    System.out.println("Number of rows: "+((int)((Math.sqrt(8 * (long)n + 1) - 1) / 2)));	}       
 
 <PRINTF>
 %d : int
@@ -422,6 +474,24 @@ for(int l = 2; l > 0; l--)
 			end++;
 		}
 	}
+
+@ left shifted [11,14,13,10] -> [14,13,10,11]
+if(array_nums.length >1)
+    {          
+    int first = array_nums[0];				//Store ori first value
+              
+    for(int i = 1; i < array_nums.length; i++)
+        array_nums[i - 1] = array_nums[i];		//move all the value 1 index forward
+                        
+    array_nums[array_nums.length - 1] = first;		//new last index is ori first value
+
+@ check contains 3 increasing num 
+- adjacent next = this + 1
+for(int i = 0; i <= array_nums.length - 3; i++) {
+        if(array_nums[i] + 1 == array_nums[i+1] && array_nums[i+1] + 1 == array_nums[i+2]) //#
+            result =0;	//true
+    }
+
 
 
 <Calculation>

@@ -12,6 +12,13 @@ while (n != 0) {
             n /= 10;
         }
 
+@ divide using subtraction operator
+int count = 0;
+        while (dividend > divider){
+            dividend-=divider;
+            count++;
+        }
+
 @ reverseString
 char[] letters = str.toCharArray();
 for (int i = letters.length - 1; i >= 0; i--) {}	//print from last ele to first ele
@@ -219,6 +226,9 @@ public static int bitSwapRequired(int x, int y) {
         return ctr;
     }
 
+@ 4 nums equality
+if (num1 == num2 && num2 == num3 && num3 == num4) 
+
 <3 or n int>
 @ sum of 2 int equal to 3rd
 ((p + q) == r || (q + r) == p || (r + p) == q)
@@ -286,7 +296,31 @@ while (ctr < 100) {
                     ctr++; 	
 		}
 		
-
+@ Prove Euclid's algorithm computes greatest common divisor (GCD)
+		public static int euclid(int x, int y) {
+		if (x == 0 || y == 0) {
+			return 1;
+		}
+		if (x < y) {
+			int t = x;
+			x = y;
+			y = t;
+		}
+		if (x % y == 0) {
+			return y;
+		} else {
+			return euclid(y, x % y);
+		}
+	}
+OR
+public static int euclid(int x, int y){
+   while (y != 0){
+       int temp = x;
+       x = y;
+       y = temp % y;
+   }
+   return Math.abs(x);
+   }
 
 <SHAPE>
 *@ Form a staircase shape of n coins where every k-th row must have exactly k coins
@@ -882,7 +916,161 @@ public static int removeElement(int[] nums, int elem) {
       if(i<length) nums[i]='\0';
       return i; 
     }
-    
+ 
+@ Print 2d array 
+true false true		t f t
+false true false -->    f t f
+		int rows_length = array.length;
+		int columns_length = array[0].length;
+		
+		for (int i = 0; i < rows_length; i++) {
+			for (int j = 0; j < columns_length; j++) {
+				
+				if (array[i][j]) {			//get boolean true or false
+					System.out.print(" t ");
+				} else {
+					System.out.print(" f ");
+				}
+				
+			}
+			System.out.println();
+		}	
+
+@ changing rows & columns
+private static void transpose(int[][] twodm) {
+		
+		int[][] newtwodm = new int[twodm[0].length][twodm.length];
+		
+		for (int i = 0; i < twodm.length; i++) {
+			for (int j = 0; j < twodm[0].length; j++) {
+				newtwodm[j][i] = twodm[i][j];
+			}
+		}
+
+@ print 2d array
+private static void print_array(int[][] twodm) {
+		for (int i = 0; i < twodm.length; i++) {
+			for (int j = 0; j < twodm[0].length; j++) {
+				System.out.print(twodm[i][j] + " ");
+			}
+			System.out.println();
+		}
+	
+	}
+
+@ return largest int but not larger than the base-2-logarithm of given int	[?QTA 156]
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-156.php
+int shift_right_count = 0;
+        do {
+            n >>= 1;
+            shift_right_count++;
+        } while (n != 0);
+         shift_right_count--;
+
+@ create 2d array (m x m) A[][], A[i][j] false if i & j are prime [?QTA 158]
+https://www.w3resource.com/java-exercises/basic/java-basic-exercise-158.php
+
+import java.util.Scanner;
+public class Solution {
+	public static int prime_cell(int a, int b) {
+		if (a == 0 || b == 0) {
+			return 1;
+		}
+		if (a < b) {
+			int t = a;
+			a = b;
+			b = t;
+		}
+		if (a % b == 0) 
+		{
+			return b;
+		} 
+		else 
+		{
+			return prime_cell(b, a % b);
+		}
+	}
+
+	public static void main(String[] args) {
+		int n = 3;
+		boolean[][] A = new boolean[n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				A[i][j] = prime_cell(i, j) == 1;
+				System.out.print(A[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+@ find k largest elements in array (array in any order)
+Arrays.sort(arr, Collections.reverseOrder());         
+       for (int i = 0; i < k; i++) 
+          System.out.print(arr[i] + " ");
+      }      
+
+@ find k smallest elements
+Arrays.sort(arr);
+  for (int i = 0; i < k; i++)
+   System.out.print(arr[i] + " ");
+ }
+
+@ find kth smallest & largest element
+//kth smallest
+Arrays.sort(arr);       		
+System.out.print(arr[k-1] + " ");
+//kth largest
+Arrays.sort(arr, Collections.reverseOrder());  		
+System.out.print(arr[k-1] + " ");
+
+@ Find num greater than average of num [easy]
+for(int i = 0; i < nums.length; i++) {      
+      sum = sum + nums[i];
+    }
+      double average = sum / nums.length;
+for(int i = 0; i < nums.length; i++) {
+      if(nums[i] > average) {
+        System.out.println(nums[i]);
+      }
+}
+   
+@ -ve num to left, +ve num to right
+ Arrays.sort(nums);
+--------------------
+import java.util.*;
+public class Solution {
+ public static int[] split_sorting_array(int[] nums) {
+  if (nums == null) {
+   throw new IllegalArgumentException("Null array......!");
+  }
+  boolean flag = true;
+  while (flag) {
+   flag = false;
+   for (int j = 0; j < nums.length - 1; j++) {
+    if (nums[j] > nums[j + 1]) {
+     swap(nums, j, j + 1);
+     flag = true;
+    }
+   }
+  }
+  return nums;
+ }
+ private static void swap(int[] nums, int left, int right) {
+  int temp = nums[right];
+  nums[right] = nums[left];
+  nums[left] = temp;
+ }
+ public static void main(String[] args) {
+  int[] nums = {-2,3,4,-1,-3,1,2,-4,0};
+  System.out.println("\nOriginal array: " + Arrays.toString(nums));
+  int[] result = split_sorting_array(nums);
+  System.out.println("\nResult: " + Arrays.toString(result));
+ }
+}
+
+
+
 <Matrix>
 ***@ Searches a value in m x n matrix
 	/* Create a matrix: 
@@ -1189,8 +1377,17 @@ hex_num = Integer.toHexString(decnum);
 @ convert HEX to OCT
 - convert HEX to DEC, convert DEC to OCT
 
-
-
+@ accept int convert into BI, count no. of bits equal to 0
+- convert int to str, convert str to char arr, check if char=0 ctr+1
+public static int countBitsTozeroBasedOnString(int n) {
+    int ctr = 0;
+    String binaryNumber = Integer.toBinaryString(n);
+	System.out.print("Binary representation of "+n+" is: "+binaryNumber);
+    for (char ch : binaryNumber.toCharArray()) {
+      ctr += ch == '0' ? 1 : 0;
+    }
+    return ctr;
+  }	
 
 
 

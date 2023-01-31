@@ -229,6 +229,27 @@ public static int bitSwapRequired(int x, int y) {
 @ 4 nums equality
 if (num1 == num2 && num2 == num3 && num3 == num4) 
 
+@ multiply without *
+int multiply = 0;
+    for (int i = 0; i<n1; i++){
+        multiply += n2;
+    }
+-------------------------------------
+public static int multiply(int n1, int n2) {
+    int result = 0;
+    boolean negative_num = (n1 < 0 && n2 >= 0) || (n2 < 0 && n1 >= 0);
+    boolean positive_num = !negative_num;
+    n1 = Math.abs(n1);
+    for (int i = 0; i < n1; i++) {
+      if (negative_num && n2 > 0 || positive_num && n2 < 0)
+        result -= n2;
+      else
+        result += n2;
+    }
+
+    return result;
+ }
+
 <3 or n int>
 @ sum of 2 int equal to 3rd
 ((p + q) == r || (q + r) == p || (r + p) == q)
@@ -537,6 +558,39 @@ public static int first_Uniq_Char(String s) {
         return true;
     }
 
+@ transform int to String
+Integer.toString(int)
+[complicated 166] https://www.w3resource.com/java-exercises/basic/java-basic-exercise-166.php
+
+@ reverse content of a string (without reverse words)
+String[] words = str.split("\\s+");                    //# Split sentence into array by " "
+        for (int i = 0; i < words.length; i++) {
+            // You may want to check for a non-word character before blindly
+            // performing a replacement
+            // It may also be necessary to adjust the character class
+            words[i] = words[i].replaceAll("[^\\w]", "");
+        }
+        String[] reversed = new String [words.length];
+        for(int j = 0; j< words.length; j++){
+            reversed[j] = words[words.length-1-j];
+            System.out.print(reversed[j] + " ");
+        }
+------------------------------------------------------------------
+public static String reverse_str_word(String input_sentence) {
+    if (input_sentence == null) {
+      throw new IllegalArgumentException("Input param can't be null.");
+    }
+    StringBuilder stringBuilder = new StringBuilder();
+    String[] words = input_sentence.split(" ");
+    for (int i = words.length - 1; i >= 0; i--) {
+      stringBuilder.append(words[i]);
+      if (i != 0) {
+        stringBuilder.append(" ");
+      }
+    }
+    return stringBuilder.toString();
+  }
+	
 <Array>
 @ Test x appears either first or last ele
 (num_array[0] == 10 || num_array[num_array.length-1] == 10)
@@ -1069,7 +1123,40 @@ public class Solution {
  }
 }
 
+@ move every 0 to right
+int index = 0;
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i] != 0){
+                nums[index] = nums[i];
+                index++;
+            }
+        }
 
+        for(int i = index; i<nums.length; i++){
+            nums[i] = 0;
+        }
+------------------------------------------------
+public static int[] move_zero(int[] nums) {
+     if (nums == null) {
+      throw new IllegalArgumentException("Null array!");
+    }
+    boolean swap = true;
+    while (swap) {
+      swap = false;
+      for (int i = 0; i < nums.length - 1; i++) {
+        if (nums[i] == 0 && nums[i + 1] != 0) {
+          swap(nums, i, i + 1);
+          swap = true;
+        }
+      }
+    }
+	return nums;
+  }
+  private static void swap(int[] nums, int a, int b) {
+    int temp = nums[a];
+    nums[a] = nums[b];
+    nums[b] = temp;
+  }
 
 <Matrix>
 ***@ Searches a value in m x n matrix

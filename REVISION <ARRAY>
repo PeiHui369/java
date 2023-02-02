@@ -100,7 +100,69 @@ public static int array_sort(int[] nums) {
 	  return index;                                 //count til unique ele
     }
 
+@ print all leaders ( An element is leader if it is greater than all the elements to its right side.)
+ for(int i = 0; i < arr.length; i++){
+            boolean big = true;
+            for(int j =i+1; j<arr.length; j++){
+                if(arr[i] <= arr[j]){
+                    big = false;
+                }
+            }
+            if(big) {System.out.println(arr[i]);}
+        }
+OR
+int size = arr.length;
+        for (int i = 0; i < size; i++)
+        {
+            int j;
+            for (j = i + 1; j < size; j++)
+            {
+                if (arr[i] <= arr[j])
+                    break;
+            }
+            if (j == size)
+                System.out.print(arr[i] + " ");
+        }
 
+@ find smallest & 2nd smallest
+first_element = second_element = Integer.MAX_VALUE;
+        for (int i = 0; i < arr_size ; i ++)
+        {
+            /* Update both first and second if current element is smaller than first. */
+            if (arr[i] < first_element)
+            {
+                second_element = first_element;
+                first_element = arr[i];
+            }
+ 
+            /* Update second if arr[i] is between first and second
+               elements.*/
+            else if (arr[i] < second_element && arr[i] != first_element)
+                second_element = arr[i];
+        }
+
+@ to segregate all 0s on left side & all 1s on right side
+int i,  nums_size = nums.length;
+int left = 0, right = nums_size - 1;
+while (left < right) 
+        {
+            /* While  0 at left increment left index  */
+            while (nums[left] == 0 && left < right)
+               left++;
+ 
+            /* While we see 1 at right decrement right index*/
+            while (nums[right] == 1 && left < right)
+                right--;
+ 
+           
+            if (left < right) 
+            {
+                nums[left] = 0;
+                nums[right] = 1;
+                left++;
+                right--;
+            }
+        }
 
 
 <Random>
@@ -166,6 +228,126 @@ Arrays.sort(arr)
 for ( c = 0 ; c < m ; c++ )
          for ( d = 0 ; d < n ; d++ )
              sum[c][d] = array1[c][d] + array2[c][d]; 
+
+@ find sum of 2 elements equal to given int
+for(int i = 0; i<arr.length; i++){
+             for(int j = 0; j<arr.length; j++){
+                 if(arr[i] + arr[j] == target){}}}
+
+@ to find the two elements from a given array of positive and negative numbers such that their sum is closest to zero. 
+     //size<2 : invalid input
+      int size = arr.length;
+      min_l_num = 0;
+      min_r_num = 1;
+      min_sum = arr[0] + arr[1];
+      
+      for(l = 0; l < size - 1; l++)
+      {
+        for(r = l+1; r < size; r++)
+        {
+          sum = arr[l] + arr[r];
+          if(Math.abs(min_sum) > Math.abs(sum))
+          {
+            min_sum = sum;
+            min_l_num = l;
+            min_r_num = r;
+          }
+        }
+      }
+
+@ To find all combination of 4 elements whose sum equal given value
+// Find other three elements after fixing first element
+        for (int i = 0; i < n - 3; i++) 
+        {
+          // Find other two elements after fixing second element
+            for (int j = i + 1; j < n - 2; j++) 
+            {
+           // Find the fourth element after fixing third element    
+              for (int k = j + 1; k < n - 1; k++) 
+                {
+            // find the fourth
+                    for (int l = k + 1; l < n; l++) 
+                    {
+                        if (nums[i] + nums[j] + nums[k] + nums[l] == s) {} }}}}
+
+@ Cyclically rotate a given array clockwise by one
+ static void rotate_array()
+    {
+       int a = arra[arra.length-1], i;
+       for (i = arra.length-1; i > 0; i--)
+          arra[i] = arra[i-1];
+       arra[0] = a;
+    }
+
+<QTA>
+[44] https://www.w3resource.com/java-exercises/array/java-array-exercise-44.php
+@ to count the number of possible triangles from a given unsorted array of positive integers.
+Note: The triangle inequality states that the sum of the lengths of any two sides of a triangle must be greater than or equal to the length of the third side.
+
+import java.util.*;
+import java.lang.*;
+public class Main
+{
+   public static void main (String[] args) 
+    {  
+        int nums[] = {6, 7, 9, 16, 25, 12, 30, 40};
+        int n = nums.length;
+        System.out.println("Original Array : "+Arrays.toString(nums));  
+
+        // Sort the array elements in non-decreasing order
+        Arrays.sort(nums);
+        
+        // Initialize count of triangles
+        int ctr = 0;
+ 
+        for (int i = 0; i < n-2; ++i)
+        {
+          int x = i + 2;
+ 
+          for (int j = i+1; j < n; ++j)
+            {
+               while (x < n && nums[i] + nums[j] > nums[x])
+               ++x;
+                 ctr += x - j - 1;
+            }
+        }
+    System.out.println("Total number of triangles:  " +ctr);
+    }
+}
+
+[47] https://www.w3resource.com/java-exercises/array/java-array-exercise-47.php
+@ to find the rotation count in a given rotated sorted array of integers
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+public class Main
+{
+  static int count_rotations(int arr_int[], int n)
+    {
+       int min_val = arr_int[0], min_index = -1;
+        for (int i = 0; i < n; i++)
+        {
+            if (min_val > arr_int[i])
+            {
+                min_val = arr_int[i];
+                min_index = i;
+            }
+        } 
+        return min_index;
+    }
+    public static void main (String[] args) 
+    {
+          int arr_int[] = {35, 32, 30, 14, 18, 21, 27};
+      // int arr_int[] = {35, 32, 14, 18, 21, 27};
+      // int arr_int[] = {35, 14, 18, 21, 27};
+           int n = arr_int.length;
+            System.out.println(count_rotations(arr_int, n));
+    }
+}
+
+
+
 
 <OutTopic>
 
@@ -282,9 +464,140 @@ while (x < array1.length && y < array2.length && z < array3.length){
         return longest_sequence_len;
     }
     
+<HashMap>
+@to find the sum of the two elements of a given array which is equal to a given integer.
+Sample array: [1,2,4,5,6]
+Target value: 6.
+
+import java.util.*;
+public class Exercise35
+{
+        public static ArrayList<Integer> two_sum_array_target(final List<Integer> a, int b) {
+        
+        HashMap<Integer, Integer> my_map = new HashMap<Integer, Integer>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        result.add(0);
+        result.add(1);
+        for(int i = 0; i < a.size(); i++){
+            if(my_map.containsKey(a.get(i))){
+                int index = my_map.get(a.get(i));
+                result.set(0, index );
+                result.set(1, i );
+                break;
+            }
+            else{
+                my_map.put(b - a.get(i), i);
+            }
+        }
+        
+        return result;
+    }
+  
+    public static void main(String[] args){
+        ArrayList<Integer> my_array = new ArrayList<Integer>();
+        my_array.add(1);
+        my_array.add(2);
+        my_array.add(4);
+        my_array.add(5);
+		my_array.add(6);
+		int target = 6;
+        ArrayList<Integer> result = two_sum_array_target(my_array, target);
+        for(int i : result)
+            System.out.print("Index: "+i + " ");
+    }
+}
+
+@ to get the majority element from a given array of integers containing duplicates.
+Majority element: A majority element is an element that appears more than n/2 times where n is the size of the array.
+https://www.w3resource.com/java-exercises/array/java-array-exercise-38.php
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Iterator;
+import java.util.Arrays; 
+
+public class Main
+{
+  	public static void main (String[] args)
+	{
+		// Array - test majority element
+		int nums[] = { 1, 6, 6, 5, 7, 4, 1, 7, 7, 7, 7, 7, 7, 7, 2 };
+                                 System.out.println("Original Array : "+Arrays.toString(nums));  
+		int result = MajorityElement(nums);
+		if (result != -1)
+			System.out.println("Majority element is " + result);
+		else
+			System.out.println("Majority element does not exist");
+	}
+  
+  
+	public static int MajorityElement(int arra1[])
+	{
+		int n = arra1.length;
+
+		// Hash Map
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+	 
+		// Element's frequency in a map
+		for (int i = 0; i < n; i++)
+		{
+			if (map.get(arra1[i]) == null)
+				map.put(arra1[i], 0);
+			
+			map.put(arra1[i], map.get(arra1[i]) + 1);
+		}
+
+		// Return the element if its count is more than n/2
+		Iterator it = map.entrySet().iterator();
+		while (it.hasNext()) 
+		{
+			Map.Entry pair = (Map.Entry)it.next();
+			if ((int)pair.getValue() > n/2)
+				return (int)pair.getKey();
+
+			it.remove(); 
+		}
+
+		// no majority element
+		return -1;
+	}
+}
 
 
+<List>
+?@ to find all the unique triplets such that sum of all the three elements [x, y, z (x ≤ y ≤ z)] equal to a specified number.
+Sample array: [1, -2, 0, 5, -1, -4]
+Target value: 2.
+https://www.w3resource.com/java-exercises/array/java-array-exercise-37.php
 
+import java.util.ArrayList;
+import java.util.List;
+public class Exercise36 {
+    public static void main(String[] args) {
+        int[] input = {1, -2, 0, 5, -1, -4};
+		int target = 2;
+		Exercise36 r = new Exercise36();
+        System.out.println(r.threeSum(input,target));       
+    }
+    public List<List<Integer>> threeSum(int[] nums, int target) {
+        List<List<Integer>> my_List = new ArrayList<List<Integer>>();
+        
+        for(int i = 0; i < nums.length; i++){
+            for(int j = i; j < nums.length ;j++){
+                for(int k = j; k<nums.length;k++){
+                    if ( i != j && j != k && i != k && (nums[i] + nums[j] + nums[k] == target)){
+                        List<Integer> inner_List = new ArrayList<Integer>(3);
+                        inner_List.add(nums[i]);
+                        inner_List.add(nums[j]);
+                        inner_List.add(nums[k]);
+                        my_List.add(inner_List);
+                    }
+                }
+            }
+        }
+       return my_List;
+    }
+  }
 
 
 

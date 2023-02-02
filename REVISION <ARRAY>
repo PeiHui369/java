@@ -57,6 +57,52 @@ for (int i =  0; i < inputArray.length; i++)
   {
   if(inputArray[i]+inputArray[j] == inputNumber)
   { //then print arr[i], arr[j]
+
+@ find missing num in arr (using smallest & largest)
+int expected_num_sum = total_num * ((total_num + 1) / 2);       //total num is num of ele
+int num_sum = 0;
+   for (int i: numbers) {
+    num_sum += i;
+   }
+       System.out.print( expected_num_sum - num_sum);
+
+@ move all zero to right
+        for(int j = 0, l = array_nums.length; j < l;) {
+            if(array_nums[j] == 0)                      //if is 0, continue increase index
+                j++;
+            else {
+                int temp = array_nums[i];               //if not 0, swap the value with front is 0
+                array_nums[i] = array_nums[j];
+                array_nums[j] = temp;
+                i ++;
+                j ++;
+            }
+        }
+
+@ check contains 2 specified num
+public static boolean result(int[] array_nums, int num1, int num2) {
+    for (int number : array_nums) {
+      boolean r = number != num1 && number != num2;                     //#
+      if (r) {                                                          //#
+        return false;
+        }
+     }
+        return true;
+   }
+
+@ remove duplicate ele & return new length
+public static int array_sort(int[] nums) {
+         int index = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[index-1])               //# only if not same with b4 we add, index-1 can be used if arr sorted
+                nums[index++] = nums[i];                
+        }
+	  return index;                                 //count til unique ele
+    }
+
+
+
+
 <Random>
 @ Sort
 Arrays.sort(arrName)
@@ -121,7 +167,6 @@ for ( c = 0 ; c < m ; c++ )
          for ( d = 0 ; d < n ; d++ )
              sum[c][d] = array1[c][d] + array2[c][d]; 
 
-
 <OutTopic>
 
 @ Convert to ArrayList
@@ -142,6 +187,41 @@ boolean  equalOrNot = true;
   {
   equalOrNot = false;
 
+@ compute avg value except largest & smallest
+float x = ((sum-max-min) / (array_nums.length - 2));
+
+@ check without 0 & -1
+for (int number : numbers) {
+      if (number == 0 || number == -1) {
+        return false;
+      }
+
+@ check if sum of all search_num's in arr is exactly fixed_num
+public static boolean result(int[] numbers, int search_num, int fixed_sum) {
+   int temp_sum = 0;
+   for (int number : numbers) {
+      if (number == search_num) {
+        temp_sum += search_num;
+      }
+
+      if (temp_sum > fixed_sum) {
+        break;
+      }
+    }
+    return temp_sum == fixed_sum;
+  }  
+}
+
+@ Find length of longest consecutive elements sequence
+Arrays.sort(arr);
+        int count = 1;
+        for(int i = 0; i< arr.length-1; i++){
+            if (arr[i] == arr[i+1]-1){
+                count ++;
+            }
+        }
+
+
 <Exception>
 if (arr == null) return -1;
 
@@ -160,3 +240,55 @@ int [][]a = new int[4][4];
       }
       System.out.println(); //new line after every 4 column
    }
+
+<ArrayList>
+@ Find common elements from 3 sorted (in non-decreasing order) arrays
+ArrayList<Integer> common = new ArrayList<Integer>();
+while (x < array1.length && y < array2.length && z < array3.length){
+            if (array1[x] == array2[y] && array2[y] == array3[z]){
+                common.add(array1[x]);
+                x++;
+                y++;
+                z++;
+            }
+            //to still increase the index (while if cond not meet) to avoid infinity loop
+            else if (array1[x] < array2[y])
+                x++;
+            else if (array2[y] < array3[z])
+                y++;
+            else
+                z++;
+        }
+
+<HashSet>
+@ Find length of longest consecutive elements sequence from a given unsorted array of int
+ public static int longest_sequence(int[] nums) {
+      final HashSet<Integer> h_set = new HashSet<Integer>();
+        for (int i : nums) h_set.add(i);
+
+        int longest_sequence_len = 0;
+        for (int i : nums) {
+            int length = 1;
+            for (int j = i - 1; h_set.contains(j); --j) {
+                h_set.remove(j);
+                ++length;
+            }
+            for (int j = i + 1; h_set.contains(j); ++j) {
+                h_set.remove(j);
+                ++length;
+            }
+            longest_sequence_len = Math.max(longest_sequence_len, length);
+        }
+        return longest_sequence_len;
+    }
+    
+
+
+
+
+
+
+
+
+
+

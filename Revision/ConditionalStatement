@@ -211,3 +211,152 @@ for(i=0;i<no_row;i++)
     }
     
 @ *'s triangle
+n = 6
+******                                                   
+ *****                                                   
+  ****                                                   
+   ***                                                   
+    **                                                   
+     * 
+
+for (int i = n; i > 0; i--) 
+        {
+            for (int spc = n - i; spc > 0; spc--) 
+            {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < i; j++) 
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+	
+@ generate @'s triangle
+n = 6
+      @                                                  
+     @@                                                  
+    @@@                                                  
+   @@@@                                                  
+  @@@@@                                                  
+ @@@@@@
+ 
+ for (int i = 0; i < n; i++) 
+        {
+            for (int spc = n - i; spc > 0; spc--) 
+            {
+                System.out.print(" ");
+            }
+            for (int j = 0; j <= i; j++) 
+            {
+                System.out.print("@");
+            }
+            System.out.println();
+        }
+	
+@ number rhombus
+n = 7
+      1                                                  
+     212                                                 
+    32123                                                
+   4321234                                               
+  543212345                                              
+ 65432123456                                             
+7654321234567                                            
+ 65432123456                                             
+  543212345                                              
+   4321234                                               
+    32123                                                
+     212                                                 
+      1   
+  
+int count = 1;
+        int no_of_spaces = 1;
+        int start = 0;
+
+        for (int i = 1; i < (n * 2); i++) 
+        {
+
+            for (int spc = n - no_of_spaces; spc > 0; spc--) 
+            {
+                System.out.print(" ");
+            }
+            if (i < n) 
+            {
+                start = i;          //for number
+                no_of_spaces++;    //for spaces
+            } else 
+            {
+                start = n * 2 - i;   //for number
+                no_of_spaces--;      //for space
+            }
+            for (int j = 0; j < count; j++) 
+            {
+                System.out.print(start);
+                if (j < count / 2) 
+                {
+                    start--;
+                } else 
+                {
+                    start++;
+                }
+            }
+            if (i < n)
+            {
+                count = count + 2;
+            } else {
+                count = count - 2;
+            }
+
+            System.out.println();
+        }
+	
+	
+@ character rhombus
+n = 7
+      A                                                  
+     ABA                                                 
+    ABCBA                                                
+   ABCDCBA                                               
+  ABCDEDCBA                                              
+ ABCDEFEDCBA                                             
+ABCDEFGFEDCBA                                            
+ ABCDEFEDCBA                                             
+  ABCDEDCBA                                              
+   ABCDCBA                                               
+    ABCBA                                                
+     ABA                                                 
+      A    
+      
+@ all 3 nums equal, different, neither all equal/diff
+if (x == y && x == z)
+        {
+            System.out.println("All numbers are equal");
+        }
+        else if ((x == y) || (x == z) || (z == y))
+        {
+            System.out.println("Neither all are equal or different");
+        }
+        else
+        {
+            System.out.println("All numbers are different");
+        }
+
+@ 3 nums order
+if (x < y && y < z)
+        {
+            System.out.println("Increasing order");
+        }
+        else if (x > y && y > z)
+        {
+            System.out.println("Decreasing order");
+        }
+        else
+        {
+            System.out.println("Neither increasing or decreasing order");
+        }
+
+@ check same up to 2 d.p.
+if (Math.abs(num1 - num2) <= 0.01) { 
+     System.out.println("These numbers are the same."); 
+ } 

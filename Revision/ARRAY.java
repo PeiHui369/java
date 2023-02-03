@@ -279,6 +279,22 @@ for(int i = 0; i<arr.length; i++){
        arra[0] = a;
     }
 
+@ -ve int b4 +ve int
+[?QTA A 48] https://www.w3resource.com/java-exercises/array/java-array-exercise-48.php
+public static void sort_nums(int[] nums) {
+        int index = 0;
+        int temp = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < 0) {
+                temp = nums[index];
+                nums[index] = nums[i];
+                nums[i] = temp;
+                index++;
+            }
+
+@ +ve int b4 -ve int
+
+		
 <QTA>
 [44] https://www.w3resource.com/java-exercises/array/java-array-exercise-44.php
 @ to count the number of possible triangles from a given unsorted array of positive integers.

@@ -500,11 +500,165 @@ public static int diff_between_two_elemnts(int[] nums)
 
 		return diff_two_elemnts;
 	}
-		
 
-	
-		
+//print from ori: left min, right max
+@ 1st ele : max; 2nd ele: min; 3rd: 2nd max; 4th: 2nd min
+     static int[] rearrange(int[] new_arra, int n)
+    {
+        int temp[] = new int[n];
+     
+         int small_num = 0, large_num = n-1;
+         boolean flag = true;
+     
+        for (int i=0; i < n; i++)
+        {
+            if (flag)
+                temp[i] = new_arra[large_num--];
+            else
+                temp[i] = new_arra[small_num++];
+     
+            flag = !flag;
+        }
+     
+        return temp;
+    }
+
+//count no. of 0, print front all count index as 0, leftover print 1
+@ separate 0s on left & 1s on right
+ static int [] separate_0_1(int arr[], int n)
+     {
+        int count = 0;   
+     
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0)
+                count++;
+        }
+ 
+        for (int i = 0; i < count; i++)
+            arr[i] = 0;
+ 
+        for (int i = count; i < n; i++)
+            arr[i] = 1;
+    
+         return arr;
+     }       
+
+//while left even & right odd, else swap value with current index values
+@ separate odd & even
+ static int [] separate_odd_even(int arr[])
+    {
+        int left_side = 0, right_side = arr.length - 1;
+        while (left_side < right_side)
+        {
+            while (arr[left_side]%2 == 0 && left_side < right_side)
+                left_side++;
+ 
+            while (arr[right_side]%2 == 1 && left_side < right_side)
+                right_side--;
+ 
+            if (left_side < right_side)
+            {
+                int temp = arr[left_side];
+                arr[left_side] = arr[right_side];
+                arr[right_side] = temp;
+                left_side++;
+                right_side--;
+            }
+        }
+        return arr;
+    }
+
+@ shuffle
+public static void shuffle(int nums[])
+	{
+		for (int i = nums.length - 1; i >= 1; i--)
+		{
+			Random rand = new Random();
+
+			int j = rand.nextInt(i + 1);
+
+			swap_elements(nums, i, j);
+		}
+	}
+        private static void swap_elements(int[] nums, int i, int j) {
+		int temp = nums[i];
+		nums[i] = nums[j];
+		nums[j] = temp;
+	}
+
+@ max product
+public static void find_max_product(int[] nums)
+	{
+		int max_pair_product = Integer.MIN_VALUE;
+		int max_i = -1, max_j = -1;
+
+		for (int i = 0; i < nums.length - 1; i++)
+		{
+			for (int j = i + 1; j < nums.length; j++)
+			{
+				if (max_pair_product < nums[i] * nums[j])
+				{
+					max_pair_product = nums[i] * nums[j];
+					max_i = i;
+					max_j = j;
+				}
+			}
+		}
+
+		System.out.print("Pair is (" + nums[max_i] + ", " + nums[max_j] + "), Maximum Product: " + (nums[max_i]*nums[max_j]));
+	}
+
+@ A & B of size p & q, merge A & B by maintaining sorted order
+
+
 <QTA>
+[61 https://www.w3resource.com/java-exercises/array/java-array-exercise-61.php]
+@ Rearrange unique elements array -> every 2nd ele greater than its left & right
+private static void swap_nums(int[] nums, int i, int j) {
+		int t_nums = nums[i];
+		nums[i] = nums[j];
+		nums[j] = t_nums;
+	}
+
+	public static void rearrange_Array_nums(int[] nums)
+	{
+		for (int i = 1; i < nums.length; i += 2)
+		{
+			if (nums[i - 1] > nums[i]) {
+				swap_nums(nums, i - 1, i);
+			}
+
+			if (i + 1 < nums.length && nums[i + 1] > nums[i]) {
+				swap_nums(nums, i + 1, i);
+			}
+		}
+	}
+	
+[62  https://www.w3resource.com/java-exercises/array/java-array-exercise-62.php]
+@ to find the equilibrium indices from a given array of integers : leftSum == rightSum
+public static void equlibrium_indices(int[] nums){
+		//find total sum
+		int totalSum = 0;
+		for (int n : nums) {
+			totalSum += n;
+		}
+		//compare running sum to remaining sum to find equlibrium indices
+		int runningSum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			int n = nums[i];
+			if (totalSum - runningSum - n == runningSum) {
+				System.out.println("Equilibrium indices found at : "+i);
+			}
+			runningSum += n;
+		}
+	}
+	
+[63 https://www.w3resource.com/java-exercises/array/java-array-exercise-63.php]
+@  to replace each element of the array with product of every other element in a given array of integers.
+
+[67 https://www.w3resource.com/java-exercises/array/java-array-exercise-67.php]
+@ to find subarray which has the largest sum in a given circular array of integers.
+
 [44] https://www.w3resource.com/java-exercises/array/java-array-exercise-44.php
 @ to count the number of possible triangles from a given unsorted array of positive integers.
 Note: The triangle inequality states that the sum of the lengths of any two sides of a triangle must be greater than or equal to the length of the third side.

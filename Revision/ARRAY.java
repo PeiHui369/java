@@ -164,7 +164,126 @@ while (left < right)
             }
         }
 
+@ return missing letter
+public static String test (String[] str_arra){
+	int c = str_arra[0].charAt(0)+1;
+	for (int i = 1; i<str_arra.length; i++, c++_
+	     if(str_arra[i].charAt(0) != c)
+	     	return String.valueOf((char)c);
+	 return "";
+}
 
+@ all triplets equal to given sum
+//main: Arrays.sort(arr);
+	public static void find_and_print_all_Triplets(int[] nums, int sum, int alen)
+		{
+		System.out.println("\nTriplets of sum "+sum);
+		for (int i = 0; i <= alen - 3; i++)
+			{
+				int k = sum - nums[i];
+				int l_index = i + 1, h_index = nums.length - 1;
+	
+				while (l_index < h_index)
+				{
+					if (nums[l_index] + nums[h_index] < k) {
+						l_index++;
+					}
+	
+				else if (nums[l_index] + nums[h_index] > k) {
+						h_index--;
+					}
+	
+					else {
+						System.out.println("(" + nums[i] + " " + nums[l_index] + " " + nums[h_index] + ")");
+						l_index++;
+						h_index--;
+					}
+				}
+			}
+		}
+
+	     //--> find end if smaller than alr     <-- find start if bigger than alr
+@ find and print one continuous subarray (from a given array of integers) that if you only sort the said subarray in ascending order then the entire array will be sorted in ascending order.
+public static int[] findUnsortedSubarray(int[] nums) {
+			int[] result = new int[3];
+            int n = nums.length;
+            int start = -1;
+            int end = -2;
+            int min = nums[n - 1];		//last ele
+            int max = nums[0];			//first ele
+            for (int i = 1; i < n; i++) {
+                max = Math.max(max, nums[i]);		//compare max ascendingly
+                min = Math.min(min, nums[n - 1 - i]);	//compare min descendingly
+                if (nums[i] < max) {			//this<max, end at this
+                    end = i;
+                }
+                if (nums[n - 1 - i] > min) {		//
+                    start = n - 1 - i;
+                }
+            }
+           		result[0] = start;
+		    result[1] = end;
+
+			return result;
+        }
+//MAIN: 
+	for(int i=result2[0]; i<=result2[1]; i++){
+        System.out.print(nums2[i] +" ");
+        }     
+	     
+@ Write a Java program to form the largest number from a given list of non negative integers.
+private static String largest_Numbers(int[] nums) {
+        Arrays.sort(nums);
+        int[] reversed = new int[nums.length];
+        for(int i = 0; i < nums.length; i++){
+            reversed[i] = nums[nums.length-1-i];
+        }
+        String s = "";
+        for(int i = 0; i < reversed.length; i++){
+            s += Integer.toString(reversed[i]);
+        }
+        return s;
+    }
+OR
+String[] array_nums = Arrays.stream(num).mapToObj(String::valueOf).toArray(String[]::new);
+        Arrays.sort(array_nums, (String str1, String str2) -> (str2 + str1).compareTo(str1 + str2));
+        return Arrays.stream(array_nums).reduce((a, b) -> a.equals("0") ? b : a + b).get();
+    
+@
+public static int min_SubArray_length(int s, int[] nums) {
+    int sum = 0, ctr = 0, min_len = Integer.MAX_VALUE;
+    for (int i = 0, j = 0; j < nums.length; ) {
+       //if this = sum
+      if (nums[j] >= s) {
+        return 1;
+      } else {
+	//cumulative sum from index 0
+        sum += nums[j];
+	//increase count for length
+        ctr++;
+	//if sum exceeds
+        if (sum >= s) {
+	  //remove the num[i] that causes exceed until sum < toFind
+          min_len = Math.min(min_len, ctr);
+          while (j > i) {
+            sum -= nums[i];
+            ctr--;
+            i++;	//move to next ele when whle loop break
+            if (sum < s) break;
+            min_len = Math.min(min_len, ctr);
+          }
+        }
+      }
+      j++;
+    }
+    if (min_len == Integer.MAX_VALUE) {
+      return 0;
+    }
+    return min_len;
+  }
+	     
+
+	     
 <Random>
 @ Sort
 Arrays.sort(arrName)
@@ -292,8 +411,98 @@ public static void sort_nums(int[] nums) {
                 index++;
             }
 
-@ +ve int b4 -ve int
+			@ +ve int b4 -ve int
 
+@ test negative dominance
+public static boolean test(int[] nums) {
+        int countNeg=0, countPo=0;
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i] < 0){countNeg++;}
+            else if (nums[i] > 0){countPo++;}
+        }
+        if (countNeg>countPo){return true;}
+        return false;
+    }
+[?QTA A78 Arrays.stream] https://www.w3resource.com/java-exercises/array/java-array-exercise-78.php
+
+@ check alternates between +ve & -ve
+	public static boolean test(int[] nums) {
+        int i = 0;
+        if(nums[0] > 0) {
+            for (; i < nums.length; i += 2) {
+                if (nums[i] < 0 || nums[i+1]>0) {
+                    return false;
+                }
+            }
+        }
+        else{
+                i = 1;
+                for (; i < nums.length; i += 2) {
+                    if (nums[i] < 0 || nums[i-1]>0){
+                        return false;
+                    }
+                }
+            }
+        return true;
+    }
+OR
+public static boolean test(int[] nums) {
+    for (int n: nums) {
+      if (n == 0)
+        return false;
+    }
+    for (int i = 1; i < nums.length; i++) {
+      if (nums[i - 1] > 0 && nums[i] > 0) {
+        return false;
+      } else if (nums[i - 1] < 0 && nums[i] < 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+@ Largest gap between sorted ele
+public static int test(int[] nums) {
+    Arrays.sort(nums);
+    int max_val = 0;
+
+    for (int i = 0; i < nums.length - 1; i++) {
+      max_val = Math.max(nums[i + 1] - nums[i], max_val);
+    }
+    return max_val;
+  }
+
+@ to find contiguous subarray within a given array of integers which has the largest sum
+public static int largest_sum(int[] A)
+	{
+		int max_ele_val = 0;
+		int max_end = 0;
+		for (int i: A)
+		{
+			max_end = max_end + i;
+			max_end = Integer.max(max_end, 0);
+
+			max_ele_val = Integer.max(max_ele_val, max_end);
+		}
+		return max_ele_val;
+	}
+		
+@ to find maximum difference between two elements in a given array of integers such that smaller element appears before larger element.
+public static int diff_between_two_elemnts(int[] nums)
+	{
+		int diff_two_elemnts = Integer.MIN_VALUE;
+
+		for (int i = 0; i < nums.length - 1; i++) {
+			for (int j = i + 1; j < nums.length; j++) {
+				diff_two_elemnts = Integer.max(diff_two_elemnts,nums[j] - nums[i]);
+			}
+		}
+
+		return diff_two_elemnts;
+	}
+		
+
+	
 		
 <QTA>
 [44] https://www.w3resource.com/java-exercises/array/java-array-exercise-44.php
@@ -362,9 +571,175 @@ public class Main
     }
 }
 
+[68 https://www.w3resource.com/java-exercises/array/java-array-exercise-68.php]  
+@ to create all possible permutations of a given array of distinct integers ]
+import java.util.*;
+import java.util.List;
 
+ public class solution {
+ public static void main(String[] args) throws Exception {
+    int[] nums1 = {1, 2, 3, 4};
+	System.out.println("\nOriginal array: "+Arrays.toString(nums1));
+    List<List<Integer>> result1 = new solution().permute(nums1);
+	System.out.println("\nPossible permutations of the said array:");
+	result1.forEach(System.out::println);
+    int[] nums2 = {1, 2, 3};
+	System.out.println("\nOriginal array: "+Arrays.toString(nums2));
+    List<List<Integer>> result2 = new solution().permute(nums2);
+	System.out.println("\nPossible permutations of the said array:");
+	result2.forEach(System.out::println);	
+	  }
 
+  public List<List<Integer>> permute(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    Permutation(0, nums, result);
+    return result;
+  }
 
+  private void Permutation(int i, int[] nums, List<List<Integer>> result) {
+    if (i == nums.length - 1) {
+      List<Integer> list = new ArrayList<>();
+      for (int n : nums) list.add(n);
+      result.add(list);
+    } else {
+      for (int j = i, l = nums.length; j < l; j++) {
+        int temp = nums[j];
+        nums[j] = nums[i];
+        nums[i] = temp;
+        Permutation(i + 1, nums, result);
+        temp = nums[j];
+        nums[j] = nums[i];
+        nums[i] = temp;
+      }
+    }
+  }
+}
+
+[64 https://www.w3resource.com/java-exercises/array/java-array-exercise-64.php]
+@  to find Longest Bitonic Subarray in a given array
+ A bitonic subarray is a subarray of a given array where elements are first sorted in increasing order, then in decreasing order. A strictly increasing or strictly decreasing subarray is also accepted as bitonic subarray.
+
+Example:
+Input :
+nums = { 4, 5, 9, 5, 6, 10, 11, 9, 6, 4, 5 }
+Output:
+The longest bitonic subarray is [3,9]
+Elements of the said sub-array: 5 6 10 11 9 6 4
+The length of longest bitonic subarray is 7
+
+ import java.util.Arrays;
+class solution
+{
+	public static int find_Bitonic_Subarray(int[] nums)
+	{
+		int[] incre_array = new int[nums.length];
+		incre_array[0] = 1;
+		for (int i = 1; i < nums.length; i++) {
+			incre_array[i] = 1;
+			if (nums[i - 1] < nums[i]) {
+				incre_array[i] = incre_array[i - 1] + 1;
+			}
+		}
+
+		int[] decre_array = new int[nums.length];
+		decre_array[nums.length - 1] = 1;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			decre_array[i] = 1;
+			if (nums[i] > nums[i + 1]) {
+				decre_array[i] = decre_array[i + 1] + 1;
+			}
+		}
+
+		int lbs_len = 1;
+		int start = 0, end = 0;
+
+		for (int i = 0; i < nums.length; i++)
+		{
+			if (lbs_len < incre_array[i] + decre_array[i] - 1)
+			{
+				lbs_len = incre_array[i] + decre_array[i] - 1;
+				start = i - incre_array[i] + 1;
+				end = i + decre_array[i] - 1;
+			}
+		}
+
+		// print longest bitonic sub-array
+		System.out.println("The longest bitonic subarray is [" + start + "," + end + "]");
+		System.out.print("Elements of the said sub-array: ");
+	    for (int x = start; x <= end; x++)
+	     {
+			
+		  System.out.print(nums[x]+" ");			
+		 }	
+
+		System.out.println("\nThe length of longest bitonic subarray is " + lbs_len);
+
+		return lbs_len;
+	}
+
+	public static void main(String[] args)
+	{
+		int[] nums = { 4, 5, 9, 5, 6, 10, 11, 9, 6, 4, 5 };
+		System.out.println("\nOriginal array: "+Arrays.toString(nums));
+		find_Bitonic_Subarray(nums);
+	}
+}
+
+ [63 https://www.w3resource.com/java-exercises/array/java-array-exercise-63.php]
+  
+Example:
+Input :
+nums1 = { 1, 2, 3, 4, 5, 6, 7}
+nums2 = {0, 1, 2, 3, 4, 5, 6, 7}
+Output:
+Array with product of every other element:
+[5040, 2520, 1680, 1260, 1008, 840, 720]
+Array with product of every other element:
+[5040, 0, 0, 0, 0, 0, 0, 0]
+
+import java.util.Arrays;
+
+class solution
+{
+	public static int[] find_Product_in_array(int[] nums)
+	{
+		int n = nums.length;
+
+		int[] left_element = new int[n];
+		int[] right_element = new int[n];
+
+		left_element[0] = 1;
+		for (int i = 1; i < n; i++) {
+			left_element[i] = nums[i - 1] * left_element[i - 1];
+		}
+
+		right_element[n - 1] = 1;
+		for (int j = n - 2; j >= 0; j--) {
+			right_element[j] = nums[j + 1] * right_element[j + 1];
+		}
+
+		for (int i = 0; i < n; i++) {
+			nums[i] = left_element[i] * right_element[i];
+		}
+	return nums;	
+	}
+
+	public static void main(String[] args)
+	{
+		int[] nums1 = { 1, 2, 3, 4, 5, 6, 7};
+		System.out.println("Original array:\n"+Arrays.toString(nums1));
+		int[] result1 = find_Product_in_array(nums1);
+		System.out.println("Array with product of every other element:\n" + Arrays.toString(result1));
+
+		int[] nums2 = {0, 1, 2, 3, 4, 5, 6, 7};
+		System.out.println("\nOriginal array:\n"+Arrays.toString(nums2));
+		int[] result2 = find_Product_in_array(nums2);
+		System.out.println("Array with product of every other element:\n" + Arrays.toString(result2));
+
+	}
+}
+
+  
 <OutTopic>
 
 @ Convert to ArrayList
@@ -419,7 +794,9 @@ Arrays.sort(arr);
             }
         }
 
-
+@ Function just like Arrays.sort(arr) [Write a Java program to sort a given array of distinct integers where all its numbers are sorted except two numbers.]
+https://www.w3resource.com/java-exercises/array/java-array-exercise-73.php
+	  
 <Exception>
 if (arr == null) return -1;
 

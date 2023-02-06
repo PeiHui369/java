@@ -1,0 +1,89 @@
+@ Create
+ArrayList <Type> alName = new ArrayList<Type>();
+
+@ Add
+alName.add("")
+
+@ Iterate
+for (String element : alName) {
+    System.out.println(element);
+    }
+
+for(int i=0;i<num;i++)
+  System.out.println(color.get(i));
+  }
+    
+@ Insert first position
+alName.add(0,"")                    //at index 0
+alName.insert(0, "")
+
+@ Retrieve
+alName.get(0)                       //return ele at index 0
+
+@ update specific array element
+alName.set(0, "")                   //replace with "" at index 0
+  
+@ remove
+alName.remove(0)                    //remove ele at index 0
+
+@ search
+ if (alName.contains("")) {
+
+@ sort
+Collections.sort(alName)
+
+@ List1 copy List2
+Collections.copy(List1, List2);
+
+@ Shuffle elements
+Collections.shuffle(alName);
+
+@ Reverse elements
+Collections.reverse(alName);
+
+@  extract a portion
+ArrayList<Type> sub_alName = alName.sublist(startIndexInclusive, endIndexExclusive)
+
+@ compare two array lists (check if c2 have c1 ele)
+//Storing the comparison output in ArrayList<String>
+          ArrayList<String> c3 = new ArrayList<String>();
+          for (String e : c1)
+             c3.add(c2.contains(e) ? "Yes" : "No");
+          System.out.println(c3);
+          
+@ swap two elements
+//Swapping 1st(index 0) element with the 3rd(index 2) element
+         Collections.swap(c1, 0, 2);
+
+@ join 2
+// Let join above two list
+        ArrayList<String> a = new ArrayList<String>();
+        a.addAll(c1);
+        a.addAll(c2);
+        
+@ clone an array list to another array list.
+ArrayList<String> newc1 = (ArrayList<String>)c1.clone();
+
+@ empty
+c1.removeAll(c1);
+
+@ test is empty
+c1.isEmpty()
+
+@ trim the capacity of an array list the current list size //minimize storage
+c1.trimToSize(); 
+
+@ Increase size
+//Increase capacity to 6
+          c1.ensureCapacity(6);
+          
+@ replace the second element of a ArrayList with the specified element.
+color.set(1,new_color);
+
+@ Limit
+alName.size()
+
+@ print all the elements of a ArrayList using the position of the elements.
+int no_of_elements = c1.size();
+  for (int index = 0; index < no_of_elements; index++)
+   System.out.println(c1.get(index));

@@ -1,0 +1,130 @@
+@ create an empty linked list
+LinkedList<Type> llistName = new LinkedList<Type>();
+ 
+@ append the specified element to the end 
+llistName.add()
+
+
+@  iterate through all elements in a linked list.
+for (String element : l_list) {
+    System.out.println(element);
+    }
+
+@  iterate through all elements starting at the specified position
+// set Iterator at specified index
+   Iterator p = l_list.listIterator(1);
+
+// print list from second position
+   while (p.hasNext()) {
+   System.out.println(p.next());
+   }
+   
+@ iterate in reverse order
+Iterator it = l_list.descendingIterator();
+while (it.hasNext()) {
+        System.out.println(it.next());
+     }
+     
+     
+@ insert the specified element at the specified position
+l_list.add(1, "Yellow"); //ori index 1 and following move rightwards
+
+@ insert elements into the linked list at the first and last position.
+// Add an element at the beginning 
+    l_list.addFirst("White");
+ 
+   // Add an element at the end of list 
+    l_list.addLast("Pink");
+    
+@  insert the specified element at the front of a linked list.
+// Add an element to front of LinkedList
+     l_list.offerFirst("Pink");
+
+@ insert the specified element at the end of a linked list.
+// Add an element at the end of a linked list
+     l_list.offerLast("Pink");
+     
+@  insert some elements at the specified position into a linked list
+// Add the collection in the second position of the existing linked list
+  l_list.addAll(1, new_l_list);
+
+@ get the first and last occurrence of the specified elements
+// Find first element of the List
+    Object first_element = l_list.getFirst();
+    
+ // Find last element of the List
+    Object last_element = l_list.getLast();
+
+@ to display the elements and their positions
+for(int p=0; p < l_list.size(); p++)
+   {
+      System.out.println("Element at index "+p+": "+l_list.get(p));
+    } 
+ }
+ 
+@ remove a specified element from a linked list
+// Remove the element in third position from the said linked list
+  l_list.remove(2);
+  
+@  remove first and last element
+// Remove the first element, value stored in firstElement
+    Object firstElement = l_list.removeFirst();
+ // Remove the last element
+    Object lastElement = l_list.removeLast();
+    
+ @ remove all elements
+ // Removing all the elements from the linked list
+    l_list.clear();
+   
+@ swap two elements
+//Swapping 1st(index 0) element(Red) with the 3rd(index 2) element (Black)
+    Collections.swap(l_list, 0, 2);
+    
+@ shuffle elements
+Collections.shuffle(l_list);
+
+@ join 2 linked lists
+// Let join above two list
+        LinkedList <String> a = new LinkedList <String> ();
+        a.addAll(c1);
+        a.addAll(c2);
+        
+@  clone an linked list to another linked list
+ LinkedList <String> newc1 = new LinkedList <String> ();
+                newc1 = (LinkedList)c1.clone();
+                
+@  to remove and return the first element
+c1.pop() //print
+
+@ to retrieve but does not remove, the first element
+// Retrieve but does not remove, the first element of a linked list
+    String x = c1.peekFirst(); //print x
+    
+@ to retrieve but does not remove, the last element
+// Retrieve but does not remove, the last element of a linked list
+        String x = c1.peekLast(); //print x
+        
+@ check if a particular element exists
+if (c1.contains("Green")) {}
+
+@  to convert a linked list to array list
+LinkedList <String> linked_list = new LinkedList <String> (); //create empty, then add values
+//Convert a linked list to array list    
+     List<String> list = new ArrayList<String>(linked_list);
+
+@ compare 2 linked lists
+ LinkedList<String> c3 = new LinkedList<String>();
+          for (String e : c1)
+             c3.add(c2.contains(e) ? "Yes" : "No");
+          System.out.println(c3);         
+ 
+@ empty
+c1.removeAll(c1);
+
+@ test is empty
+c1.isEmpty()
+
+@ replace element
+ // Replacing 2nd element with new value
+          c1.set(1, "Orange");
+          

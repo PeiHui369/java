@@ -1,0 +1,58 @@
+@ Create
+HashMap<Integer,String> hash_map= new HashMap<Integer,String>();  
+
+@ to associate the specified value with the specified key
+hash_map.put(1, "Red");
+
+@ count the number of key-value (size) mappings
+hash_map.size()
+
+@ copy all of the mappings from the specified map to another map.
+// put all values in secondmap
+  hash_map2.putAll(hash_map1);
+  
+@ remove all the mappings
+// Removing all the elements from the linked map
+  hash_map.clear();
+  
+@ test is empty (to check whether a map contains key-value mappings (empty) or not
+boolean result = hash_map.isEmpty();
+
+@ to get a shallow copy of a HashMap instance.
+HashMap<Integer,String> new_hash_map= new HashMap<Integer,String>(); 
+   new_hash_map = (HashMap)hash_map.clone();  
+   
+@ test if a map contains a mapping for the specified key
+if (hash_map.containsKey("Green")) {
+   //key exists
+   
+@  test if a map contains a mapping for the specified value
+if (hash_map.containsValue("Green")) {
+   //value exists
+   
+@ create a set view of the mappings contained in a map
+// create set view for the map
+  Set set = hash_map.entrySet();
+  // check set values
+  System.out.println("Set values: " + set);
+>> [1=Red, 2=Green, 3=Black, 4=White, 5=Blue]
+
+@ to get a collection view of the values contained in this map.
+// checking collection view of the map
+   System.out.println("Collection view is: "+ hash_map.values());
+>> [Red, Green, Black, White, Blue]
+
+@ to display
+1 Red                                                                  
+2 Green                                                                
+3 Black                                                                
+4 White                                                                
+5 Blue
+
+IndexNo.(Key)    Ele(Value)
+for(Map.Entry x:hash_map.entrySet()){  
+   System.out.println(x.getKey()+" "+x.getValue());  
+  }  
+  
+@ to print //print(hash_map)
+{1=Red, 2=Green, 3=Black, 4=White, 5=Blue}

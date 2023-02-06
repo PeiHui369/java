@@ -1,0 +1,67 @@
+@no. of jobs done (created & ended) within a time range
+import java.util.*;
+import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
+public class fop {
+    public static void main(String[] args) throws Exception {
+        Scanner loginput = new Scanner(new File("C:\\UM\\Fundamental of programming\\extracted_log"));
+        int createdNum = 0, endedNum = 0;
+        boolean found = false;
+
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Please enter a time range (Example:2022-06-01 to 2022-12-16):");
+        String range = userInput.nextLine();     //get user input
+        System.out.println("Days in total(inclusive start & end): ");
+        int daysnum = userInput.nextInt();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");  //format for the string to convert to local date
+        LocalDate startDate = LocalDate.parse(range.split("to")[0].trim(), formatter);  //split the start date
+        System.out.println(startDate);
+        LocalDate endDate = LocalDate.parse(range.split("to")[1].trim(), formatter);     //split the enddate
+        System.out.println(endDate);
+
+        int day_Count = 0;
+        String line;
+        String[] lineArray = null;
+        int countDone = 0;
+        String[] dateList = new String[daysnum];
+        int index = 0;
+        ArrayList<String> jobID = new ArrayList<String>();
+        ArrayList<String> jobID2 = new ArrayList<String>();
+
+        for (LocalDate date = startDate; date.isBefore(endDate.plusDays(1)); date = date.plusDays(1)) {
+            String dateString = date.format(formatter);   //"2022-06-01"
+            dateList[index] = dateString;
+            index++;
+        }
+
+        while(loginput.hasNextLine()) {
+            line = loginput.nextLine();
+            lineArray = line.split(" ");
+            for (int i = 0; i < dateList.length; i++) {
+                if ((lineArray[0].substring(1, 11)).equals(dateList[i])) {
+                    if (lineArray.length > 3) {
+                        if (lineArray[3].equals("done")) {
+                            jobID.add(lineArray[2]);
+                        }
+                        if (lineArray[1].equals("_slurm_rpc_submit_batch_job:")) {
+                            jobID2.add(lineArray[2]);
+                        }
+                    }
+                }
+            }
+        }
+
+            ArrayList<String> startEnd = new ArrayList<String>();
+            for (String e : jobID){
+                startEnd.add(jobID2.contains(e) ? "Yes" :"No");
+            }
+            for(String job : startEnd){
+                if (job.equals("Yes")){countDone++;}
+        }
+        System.out.println(countDone);
+    }
+}

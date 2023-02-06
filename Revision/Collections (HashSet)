@@ -1,0 +1,4 @@
+@ Create
+HashSet <Type> h_set = new HashSet <Type> ();
+
+@ 

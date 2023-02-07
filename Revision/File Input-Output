@@ -1,0 +1,172 @@
+@ Create a file object
+File file = new File ("/home/students/");
+
+@ get a list of all file/directory names
+File file = new File ("/home/students/");
+String[] fileList = file.list();
+for(String name : fileList){System.out.println(name);}
+
+@ get specific files by extensions from a specified folder
+File file = new File("/home/students/);
+String[] list = file.list(new FilenameFilter(){
+  public boolean accept (File dir, String name){
+    if(name.toLowerCase().endsWith(".py")){
+      return true;
+    } else {
+      return false;
+    }
+  }
+ });
+ for (String f : list){
+  System.out.println(f);
+ }
+ 
+@ check if a file or directory has read and write permission
+fileObj.canWrite()
+fileObj.canRead()
+fileObj.getAbsolutePath() >> /home/students/abc.txt
+
+@ check if given pathname is a directory or a file
+fileObj.isDirectory()
+fileObj.isFile()
+
+@ compare two files lexicographically
+str1.compareTo(str2)
+
+@ get last modified time of a file
+Date date = new Date (fileObj.lastModified())
+
+@ to read input from java console
+BufferedReader R = new BufferedReader(new InputStreamReader(System.in));
+String name = R.readLine();
+
+@ get file size(file.length) in bytes, kb(/1024), mb(/ 1024*1024)
+private static String filesize_in_megaBytes(File file) {
+        return (double) file.length()/(1024*1024)+" mb";
+    }
+ 
+    private static String filesize_in_kiloBytes(File file) {
+        return (double) file.length()/1024+"  kb";
+    }
+ 
+    private static String filesize_in_Bytes(File file) {
+        return file.length()+" bytes";
+    }
+    
+@ check if exists
+fileObj.exists()
+
+@ to read a file content line by line
+BufferedReader br = new BufferedReader( new FileReader("/home/students/test.txt"));
+            while( (strLine = br.readLine()) != null){
+                System.out.println(strLine);
+            }
+            br.close();
+
+@  to read a plain text file
+StringBuilder sb = new StringBuilder();
+String strLine = "";
+try{
+  BufferedReader br = new BufferedReader(new FileReader("/home/students/test.txt"));
+  while(strLine != null){
+    sb.append(strLine);
+    sb.append(System.lineSeparator());
+    strLine = br.readLine();
+    System.out.println(strLine);
+  }
+  br.close();
+}
+
+ @ to read a file line by line and store it into a variable
+ String str_data = "";
+ while(strLine!=null){
+  if(strLine == null)
+    break;
+  str_data+=strLine;
+  strLine = br.readLine();
+ }
+ System.out.println(str_data);
+
+?@ to read contents from a file into byte array
+ InputStream fins = null;
+        try {
+            fins = new FileInputStream(file_name);
+            byte file_content[] = new byte[2*1024];
+            int read_count = 0;
+            while((read_count = fins.read(file_content)) > 0){
+                System.out.println(new String(file_content, 0, read_count-1));
+            } finally {
+            try{
+                if(fins != null) fins.close();}
+
+@ to store text file content line by line into an array
+StringBuilder sb = new StringBuilder();
+String strLine = "";
+List<String> list = new ArrayList<String>();
+try{
+  BufferedReader br = new BufferedReader(new FileReader("/home/students/test.txt"));
+  while(strLine!=null){
+    strLine = br.readLine();
+    sb.append(strLine);
+    sb.append(System.lineSeparator());
+    strLine = br.readLine();
+    if(strLine == null){break;}
+    list.add(strLine);
+}
+ System.out.println(Arrays.toString(list.toArray()));
+             br.close();
+
+@  to write a plain text file
+String filename= "/home/students/myfile.txt";
+             FileWriter fw = new FileWriter(filename,false); 
+             //appends the string to the file
+             fw.write("Python Exercises\n");
+             fw.close();
+             
+@ to append text to an existing file
+String filename= "/home/students/myfile.txt";
+             FileWriter fw = new FileWriter(filename,true); 
+             //appends the string to the file
+             fw.write("Java Exercises\n");
+             fw.close();
+
+@ read first 3 lines
+BufferedReader br = null;
+        String strLine = "";
+        try {
+            LineNumberReader reader = new LineNumberReader(new InputStreamReader(new FileInputStream("/home/students/test.txt"), "UTF-8"));
+             while (((strLine = reader.readLine()) != null) && reader.getLineNumber() <= 3){
+                System.out.println(strLine);
+            }
+           reader.close();
+           
+@ Find longest word
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+public class Exercise18 {
+     public static void main(String [ ] args) throws FileNotFoundException {
+              new Exercise18().findLongestWords();
+         }
+
+     public String findLongestWords() throws FileNotFoundException {
+
+       String longest_word = "";
+       String current;
+       Scanner sc = new Scanner(new File("/home/students/test.txt"));
+
+
+       while (sc.hasNext()) {
+          current = sc.next();
+           if (current.length() > longest_word.length()) {
+             longest_word = current;
+           }
+
+       }
+         System.out.println("\n"+longest_word+"\n");
+            return longest_word;
+            }
+}
+
+

@@ -13,3 +13,17 @@ String str = word;
     str = str + sep + word;
   }
   
+15_getSandwich
+@ get content between 2 words
+// Error: if str.length() < word.length*2 
+ for(int i = 0; i<len-4; i++){
+   tmpString = str.substring(i, i+5);
+   
+   if(tmpString.equals("bread") && found == true){
+     finish = i;
+   }
+   
+   if(tmpString.equals("bread") && found != true){
+     start = i+5;
+     found = true;
+   }
